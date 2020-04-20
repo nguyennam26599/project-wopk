@@ -32,7 +32,6 @@ coverage
 #Ignore .env file
 /.env
 
-/bin
 /vendor
 /storage
 /log
