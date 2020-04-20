@@ -1,0 +1,31 @@
+AllCops:
+  Exclude:
+    - .git/**/*
+    - bin/**/*
+    - db/schema.rb
+    - node_modules/**/*
+    - vendor/**/*
+    - bin/
+Documentation:
+  Enabled: false
+Metrics/AbcSize:
+  Max: 18 # Used in case of file export
+  Exclude:
+    - db/migrate/**/*
+Metrics/BlockLength:
+  Exclude:
+    - db/migrate/**/*
+    - spec/**/*
+    - config/routes.rb
+    - config/environments/**/*
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - db/migrate/**/*
+Layout/LineLength:
+  Max: 120
+
+Metrics/ClassLength:
+  Max: 200
+Metrics/CyclomaticComplexity:
+  Max: 8
