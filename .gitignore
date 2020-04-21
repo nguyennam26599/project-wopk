@@ -4,6 +4,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/test/*
 !/log/.keep
 !/tmp/.keep
 
@@ -37,3 +38,4 @@ coverage
 /log
 /tmp
 .idea/
+/test
