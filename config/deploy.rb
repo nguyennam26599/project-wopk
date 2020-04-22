@@ -12,6 +12,7 @@ set :linked_files, %w[config/database.yml config/application.yml .env]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle
                      public/system public/uploads public/pack node_modules]
 set :keep_releases, 1
+set :pty, true
 set :rvm_type, :user
 set :rvm_ruby_version, 'ruby-2.6.3'
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
