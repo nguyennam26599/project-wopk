@@ -1,0 +1,36 @@
+image: ruby:2.6.3
+stages:
+  - create_cache
+  - rubocop
+  - rspec
+services:
+  - mysql:5.7
+variables:
+  MYSQL_ROOT_PASSWORD: 123456
+cache:
+  key: ${CI_PROJECT_NAMESPACE}-${CI_PROJECT_NAME}-test
+  paths:
+    - vendor/ruby
+    - node_modules/
+before_script:
+  - bash create_env.sh
+  - apt-get update -qq && apt-get install -yqq nodejs
+  - gem install bundler
+  - bundle install --path vendor --quiet
+
+create_cache:
+  stage: create_cache
+  script:
+    - ruby -v
+rubocop:
+  stage: rubocop
+  script:
+    - bundle exec rubocop
+rspec:
+  stage: rspec
+  script:
+    - apt-get install -y npm && npm install --global yarn
+    - RAILS_ENV=test yarn install --check-files
+    - RAILS_ENV=test bundle exec rake db:create
+    - RAILS_ENV=test bundle exec rake db:migrate
+    - RAILS_ENV=test bundle exec rspec
