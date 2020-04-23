@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     get 'signup', to: 'users/registrations#new'
     get 'password', to: 'users/passwords#new'
   end
+  get 'test/index'
+  namespace :admin do
+    root 'pages#index'
+  end
 end
