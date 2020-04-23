@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.a {}
+
+.button-menu {
+  font-size: 12px;
+}
+
+.nl-SignupForm_helpText {
+  font-size: 10px;
+}
+
+.nl-SignupForm_attention {
+  flex-grow: 1;
+  font-size: 12px;
+}
+
+.btn-outline-light {
+  color: #ffffff;
+  background-image: none;
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+.fa-caret-square-o-down {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.Check .tieuDe {
+  padding-left: 10px;
+}
+
+#mtren {
+  width: 100%;
+}
+
+.col-form-label {
+  text-align: end;
+}
+
+.banner {
+  background-color: #55c500;
+  padding: 20px;
+  align-items: center;
+  color: #ffffff;
+}
+
+.menutren {
+  background-image: url("/assets/image/Bg.png");
+  background-color: #55c500;
+  align-items: center;
+  color: #ffffff;
+
+  .ghichu {
+    font-size: 10px;
+  }
+
+  .icon-login {
+    font-size: 20px;
+    margin-top: 9px;
+  }
+}
+
+.menutren li.nav-item a.nav-link {
+  font-family: tahoma;
+  margin-right: 5px;
+  border-radius: 17px;
+}
+
+.tr-ItemList_subLabel {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.ghichu {
+  color: #aaa;
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: normal;
+  margin: 8px 0 0 34px;
+}
+
+.Phanthan {
+  background-color: #f6f6f4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.Phanthan {
+  display: block;
+
+  .Check {
+    background-color: #fffff0;
+    margin: auto;
+    padding: 5px;
+  }
+
+  .topic {
+    padding: 2px;
+
+    .loop-topic {
+      margin: 2em 0;
+      border-bottom: 1px solid #f6f6f4;
+    }
+  }
+}
+
+.menutren li.nav-item a.nav-link:hover .page-footer .test,
+.menutren li.nav-item.active a.nav-link {
+  background-color: #3e3e3e;
+}
+
+.banner-left {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-left .chuto {
+  font-size: 50px;
+  margin-top: 2em;
+}
+
+.register {
+  align: center;
+}
+
+.chuOR {
+  align: center;
+}
+
+.News {
+  border: 2px solid #55c500;
+  background-color: #ffffff;
+  padding: 20px;
+  font-size: 13px;
+  display: block;
+}
+
+.News .icon {
+  color: #55c500;
+}
+
+.New .href {
+  align-self: flex-end;
+}
+
+.Conghien {
+  font-size: 10px;
+  background-color: #ffffff;
+  color: #808080;
+
+  .title {
+    padding-left: 0;
+  }
+
+  .list-Ranking {
+    margin: auto;
+  }
+}
+
+.Ranking {
+  font-size: 10px;
+  margin: auto;
+}
+
+.Ranking .test {
+  padding-left: 1px;
+  padding-right: 2px;
+  text-align: left;
+}
+
+.thanhvien {
+  padding-right: 5px;
+  font-size: 12px;
+  margin: auto;
+  color: #000000;
+  margin-top: 7px;
+
+  .vang {
+    color: #ffff00;
+    font-size: 20px;
+    margin-top: 2px;
+  }
+
+  .bac {
+    color: #808080;
+    font-size: 20px;
+    align: middle;
+  }
+
+  .dong {
+    color: #ac6d4c;
+    font-size: 20px;
+    align: middle;
+  }
+
+  .another {
+    color: #999999;
+    font-size: 25px;
+    align: center;
+  }
+}
+
+.page-footer {
+  color: #FFFFFF;
+  background-color: #3e3e3e;
+}
+
+.list-Ranking {}

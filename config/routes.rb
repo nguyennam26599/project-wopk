@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     get 'form' => 'pages#form'
     get 'table' => 'pages#table'
   end
+  root 'home#index'
 end
