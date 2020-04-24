@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get 'test/index'
   namespace :admin do
     root 'pages#index'
+    get 'form' => 'pages#form'
+    get 'table' => 'pages#table'
   end
 end
