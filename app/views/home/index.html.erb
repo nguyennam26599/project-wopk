@@ -4,15 +4,20 @@
 <div class="body_blog">
   <div class="container">
     <div class="row">
+      <div class="col-md-2">
+        <!-- Left -->
+      </div>
 
-      <div class="col-sm-2"></div>
-      <!-- Left -->
+      <div class="col-sm-7">
+        <%= render "home/blog" %>
+        <!-- Middle -->
+      </div>
 
-      <%= render "home/blog" %>
-      <%= render "home/menuright" %>
-
+      <div class="col-sm-3">
+        <%= render "home/menuright" %>
+        <!-- menuright -->
+      </div>
     </div>
   </div>
-</div>
 </div>
 <%= render "home/footer" %>

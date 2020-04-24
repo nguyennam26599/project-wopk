@@ -3,19 +3,6 @@
   padding: 0;
 }
 
-.button-menu {
-  font-size: 12px;
-}
-
-.nl-SignupForm_helpText {
-  font-size: 10px;
-}
-
-.nl-SignupForm_attention {
-  flex-grow: 1;
-  font-size: 12px;
-}
-
 .btn-outline-light {
   color: #ffffff;
   background-image: none;
@@ -23,24 +10,8 @@
   border-color: #ffffff;
 }
 
-.fa-caret-square-o-down {
-  font-size: 25px;
-  margin-top: 10px;
-}
-
-.check .title-blog {
-  padding-left: 10px;
-}
-
 .col-form-label {
   text-align: end;
-}
-
-.banner {
-  background-color: #55c500;
-  padding: 20px;
-  align-items: center;
-  color: #ffffff;
 }
 
 .header-f {
@@ -48,35 +19,77 @@
   background-color: #55c500;
   align-items: center;
   color: #ffffff;
+  font-family: tafhoma;
 
-  .ghichu {
-    font-size: 10px;
+  .header-f li.nav-item a.nav-link:hover .page-footers,
+  .header-f li.nav-item.active a.nav-link {
+    background-color: #3e3e3e;
+  }
+
+  .fa-caret-square-o-down {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .nologin {
+    color: #aaa;
+    font-size: 0.6em;
+    font-weight: 600;
+    line-height: normal;
+    margin: 8px 0 0 34px;
   }
 
   .icon-login {
     font-size: 20px;
     margin-top: 9px;
   }
-}
 
-.header li.nav-item a.nav-link {
-  font-family: tafhoma;
-  margin-right: 5px;
-  border-radius: 17px;
+  .button-menu {
+    font-size: 12px;
+  }
 }
+//header
 
-.tr-ItemList_subLabel {
-  font-size: 12px;
-  color: #aaa;
-}
+.banner {
+  background-color: #55c500;
+  padding: 20px;
+  align-items: center;
+  color: #ffffff;
 
-.nologin {
-  color: #aaa;
-  font-size: 0.8em;
-  font-weight: 600;
-  line-height: normal;
-  margin: 8px 0 0 34px;
+  .banner-left {
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    .banner-title {
+      font-size: 50px;
+      margin-top: 1.5em;
+    }
+  }
+
+  .register {
+    align: center;
+
+    .icon-twitter {
+      color: #1da1f2;
+    }
+
+    .icon-google {
+      color: #ea4235;
+    }
+
+    .nl-SignupForm_helpText {
+      font-size: 10px;
+    }
+
+    .nl-SignupForm_attention {
+      flex-grow: 1;
+      font-size: 12px;
+    }
+  }
 }
+// Banner
 
 .body_blog {
   display: block;
@@ -90,34 +103,34 @@
     padding: 5px;
   }
 
-  .topic {
-    padding: 2px;
+  .view-blog {
+    padding: 15px;
+    background-color: #ffffff;
 
-    .loop-topic {
-      margin: 2em 0;
-      border-bottom: 1px solid #f6f6f4;
+    .title-blog {
+      padding: 5px;
+
+      .tr-itemlist_sublabel {
+        font-size: 12px;
+        color: #aaa;
+      }
+    }
+
+    .topic {
+      padding: 2px;
+
+      .loop-topic {
+        margin: 1em;
+        border-bottom: 1px solid #f6f6f4;
+        padding-bottom: 0.5em;
+
+        .infomation {
+          font-size: 12px;
+          color: #808080;
+        }
+      }
     }
   }
-}
-
-.header-f li.nav-item a.nav-link:hover .page-footer .test,
-.header-f li.nav-item.active a.nav-link {
-  background-color: #3e3e3e;
-}
-
-.banner-left {
-  display: block;
-  justify-content: center;
-  align-items: center;
-}
-
-.banner-left .banner-title {
-  font-size: 50px;
-  margin-top: 2em;
-}
-
-.register {
-  align: center;
 }
 
 .news {
@@ -126,20 +139,26 @@
   padding: 20px;
   font-size: 13px;
   display: block;
-}
 
-.news .icon {
-  color: #55c500;
-}
+  .view-title {
+    font-weight: bold;
+    font-size: 120%;
+  }
 
-.new .href {
-  align-self: flex-end;
+  .icon {
+    color: #55c500;
+  }
+
+  .view-detail {
+    text-align: right;
+  }
 }
 
 .dedication {
   font-size: 10px;
   background-color: #ffffff;
   color: #808080;
+  display: block;
 
   .title {
     padding-left: 0;
@@ -147,53 +166,89 @@
 
   .list-ranking {
     margin: auto;
+
+    .name-ranking {
+      font-size: 16px;
+    }
+
+    .point-ranking {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .point-post {
+      color: #808080;
+    }
   }
 }
 
-.ranking {
-  font-size: 10px;
-  margin: auto;
-}
+.menuright-setting {
+  padding: 20px 0;
 
-.ranking .test {
-  padding-left: 1px;
-  padding-right: 2px;
-  text-align: left;
-}
+  .ranking {
+    font-size: 10px;
+    margin: 5%;
 
-.member {
-  padding-right: 5px;
-  font-size: 12px;
-  margin: auto;
-  color: #000000;
-  margin-top: 7px;
+    .title-ranking {
+      font-size: 15px;
+      color: #000000;
+    }
 
-  .gold {
-    color: #ffff00;
-    font-size: 20px;
-    margin-top: 2px;
+    .time-ranking {
+      float: right;
+    }
+
+    .unit {
+      padding-left: 3px;
+      padding-right: 3px;
+      text-align: left;
+      border: 0;
+    }
   }
 
-  .silver {
-    color: #808080;
-    font-size: 20px;
-    align: middle;
-  }
+  .member {
+    padding-right: 5px;
+    font-size: 12px;
+    margin: auto;
+    color: #000000;
+    margin-top: 7px;
+    border-bottom: 1px solid #f6f6f4;
 
-  .bronze {
-    color: #ac6d4c;
-    font-size: 20px;
-    align: middle;
-  }
+    .gold {
+      color: #ffff00;
+      font-size: 20px;
+      margin-top: 2px;
+    }
 
-  .another {
-    color: #999999;
-    font-size: 25px;
-    align: center;
+    .silver {
+      color: #808080;
+      font-size: 20px;
+      align: middle;
+    }
+
+    .bronze {
+      color: #ac6d4c;
+      font-size: 20px;
+      align: middle;
+    }
+
+    .another {
+      color: #999999;
+      font-size: 25px;
+      align: center;
+    }
   }
 }
 
 .page-footer {
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #3e3e3e;
+  .logo-hiruno {
+    margin-top: 20px;
+
+    .footer-copyright {
+      font-size: 12px;
+    }
+  }
+
 }
