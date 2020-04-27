@@ -38,5 +38,5 @@ coverage
 /tmp
 
 .idea/
-
-/es 
+/es
+/test

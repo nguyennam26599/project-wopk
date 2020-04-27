@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+# Add gem devise
+gem 'devise'
 
 gem 'simplecov', require: false, group: :test
 # dotenv
@@ -49,6 +51,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
+  gem 'letter_opener'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

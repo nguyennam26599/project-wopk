@@ -1,0 +1,63 @@
+<div class="container font-type">
+  <h1><%= link_to 'HITUNO', '#', class: "navbar-brand" %></h1>
+  <div class="sign_up">
+    <div>
+      <div class="title_signup">Join Hituno</div>
+      <p class="title_intro" >Sign up for free and start using ...</p>
+    </div>
+    <hr>
+    <div class="main">
+      <div class="submit-other">
+        <a class="btn btn-dark" href="#">
+          <i class="fab fa-github-square"></i>
+          Sign up with GitHub
+        </a>
+        <a class="btn btn-primary" href="#">
+          <i class="fab fa-twitter-square"></i>
+          Sign up with Twitter
+        </a>
+        <a class="btn btn-danger" href="#">
+          <i class="fab fa-google"></i>
+          Sign up with Google
+        </a>
+        <div class="help-block">We never tweet without your permission.</div>
+        <hr>
+        <div class="layout_guide">
+          Sign up in 30 seconds. If you already have a Qiita account 
+          <%= link_to  "log in", login_path %>.
+        </div>
+      </div>
+      <div class="submit-form">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: 'Name',required: true %>
+            <% if resource.errors[:name].present?%>
+              <p class="text-danger">Name <%= resource.errors[:name].first %></p>
+            <%end%>
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email', required: true %>
+            <% if resource.errors[:email].present?%>
+              <p class="text-danger">Email <%= resource.errors[:email].first %></p>
+            <%end%>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, class: 'form-control', placeholder: 'Password', required: true %>
+            <% if resource.errors[:password].present?%>
+              <p class="text-danger">Password <%= resource.errors[:password].first %></p>
+            <%end%>
+          </div>
+          <div class="help-block">
+            If you agree with 
+            <a target="_blank" href="https://qiita.com/terms">
+                Terms of Service
+            </a>, click "Agree and register" button below.
+          </div>
+          <div class="form-group">
+            <%= f.submit "Agree and register", class:"btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

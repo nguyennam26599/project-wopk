@@ -1,0 +1,50 @@
+<div class="container font-type">
+  <h1><%= link_to 'HITUNO', '#', class: "navbar-brand" %></h1>
+  <div class="sign_in text-center">
+    <div>
+      <div class="title_signin">Log in to ...</div>
+    </div>
+    <hr>
+    <div class="main">
+      <div class="submit-other">
+        <a class="btn btn-dark" href="#">
+          <i class="fab fa-github-square"></i>
+          Log in with GitHub
+        </a>
+        <a class="btn btn-primary" href="#">
+          <i class="fab fa-twitter-square"></i>
+          Log in with Twitter
+        </a>
+        <a class="btn btn-danger" href="#">
+          <i class="fab fa-google"></i>
+          Log in with Google
+        </a>
+        <div class="help-block">We never tweet without your permission.</div>
+        <hr>
+        <div class="layout_guide">
+          If you do not have a Qiita account, <%= link_to  "sign up", signup_path %> in 30 seconds.
+        </div>
+      </div>
+      <div class="submit-form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="form-group">
+                      <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
+                  </div>
+                  <div class="form-group">
+                      <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+                  </div>
+                  <div class="form-group">
+                      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+                  </div>
+                  <div class="form-group text-left">
+                      <%= link_to  "Forgot Password?", new_user_password_path %>
+                  </div>
+                  <div class="form-group">
+                      <%= f.submit "Log in to ...", class:"btn btn-success" %>
+                  </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
