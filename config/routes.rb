@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'test/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  devise_scope :user do
+    get 'login', to: 'users/sessions#new'
+    get 'signup', to: 'users/registrations#new'
+    get 'password', to: 'users/passwords#new'
+  end
 end
