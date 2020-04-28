@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .btn-outline-light {
   color: #ffffff;
   background-image: none;
@@ -15,7 +20,6 @@
 }
 
 .header-f {
-  background-image: url("/assets/image/Bg.png");
   background-color: #55c500;
   align-items: center;
   color: #ffffff;
@@ -69,8 +73,6 @@
   }
 
   .register {
-    align: center;
-
     .icon-twitter {
       color: #1da1f2;
     }
@@ -124,9 +126,12 @@
         border-bottom: 1px solid #f6f6f4;
         padding-bottom: 0.5em;
 
+        .image-avatar {
+          padding-left: 3px;
+        }
+
         .infomation {
           font-size: 12px;
-          color: #808080;
         }
       }
     }
@@ -136,13 +141,12 @@
 .news {
   border: 2px solid #55c500;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 2.5em;
   font-size: 13px;
   display: block;
 
   .view-title {
-    font-weight: bold;
-    font-size: 120%;
+    font-size: 1.2em;
   }
 
   .icon {
@@ -152,46 +156,64 @@
   .view-detail {
     text-align: right;
   }
+  .icon-news {
+    color: #55c500;
+  }
 }
 
 .dedication {
   font-size: 10px;
   background-color: #ffffff;
   color: #808080;
-  display: block;
 
   .title {
     padding-left: 0;
   }
 
   .list-ranking {
-    margin: auto;
+    padding: 10px;
+    height: auto;
+    width: -webkit-fill-available;
+
+    .number-ranking {
+      width: 30px;
+    }
 
     .name-ranking {
       font-size: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .point-center {
+      padding: inherit;
     }
 
     .point-ranking {
-      font-size: 20px;
+      font-size: 15px;
       font-weight: bold;
+      align-items: center;
+      justify-content: center;
     }
 
     .point-post {
+      font-size: 10px;
       color: #808080;
     }
   }
 }
 
 .menuright-setting {
-  padding: 20px 0;
+  width: 300px;
 
   .ranking {
-    font-size: 10px;
-    margin: 5%;
+    padding: 0.5em;
+    display: flex;
 
     .title-ranking {
-      font-size: 15px;
+      font-size: 1.3em;
       color: #000000;
+      margin-right: 7em;
     }
 
     .time-ranking {
@@ -203,39 +225,49 @@
       padding-right: 3px;
       text-align: left;
       border: 0;
+      font-size: 1.2em;
     }
   }
 
   .member {
-    padding-right: 5px;
     font-size: 12px;
     margin: auto;
     color: #000000;
     margin-top: 7px;
     border-bottom: 1px solid #f6f6f4;
 
+    .user-ranks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .name-list-ranking {
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: bold;
+    }
+
     .gold {
       color: #ffff00;
-      font-size: 20px;
-      margin-top: 2px;
+      font-size: 18px;
     }
 
     .silver {
       color: #808080;
-      font-size: 20px;
-      align: middle;
+      font-size: 18px;
     }
 
     .bronze {
       color: #ac6d4c;
-      font-size: 20px;
-      align: middle;
+      font-size: 18px;
     }
 
     .another {
       color: #999999;
       font-size: 25px;
-      align: center;
     }
   }
 }
@@ -243,6 +275,7 @@
 .page-footer {
   color: #ffffff;
   background-color: #3e3e3e;
+
   .logo-hiruno {
     margin-top: 20px;
 
@@ -251,4 +284,30 @@
     }
   }
 
+  .footer-list {
+    display: flex;
+    font-size: 15px;
+    margin-top: 0.5em;
+    padding-right: 0em;
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      padding: 1em 3em 1em 0;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .menuright-setting,
+  .view-blog {
+    width: 100%;
+    margin: 0 0 0 auto;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .register {
+    display: none;
+  }
 }
