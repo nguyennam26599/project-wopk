@@ -1,301 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import 'index/header';
+@import 'index/footer';
+@import 'index/banner';
+@import 'index/body';
+@import 'index/rightmenu';
+
 
 .nopadding {
   padding: 0 !important;
   margin: 0 !important;
-}
-
-.btn-outline-light {
-  color: #ffffff;
-  background-image: none;
-  background-color: transparent;
-  border-color: #ffffff;
-}
-
-.col-form-label {
-  text-align: end;
-}
-
-.header-f {
-  background-color: #55c500;
-  align-items: center;
-  color: #ffffff;
-  font-family: tafhoma;
-
-  .header-f li.nav-item a.nav-link:hover .page-footers,
-  .header-f li.nav-item.active a.nav-link {
-    background-color: #3e3e3e;
-  }
-
-  .fa-caret-square-o-down {
-    font-size: 25px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .nologin {
-    color: #aaa;
-    font-size: 0.6em;
-    font-weight: 600;
-    line-height: normal;
-    margin: 8px 0 0 34px;
-  }
-
-  .icon-login {
-    font-size: 20px;
-    margin-top: 9px;
-  }
-
-  .button-menu {
-    font-size: 12px;
-  }
-}
-//header
-
-.banner {
-  background-color: #55c500;
-  padding: 20px;
-  align-items: center;
-  color: #ffffff;
-
-  .banner-left {
-    display: block;
-    justify-content: center;
-    align-items: center;
-
-    .banner-title {
-      font-size: 50px;
-      margin-top: 1.5em;
-    }
-  }
-
-  .register {
-    .icon-twitter {
-      color: #1da1f2;
-    }
-
-    .icon-google {
-      color: #ea4235;
-    }
-
-    .nl-SignupForm_helpText {
-      font-size: 10px;
-    }
-
-    .nl-SignupForm_attention {
-      flex-grow: 1;
-      font-size: 12px;
-    }
-  }
-}
-// Banner
-
-.body_blog {
-  display: block;
-  background-color: #f6f6f4;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  .check {
-    background-color: #fffff0;
-    margin: auto;
-    padding: 5px;
-  }
-
-  .view-blog {
-    padding: 15px;
-    background-color: #ffffff;
-
-    .title-blog {
-      padding: 5px;
-
-      .tr-itemlist_sublabel {
-        font-size: 12px;
-        color: #aaa;
-      }
-    }
-
-    .topic {
-      padding: 2px;
-
-      .loop-topic {
-        margin: 1em;
-        border-bottom: 1px solid #f6f6f4;
-        padding-bottom: 0.5em;
-
-        .image-avatar {
-          padding-left: 3px;
-        }
-
-        .infomation {
-          font-size: 12px;
-        }
-      }
-    }
-  }
-}
-
-.news {
-  border: 2px solid #55c500;
-  background-color: #ffffff;
-  padding: 2.5em;
-  font-size: 13px;
-  display: block;
-
-  .view-title {
-    font-size: 1.2em;
-  }
-
-  .icon {
-    color: #55c500;
-  }
-
-  .view-detail {
-    text-align: right;
-  }
-  .icon-news {
-    color: #55c500;
-  }
-}
-
-.dedication {
-  font-size: 10px;
-  background-color: #ffffff;
-  color: #808080;
-
-  .title {
-    padding-left: 0;
-  }
-
-  .list-ranking {
-    padding: 10px;
-    height: auto;
-    width: -webkit-fill-available;
-
-    .number-ranking {
-      width: 30px;
-    }
-
-    .name-ranking {
-      font-size: 16px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .point-center {
-      padding: inherit;
-    }
-
-    .point-ranking {
-      font-size: 15px;
-      font-weight: bold;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .point-post {
-      font-size: 10px;
-      color: #808080;
-    }
-  }
-}
-
-.menuright-setting {
-  width: 300px;
-
-  .ranking {
-    padding: 0.5em;
-    display: flex;
-
-    .title-ranking {
-      font-size: 1.3em;
-      color: #000000;
-      margin-right: 7em;
-    }
-
-    .time-ranking {
-      float: right;
-    }
-
-    .unit {
-      padding-left: 3px;
-      padding-right: 3px;
-      text-align: left;
-      border: 0;
-      font-size: 1.2em;
-    }
-  }
-
-  .member {
-    font-size: 12px;
-    margin: auto;
-    color: #000000;
-    margin-top: 7px;
-    border-bottom: 1px solid #f6f6f4;
-
-    .user-ranks {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .name-list-ranking {
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-weight: bold;
-    }
-
-    .gold {
-      color: #ffff00;
-      font-size: 18px;
-    }
-
-    .silver {
-      color: #808080;
-      font-size: 18px;
-    }
-
-    .bronze {
-      color: #ac6d4c;
-      font-size: 18px;
-    }
-
-    .another {
-      color: #999999;
-      font-size: 25px;
-    }
-  }
-}
-
-.page-footer {
-  color: #ffffff;
-  background-color: #3e3e3e;
-
-  .logo-hiruno {
-    margin-top: 20px;
-
-    .footer-copyright {
-      font-size: 12px;
-    }
-  }
-
-  .footer-list {
-    display: flex;
-    font-size: 15px;
-    margin-top: 0.5em;
-    padding-right: 0em;
-
-    .footer-column {
-      display: flex;
-      flex-direction: column;
-      padding: 1em 3em 1em 0;
-    }
-  }
 }
 
 @media screen and (max-width: 992px) {
@@ -305,9 +17,25 @@
     margin: 0 0 0 auto;
     padding-right: 0;
   }
-}
-@media screen and (max-width: 768px) {
-  .register {
+  .community-link {
     display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .register, .tr-itemlist_sublabel {
+    display: none;
+  }
+  .view-blog, .name-list-ranking {
+    font-size: 0.7em;
+  }
+  .topic {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 332px) {
+  .title-ranking {
+    margin-right: 20px;
   }
 }

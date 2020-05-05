@@ -1,0 +1,112 @@
+.news {
+  border: 2px solid #55c500;
+  padding: 2em;
+  font-size: 0.8em;
+  display: block;
+
+  .view-title {
+    font-size: 1.2em;
+  }
+
+  .icon {
+    color: #55c500;
+  }
+
+  .icon-news {
+    color: #55c500;
+  }
+}
+
+.dedication {
+  font-size: 0.6em;
+
+  .title {
+    padding-left: 0;
+  }
+
+  .list-ranking {
+    padding: 10px;
+    height: auto;
+    width: -webkit-fill-available;
+
+    .point-center {
+      padding: inherit;
+    }
+
+    .point-ranking {
+      font-size: 15px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .point-post {
+      font-size: 10px;
+    }
+  }
+}
+
+.menuright-setting {
+  width: 300px;
+
+  .ranking {
+    padding: 0.5em;
+    display: flex;
+
+    .title-ranking {
+      font-size: 1.3em;
+      margin-right: 7em;
+    }
+
+    .time-ranking {
+      float: right;
+    }
+
+    .unit {
+      padding-left: 3px;
+      padding-right: 3px;
+      text-align: left;
+      border: 0;
+      font-size: 1.2em;
+    }
+  }
+
+  .member {
+    font-size: 12px;
+    margin: 7px auto auto;
+    border-bottom: 1px solid #f6f6f4;
+
+    .user-ranks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .name-list-ranking {
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: bold;
+    }
+
+    .gold {
+      color: #ffff00;
+      font-size: 18px;
+    }
+
+    .silver {
+      color: #808080;
+      font-size: 18px;
+    }
+
+    .bronze {
+      color: #ac6d4c;
+      font-size: 18px;
+    }
+
+    .another {
+      color: #999999;
+      font-size: 25px;
+    }
+  }
+}
