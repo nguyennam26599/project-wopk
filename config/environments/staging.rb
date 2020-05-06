@@ -114,16 +114,16 @@ Rails.application.configure do
 
   # Config email
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    authentication: :plain,
+    address: ENV['MAIL_ADDRESS'],
+    port: ENV['MAIL_PORT'],
+    authentication: ENV['MAIL_AUTHENTICATION'],
     domain: 'intern-ruby.nal.vn',
     enable_starttls_auto: true,
     user_name: ENV['GMAIL_USERNAME'],
     password: ENV['GMAIL_PASSWORD'],
     openssl_verify_mode: 'none'
   }
-  config.action_mailer.default_url_options = { host: 'intern-ruby.nal.vn' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 end
