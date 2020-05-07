@@ -14,4 +14,12 @@ class ApplicationController < ActionController::Base
     update_attrs = %i[password password_confirmation current_password]
     devise_parameter_sanitizer.permit :account_update, keys: update_attrs
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.class == User
+      root_path
+    elsif resource.class == Admin
+      admins_root_path
+    end
+  end
 end
