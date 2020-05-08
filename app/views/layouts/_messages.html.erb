@@ -1,0 +1,6 @@
+<% flash.each do |key, value| %>
+<% unless value.blank? %>
+  <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
+  <% if notice%><p class="alert alert-warning"><%= notice %></p><% end %>
+<% end%>
+<% end %>
