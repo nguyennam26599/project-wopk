@@ -1,0 +1,33 @@
+.banner {
+  background-color: #55c500;
+  padding: 20px;
+
+  .banner-left {
+    display: block;
+    justify-content: center;
+
+    .banner-title {
+      font-size: 50px;
+      margin-top: 1.5em;
+    }
+  }
+
+  .register {
+    .icon-twitter {
+      color: #1da1f2;
+    }
+
+    .icon-google {
+      color: #ea4235;
+    }
+
+    .nl-SignupForm_helpText {
+      font-size: 10px;
+    }
+
+    .nl-SignupForm_attention {
+      flex-grow: 1;
+      font-size: 12px;
+    }
+  }
+}

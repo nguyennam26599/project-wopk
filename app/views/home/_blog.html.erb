@@ -1,0 +1,24 @@
+<div class="view-blog bg-white">
+  <div class="title-blog">
+    <i class="far fa-chart-bar" aria-hidden="true"></i>
+    <span>Trends</span>
+    <span class="tr-itemlist_sublabel">Remarkable items.Refleshed at every 5 a.m.and 5 p.m.</span>
+  </div>
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active text-success" href="#">Daily</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-muted" href="#">Weekly</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-muted" href="#">Monthly</a>
+    </li>
+  </ul>
+
+  <div class="topic">
+    <% for i in 0..25 %>
+      <%= render "home/topic" %>
+    <% end %>
+  </div>
+</div>

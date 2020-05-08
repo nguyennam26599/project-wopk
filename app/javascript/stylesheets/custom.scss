@@ -1,0 +1,41 @@
+@import 'index/header';
+@import 'index/footer';
+@import 'index/banner';
+@import 'index/body';
+@import 'index/rightmenu';
+
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 992px) {
+  .menuright-setting,
+  .view-blog {
+    width: 100%;
+    margin: 0 0 0 auto;
+    padding-right: 0;
+  }
+  .community-link {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .register, .tr-itemlist_sublabel {
+    display: none;
+  }
+  .view-blog, .name-list-ranking {
+    font-size: 0.7em;
+  }
+  .topic {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 332px) {
+  .title-ranking {
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,43 @@
+.body_blog {
+  display: block;
+  background-color: #f6f6f4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .check {
+    background-color: #fffff0;
+    margin: auto;
+    padding: 5px;
+  }
+
+  .view-blog {
+    padding: 15px;
+
+    .title-blog {
+      padding: 5px;
+
+      .tr-itemlist_sublabel {
+        font-size: 12px;
+        color: #aaa;
+      }
+    }
+
+    .topic {
+      padding: 2px;
+
+      .loop-topic {
+        margin: 1em;
+        border-bottom: 1px solid #f6f6f4;
+        padding-bottom: 0.5em;
+
+        .image-avatar {
+          padding-left: 3px;
+        }
+
+        .infomation {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
