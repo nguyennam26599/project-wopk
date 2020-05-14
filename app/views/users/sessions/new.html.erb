@@ -28,7 +28,7 @@
       <div class="submit-form">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="form-group">
-                      <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
+                      <% if alert %><p class="alert alert-warning">Invalid email or password</p><% end %>
                   </div>
                   <div class="form-group">
                       <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
