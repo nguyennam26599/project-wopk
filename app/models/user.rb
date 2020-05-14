@@ -18,4 +18,15 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  attr_writer :login
+
+  def login
+    @login || name || email
+  end
+
+  def self.find_for_authentication(conditions)
+    login = conditions.delete(:login)
+    where(conditions).where(['name = :value OR email = :value', { value: login }]).first
+  end
 end
