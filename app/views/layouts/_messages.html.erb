@@ -1,6 +1,21 @@
-<% flash.each do |key, value| %>
-<% unless value.blank? %>
-  <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
-  <% if notice%><p class="alert alert-warning"><%= notice %></p><% end %>
-<% end%>
-<% end %>
+<div class="container mt-3">
+  <% flash.each do |key, value| %>
+    <% unless value.blank? %>
+        <% if alert %>
+          <p class="alert alert-warning">
+            <%= alert %>
+            <button class="close" data-dismiss="alert">×</button>
+          </p>
+        <% end %>
+        <% if notice%>
+          <p class="alert alert-warning">
+            <%= notice %>
+            <button class="close" data-dismiss="alert">×</button>
+          </p>
+        <% end %>
+      <script>
+        setTimeout("$('.alert').fadeOut('slow')", 5000)
+      </script>
+    <% end%>
+  <% end %>
+</div>
