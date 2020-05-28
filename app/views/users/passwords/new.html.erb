@@ -1,4 +1,5 @@
 <div class="container font-type">
+    <%= render 'layouts/messages' %>
     <h1><%= link_to 'HITUNO', '#', class: "navbar-brand" %></h1>
     <div class="forgot_password">
         <div>
@@ -7,7 +8,6 @@
         <div class="forgot-form">
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
               <div class="form-group">
-                  <%= f.label :email, "Email"%>
                   <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
               </div>
               <div class="form-group">
