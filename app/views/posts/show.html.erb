@@ -1,0 +1,167 @@
+<%= render 'home/header'%>
+<div class="container-fluid position-relative post-body">
+    <div class="row">
+        <div class="p-0 hidden-md-up col-md-1">
+            <div class="post-actions d-flex flex-column align-items-center mx-auto">
+                <!---->
+                <div class="votes votes--side post-actions__vote mb-1">
+                    <button class="icon-btn vote" ><i aria-hidden="true" class="fa fa-caret-up"></i></button>
+                    <div class="points text-muted">
+                        +<%= @post.vote.nil? ? '0' : @post.vote%>
+                    </div>
+                    <button class="icon-btn vote"><i aria-hidden="true" class="fa fa-caret-down"></i></button>
+                </div>
+                <div class="subscribe mb-2" data-v-3a0518d6="">
+                    <button type="button" class="el-button post-actions__clip el-button--default" data-v-3a0518d6="" >
+                        <i class="fa fa-paperclip"></i>
+                    </button>
+                </div>
+                <div class="social-sharing mb-2 social-sharing--horizontal social-sharing--small" data-v-1b6678dc="">
+                    <a class="link link--muted mb-2" data-v-1b6678dc="" >
+                        <i aria-hidden="true" class="text-muted fab fa-facebook" data-v-1b6678dc=""></i>
+                    </a>
+                    <a class="link link--muted" data-v-1b6678dc="">
+                        <i aria-hidden="true" class="text-muted fab fa-twitter" data-v-1b6678dc=""></i>
+                    </a>
+                </div>
+                <!---->
+            </div>
+        </div>    
+      <div class="post-body__main col-md-8">
+        <article class="post-content">
+          <header class="mb-2">
+            <div class=" d-sm-flex mb-2 align-items-start justify-content-between">  
+                <div class=" post-author mb-2 mb-sm-0">
+                    <a href="#" class="mr-1">
+                        <div class="d-inline-block avatar--lg">
+                            <%= avatar_for(@post.user,'lg') %>
+                        </div>    
+                    </a>
+
+                    <div class="post-author__info overflow-hidden mr-1">
+                        <div class="d-flex ">
+                            <div class="flex-fix mr-05 overflow-hidden">
+                                <a href="#" class="text-bold post-author__name"><%= @post.user.first_name %> <%= @post.user.last_name %></a>
+                                <span class="text-muted">@<%= @post.user.name%></span>
+                            </div>
+                            <div class=" mt-0">
+                                <button type="button" class="btn btn-outline-secondary btn-sm ml-1 w-1 p-0 pl-1 pr-1">
+                                    <span>Follow</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="stats">
+                            <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: 90">
+                                <i aria-hidden="true" class="stats-item__icon fa fa-star pr-1"></i>90
+                            </span>
+                            <span class="stats-item text-muted" data-tippy="" data-original-title="Followers: 2">
+                                <i aria-hidden="true" class="stats-item__icon fa fa-user-plus pr-1"></i>2
+                            </span>
+                            <span class="stats-item text-muted" data-tippy="" data-original-title="Posts: 8">
+                                <i aria-hidden="true" class="fas fa-pencil-alt pr-1"></i><%= User.find_by(id: @post.user.id).posts.count%>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-column flex-wrap">
+                    <div class="text-muted">
+                        Published Apr 3rd, 7:05 PM
+                        <span class="text-muted ">
+                        - 7 min read
+                        </span>
+                    </div>
+                    <div class="d-flex text-muted">
+                        <div class="p-2 post-item">
+                            <i class="far fa-eye text-muted mr-1"></i>
+                            <span><%= @post.view_count.nil? ? '0' : @post.view_count %></span>
+                        </div>
+                        <div class="p-2 ml-3 post-item" >
+                            <a href="#" class="text-decoration-none bg-white text-muted border-0" >
+                                <i class="fas fa-comments"></i>
+                                <span>1</span>
+                            </a>
+                        </div>
+                        <div class=" p-2 ml-3 post-item">
+                            <a href="#" class="text-decoration-none bg-white text-muted border-0" >
+                                <i class="fa fa-paperclip"></i>
+                                <span> 3 </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <h1 class="article-content__title">
+                <%= @post.title %>
+            </h1>
+          </header>
+
+          <div class="d-md-flex align-items-top justify-content-between">
+            <div class="tags">
+                <% @post.posts_relationships.where(posts_relationship_type: "Tag").each do |x| %>
+                    <a href="#" class="el-tag tag_3wKND el-tag--info el-tag--medium">
+                        <%= Tag.find_by_id(x.posts_relationship_id).name%>
+                    </a>
+                <% end%>
+            </div>
+            <div class="el-dropdown">
+                <button class="btn bg-white  border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">
+                        <i aria-hidden="true" class="far fa-flag mr-05 pr-1"></i>Report
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i aria-hidden="true" class="far fa-plus-square pr-1 mr-05 "></i> Add to my series
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i aria-hidden="true" class="fa fa-magic pr-1 mr-05"></i>Highlighting code blocks
+                    </a>      
+                </div>
+            </div>
+          </div>
+
+          <div class="md-contents article-content__body my-2 flex-fill">
+            <p><%== @post.content%></p>
+          </div>
+        
+        </article>
+      </div> 
+    </div>
+</div>
+
+<div class="post-bottom-bar fixed-bottom hidden-sm-down">
+    <a data-v-35934b06="" href="#" class="avatar ml-2 mr-1">
+        <div class="d-inline-block avatar--md pt-1">
+            <%= avatar_for(@post.user,'md') %>
+        </div>
+    </a>
+	<div data-v-c87213ec="" data-v-35934b06="" class="ratings ml-2 ">
+		<a data-v-35934b06="" data-v-c87213ec="" class="vote">
+			<i data-v-35934b06="" data-v-c87213ec="" class="fa fa-arrow-up"></i>
+		</a>
+		<div data-v-35934b06="" data-v-c87213ec="" class="ml-2 mr-2"> 
+            +<%= @post.vote.nil? ? '0' : @post.vote%>
+         </div>
+		<a data-v-35934b06="" data-v-c87213ec="" class="vote">
+			<i data-v-35934b06="" data-v-c87213ec="" class="fa fa-arrow-down"></i>
+		</a>
+	</div>
+  <div data-v-1b6678dc="" data-v-35934b06="" class="social-sharing sharings d-flex align-items-center social-sharing--vertical social-sharing--small">
+      <div class="subscribe">
+          <button  type="button" class="btn btn-light rounded-circle sharing-item ">
+            <i class="fa fa-paperclip"></i>
+          </button>
+      </div>
+      <span data-v-35934b06="" data-v-1b6678dc="" class=" hidden-lg-up">•</span>
+      <a data-v-35934b06="" data-v-1b6678dc="" class="sharing-item">
+          <i data-v-35934b06="" data-v-1b6678dc=""class="fab fa-facebook"></i>
+      </a>
+      <span data-v-35934b06="" data-v-1b6678dc="" class="">•</span> 
+      <a data-v-35934b06="" data-v-1b6678dc="" class="sharing-item">
+          <i data-v-35934b06="" data-v-1b6678dc="" class="fab fa-twitter"></i>
+      </a>
+   </div>
+</div>
+
