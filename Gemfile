@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 # Add gem devise
 gem 'devise'
-
+gem 'pagy', '~> 3.8'
 gem 'simplecov', require: false, group: :test
 # dotenv
 gem 'dotenv-rails'
