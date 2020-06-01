@@ -1,0 +1,19 @@
+<div class="mt-3 d-flex justify-content-center" id="articles">
+  <% link = pagy_link_proc(pagy) %>
+  <div aria-label="pager" class="table-pagination d-flex justify-content-end align-self-center" role="navigation">
+    <% if pagy.prev %>
+      <%== link.call(pagy.prev, '<span class="fas fa-chevron-left fa-3x page-link__previous text-muted align-self-center" aria-hidden="true"></span>', 'aria-label="previous" class="page-link"') %>
+    <% end %>
+    <div class="px-2 pt-2">
+      <% pagy.series.each do |item| %>
+        <% if item.is_a?(String) %>
+          <%= item %>
+        <% end %>
+      <% end %>/
+      <span><%= pagy.series.count %></span>
+    </div>
+    <% if pagy.next %>
+      <%== link.call(pagy.next, '<span class="fas fa-chevron-right fa-10x page-link__next text-muted align-self-center" aria-hidden="true"></span>', 'aria-label="next" class="page-link"') %>
+    <% end %>
+  </div>
+</div>
