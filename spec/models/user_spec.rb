@@ -37,5 +37,35 @@ RSpec.describe User, type: :model do
       subject.password = nil
       expect(subject).to_not be_valid
     end
+
+    it 'it should require a username' do
+      user = User.create(name: '')
+      expect(user.errors[:name]).to be_present
+    end
+
+    it 'is invalid with a duplicate name' do
+      User.create!(
+        name: 'HoangAnh',
+        email: 'test1@example.com',
+        password: '123456'
+      )
+      user2 = User.new(
+        name: 'HoangAnh',
+        email: 'test2@example.com',
+        password: '123456'
+      )
+      user2.valid?
+      expect(user2.errors[:name]).to include('has already been taken')
+    end
+
+    it 'is valid with a name regex' do
+      subject.name = 'hoanganh123'
+      expect(subject).to be_valid
+    end
+
+    it 'is not valid without a name regex' do
+      subject.name = 'hoanganh 123'
+      expect(subject).to_not be_valid
+    end
   end
 end
