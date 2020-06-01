@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit({ roles: [] }, :email, :password, :password_confirmation, :name)
     end
-    update_attrs = %i[password password_confirmation current_password]
+    update_attrs = %i[name password password_confirmation current_password]
     devise_parameter_sanitizer.permit :account_update, keys: update_attrs
   end
 
