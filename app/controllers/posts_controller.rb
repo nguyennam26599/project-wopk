@@ -2,6 +2,10 @@
 
 class PostsController < ApplicationController
   def show
-    @post = Post.find(params[:id])
+    if (@post = Post.find_by(id: params[:id]))
+      @user = @post.user
+    else
+      redirect_to(root_url, notice: 'Post is not found')
+    end
   end
 end
