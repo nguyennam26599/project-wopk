@@ -8,11 +8,11 @@ class Admin < ApplicationRecord
   attr_writer :login
 
   def login
-    @login || adminname || email
+    @login || user_name || email
   end
 
   def self.find_for_authentication(conditions)
     login = conditions.delete(:login)
-    where(conditions).where(['adminname = :value OR email = :value', { value: login }]).first
+    where(conditions).where(['user_name = :value OR email = :value', { value: login }]).first
   end
 end
