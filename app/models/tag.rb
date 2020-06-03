@@ -2,6 +2,7 @@
 
 class Tag < ApplicationRecord
   before_save :downcase_name
+
   has_many :posts_relationships, as: :posts_relationship
   has_many :posts, through: :posts_relationships
   enum status: %i[draft publish]

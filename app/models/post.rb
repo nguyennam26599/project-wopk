@@ -7,6 +7,9 @@ class Post < ApplicationRecord
   belongs_to :user
   enum status: %i[draft pending]
 
+  PENDING_STATUS = pending
+  DRAFT_STATUS = draft
+
   def vote_count
     if vote.positive?
       "+#{vote}"
@@ -16,7 +19,7 @@ class Post < ApplicationRecord
       '0'
     end
   end
-  
+
   def check_list_tag(name_tag_list)
     return if name_tag_list.blank?
 
@@ -25,6 +28,10 @@ class Post < ApplicationRecord
     else
       create_tag_relationship(name_tag_list, Tag::PUBLISH_STATUS)
     end
+  end
+
+  def self.valid_status?(status)
+    [PENDING_STATUS, DRAFT_STATUS].include?(status)
   end
 
   private

@@ -5,10 +5,6 @@
     }
 }
 
-.container-form {
-    padding: 1rem;
-}
-
 .btn-dropdown-status {
     border-color: rgb(207, 207, 207);
 }
@@ -75,11 +71,8 @@
     &-option {
         padding: 0 1.5rem;
         clear: both;
-        font-weight: 400;
-        color: #212529;
         text-align: inherit;
         white-space: nowrap;
-        background-color: transparent;
     }
 
     &-menu {

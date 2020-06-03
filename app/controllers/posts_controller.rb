@@ -10,12 +10,14 @@ class PostsController < ApplicationController
   end
 
   def create
+    return redirect_to new_post_path unless Post.valid_status?(params[:post][:status])
+
     @post = @posts.new post_params
     if @post.save
       @post.check_list_tag(params[:tags])
       redirect_to root_path
     else
-      render new_post_path
+      redirect_to new_post_path
     end
   end
 
@@ -30,7 +32,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :status).with_defaults(vote: 0, view_count: 0)
+    params.require(:post).permit(:title, :content, :status)
   end
 
   def set_posts
