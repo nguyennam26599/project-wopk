@@ -1,0 +1,42 @@
+<div class="container-build bg-light w-100">
+    <div class="container-form">
+        <%= form_for @post do |f| %>
+            <div class="form-group">
+                <%= f.text_field :title, class: "form-control placeholder-post-font-size", placeholder: " Title", id: "title" %>
+            </div>
+            <div class="form-group">
+                <%= text_field_tag :tags, "", id: "tag-data", 'data-role' => "tagsinput", data: {autocomplete_source: search_tags_path}, placeholder: "Tag your post. Maximun 5 tags" %>
+                <div class="menu-list"></div>
+            </div>
+            <div class="form-group form-btn position-relative">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle btn-dropdown-status w-100 bg-white text-secondary" type="button">
+                        Save
+                    </button>
+                    <div class="dropdown-menu-btn dropdown-menu-position bg-white position-absolute">
+                        <div class="dropdown-header title-status text-size-10rem text-dark">Puslish your post</div>
+                        <div class="dropdown-header">Visibility: </div>
+                        <div class="dropdown-option text-size-08rem w-100 border-0">
+                            <label class="post-publish text-muted" for="post-publish"><%= f.radio_button :status, :pending, id: "post-publish", checked: true %> Publish</label><br>
+                            <label class="post-draft text-muted" for="post-draft"><%= f.radio_button :status, :draft, id: "post-draft" %> Private draft</label>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-option text-muted w-100 border-0">
+                            <span class="text-scope-status text-size-08rem"><i class="fas fa-globe-americas"></i>  Everyone can see your post</span> 
+                        </div>
+                        <div class="dropdown-option btn-submit w-100 border-0">
+                            <%= f.button "Publish", class: "btn btn-outline-primary btn-sm btn-scope" %>
+                            <%= f.submit "Submit to organization", class: "btn btn-outline-secondary btn-sm" %>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu-text dropdown-menu-position bg-white text-size-10rem position-absolute">
+                        <div class="dropdown-header">Add a title, pick up at least a tag and start &emsp; <br>writing something to publish.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-area">
+                <%= f.text_area :content, id: "editor" %>
+            </div>
+        <% end %>
+    </div>
+</div>

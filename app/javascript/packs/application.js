@@ -15,7 +15,7 @@ import "startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing";
 
 import "../js/sb-admin-2";
 
-document.addEventListener("turbolinks:load", ()=>{
+document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
 });
@@ -26,8 +26,17 @@ window.$ = $;
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
-//
+//)
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+/* JS and config for function create posts */
 
+import "ckeditor5-build-classic-all-plugin/build/ckeditor";
+import "./posts/ckeditor/config";
+import "./posts/list-tags";
+import "./posts/create-post";
+import "jqueryui/jquery-ui";
+import "bootstrap-tagsinput/dist/bootstrap-tagsinput";
+
+/* End JS config for function create posts */
