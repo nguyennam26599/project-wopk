@@ -59,4 +59,8 @@ class User < ApplicationRecord
   def link_url
     "http://#{url_link}"
   end
+  
+  def following?(other_user)
+    user_followings.include?(other_user)
+  end
 end
