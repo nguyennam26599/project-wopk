@@ -1,0 +1,163 @@
+<%= render 'home/header'%>
+<div class="container position-relative font-body_post mt-5">
+    <div class="row">
+        <div class="p-0 col-md-1 d-none d-md-block">
+            <div class="post-actions d-flex flex-column align-items-center mx-auto">
+                <!---->
+                <div class="d-flex d-inline-block flex-column align-items-center font-40p mb-1">
+                    <button class="btn-out-line vote border-0 bg-white border-white"><i class="fa fa-caret-up"></i></button>
+                    <div class="vote-count text-muted font-weight-normal">
+                        <%= @post.vote_count%>
+                    </div>
+                    <button class="btn-out-line vote border-0 bg-white border-white"><i class="fa fa-caret-down"></i></button>
+                </div>
+                <div class="subscribe mb-2" >
+                    <button type="button" class="d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0">
+                        <i class="fa fa-paperclip text-muted"></i>
+                    </button>
+                </div>
+                <div class=" mb-2 font-15p d-flex align-items-center flex-column text-center">
+                    <a class="link_icon border border-secondary mb-2 rounded-circle" >
+                        <i class="text-muted fab fa-facebook"></i>
+                    </a>
+                    <a class="link_icon border border-secondary rounded-circle">
+                        <i class="text-muted fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>    
+      <div class="col-md-8">
+        <article class="post-content d-flex flex-column mh-100">
+          <header class="mb-2">
+            <div class="d-sm-flex mb-2 align-items-start justify-content-between">  
+                <div class=" post-author mb-2 mb-sm-0 align-items-center d-flex">
+                    <a href="#" class="mr-1">
+                        <div class="d-inline-block avatar-user--top">
+                            <%= avatar_for(@user,'mr-auto rounded-circle avatar-user--top') %>
+                        </div>    
+                    </a>
+
+                    <div class="post-author__info overflow-hidden mr-1 text-nowrap">
+                        <div class="d-flex">
+                            <div class="flex-fix mr-05 overflow-hidden text-nowrap">
+                                <a href="#" class="text-bold post-author__name"><%= @user.full_name%></a>
+                                <span class="text-muted">@<%= @user.name%></span>
+                            </div>
+                            <div class="mt-0">
+                                <button type="button" class="btn btn-outline-secondary btn-sm ml-1 w-1 p-0 pl-1 pr-1">
+                                    <span>Follow</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="stats">
+                            <span class="stats-item text-muted" >
+                                <i class="stats-item__icon fa fa-star pr-1"></i>90
+                            </span>
+                            <span class="stats-item text-muted">
+                                <i class="stats-item__icon fa fa-user-plus pr-1"></i>2
+                            </span>
+                            <span class="stats-item text-muted">
+                                <i class="fas fa-pencil-alt pr-1"></i><%= @user.post_size%>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-wrap">
+                    <div class="text-muted">
+                        Published Apr 3rd, 7:05 PM
+                        <span class="text-muted">
+                        - 7 min read
+                        </span>
+                    </div>
+                    <div class="d-flex text-muted font-20p align-items-center ml-auto">
+                        <div class="p-2">
+                            <i class="far fa-eye text-muted"></i>
+                            <span><%= @post.view_count.to_i%></span>
+                        </div>
+                        <div class="p-2 ml-3">
+                            <a href="#" class="text-decoration-none bg-white text-muted border-0">
+                                <i class="fas fa-comments"></i>
+                                <span>1</span>
+                            </a>
+                        </div>
+                        <div class="p-2 ml-3">
+                            <a href="#" class="text-decoration-none bg-white text-muted border-0">
+                                <i class="fa fa-paperclip"></i>
+                                <span> 3 </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            <h1 class="text-left text-dark text-break">
+                <%= @post.title %>                
+            </h1>
+          </header>
+
+          <div class="d-md-flex align-items-top justify-content-between">
+            <div class="tags">
+                <% @post.tags.each do |tag| %>
+                    <%= link_to tag.name, '#', class: "px-2 border-tag text-secondary tag-info font-12p d-inline-block text-nowrap overflow-hidden"  %> 
+                <% end%>                
+            </div>
+            <div class="el-dropdown">
+                <button class="btn bg-white border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">
+                        <i class="far fa-flag mr-05 pr-1 fa-fw"></i>Report
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="far fa-plus-square pr-1 mr-05 fa-fw"></i> Add to my series
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-magic pr-1 mr-05 fa-fw"></i>Highlighting code blocks
+                    </a>      
+                </div>
+            </div>
+          </div>
+
+          <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50">
+            <%== @post.content%>
+          </div>
+        
+        </article>
+      </div> 
+    </div>
+</div>
+
+<div class="post-bottom-bar border-top w-100 text-center bg-white d-flex position-fixed fixed-bottom d-md-none d-flex align-items-center zindex-fixed mb-0">
+    <a href="#" class="ml-1">
+        <div class="d-inline-block avatar-user--bot align-items-center">
+            <%= avatar_for(@user,'avatar-user--bot mr-auto rounded-circle') %>
+        </div>
+    </a>
+	<div class="font-12 d-flex ml-2 align-items-center">
+		<a class="vote">
+			<i class="fa fa-arrow-up"></i>
+		</a>
+		<div class="ml-2 mr-2 text-center"> 
+            <%= @post.vote_count%>
+         </div>
+		<a class="vote">
+			<i class="fa fa-arrow-down"></i>
+		</a>
+	</div>
+  <div class="d-inline-block ml-auto sharings d-flex align-items-center font-15p text-center mr-2">
+      <div class="subscribe">
+          <button type="button" class=" btn btn-light rounded-circle">
+            <i class="fa fa-paperclip text-secondary"></i>
+          </button>
+      </div>
+      <span>•</span>
+      <a class="sharing-item rounded-circle">
+          <i class="fab fa-facebook text-primary"></i>
+      </a>
+      <span>•</span> 
+      <a class="sharing-item rounded-circle">
+          <i class="fab fa-twitter text-info"></i>
+      </a>
+   </div>
+</div>

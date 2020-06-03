@@ -31,4 +31,12 @@ class User < ApplicationRecord
     login = conditions.delete(:login)
     where(conditions).where(['name = :value OR email = :value', { value: login }]).first
   end
+
+  def post_size
+    posts.size
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

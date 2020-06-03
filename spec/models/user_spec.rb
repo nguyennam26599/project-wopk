@@ -20,6 +20,11 @@ RSpec.describe User, type: :model do
     should respond_to(:comments)
   end
 
+  it 'return a full name user created post' do
+    user = User.create(first_name: 'Hoang', last_name: 'Anh')
+    expect(user.full_name == 'Hoang Anh').to be true
+  end
+
   subject { described_class.new(password: 'pass123', name: 'Anh', email: 'anh@gmail.com') }
 
   describe 'Validations' do

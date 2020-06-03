@@ -1,0 +1,116 @@
+// avatar
+.avatar-user{
+    &--top {
+        width: 45px;
+        height: 45px;
+    }
+    &--bot {
+        width: 35px;
+        height: 35px;
+    }
+}
+// post
+
+.post-actions {
+    position: sticky;
+    top: 0px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 50px;
+}
+// post-author
+
+.post-author{
+    &__info {
+        line-height: 24px;
+    }
+    &__name {
+        margin-right: 5px;
+    }
+}
+ //vote
+
+ .vote {
+    line-height: 1;
+    &-count{
+        font-size: .6em;
+        height: .6em;
+        line-height: .5em;
+    }
+    &:not(.disabled) {
+        color: rgb(155, 155, 155);
+    }
+}
+.btn-out-line {
+    outline: none !important;
+}
+//  clip btn
+
+.clip-button {
+    line-height: 1;
+    padding: 15px 15px;
+    /* box-shadow */
+    -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 5px;
+    -moz-box-shadow: rgba(0,0,0,0.8) 0 0 5px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 5px;
+}
+button:not(:disabled) {
+    cursor: pointer;
+}
+.link_icon{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+// stats
+.stats-item {
+    cursor: default;
+    margin-right: 1rem;
+}
+// tags
+
+.border-tag {  
+    border: 1px solid #dde7f4;
+    border-radius: 4px;
+    background-color: #f4f4f5;
+}
+.tag-info {
+    margin-right: .5rem;
+    max-width: 9rem;
+    height: 1.75rem;
+    line-height: 1.625rem;
+    margin-right: .5rem;
+}
+//font
+.font {
+    &-12p {
+        font-size: 12px!important;
+    }
+    &-15p {
+        font-size: 15px!important;
+    }
+    &-18p {
+        font-size: 18px!important;
+    }
+    &-20p {
+        font-size: 20px!important;
+    }
+    &-boby_post{
+        font-size: 0.875rem!important;
+    }
+    &-40p{
+        font-size: 40px!important;
+    }
+    &-12{
+        font-size: 1.2rem!important;
+    }
+  }
+.md-contents {
+    line-height: 1.75;
+}
+.sharing-item{
+    border: 1px solid #ddd;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+}

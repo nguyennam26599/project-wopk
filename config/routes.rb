@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   get 'confirm', to: 'home#confirm_pages'
+  resources :posts
 end
