@@ -2,11 +2,12 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :admins
   devise_scope :user do
     get 'login', to: 'users/sessions#new'
     get 'signup', to: 'users/registrations#new'
   end
-  namespace :admin do
+  namespace :admins do
     root 'pages#index'
     get 'form' => 'pages#form'
     get 'table' => 'pages#table'

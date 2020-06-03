@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Admin
-  class PagesController < ApplicationController
+module Admins
+  class PagesController < BaseController
     def index; end
 
     def form; end

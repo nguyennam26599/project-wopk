@@ -4,7 +4,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 },
+                   format: { with: /\A[a-zA-Z0-9]+\z/ },
+                   uniqueness: { case_sensitive: false }
 
   has_many :posts
   has_many :comments
@@ -18,4 +20,15 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  attr_writer :login
+
+  def login
+    @login || name || email
+  end
+
+  def self.find_for_authentication(conditions)
+    login = conditions.delete(:login)
+    where(conditions).where(['name = :value OR email = :value', { value: login }]).first
+  end
 end
