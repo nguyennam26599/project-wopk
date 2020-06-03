@@ -1,27 +1,7 @@
 <div class="container-build p-2 bg-light ">
-    <div class="container p-1 main-container">
-        <div class="left-setting p-3">
-            <div class="title-sidebar border-bottom pt-3 w-100">
-                <h6><b>Public Profile</b></h6>
-            </div>
-            <div class="content-sidebar border-bottom pt-3 w-100">
-                <h6>Account</h6>
-            </div>
-            <div class="content-sidebar border-bottom pt-3 w-100">
-                <h6>Password</h6>
-            </div>
-            <div class="title-sidebar border-bottom pt-3 w-100">
-                <h6><strong>Post</strong></h6>
-            </div>
-            <div class="content-sidebar border-bottom pt-3 w-100">
-                <h6>Publish</h6>
-            </div>
-            <div class="content-sidebar border-bottom pt-3 w-100">
-                <h6>Private</h6>
-            </div>
-        </div>
-
-        <div class="main-profile p-3">
+    <div class="container p-1 main-container text-muted d-flex ml-auto mr-auto">
+      <%= render 'users/shared/left_settings' %>
+        <div class="main-profile p-3 flex-grow-1 bg-white">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                     <div class="settings_titleSection d-flex justify-content-center align-items-center flex-wrap">
                         <a class="settings_userName" href="#"><%= @user.name %></a>
