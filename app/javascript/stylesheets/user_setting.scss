@@ -1,0 +1,93 @@
+.main-container {
+    flex-flow: row wrap;
+    align-items: flex-start;
+    max-width: 68.75rem;
+}
+
+.left-setting {
+    width: 17.5rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1em;
+    padding: 1rem;
+    
+    a {
+    color: gray;
+    }
+}
+
+.main-profile {
+    width: 0;
+    min-width: 0;
+    margin-left: 1rem;
+    border: 1px solid transparent;
+    padding: 2rem;
+}    
+
+.settings {
+    &_avatar {
+        height: 10rem;
+    }
+    
+    &_titleSeparator {
+        margin: 0 0.75rem;
+        font-size: 2.8rem;
+        color: #e8e8e8;
+    }
+
+    &_userName {
+        padding-left: 0.5rem;
+        color: #555;
+    }
+
+    &_userName:visited {
+        color: #555;
+    }
+
+    &_titleSection {
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 770px) {
+    .left-setting {
+        width: 100%;
+        position: static;
+    }
+
+    .main-profile {
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+
+    .settings {
+        &_userLogo {
+            display: flex;
+            overflow: hidden;
+            border-radius: 0.2em;
+            width: 1.25rem;
+            height: 1.25rem;
+        
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 0.2em;
+            }
+        }
+
+        &_titleSeparator {
+            display: none
+        }
+
+        &_titleSection {
+            font-size: 1.8rem;
+            justify-content: start;
+        }
+
+        &_userName {
+            width: 80%;
+        }
+    }
+}

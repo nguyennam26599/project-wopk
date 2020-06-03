@@ -11,6 +11,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-tagsinput": "^0.7.1",
     "ckeditor5-build-classic-all-plugin": "^16.0.5",
+    "flatpickr": "^4.6.3",
     "jquery": "~3.4.1",
     "jqueryui": "^1.11.1",
     "popper.js": "^1.16.1",

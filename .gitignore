@@ -40,3 +40,4 @@ coverage
 .idea/
 /es
 /test
+.DS_Store
