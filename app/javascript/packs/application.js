@@ -14,6 +14,7 @@ import "@fortawesome/fontawesome-free/js/all";
 import "startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing";
 
 import "../js/sb-admin-2";
+import "../js/profile";
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();

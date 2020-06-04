@@ -1,0 +1,35 @@
+<div class="container my-3">
+  <div class="row">
+    <div class="col-sm-1 col-2 text-center">
+      <%= image_tag '/default-user-avatar.png', class: "rounded img-14em" %>
+    </div>
+    <div class="col-sm-11 col-10 row font-size-08em text-muted">
+      <div class="col-6 pt-1">
+        <span>Node.js got a new post</span>
+      </div>
+      <div class="col-6 text-right">
+        <span class="text-muted"><%= time_ago_in_words(post.created_at) %>
+          ago.</span>
+      </div>
+    </div>
+  </div>
+  <div class="row border-bottom">
+    <div class="col-sm-1 col-2 text-center">
+      <%= avatar_for(post.user.avatar,'rounded img-14em') %>
+    </div>
+    <div class="col-sm-11 col-10 ">
+      <div class="">
+        <%= link_to post.title, post_path(post.id), class: "font-weight-bold text-dark font-size-12em" %>
+      </div>
+      <div class="text-muted font-size-08em mb-2">
+        <%= link_to "by #{post.user.name}", user_path(post.user.id), class: "text-muted text-decoration-none" %>
+        <span class="fa fa-tags"></span>
+        <% post.posts_relationships.where(posts_relationship_type: "Tag").each do |x| %>
+          <a href="#" class="badge badge-light mr-2">
+            <%= Tag.find_by_id(x.posts_relationship_id).name%>
+          </a>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>
