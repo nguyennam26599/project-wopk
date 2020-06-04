@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 },
                    format: { with: /\A[a-zA-Z0-9]+\z/ },
                    uniqueness: { case_sensitive: false }
-
+  enum gender: %i[male female other]
   has_many :posts
   has_many :comments
   has_many :followings, as: :follower, class_name: 'FollowPolymorphic'
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :user_followers, through: :followers, source: :follower, source_type: 'User'
   has_many :user_followings, through: :followings, source: :following, source_type: 'User'
   has_many :tag_followings, through: :followings, source: :following, source_type: 'Tag'
-
+  has_one_attached :avatar
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },

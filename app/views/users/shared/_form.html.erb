@@ -1,0 +1,93 @@
+<div class="container-build p-2 bg-light ">
+    <div class="container p-1 main-container text-muted d-flex ml-auto mr-auto">
+        <%= render 'users/shared/left_settings' %>
+        <div class="main-profile p-3 flex-grow-1 bg-white">
+            <%= form_for current_user do |f|  %>
+                <div class="settings-title-section d-flex justify-content-center align-items-center flex-wrap">
+                        <a class="settings-username" href="#"><%= current_user.name %></a>
+                        <span class="settings-title-separator">/</span>
+                        <span class="settings-title p-2">Public Profile</span>
+                    </div>
+                <div class="form-group font-weight-bold">
+                <label for="avatar">Avatar</label><br>
+                    <%= avatar_for(current_user, "rounded-circle settings-avatar", "img-preview") %>                    
+                    <%= f.file_field :avatar, id: "imgInp", accept: ".jpg, .jpeg, .png" %>
+                </div>
+                <div class="form-group font-weight-bold">
+                <label for="">Name</label>
+                    <div class="d-flex">
+                    <%= f.text_field :first_name, class: 'form-control mr-1', placeholder: "First Name", 
+                    pattern: regex_name_validate, title: "Name should only contain letters. e.g. John" %>
+                    <%= f.text_field :last_name, class: 'form-control mr-1', placeholder: "Last Name", 
+                    pattern: regex_name_validate, title: "Name should only contain letters. e.g. Wick" %>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <h6 class='font-weight-bold'>Public Email</h6>
+                    <div>
+                        <%= f.check_box :email_public %>
+                        <span>Open your Email to public.</span>
+                    </div>
+                    <p class="text-black-50">Your mail address (<%= current_user.email %>) becomes public.<a href="#"> Change email address</a> </p>
+                </div>
+                <div class="form-group ">
+                <label for="gender" class='font-weight-bold'>Gender</label><br>
+                <% User.genders.keys.each do |gender| %>
+                <%= f.radio_button :gender, gender %>
+                <%= f.label gender.to_sym %>
+                <% end %>
+                </div>
+                <div class="form-group ">
+                <label for="birthday" class='font-weight-bold'>Birthday</label><br>
+                <%= f.text_field :birthday, data: { behavior: "flatpickr" } %>
+                <div class="form-group ">
+                    <label for="url_link" class='font-weight-bold'>URL</label><br>
+                    <%= f.text_field :url_link, class: 'form-control'%>
+                </div>
+                <div class="form-group">
+                    <label for="organization", class='font-weight-bold'>Organization</label><br>
+                    <%= f.text_field :organization, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <label for="address" class='font-weight-bold'>Address</label><br>
+                    <%= f.text_field :address, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <label for="description" class='font-weight-bold'>Description</label><br>
+                    <%= f.text_area :description, class: 'form-control', cols: '20', rows: '4' %>
+                    <span class="text-black-50">Less than 200 characters</span>
+                </div>
+                <div class="form-group">
+                    <label for="facebook_link" class='font-weight-bold'>Facebook ID</label><br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="facebook-url">https://facebook.com/</span>
+                        </div>
+                        <%= f.text_field :facebook_link, class: 'form-control', id: "facebook-url"%>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="github-url" class='font-weight-bold'>Github ID</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="github-url">https://github.com/</span>
+                        </div>
+                        <%= f.text_field :github_link, class: 'form-control', id: "github-url"%>
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="linkedln-url" class='font-weight-bold'>LinkedIn ID</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="linkedln-url">https://www.linkedin.com/in/</span>
+                        </div>
+                        <%= f.text_field :linkedln_link, class: 'form-control', id: "linkedln-url"%>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <%= f.submit "Update user", class: "btn btn-success" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

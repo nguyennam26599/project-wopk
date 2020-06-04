@@ -14,15 +14,23 @@ import "@fortawesome/fontawesome-free/js/all";
 import "startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing";
 
 import "../js/sb-admin-2";
+import "../js/preview_image";
+import flatpickr from "flatpickr";
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
+    flatpickr("[data-behavior='flatpickr']", {
+        altInput: true,
+        altFormat: "F j, Y",
+        maxDate: "today",
+    })
 });
 
 // Global jquery setup
 window.jQuery = $;
 window.$ = $;
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

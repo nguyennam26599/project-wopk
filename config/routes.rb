@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   # end
+  resources :users, only: %w[update show edit]
   devise_scope :user do
     get 'login', to: 'users/sessions#new'
     get 'signup', to: 'users/registrations#new'
