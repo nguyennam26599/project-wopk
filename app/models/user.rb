@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :user_followers, through: :followers, source: :follower, source_type: 'User'
   has_many :user_followings, through: :followings, source: :following, source_type: 'User'
   has_many :tag_followings, through: :followings, source: :following, source_type: 'Tag'
+  has_one_attached :avatar
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
@@ -38,5 +39,9 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def another_user
+    user.name
   end
 end

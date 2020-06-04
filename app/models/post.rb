@@ -15,4 +15,7 @@ class Post < ApplicationRecord
       '0'
     end
   end
+
+  scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
+  scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
 end
