@@ -25,29 +25,31 @@
 }    
 
 .settings {
-    &_avatar {
+    &-avatar {
         height: 10rem;
         width: 10rem;
     }
     
-    &_titleSeparator {
-        margin: 0 0.75rem;
-        font-size: 2.8rem;
-        color: #e8e8e8;
-    }
-
-    &_userName {
+    &-username {
         padding-left: 0.5rem;
         color: #555;
     }
 
-    &_userName:visited {
+    &-username:visited {
         color: #555;
     }
 
-    &_titleSection {
-        font-size: 2.4rem;
-        margin-bottom: 2rem;
+    &-title {
+        &-section {
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+        }
+
+        &-separator {
+            margin: 0 0.75rem;
+            font-size: 2.8rem;
+            color: #e8e8e8;
+        }
     }
 }
 
@@ -64,7 +66,7 @@
     }
 
     .settings {
-        &_userLogo {
+        &-userlogo {
             display: flex;
             overflow: hidden;
             border-radius: 0.2em;
@@ -78,17 +80,19 @@
             }
         }
 
-        &_titleSeparator {
-            display: none
-        }
-
-        &_titleSection {
-            font-size: 1.8rem;
-            justify-content: start;
-        }
-
-        &_userName {
+        &-username {
             width: 80%;
+        }
+
+        &-title {
+            &-section {
+                font-size: 1.8rem;
+                justify-content: start;
+            }
+    
+            &-separator {
+                font-size: 1.4rem;
+            }
         }
     }
 }

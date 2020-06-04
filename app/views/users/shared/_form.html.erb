@@ -3,14 +3,14 @@
         <%= render 'users/shared/left_settings' %>
         <div class="main-profile p-3 flex-grow-1 bg-white">
             <%= form_for current_user do |f|  %>
-                <div class="settings_titleSection d-flex justify-content-center align-items-center flex-wrap">
-                        <a class="settings_userName" href="#"><%= current_user.name %></a>
-                        <span class="settings_titleSeparator">/</span>
-                        <span class="settings_title">Public Profile</span>
+                <div class="settings-title-section d-flex justify-content-center align-items-center flex-wrap">
+                        <a class="settings-username" href="#"><%= current_user.name %></a>
+                        <span class="settings-title-separator">/</span>
+                        <span class="settings-title">Public Profile</span>
                     </div>
                 <div class="form-group font-weight-bold">
                 <label for="avatar">Avatar</label></br>
-                    <%= avatar_for(current_user, "rounded-circle settings_avatar", "img-preview") %>                    
+                    <%= avatar_for(current_user, "rounded-circle settings-avatar", "img-preview") %>                    
                     <%= f.file_field :avatar, id: "imgInp" %>
                 </div>
                 <div class="form-group font-weight-bold">

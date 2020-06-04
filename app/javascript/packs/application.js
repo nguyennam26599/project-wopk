@@ -14,7 +14,6 @@ import "@fortawesome/fontawesome-free/js/all";
 import "startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing";
 
 import "../js/sb-admin-2";
-import "flatpickr/dist/flatpickr";
 import "../js/preview_image";
 import flatpickr from "flatpickr";
 

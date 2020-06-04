@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :correct_user, only: %i[edit update]
+  before_action :authenticate_user!, :current_user, only: %i[edit update]
   def edit
-    current_user? ? @user = @this_user : (render action: 'show')
+    current_user? ? @user = current_user : (render action: 'show')
   end
 
   def update
@@ -26,10 +26,6 @@ class UsersController < ApplicationController
       :name, :gender, :first_name, :last_name, :url_link, :organization, :address, :birthday,
       :facebook_link, :github_link, :linkedln_link, :description, :avatar, :email_public
     )
-  end
-
-  def correct_user
-    @this_user = current_user
   end
 
   def current_user?
