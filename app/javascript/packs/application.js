@@ -48,3 +48,9 @@ import "jqueryui/jquery-ui";
 import "bootstrap-tagsinput/dist/bootstrap-tagsinput";
 
 /* End JS config for function create posts */
+
+/* JS and config for function load page user */
+
+import "../js/profile";
+
+/* End JS config for function create posts */

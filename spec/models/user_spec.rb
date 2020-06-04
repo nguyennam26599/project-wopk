@@ -73,4 +73,104 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+  it 'is return fullname' do
+    u = User.create(first_name: 'Vi', last_name: 'Hoang')
+    expect("#{u.first_name} #{u.last_name}" == 'Vi Hoang').to be true
+  end
+
+  it 'is return link github' do
+    u = User.create(github_link: 'e23w')
+    expect(u.link_github == 'http://github.com/e23w').to be true
+  end
+
+  it 'is return link facebook' do
+    u = User.create(facebook_link: 'e23w')
+    expect(u.link_facebook == 'http://facebook.com/e23w').to be true
+  end
+
+  it 'is return linkedin' do
+    u = User.create(linkedln_link: 'e23w')
+    expect(u.link_linkedin == 'https://www.linkedin.com/e23w').to be true
+  end
+
+  it 'is return link url' do
+    u = User.create(url_link: 'blogtruyen.com')
+    expect(u.link_url == 'http://blogtruyen.com').to be true
+  end
+
+  it 'is return fullname' do
+    u = User.create(first_name: 'Vi', last_name: 'Hoang')
+    expect("#{u.first_name} #{u.last_name}" == 'Vi Hoang').to be true
+  end
+
+  it 'is return link github' do
+    u = User.create(github_link: 'e23w')
+    expect(u.link_github == 'http://github.com/e23w').to be true
+  end
+
+  it 'is return link facebook' do
+    u = User.create(facebook_link: 'e23w')
+    expect(u.link_facebook == 'http://facebook.com/e23w').to be true
+  end
+
+  it 'is return linkedin' do
+    u = User.create(linkedln_link: 'e23w')
+    expect(u.link_linkedin == 'https://www.linkedin.com/e23w').to be true
+  end
+
+  it 'is return link url' do
+    u = User.create(url_link: 'blogtruyen.com')
+    expect(u.link_url == 'http://blogtruyen.com').to be true
+  end
+
+  it 'is return fullname' do
+    u = User.create(first_name: 'Vi', last_name: 'Hoang')
+    expect("#{u.first_name} #{u.last_name}" == 'Vi Hoang').to be true
+  end
+
+  it 'is return link github' do
+    u = User.create(github_link: 'e23w')
+    expect(u.link_github == 'http://github.com/e23w').to be true
+  end
+
+  it 'is return link facebook' do
+    u = User.create(facebook_link: 'e23w')
+    expect(u.link_facebook == 'http://facebook.com/e23w').to be true
+  end
+
+  it 'is return linkedin' do
+    u = User.create(linkedln_link: 'e23w')
+    expect(u.link_linkedin == 'https://www.linkedin.com/e23w').to be true
+  end
+
+  it 'is return link url' do
+    u = User.create(url_link: 'blogtruyen.com')
+    expect(u.link_url == 'http://blogtruyen.com').to be true
+  end
+
+  it 'is return full name' do
+    u = User.create(first_name: 'Vi', last_name: 'Hoang')
+    expect(u.full_name == 'Vi Hoang').to be true
+  end
+
+  it 'is return link github' do
+    u = User.create(github_link: 'e23w')
+    expect(u.link_github == 'http://github.com/e23w').to be true
+  end
+
+  it 'is return link facebook' do
+    u = User.create(facebook_link: 'e23w')
+    expect(u.link_facebook == 'http://facebook.com/e23w').to be true
+  end
+
+  it 'is return linkedin' do
+    u = User.create(linkedln_link: 'e23w')
+    expect(u.link_linkedin == 'https://www.linkedin.com/e23w').to be true
+  end
+
+  it 'is return link url' do
+    u = User.create(url_link: 'blogtruyen.com')
+    expect(u.link_url == 'http://blogtruyen.com').to be true
+  end
 end
