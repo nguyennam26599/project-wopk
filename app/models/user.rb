@@ -39,4 +39,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def another_user
+    user.name
+  end
 end
