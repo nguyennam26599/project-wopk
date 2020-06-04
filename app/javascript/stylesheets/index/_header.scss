@@ -1,32 +1,12 @@
-  .header-f {
-    background-color: #55c500;
-    font-family: tafhoma;
+.header-page-index {
+  background-color: #55c500;
 
-    .header-f li.nav-item a.nav-link:hover .page-footers,
-    .header-f li.nav-item.active a.nav-link {
-      background-color: #3e3e3e;
-    }
-
-    .fa-caret-square-o-down {
-      font-size: 25px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    .nologin {
-      color: #aaa;
-      font-size: 0.6em;
-      font-weight: 600;
-      line-height: normal;
-      margin: 8px 0 0 34px;
-    }
-
-    .icon-login {
-      font-size: 20px;
-      margin-top: 9px;
-    }
-
-    .button-menu {
-      font-size: 12px;
-    }
+  .header-page-index li.nav-item a.nav-link:hover .page-footers,
+  .header-page-index li.nav-item.active a.nav-link {
+    background-color: #3e3e3e;
   }
+
+  .header_search {
+    -webkit-appearance: none;
+  }
+}

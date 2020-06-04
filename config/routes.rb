@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
+  resources :users, only: %i[update show edit]
   devise_for :admins
   devise_scope :user do
     get 'login', to: 'users/sessions#new'
