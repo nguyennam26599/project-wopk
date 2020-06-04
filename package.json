@@ -4,13 +4,18 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@rails/actioncable": "^6.0.0",
+    "@rails/actiontext": "^6.0.2-2",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
+    "bootstrap-tagsinput": "^0.7.1",
+    "ckeditor5-build-classic-all-plugin": "^16.0.5",
     "jquery": "~3.4.1",
+    "jqueryui": "^1.11.1",
     "popper.js": "^1.16.1",
     "startbootstrap-sb-admin-2": "^4.0.7",
+    "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

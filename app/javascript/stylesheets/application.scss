@@ -9,4 +9,11 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~startbootstrap-sb-admin-2/scss/sb-admin-2";
 @import 'custom';
 @import 'pagy';
-@import 'posts/post_detail'
+@import 'posts/post_detail';
+
+/* scss for create posts function */
+
+@import "posts/bootstrap-tagsinput";
+@import 'posts/create-post';
+
+/* end */

@@ -1,0 +1,137 @@
+.placeholder-post-font-size, .bootstrap-tagsinput input {
+    &::-webkit-input-placeholder {
+        color: rgb(209, 209, 209);
+        font-size: 0.75rem;
+    }
+}
+
+.btn-dropdown-status {
+    border-color: rgb(207, 207, 207);
+}
+
+.ui {
+    &-autocomplete {
+        list-style-type: none;
+        cursor: default;
+        position: absolute;
+        width: 91.5%;
+        z-index: 10;
+    }
+
+    &-menu-item {
+        margin-left: -2.5em;
+        height: 2.5em;
+        padding: 0 1em;
+        line-height: 2.5em;
+        background-color: white;
+    
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+} 
+
+.ck {
+    height: 70vh;
+}
+
+.border-focus {
+    box-shadow: 0 0 7px skyblue;
+    border: 1px solid skyblue;
+}
+
+.ui-helper-hidden-accessible{
+    div:last-child {
+        display: none;
+    }
+}
+
+.text-size {
+    &-08rem {
+        font-size: 0.8rem;
+    }
+
+    &-10rem {
+        font-size: 1rem;
+    }
+}
+
+.form {
+    &-control:focus {
+        box-shadow: 0 0 7px skyblue;
+        border: 1px solid skyblue;
+    }
+}
+
+.tag {
+    font-size: 0.8rem;
+}
+
+.dropdown {
+    &-option {
+        padding: 0 1.5rem;
+        clear: both;
+        text-align: inherit;
+        white-space: nowrap;
+    }
+
+    &-menu {
+        width: 24em;
+
+        &-text, &-btn {
+            top: 100%;
+            z-index: 1000;
+            display: none;
+            float: left;
+            width: 20rem;
+            padding: 0.5rem 0;
+            margin: 0.125rem 0 0;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-clip: padding-box;
+            border: 1px solid #e3e7eb;
+            border-radius: 0.25rem;
+        }
+    }
+}
+
+@media screen and (min-width: 530px) {
+    .form {
+        &-btn {
+            width: 15%;
+            float: left;
+        }
+
+        &-area {
+            margin-top: 3em;
+        }
+    }
+
+    .btn-dropdown-status {
+        width: 98%;
+        margin-top: 0;
+        margin-left: 2%;
+        overflow: hidden;
+    }
+
+    .item-tag {
+        margin-top: 0;
+    }
+
+    .bootstrap-tagsinput {
+        width: 85%;
+        float: left;
+        height: calc(1.5em + 0.75rem + 2px);
+        cursor: text;
+    } 
+
+    .ui-autocomplete {
+        width: 83%;
+        margin-top: 2.5em;
+    }
+
+    .dropdown-menu-position {
+        right: 0;
+    }
+}
