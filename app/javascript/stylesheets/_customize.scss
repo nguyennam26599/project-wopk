@@ -1,0 +1,60 @@
+$greencolor: #55c500;
+
+.font-size {
+  &-20em {
+    font-size: 2em !important;
+  }
+
+  &-15em {
+    font-size: 1.5em !important;
+  }
+
+  &-13em {
+    font-size: 1.3em !important;
+  }
+
+  &-12em {
+    font-size: 1.2em !important;
+  }
+
+  &-11em {
+    font-size: 1.1em !important;
+  }
+
+  &-09em {
+    font-size: 0.9em !important;
+  }
+
+  &-07em {
+    font-size: 0.7em !important;
+  }
+
+  &-08em {
+    font-size: 0.8em !important;
+  }
+
+  &-06em {
+    font-size: 0.6em !important;
+  }
+}
+
+.img {
+  &-57em {
+    width: 5.7em;
+    height: 5.7em;
+  }
+
+  &-375em {
+    width: 3.75em;
+    height: 3.75em;
+  }
+
+  &-24em {
+    width: 2.4em;
+    height: 2.4em;
+  }
+}
+
+.greencolor {
+  color: #55c500;
+}

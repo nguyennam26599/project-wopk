@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
+  resources :users, only: %i[update show edit]
   devise_for :admins
   # routes create post function
   resources :posts

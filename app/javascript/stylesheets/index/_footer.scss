@@ -2,7 +2,6 @@
   background-color: #3e3e3e;
 
   .logo-hiruno {
-    margin-top: 20px;
 
     .footer-copyright {
       font-size: 12px;
@@ -10,15 +9,16 @@
   }
 
   .footer-list {
-    display: flex;
     font-size: 15px;
     margin-top: 0.5em;
-    padding-right: 0;
 
     .footer-column {
-      display: flex;
       flex-direction: column;
       padding: 1em 3em 1em 0;
     }
+  }
+  div.footer-column a {
+    text-decoration:none;
+    color: #999999;
   }
 }

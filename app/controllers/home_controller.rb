@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
-  def index; end
-
-  def confirm; end
+  def show
+    @user = User.find_by(id: params[:id])
+  end
 end
