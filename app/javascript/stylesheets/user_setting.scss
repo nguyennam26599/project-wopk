@@ -84,15 +84,17 @@
             width: 80%;
         }
 
-        &-title {
+        &-title {   
+            width: 80%;
             &-section {
                 font-size: 1.8rem;
                 justify-content: start;
             }
     
             &-separator {
-                font-size: 1.4rem;
+                display: none;
             }
         }
+        
     }
 }
