@@ -7,8 +7,8 @@ class Post < ApplicationRecord
   belongs_to :user
   enum status: %i[draft pending]
 
-  PENDING_STATUS = pending
-  DRAFT_STATUS = draft
+  PENDING_STATUS = 'pending'
+  DRAFT_STATUS = 'draft'
 
   def vote_count
     if vote.positive?

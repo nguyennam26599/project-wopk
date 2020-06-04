@@ -10,13 +10,15 @@ $(document).on("turbolinks:load", function () {
     $(".text-scope-status").html(`
             <i class="fas fa-user-lock"></i> 
             Only you can see this post. 
-            Your draft is already <br>saved automatically as you type.
+            Your draft is <br>already saved automatically as you type.
         `);
     $(".btn-scope").html("Save draft");
   });
 
   $(".btn-dropdown-status").click(function () {
-    if ($("#title").val() != "" && $(".ck-content p").text() != "") {
+    let titleValue = $("#title").val();
+    let textContent = $(".ck-content p").text();
+    if (titleValue != "" && textContent != "") {
       $(".dropdown-menu-btn").toggle();
     } else {
       $(".dropdown-menu-text").toggle();

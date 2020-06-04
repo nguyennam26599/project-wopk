@@ -10,7 +10,7 @@ class Tag < ApplicationRecord
   PUBLISH_STATUS = 'publish'
   DRAFT_STATUS = 'draft'
 
-  scope :search_name, ->(search_word) { where('name LIKE ?', "%#{search_word}%") }
+  scope :search_name_status_public, ->(search_word) { publish.where('name LIKE ?', "%#{search_word}%") }
 
   private
 

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # routes create post function
   resources :posts
   resources :tags do
-    get :search, on: :collection
+    collection do
+      get :search
+    end
   end
   # end
   devise_scope :user do
