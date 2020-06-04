@@ -11,13 +11,15 @@
                 <div class="form-group font-weight-bold">
                 <label for="avatar">Avatar</label><br>
                     <%= avatar_for(current_user, "rounded-circle settings-avatar", "img-preview") %>                    
-                    <%= f.file_field :avatar, id: "imgInp" %>
+                    <%= f.file_field :avatar, id: "imgInp", accept: ".jpg, .jpeg, .png" %>
                 </div>
                 <div class="form-group font-weight-bold">
                 <label for="">Name</label>
                     <div class="d-flex">
-                    <%= f.text_field :first_name, class: 'form-control mr-1' %>
-                    <%= f.text_field :last_name, class: 'form-control mr-1' %>
+                    <%= f.text_field :first_name, class: 'form-control mr-1', placeholder: "First Name", 
+                    pattern: regex_name_validate, title: "Name should only contain letters. e.g. John" %>
+                    <%= f.text_field :last_name, class: 'form-control mr-1', placeholder: "Last Name", 
+                    pattern: regex_name_validate, title: "Name should only contain letters. e.g. Wick" %>
                     </div>
                 </div>
                 <div class="form-group ">
