@@ -1,0 +1,48 @@
+<%= render 'home/header'%>
+<div class="main-content font-size-sm">
+    <div class="container pt-3 pb-1">
+        <div  class="d-flex align-items-center mb-1 col-xs-12 col-lg-6">
+            <div  class="d-flex w-100">
+                <h4  class="text-uppercase">
+                    Tags (<%= Tag.count%>)
+                </h4> 
+                <hr  class="mx-1 filler-line flex-grow-1 mt-4">
+            </div>
+        </div>
+        <div class="row">
+
+            <% @tag.each do |tag_item| %>
+                <div class="col-sm-6 col-lg-4 my-3">
+                    <div class="d-flex tag-item mw-100" >
+                        <div class="mr-3 tag__img">
+                            <%= link_to tag_path(tag_item.id) do %>
+                                <%=image_tag(default_avatar_tag(tag), class: 'tag__img')%>
+                            <%end%>
+                        </div>
+                        <div class="d-flex flex-column justify-content-between align-items-start">
+                            <h4 class="d-inline-flex overflow-hidden">
+                                <%= link_to tag_item.name, tag_path(tag_item.id), class: "text-dark text-decoration-none font-weight-normal text-truncate" %>
+                            </h4>
+                            <div class="text-muted">
+                                <span class="font-weight-bold"><%= tag_item.tag_post_size%> </span>posts<br />
+                                <span class="font-weight-bold"><%= tag_item.tag_follower_size%> </span>followers
+                            </div>
+                            <div class="subscribe">
+                                <button class="btn btn-sm btn-outline-primary btn-subscribe btn-white">
+                                    <span>
+                                        <i class="fa fa-plus"></i> Follow
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%end%>
+
+        </div>
+    </div>
+    <div class="mb-3">
+        <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
+    </div>
+</div>
+
