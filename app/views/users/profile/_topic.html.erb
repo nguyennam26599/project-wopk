@@ -1,0 +1,26 @@
+<% @posts.order(created_at: :desc).each do |post| %>
+  <div class="border-bottom py-2 px-0">
+    <div class="profile-tag text-left">
+      <i class="fas fa-tags tag-color"></i>
+      <% post.tags.each do |tag| %>
+        <span class="badge badge-light text-muted">
+          <%= link_to tag.name, '#', class: 'text-dark text-decoration-none font-size-12em' %>
+        </span>
+      <% end%>
+    </div>
+
+    <div class="articles">
+      <%= link_to post.title, '#', class: "font-weight-bolder lead text-dark" %>
+      <div class="row infomation-articles font-size-08em">
+        <div class="col-6 text-left">
+          <span class="text-muted">Lượt xem:
+            <%= post.view_count.to_i %>
+            <span></div>
+            <div class="col-6 text-right">
+              <span class="text-muted"><%= time_ago_in_words(post.created_at) %>
+                ago.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>

@@ -39,4 +39,24 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def link_github
+    "http://github.com/#{github_link}"
+  end
+
+  def link_facebook
+    "http://facebook.com/#{facebook_link}"
+  end
+
+  def link_linkedin
+    "https://www.linkedin.com/#{linkedln_link}"
+  end
+
+  def send_gmail
+    "https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&to=#{email}"
+  end
+
+  def link_url
+    "http://#{url_link}"
+  end
 end

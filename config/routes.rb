@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'home#index'
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, only: %i[update show edit]
   devise_for :admins
@@ -20,6 +21,5 @@ Rails.application.routes.draw do
   namespace :admins do
     root 'pages#index'
   end
-  root 'home#index'
   get 'confirm', to: 'home#confirm_pages'
 end
