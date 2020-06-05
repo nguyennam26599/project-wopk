@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 module UsersHelper
-  def avatar_for(user, avt_class, id_avatar)
+  def default_avatar_user(user)
     if user.avatar.blank?
-      image_tag('/default-user-avatar.png', class: avt_class.to_s, alt: user.name, id: id_avatar.to_s)
+      '/default-user-avatar.png'
     else
-      image_tag(user.avatar, class: avt_class.to_s, alt: user.name, id: id_avatar.to_s)
+      url_for(user.avatar)
     end
   end
 
   def regex_name_validate
-    "^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
-    "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
-    "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$"
+    '^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ' \
+    'ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ' \
+    'ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$'
   end
 end
