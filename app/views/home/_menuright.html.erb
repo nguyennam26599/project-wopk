@@ -1,4 +1,6 @@
 <div class="menuright-setting">
+  <%= render 'home/infomation' if user_signed_in? %>
+  <br>
   <%= render "home/news" %>
   <br>
   <%= render "home/userranking" %>

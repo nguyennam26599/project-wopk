@@ -72,5 +72,10 @@ RSpec.describe User, type: :model do
       subject.name = 'hoanganh 123'
       expect(subject).to_not be_valid
     end
+
+    it 'is return full name' do
+      u = User.create(first_name: 'Vi', last_name: 'Hoang')
+      expect(u.full_name == 'Vi Hoang').to be true
+    end
   end
 end
