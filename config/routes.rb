@@ -3,8 +3,8 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, controllers: { registrations: 'registrations' }
-  resources :users, only: %i[update show edit]
   devise_for :admins
+  resources :follow_polymorphics
   # routes create post function
   resources :posts
   resources :tags do
