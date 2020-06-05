@@ -1,0 +1,9 @@
+<% if @tag.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @tag.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>

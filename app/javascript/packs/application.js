@@ -3,10 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
 
 import "bootstrap";
 import "../stylesheets/application";
@@ -51,6 +51,6 @@ import "bootstrap-tagsinput/dist/bootstrap-tagsinput";
 
 /* JS and config for function load page user */
 
-import "../js/profile";
+import "../js/user/profile";
 
 /* End JS config for function create posts */

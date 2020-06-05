@@ -5,12 +5,14 @@ class Tag < ApplicationRecord
 
   has_many :posts_relationships, as: :posts_relationship
   has_many :posts, through: :posts_relationships
+  has_one_attached :avatar
   enum status: %i[draft publish]
   # User follow Tag
   has_many :followers, as: :following, class_name: 'FollowPolymorphic'
   has_many :user_followings, through: :followings, source: :following, source_type: 'User'
   scope :tag_list_order_follower, -> { left_joins(:followers).group(:id).order('COUNT(follow_polymorphics.id) DESC') }
 
+  validates :name, presence: true
   PUBLISH_STATUS = 'publish'
   DRAFT_STATUS = 'draft'
 

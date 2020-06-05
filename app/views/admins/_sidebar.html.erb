@@ -1,6 +1,5 @@
 <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
       <!-- Sidebar - Brand -->
       <%= link_to admins_root_path, class: "sidebar-brand d-flex align-items-center justify-content-center" do %>
         <div class="sidebar-brand-icon rotate-n-15">
@@ -12,14 +11,15 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
+      <li class="nav-item <%= active?("admins/pages") %>">
+        <%= link_to "/admins", class: "nav-link" do %>
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Dashboard</span>
+        <% end %>
       </li>
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider ">
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -65,6 +65,13 @@
       <div class="sidebar-heading">
         Addons
       </div>
+      <!-- Nav Item - Tags Menu -->
+      <li class="nav-item <%= active?("admins/tags") %>">
+        <%= link_to admins_tags_path, class: "nav-link" do %>
+          <i class="fas fa-tags"></i>
+          <span>Tags</span>
+        <% end %>
+      </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -75,8 +82,6 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <%= link_to 'Table', admins_table_path, class: "collapse-item" %>
-            <%= link_to 'Form', admins_form_path, class: "collapse-item" %>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="#">404 Page</a>

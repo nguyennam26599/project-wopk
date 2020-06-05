@@ -1,0 +1,29 @@
+.avatar-tag {
+    height: 5em;
+
+    &-item { 
+        height: 3em;
+    }
+
+    &-user {
+        height: 5em;
+    }
+}
+
+.posts-item {
+    width: 60%
+}
+
+.tag-detail {
+    width: 40%;
+}
+
+ .camera {
+    z-index: 10;
+    cursor: pointer;
+    color: gray;
+
+    &:hover {
+        color: skyblue;
+    }
+ }
