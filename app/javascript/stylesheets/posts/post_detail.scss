@@ -31,11 +31,9 @@
  //vote
 
  .vote {
-    line-height: 1;
+    line-height: 0;
     &-count{
         font-size: .6em;
-        height: .6em;
-        line-height: .5em;
     }
     &:not(.disabled) {
         color: rgb(155, 155, 155);

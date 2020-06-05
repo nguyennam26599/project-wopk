@@ -4,12 +4,12 @@
         <div class="p-0 col-md-1 d-none d-md-block">
             <div class="post-actions d-flex flex-column align-items-center mx-auto">
                 <!---->
-                <div class="d-flex d-inline-block flex-column align-items-center font-40p mb-1">
-                    <button class="btn-out-line vote border-0 bg-white border-white"><i class="fa fa-caret-up"></i></button>
+                <div class="d-flex d-inline-block flex-column align-items-center mb-1 font-40p">
+                    <button class="btn-out-line vote border-0 bg-white"><i class="fa fa-caret-up"></i></button>
                     <div class="vote-count text-muted font-weight-normal">
                         <%= @post.vote_count%>
                     </div>
-                    <button class="btn-out-line vote border-0 bg-white border-white"><i class="fa fa-caret-down"></i></button>
+                    <button class="btn-out-line vote border-0 bg-white"><i class="fa fa-caret-down"></i></button>
                 </div>
                 <div class="subscribe mb-2" >
                     <button type="button" class="d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0">
@@ -33,7 +33,7 @@
                 <div class=" post-author mb-2 mb-sm-0 align-items-center d-flex">
                     <a href="#" class="mr-1">
                         <div class="d-inline-block avatar-user--top">
-                            <%= avatar_for(@user,'mr-auto rounded-circle avatar-user--top') %>
+                            <%= image_tag  default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user--top' %>  
                         </div>    
                     </a>
 

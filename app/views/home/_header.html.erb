@@ -50,7 +50,7 @@
         <ul class="navbar-nav ml-auto nav-flex-icons align-self-center">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to fa_icon("far fa-edit","Post"), "#", class: "btn btn-outline-light px-3 d-none d-md-block"%>
+              <%= link_to fa_icon("far fa-edit","Post"), new_post_path, class: "btn btn-outline-light px-3 d-none d-md-block"%>
             </li>
             <li class="nav-item px-2">
               <div class="btn btn-squared-default btn-light">0</div>
