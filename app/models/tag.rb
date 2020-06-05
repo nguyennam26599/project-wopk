@@ -6,11 +6,23 @@ class Tag < ApplicationRecord
   has_many :posts_relationships, as: :posts_relationship
   has_many :posts, through: :posts_relationships
   enum status: %i[draft publish]
+  # User follow Tag
+  has_many :followers, as: :following, class_name: 'FollowPolymorphic'
+  has_many :user_followings, through: :followings, source: :following, source_type: 'User'
+  scope :tag_list_order_follower, -> { left_joins(:followers).group(:id).order('COUNT(follow_polymorphics.id) DESC') }
 
   PUBLISH_STATUS = 'publish'
   DRAFT_STATUS = 'draft'
 
   scope :search_name_status_public, ->(search_word) { publish.where('name LIKE ?', "%#{search_word}%") }
+
+  def tag_post_size
+    posts.size
+  end
+
+  def tag_follower_size
+    followers.size
+  end
 
   private
 
