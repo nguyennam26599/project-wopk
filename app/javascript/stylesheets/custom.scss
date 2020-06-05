@@ -3,7 +3,9 @@
 @import 'index/banner';
 @import 'index/body';
 @import 'index/rightmenu';
+@import 'index/leftmenu';
 @import 'customize';
+
 @media screen and (max-width: 992px) {
   .menuright-setting,
   .view-blog {
@@ -34,5 +36,13 @@
 
   .menu-index-user {
     padding: 0.5rem 0.2rem !important;
+  }
+  .px-tagfeed {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .px-tagfeed {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }

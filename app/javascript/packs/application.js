@@ -16,6 +16,7 @@ import "startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing";
 import "../js/sb-admin-2";
 import "../js/preview_image";
 import flatpickr from "flatpickr";
+import "../js/profile";
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();
