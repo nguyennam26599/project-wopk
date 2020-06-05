@@ -18,106 +18,93 @@
   </div>
   <div class="profile-github text-dark">
     <% if @user.github_link? %>
-      <span>
-        <i class="fab fa-github"></i>
-      </span>
-      <span><%= link_to @user.github_link, "http://github.com/#{@user.github_link}", :target => "_blank", :class => 'text-dark' %>
-      </span>
+    <span>
+      <i class="fab fa-github"></i>
+    </span>
+    <span><%= link_to @user.github_link, "http://github.com/#{@user.github_link}", :target => "_blank", :class => 'text-dark' %>
+    </span>
     <% end %>
   </div>
   <div class="profile-social my-2 mx-0">
     <span class="icon-twitter font-13em mr-2">
       <%= link_to "http://twitter.com/#{@user.facebook_link}", :target => "_blank", :class => 'text-primary text-decoration-none' do %>
       <i class="fab fa-twitter"></i>
-    <% end %>
-  </span>
-  <span class="icon-facebook">
-    <%= link_to "http://facebook.com/#{@user.facebook_link}", :target => "_blank", :class => 'text-primary text-decoration-none' do %>
-    <i class="fab fa-facebook-square font-13em"></i>
-  <% end %>
-</span>
-</div>
-<div class="profile-infomation text-center my-2 mx-0">
-<span><%= @user.description %></span>
-</div>
-<div class="row">
-<div class="col-4">
-  <span class="point-ranking font-13em font-weight-bold"><%= Post.count(:user_id) %></span><br>
-  <span class="point-post font-08em text-muted">
-    <p>Post</p>
-  </span>
-</div>
-    <div class="col-4">
-    <strong id="following" class="stat">
-    <%= @user.followings.count %>
-</strong>
-    <p>Following</p>
-  </span>
-</div>
-    <div class="col-4">
-    <strong id="followers" class="stat">
-    <%= @user.followers.count %>
-    </strong>
-    <p>Follower</p>
-  </span>
-</div>
-</div>
-
-<div class="btn-follow">
-  <% if current_user == @user %>
-    <button type="button" class="btn btn-light btn-sm btn-block border font-weight-bold">
-    <%= link_to 'Edit Users', "#", class: 'text-dark' %>
-    </button>
-  <% else %>
-  <%= render 'follow_form' %>
-  <% end %>
-
-</div>
-
-<div class="border-top text-left mt-3 py-2 font-08em">
-<% if @user.linkedln_link? %>
-  <div>
-    <i class="fas fa-globe mr-2"></i>
-    <%= link_to "http://#{@user.linkedln_link}", "http://#{@user.linkedln_link}" ,:target => "_blank", :class => 'text-dark' %>
-    <div>
-    <% end %>
-
-    <% if @user.address? %>
-      <div class="my-2">
-        <i class="fas fa-map-marker-alt mr-1"></i>
-        <%= @user.address %>
-      </div>
-    <% end %>
-
-    <% if @user.url_link? %>
-      <div>
-        <i class="fas fa-globe-asia mr-1"></i>
-        <%= link_to "http://#{@user.url_link}", "http://#{@user.url_link}" ,:target => "_blank", :class => 'text-dark' %>
-      </div>
-    <% end %>
+      <% end %>
+    </span>
+    <span class="icon-facebook">
+      <%= link_to "http://facebook.com/#{@user.facebook_link}", :target => "_blank", :class => 'text-primary text-decoration-none' do %>
+      <i class="fab fa-facebook-square font-13em"></i>
+      <% end %>
+    </span>
   </div>
-
-  <div class="border-top text-left mt-2 py-4 text-muted mute font-09em">
-    <i class="fa fa-envelope mr-1"></i>
-    <%= @user.email %>
+  <div class="profile-infomation text-center my-2 mx-0">
+    <span><%= @user.description %></span>
   </div>
-
-  <div class="profile-tag text-left border-top pt-3 pb-2 px-0">
-    <i class="fas fa-tags greencolor"></i>
-    <span class="font-weight-bold text-muted">Following tags</span>
-    <div class="">
-      <span>
-        <a href="#" class="badge badge-secondary">ECMAScript</a>
-      </span>
-      <span>
-        <a href="#" class="badge badge-secondary">TypeScript</a>
-      </span>
-      <span>
-        <a href="#" class="badge badge-secondary">Node.js</a>
-      </span>
-      <span>
-        <a href="#" class="badge badge-secondary">JavaScript</a>
+  <div class="row">
+    <div class="col-4">
+      <span class="point-ranking font-13em font-weight-bold"><%= Post.count(:user_id) %></span><br>
+      <span class="point-post font-08em text-muted">
+        <p>Post</p>
       </span>
     </div>
+    <div class="col-4">
+      <strong id="following" class="stat">
+        <%= @user.followings.count %>
+      </strong>
+      <p>Following</p>
+    </div>
+    <div class="col-4">
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      <p>Follower</p>
+    </div>
   </div>
-</div>
+  <%= render 'follow_button' %>
+  <div class="border-top text-left mt-3 py-2 font-08em">
+    <% if @user.linkedln_link? %>
+    <div>
+      <i class="fas fa-globe mr-2"></i>
+      <%= link_to "http://#{@user.linkedln_link}", "http://#{@user.linkedln_link}" ,:target => "_blank", :class => 'text-dark' %>
+      <div>
+        <% end %>
+
+        <% if @user.address? %>
+        <div class="my-2">
+          <i class="fas fa-map-marker-alt mr-1"></i>
+          <%= @user.address %>
+        </div>
+        <% end %>
+
+        <% if @user.url_link? %>
+        <div>
+          <i class="fas fa-globe-asia mr-1"></i>
+          <%= link_to "http://#{@user.url_link}", "http://#{@user.url_link}" ,:target => "_blank", :class => 'text-dark' %>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="border-top text-left mt-2 py-4 text-muted mute font-09em">
+        <i class="fa fa-envelope mr-1"></i>
+        <%= @user.email %>
+      </div>
+
+      <div class="profile-tag text-left border-top pt-3 pb-2 px-0">
+        <i class="fas fa-tags greencolor"></i>
+        <span class="font-weight-bold text-muted">Following tags</span>
+        <div class="">
+          <span>
+            <a href="#" class="badge badge-secondary">ECMAScript</a>
+          </span>
+          <span>
+            <a href="#" class="badge badge-secondary">TypeScript</a>
+          </span>
+          <span>
+            <a href="#" class="badge badge-secondary">Node.js</a>
+          </span>
+          <span>
+            <a href="#" class="badge badge-secondary">JavaScript</a>
+          </span>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,7 @@
+<div class="btn-follow">
+    <% if current_user == @user %>
+        <%= link_to 'Edit Users', "#", class: 'text-dark btn btn-light btn-sm btn-block border font-weight-bold' %>
+    <% else %>
+        <%= render 'follow_form' %>
+    <% end %>
+</div>
