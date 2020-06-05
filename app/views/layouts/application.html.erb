@@ -9,6 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render partial: "home/header" unless [login_path, signup_path].include? request.path  %>
     <%= yield %>
+    <%= render partial: "home/footer" unless [login_path, signup_path].include? request.path  %>
+
   </body>
 </html>
