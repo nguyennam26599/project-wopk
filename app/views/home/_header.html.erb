@@ -57,8 +57,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
-                <%= avatar_for(current_user,'rounded img-24em') %>
-              </a>
+                <%= image_tag default_avatar_user(current_user), class: 'rounded img-24em' %>              </a>
               <div class="dropdown-menu dropdown-menu-right dropdown-info w-90" aria-labelledby="dropdown_header">
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item py-2" %>
                   <div class="dropdown-divider"></div>

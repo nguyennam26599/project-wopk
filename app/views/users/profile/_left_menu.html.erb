@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="upload-avatar">
-    <%= avatar_for(@user,'rounded-circle mb-1 img-57em') %>
+    <%= image_tag default_avatar_user(@user), class: 'rounded-circle mb-1 img-57em' %>
   </div>
   <div class="profile-name font-weight-bold my-2 font-size-20em">
     <%= @user.full_name %>

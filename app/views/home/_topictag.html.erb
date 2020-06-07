@@ -15,7 +15,7 @@
   </div>
   <div class="row border-bottom">
     <div class="col-sm-1 col-2 text-center">
-      <%= avatar_for(post.user,'rounded img-14em') %>
+      <%= image_tag default_avatar_user(post.user), class: 'rounded img-14em' %>
     </div>
     <div class="col-sm-11 col-10 ">
       <div class="">
@@ -24,10 +24,8 @@
       <div class="text-muted font-size-08em mb-2">
         <%= link_to "by #{post.user.name}", user_path(post.user.id), class: "text-muted text-decoration-none" %>
         <span class="fa fa-tags"></span>
-        <% post.posts_relationships.where(posts_relationship_type: "Tag").each do |x| %>
-          <a href="#" class="badge badge-light mr-2">
-            <%= Tag.find_by_id(x.posts_relationship_id).name%>
-          </a>
+        <% post.tags.each do |tag| %>
+          <%= link_to tag.name, '#', class: 'badge badge-light mr-1' %>
         <% end%>
       </div>
     </div>
