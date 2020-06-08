@@ -2,12 +2,10 @@
 
 module Admins
   class TagsController < BaseController
-    before_action :set_tags, only: %i[show edit update]
-
-    NUMBER_ITEM = 15
+    before_action :set_tag, only: %i[show edit update]
 
     def index
-      @pagy, @tags = pagy(Tag.all.order(created_at: :desc), page: params[:page], items: NUMBER_ITEM)
+      @pagy, @tags = pagy(Tag.all.order(created_at: :desc), page: params[:page], items: Tag::NUMBER_ITEM)
     end
 
     def new
@@ -23,7 +21,7 @@ module Admins
       if @tag.save
         redirect_to admins_tags_path
       else
-        render 'new'
+        render :new
       end
     end
 
@@ -31,7 +29,7 @@ module Admins
       if @tag.update_attributes(tag_params)
         redirect_to admins_tags_path
       else
-        render 'edit'
+        render :new
       end
     end
 
@@ -41,7 +39,7 @@ module Admins
       params.require(:tag).permit(:name, :avatar)
     end
 
-    def set_tags
+    def set_tag
       @tag = Tag.find_by(id: params[:id])
     end
   end

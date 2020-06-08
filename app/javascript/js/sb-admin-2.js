@@ -43,4 +43,13 @@ $(document).on('turbolinks:load', function () {
       }, 1000, 'easeInOutExpo');
       e.preventDefault();
     });
+
+    $('.image-relative-tag').on({
+      'mouseenter': function() {
+        $('.camera').removeClass('d-none');
+      },
+      'mouseleave': function(){
+        $('.camera').addClass('d-none');
+      }
+    });
 })

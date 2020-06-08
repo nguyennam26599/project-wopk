@@ -11,7 +11,7 @@ $(document).on("turbolinks:load", function () {
     }
   }
 
-  $("#imgInp").change(function () {
+  $("#img-input").change(function () {
     readURL(this);
   });
 });

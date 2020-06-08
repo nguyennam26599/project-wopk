@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive-xl">
-                <table class="table table-hover text-center text-white table-dark" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover text-center text-white table-dark" id="table-tag" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                       <th>ID</th>
@@ -21,23 +21,23 @@
                 <tbody>
                   <% @tags.each do |tag_item| %>
                       <tr>
-                        <td class="align-middle"><%= tag_item.id %></td>
-                        <td class="align-middle"><%= tag_item.name %></td>
-                        <td class="align-middle">
+                        <td><%= tag_item.id %></td>
+                        <td><%= tag_item.name %></td>
+                        <td>
                           <%= image_tag default_avatar_tag(tag_item), class: "avatar-tag-item"  %>
                         </td>
-                        <td class="align-middle"><%= tag_item.created_at.strftime("%d/%m/%Y - %H:%M") %></td>
-                        <td class="align-middle">
+                        <td><%= tag_item.created_at.strftime("%d/%m/%Y - %H:%M") %></td>
+                        <td>
                           <%= link_to admins_tag_path(tag_item) do %>
                             <i class="fas fa-exclamation-circle text-primary"></i>
                           <% end %>
                         </td>
-                        <td class="align-middle">
+                        <td>
                           <%= link_to edit_admins_tag_path(tag_item), data: {turbolinks: false} do %>
                             <i class="far fa-edit text-warning"></i>
                           <% end %>    
                         </td>
-                        <td class="align-middle"><i class="fas fa-trash text-danger"></i></td>
+                        <td><i class="fas fa-trash text-danger"></i></td>
                       </tr>
                     <% end %>
                   </tbody>
