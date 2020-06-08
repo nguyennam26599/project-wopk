@@ -11,9 +11,8 @@ class FollowPolymorphicsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: FollowPolymorphic.find_by(id: params[:id]).following_id)
+    @user = User.find_by(id: FollowPolymorphic.find_by(id: params[:id]).following_id)
     FollowPolymorphic.find_by(id: params[:id]).destroy
-    @user = user
     respond_to do |format|
       format.html { redirect_to @user }
       format.js
