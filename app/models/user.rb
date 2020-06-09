@@ -23,8 +23,6 @@ class User < ApplicationRecord
 
   # has many post through postvoting
   has_many :post_votings
-  has_many :posts, through: :post_votings
-
   attr_writer :login
 
   def login
