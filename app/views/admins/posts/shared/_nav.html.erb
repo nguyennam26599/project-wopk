@@ -1,0 +1,14 @@
+<ul class="nav nav-pills w-100">
+  <li class="nav-item">
+    <a class="nav-link <%= active_post('pending')%>" href="?scope=pending">Pending</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= active_post('public')%>" href="?scope=public">Public</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= active_post('draft')%>" href="?scope=draft">Draft</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= active_post('close')%>" href="?scope=close">Close</a>
+  </li>
+</ul>

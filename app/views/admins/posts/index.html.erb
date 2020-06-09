@@ -1,6 +1,5 @@
 <div id="content">
   <%= render "admins/header" %>
-  <%= render "admins/tags/common/list-tag" %>
+  <%= render 'admins/posts/shared/list-posts' %>
   <%= raw render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
 </div>
-      

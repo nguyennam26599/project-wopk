@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :posts_relationships
   has_many :tags, through: :posts_relationships, source: :posts_relationship, source_type: 'Tag'
   belongs_to :user
-  enum status: %i[draft pending]
+  enum status: %i[draft pending public close]
   scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
   scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
   # has many users through postvoting
@@ -13,6 +13,8 @@ class Post < ApplicationRecord
 
   PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'
+  CLOSE_STATUS = 'close'
+  PUBLIC_STATUS = 'public'
 
   def vote_count
     if vote.positive?
@@ -35,7 +37,7 @@ class Post < ApplicationRecord
   end
 
   def self.valid_status?(status)
-    [PENDING_STATUS, DRAFT_STATUS].include?(status)
+    [PENDING_STATUS, DRAFT_STATUS, CLOSE_STATUS, PUBLIC_STATUS].include?(status)
   end
 
   private
