@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   end
   namespace :admins do
     root 'pages#index'
+    # CRUD tags admin
+    resources :tags
+    # end
   end
   get 'confirm', to: 'home#confirm_pages'
 end

@@ -41,4 +41,17 @@ RSpec.describe Tag, type: :model do
     PostsRelationship.create(posts_relationship: tag, post_id: post.id)
     expect(tag.tag_post_size == 1).to be true
   end
+
+  it 'has many post' do
+    should respond_to(:posts)
+  end
+
+  subject { described_class.new }
+
+  describe 'Validations' do
+    it 'is not valid without a name' do
+      subject.name = 'acc'
+      expect(subject).to be_valid
+    end
+  end
 end

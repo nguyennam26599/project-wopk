@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hituno</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body id="page-top">
+    <div id="wrapper">
+      <%= render "admins/sidebar" %>
+      <div id="content-wrapper" class="d-flex flex-column">
+        <%= yield %>
+        <%= render "admins/footer" %> 
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <%= render "admins/logout" %>
+  </body>
+</html>

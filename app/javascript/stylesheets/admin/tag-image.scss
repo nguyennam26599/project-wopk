@@ -1,0 +1,33 @@
+.avatar-tag {
+    &-item { 
+        height: 3em;
+    }
+
+    &, &-user {
+        height: 5em;
+    }
+}
+
+.posts-item {
+    width: 60%
+}
+
+.tag-detail {
+    width: 40%;
+}
+
+ .camera {
+     top: 17%;
+     z-index: 10;
+     font-size: 2rem;
+     cursor: pointer;
+ }
+
+ #table-tag tr td {
+    vertical-align: middle;
+ }
+
+ .image-relative-tag {
+    height: max-content;
+    width: max-content;
+ }
