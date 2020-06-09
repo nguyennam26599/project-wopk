@@ -31,9 +31,9 @@
           </li>
 
           <li class="nav-item btn_search_laptop d-sm-block ml-sm-3 d-none">
-            <form class="form-inline form-control ">
+            <form class="form-inline form-control textbox-search">
               <i class="fa fa-search text-muted mr-1" aria-hidden="true"></i>
-              <input class="mr-sm-2 border-0" type="search" placeholder="Search" aria-label="Search">
+              <input class="mr-sm-2 border-0 textbox-search" type="search" placeholder="Search" aria-label="Search">
             </form>
           </li>
 
@@ -41,7 +41,7 @@
             <a class="fas fa-search text-white" data-toggle="dropdown" href="#" role="button"></a>
             <div class="dropdown-menu w-100">
               <form class="form-inline">
-                <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control border-0 textbox-search" type="search" placeholder="Search" aria-label="Search">
               </form>
             </div>
           </li>
@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
-                <%= avatar_for(current_user,'rounded img-24em') %>
+                <%= image_tag default_avatar_user(current_user), class: 'rounded img-24em' %>
               </a>
               <div class="dropdown-menu dropdown-menu-right dropdown-info w-90" aria-labelledby="dropdown_header">
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item py-2" %>
