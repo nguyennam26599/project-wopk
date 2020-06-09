@@ -7,7 +7,7 @@ module ApplicationHelper
   def active?(controller)
     'active' if params[:controller] == controller
   end
-  
+
   def show_header
     exception_path = [login_path, signup_path, confirm_path, new_user_session_path, new_admin_session_path]
     render partial: 'home/header' unless exception_path.include? request.path
