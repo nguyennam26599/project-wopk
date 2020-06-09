@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :posts_relationships, source: :posts_relationship, source_type: 'Tag'
   belongs_to :user
   enum status: %i[draft pending]
+  scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
+  scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
   # has many users through postvoting
   has_many :post_votings
 
