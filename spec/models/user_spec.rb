@@ -20,6 +20,10 @@ RSpec.describe User, type: :model do
     should respond_to(:comments)
   end
 
+  it 'has many post_voting' do
+    should respond_to(:post_votings)
+  end
+
   it 'return a full name user created post' do
     user = User.create(first_name: 'Hoang', last_name: 'Anh')
     expect(user.full_name == 'Hoang Anh').to be true

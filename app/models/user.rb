@@ -21,6 +21,10 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
+  # has many post through postvoting
+  has_many :post_votings
+  has_many :posts, through: :post_votings
+
   attr_writer :login
 
   def login

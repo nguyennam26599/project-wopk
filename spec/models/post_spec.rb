@@ -10,6 +10,9 @@ RSpec.describe Post, type: :model do
     it 'has many comment' do
       should respond_to(:comments)
     end
+    it 'has many post_voting' do
+      should respond_to(:post_votings)
+    end
   end
   subject { described_class.new(vote: 100, view_count: 1000) }
   it 'return a vote count' do
