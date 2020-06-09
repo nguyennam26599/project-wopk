@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   enum status: %i[draft pending]
   # has many users through postvoting
   has_many :post_votings
-  has_many :users, through: :post_votings
 
   PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'
