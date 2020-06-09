@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, :set_posts, only: %i[new create]
+  before_action :authenticate_user!, :set_posts, only: %i[new create edit update]
+  before_action :find_post, only: %i[edit update]
 
   def index; end
 
@@ -29,6 +30,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit; end
+  
+
+  def update
+    return redirect_to edit_post_path unless Post.valid_status?(params[:post][:status])
+
+    @post.posts_relationships.destroy_all
+    if @post.update post_params
+      @post.check_list_tag(params[:tags])
+      redirect_to @post
+    else
+      redirect_to new_post_path
+    end
+  end
+  
   private
 
   def post_params
@@ -37,5 +53,9 @@ class PostsController < ApplicationController
 
   def set_posts
     @posts = current_user.posts
+  end
+
+  def find_post
+    @post = @posts.find_by(id: params[:id])
   end
 end
