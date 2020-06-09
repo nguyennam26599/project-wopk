@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="upload-avatar">
-    <%= avatar_for(@user,'rounded-circle mb-1 img-57em') %>
+    <%= image_tag default_avatar_user(@user), class: 'rounded-circle mb-1 img-57em' %>
   </div>
   <div class="profile-name font-weight-bold my-2 font-size-20em">
     <%= @user.full_name %>
@@ -50,25 +50,19 @@
   </span>
 </div>
 <div class="col-4">
-  <span class="font-size-13em font-weight-bold">178</span><br>
+  <span class="font-size-13em font-weight-bold" id="following"><%= @user.followings.count %></span><br>
   <span class="point-post font-size-08em text-muted">
     <p>Following</p>
   </span>
 </div>
 <div class="col-4">
-  <span class="font-size-13em font-weight-bold px-0 py-3">178</span><br>
+  <span class="font-size-13em font-weight-bold px-0 py-3" id="followers"><%= @user.followers.count %></span><br>
   <span class="point-post font-size-08em text-muted">
     <p>Follower</p>
   </span>
 </div>
 </div>
-
-<div class="btn-follow">
-<button type="button" class="btn btn-light btn-sm btn-block border font-weight-bold">
-  <%= btn_edit %>
-</button>
-</div>
-
+<%= render  "users/shared/follow_button" %>
 <div class="border-top text-left mt-3 py-2 font-size-09em">
   <% if @user.address? %>
   <div>

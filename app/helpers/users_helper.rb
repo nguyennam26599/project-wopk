@@ -31,4 +31,8 @@ module UsersHelper
       'Follow'
     end
   end
+
+  def unfollow_user(user)
+    current_user.followings.find_by(following_id: user.id)
+  end
 end
