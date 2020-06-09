@@ -51,6 +51,7 @@ import "bootstrap-tagsinput/dist/bootstrap-tagsinput";
 
 /* JS and config for function load page user */
 
-import "../js/user/profile";
+import "../packs/user/profile";
+import "../packs/user/header";
 
 /* End JS config for function create posts */
