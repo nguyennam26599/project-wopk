@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'users/sessions#new'
     get 'signup', to: 'users/registrations#new'
+    get 'users/reset', to: 'users/registrations#edit'
   end
   namespace :admins do
     root 'pages#index'
