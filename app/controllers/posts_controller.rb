@@ -31,7 +31,6 @@ class PostsController < ApplicationController
   end
 
   def edit; end
-  
 
   def update
     return redirect_to edit_post_path unless Post.valid_status?(params[:post][:status])
@@ -44,7 +43,7 @@ class PostsController < ApplicationController
       redirect_to new_post_path
     end
   end
-  
+
   private
 
   def post_params
