@@ -73,6 +73,14 @@
         <% end %>
       </li>
 
+      <!-- Nav Item - Users Menu -->
+      <li class="nav-item <%= active?("admins/users") %>">
+        <%= link_to admins_users_path, class: "nav-link" do %>
+          <i class="fas fa-users"></i>
+          <span>Users</span>
+        <% end %>
+      </li>
+
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">

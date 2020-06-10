@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     root 'pages#index'
     # CRUD tags admin
     resources :tags
+    resources :users
     # end
   end
   get 'confirm', to: 'home#confirm_pages'
