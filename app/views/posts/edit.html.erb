@@ -5,7 +5,7 @@
                 <%= f.text_field :title, class: "form-control placeholder-post-font-size", placeholder: " Title", id: "title" %>
             </div>
             <div class="form-group">
-                <%= text_field_tag :tags, @post.tags.pluck(:name).join(','), id: "tag-data", 'data-role' => "tagsinput", data: {autocomplete_source: search_tags_path}, placeholder: "Tag your post. Maximun 5 tags" %>
+                <%= text_field_tag :tags, tagsinput_data(@post), id: "tag-data", 'data-role' => "tagsinput", data: {autocomplete_source: search_tags_path}, placeholder: "Tag your post. Maximun 5 tags" %>
                 <div class="menu-list"></div>
             </div>
             <div class="form-group form-btn position-relative">

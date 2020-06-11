@@ -65,7 +65,5 @@ $(document).on("turbolinks:load", function () {
     },
   })
     .then()
-    .catch((error) => {
-      console.error(error.message);
-    });
+    .catch();
 });

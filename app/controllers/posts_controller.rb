@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, :set_posts, only: %i[new create edit update]
-  before_action :find_post, only: %i[edit update]
+  before_action :set_post, only: %i[edit update]
 
   def index; end
 
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @post = @posts.new post_params
     if @post.save
       @post.check_list_tag(params[:tags])
-      redirect_to root_path
+      redirect_to @post
     else
       redirect_to new_post_path
     end
@@ -35,8 +35,7 @@ class PostsController < ApplicationController
   def update
     return redirect_to edit_post_path unless Post.valid_status?(params[:post][:status])
 
-    @post.posts_relationships.destroy_all
-    if @post.update post_params
+    if @post.update_process post_params
       @post.check_list_tag(params[:tags])
       redirect_to @post
     else
@@ -54,7 +53,8 @@ class PostsController < ApplicationController
     @posts = current_user.posts
   end
 
-  def find_post
+  def set_post
     @post = @posts.find_by(id: params[:id])
+    return redirect_to root_path if @post.nil?
   end
 end

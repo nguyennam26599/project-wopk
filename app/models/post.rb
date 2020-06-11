@@ -38,6 +38,15 @@ class Post < ApplicationRecord
     [PENDING_STATUS, DRAFT_STATUS].include?(status)
   end
 
+  def update_process(post_params)
+    posts_relationships.destroy_all
+    update post_params
+  end
+
+  def belong_user?(user_input)
+    user == user_input
+  end
+
   private
 
   def create_tag_relationship(name_tag_list, status)
