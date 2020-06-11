@@ -55,6 +55,6 @@ class PostsController < ApplicationController
 
   def set_post
     @post = @posts.find_by(id: params[:id])
-    return redirect_to root_path if @post.nil?
+    return redirect_to root_path unless @post.present?
   end
 end
