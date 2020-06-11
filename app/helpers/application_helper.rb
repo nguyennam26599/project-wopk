@@ -3,7 +3,7 @@
 module ApplicationHelper
   include Pagy::Frontend
   NUMBER_PAGE = 15
-  NUMBER_LIST_USER_20 = 20
+  NUMBER_PAGE_20 = 20
 
   def active?(controller)
     'active' if params[:controller] == controller
