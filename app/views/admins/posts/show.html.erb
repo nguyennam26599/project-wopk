@@ -9,12 +9,13 @@
               <%= @post.title %>
             </h1>
             <hr>
-            <div class="tag-list-post"><% @post.tags.each do |tag| %>
+            <div class="tag-list-post">
+            <% @post.tags.each do |tag| %>
               <%= link_to tag.name, admins_tag_path(tag), class: "px-2 border-tag text-secondary tag-info font-15p d-inline-block text-nowrap overflow-hidden"  %>
-              <% end%>
+            <% end %>
             </div>
             <div class="author-create-post text-muted font-weight-bold">
-              <span>Author: <%= link_to @user.name, '#' %></span>
+              <span>Author: <%= link_to @user.name, admins_user_path(@user) %></span>
             </div>
             <hr>
           </div>
