@@ -8,6 +8,7 @@ class User < ApplicationRecord
                    format: { with: /\A[a-zA-Z0-9]+\z/ },
                    uniqueness: { case_sensitive: false }
   enum gender: %i[male female other]
+  enum status: %i[actived deactived blocked]
   has_many :posts
   has_many :comments
   has_many :followings, as: :follower, class_name: 'FollowPolymorphic'
@@ -24,6 +25,10 @@ class User < ApplicationRecord
   # has many post through postvoting
   has_many :post_votings
   attr_writer :login
+
+  ACTIVED_STATUS = 'actived'
+  DEACTIVED_STATUS = 'deactived'
+  BLOCKED_STATUS = 'blocked'
 
   def login
     @login || name || email

@@ -26,4 +26,15 @@ module UsersHelper
   def unfollow_user(user)
     current_user.followings.find_by(following_id: user.id)
   end
+
+  def user_status(user)
+    case user.status
+    when User::ACTIVED_STATUS
+      'text-success'
+    when User::DEACTIVED_STATUS
+      'text-warning'
+    else
+      'text-danger'
+    end
+  end
 end
