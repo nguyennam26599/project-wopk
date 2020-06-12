@@ -1,8 +1,8 @@
 <div class="row my-3 border-bottom px-2">
-  <div class="col-1 text-center">
+  <div class="col-md-1 col-2 text-center p-1">
     <%= image_tag default_avatar_user(post.user), class: 'rounded-circle img-24em' %>
   </div>
-  <div class="col-11">
+  <div class="col-md-11 col-10">
     <div class="text-muted font-size-08em">
       <%= link_to post.user.name, user_path(post.user.id) %>
       <span class="text-muted">
@@ -16,7 +16,7 @@
     </div>
     <div>
       <% post.tags.each do |tag| %>
-        <%= link_to tag.name, '#', class: 'badge badge-secondary mr-2' %>
+        <%= link_to tag.name, tag_path(tag.id), class: 'badge badge-secondary mr-2' %>
       <% end%>
     </div>
     <div class="d-flex align-items-center font-size-09em text-muted ">
