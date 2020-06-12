@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     root 'pages#index'
     # CRUD tags admin
     resources :tags
+    resources :users
     # end
     # Post admin
     resources :posts

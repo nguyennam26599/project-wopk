@@ -1,0 +1,5 @@
+<div id="content">
+    <%= render "admins/header" %>
+    <%= render "admins/users/list-user" %>
+</div>
+<%= raw render partial: 'users/shared/pagination', locals: { pagy: @pagy} %>
