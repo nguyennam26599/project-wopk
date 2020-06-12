@@ -4,7 +4,7 @@ module ApplicationHelper
   include Pagy::Frontend
   NUMBER_PAGE = 15
 
-  def active(controller)
+  def class_active(controller)
     'active' if params[:controller] == controller
   end
 
@@ -19,11 +19,11 @@ module ApplicationHelper
   end
 
   def active_post(scope)
-    params[:scope] ||= 'pending'
+    params[:scope] ||= Post::PENDING_STATUS
     'active' if params[:scope] == scope
   end
 
   def action_post_admin
-    return 'd-none' unless params[:scope] == 'pending'
+    'd-none' unless params[:scope] == Post::PENDING_STATUS
   end
 end

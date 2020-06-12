@@ -37,7 +37,7 @@ class Post < ApplicationRecord
   end
 
   def self.valid_status?(status)
-    [PENDING_STATUS, DRAFT_STATUS, CLOSE_STATUS, PUBLIC_STATUS].include?(status)
+    [PENDING_STATUS, DRAFT_STATUS].include?(status)
   end
 
   private
