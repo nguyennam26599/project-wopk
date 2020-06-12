@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :posts_relationships
   has_many :tags, through: :posts_relationships, source: :posts_relationship, source_type: 'Tag'
   belongs_to :user
-  enum status: %i[draft pending]
+  enum status: %i[draft pending public close], _prefix: true
   scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
   scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
   # has many users through postvoting
@@ -13,6 +13,8 @@ class Post < ApplicationRecord
 
   PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'
+  CLOSE_STATUS = 'close'
+  PUBLIC_STATUS = 'public'
 
   def vote_count
     if vote.positive?
@@ -27,7 +29,7 @@ class Post < ApplicationRecord
   def check_list_tag(name_tag_list)
     return if name_tag_list.blank?
 
-    if draft?
+    if status_draft?
       create_tag_relationship(name_tag_list, Tag::DRAFT_STATUS)
     else
       create_tag_relationship(name_tag_list, Tag::PUBLISH_STATUS)

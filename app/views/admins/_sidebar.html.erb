@@ -11,7 +11,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item <%= active?("admins/pages") %>">
+      <li class="nav-item <%= class_active("admins/pages") %>">
         <%= link_to admins_root_path, class: "nav-link" do %>
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
@@ -66,10 +66,17 @@
         Addons
       </div>
       <!-- Nav Item - Tags Menu -->
-      <li class="nav-item <%= active?("admins/tags") %>">
+      <li class="nav-item <%= class_active("admins/tags") %>">
         <%= link_to admins_tags_path, class: "nav-link" do %>
           <i class="fas fa-tags"></i>
           <span>Tags</span>
+        <% end %>
+      </li>
+      <!-- Nav Item - Tags Menu -->
+      <li class="nav-item <%= class_active("admins/posts") %>">
+        <%= link_to admins_posts_path, class: "nav-link" do %>
+          <i class="fas fa-book-open"></i>
+          <span>Posts</span>
         <% end %>
       </li>
 
