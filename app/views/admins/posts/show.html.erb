@@ -1,0 +1,27 @@
+<div id="content">
+  <%= render "admins/header" %>
+  <div class='container-fluid'>
+    <div class='card shadow'>
+      <div class="container card-body">
+        <div class="header-post-detail-admin">
+          <div class="title-post-detail-admin">
+            <h1 class="text-left text-dark text-break">
+              <%= @post.title %>
+            </h1>
+            <hr>
+            <div class="tag-list-post">
+            <% @post.tags.each do |tag| %>
+              <%= link_to tag.name, admins_tag_path(tag), class: "px-2 border-tag text-secondary tag-info font-15p d-inline-block text-nowrap overflow-hidden"  %>
+            <% end %>
+            </div>
+            <div class="author-create-post text-muted font-weight-bold">
+              <span>Author: <%= link_to @user.name, admins_user_path(@user) %></span>
+            </div>
+            <hr>
+          </div>
+          <div class="content-post-detail-admin"><%= raw @post.content%></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
