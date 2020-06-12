@@ -38,12 +38,12 @@
                           <% end %>
                         </td>
                         <td class=<%= action_post_admin %>>
-                          <%= link_to '#' do %>
+                          <%= link_to approve_admins_posts_path(post_id: post), data: {confirm: 'Are you sure approve for post?'} do %>
                             <i class="fas fa-check-circle text-success approve-action"></i>
                           <% end %>    
                         </td>
                         <td class=<%= action_post_admin %>>
-                          <%= link_to '#' do %>
+                          <%= link_to decline_admins_posts_path(post_id: post), data: {confirm: 'Are you sure decline for post?'} do %>
                             <i class="fas fa-times-circle text-danger approve-action"></i>
                           <% end %>    
                         </td>
