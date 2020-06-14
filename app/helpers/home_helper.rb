@@ -9,10 +9,6 @@ module HomeHelper
     return 'p-home_menuItem-active' if request.path == test_path
   end
 
-  def check_class_index(test_path)
-    'p-home_menuItem-active' if [root_path, posts_weekly_path, posts_monthly_path].include? test_path
-  end
-
   def login_banner
     render 'home/banner' unless user_signed_in?
   end

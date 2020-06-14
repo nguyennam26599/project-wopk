@@ -1,6 +1,6 @@
 <div class="position-sticky font-06em nav flex-column d-none d-lg-block" id="leftmenu" style="top: 1rem;">
   <li>
-    <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", "Trends"),root_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ check_class_index(request.path)}"%>
+    <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", "Trends"),root_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(root_path)}"%>
   </li>
   <li>
     <%= link_to fa_icon("fas fa-align-justify mr-2 fa-fw", "Timeline"), timeline_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(timeline_path) }"%>
@@ -16,7 +16,7 @@
 <div class="container-fluid d-none d-sm-block d-md-block d-lg-none flex-column font-7em px-0" id="leftmenu" style="top: 1rem;">
   <div class="row text-center">
     <div class="col-3 ">
-      <%= link_to "Trends", root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ check_class_index(request.path) }" %>
+      <%= link_to "Trends", root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(root_path) }" %>
     </div>
     <div class="col-3">
       <%= link_to "Timeline", timeline_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(timeline_path) }" %>

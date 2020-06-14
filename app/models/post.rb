@@ -10,11 +10,18 @@ class Post < ApplicationRecord
   scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
   # has many users through postvoting
   has_many :post_votings
+  scope :daily, -> { status_public.order(created_at: :desc).order(view_count: :desc) }
+  scope :weekly, -> { status_public.this_week.order(view_count: :desc) }
+  scope :monthly, -> { status_public.this_month.order(view_count: :desc) }
 
   PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'
   CLOSE_STATUS = 'close'
   PUBLIC_STATUS = 'public'
+
+  DAILY_POST = 'daily'
+  WEEKLY_POST = 'weekly'
+  MONTHLY_POST = 'monthly'
 
   def vote_count
     if vote.positive?
@@ -47,6 +54,16 @@ class Post < ApplicationRecord
 
   def belong_user?(user_input)
     user == user_input
+  end
+
+  def self.find_post_home_index(scope_post)
+    if scope_post == WEEKLY_POST
+      weekly
+    elsif scope_post == MONTHLY_POST
+      monthly
+    else
+      daily
+    end
   end
 
   private
