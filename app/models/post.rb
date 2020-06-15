@@ -71,7 +71,7 @@ class Post < ApplicationRecord
   end
 
   def belong_user?(user_input)
-    user == user_input
+    user == user_input && !status_public?
   end
 
   def self.find_post_home_index(scope_post)
