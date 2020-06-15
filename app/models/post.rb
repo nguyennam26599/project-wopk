@@ -17,14 +17,14 @@ class Post < ApplicationRecord
   # Show posts most views in the pending status for the month
   scope :top_post_public_this_month,
         lambda {
-          where(created_at: Time.now.beginning_of_month..Time.now.end_of_month, status: 'public')
+          where(created_at: Time.now.beginning_of_month..Time.now.end_of_month, status: PUBLIC_STATUS)
             .order(view_count: :desc)
         }
   # Show posts most views in the pending status for the week.
   # Default beginning_of_week is monday
   scope :top_post_public_this_week,
         lambda {
-          where(created_at: Time.now.beginning_of_week..Time.now, status: 'public')
+          where(created_at: Time.now.beginning_of_week..Time.now, status: PUBLIC_STATUS)
             .order(view_count: :desc)
         }
   # Post index
