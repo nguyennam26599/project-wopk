@@ -38,12 +38,12 @@
                           <% end %>
                         </td>
                         <td class=<%= action_post_admin %>>
-                          <%= link_to '#' do %>
+                          <%= link_to admins_post_path(post, approve_status: Post::PUBLIC_STATUS), method: :put, data: {confirm: 'Are you sure approve post?'} do %>
                             <i class="fas fa-check-circle text-success approve-action"></i>
                           <% end %>    
                         </td>
                         <td class=<%= action_post_admin %>>
-                          <%= link_to '#' do %>
+                          <%= link_to admins_post_path(post, approve_status: Post::CLOSE_STATUS), method: :put, data: {confirm: 'Are you sure decline post?'} do %>
                             <i class="fas fa-times-circle text-danger approve-action"></i>
                           <% end %>    
                         </td>
