@@ -16,7 +16,13 @@ class Tag < ApplicationRecord
   PUBLISH_STATUS = 'publish'
   DRAFT_STATUS = 'draft'
   NUMBER_ITEM = 15
+  NUMBER_ITEM_10 = 10
   scope :search_name_status_public, ->(search_word) { publish.where('name LIKE ?', "%#{search_word}%") }
+  scope :leaderboard_tags_posts, lambda {
+                                   joins(:posts).select('tags.*, count(posts.id) as total')
+                                                .where('posts.status = 2').group(:id).order('total DESC')
+                                                .limit(NUMBER_ITEM_10)
+                                 }
 
   def tag_post_size
     posts.size

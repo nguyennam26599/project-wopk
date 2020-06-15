@@ -25,6 +25,12 @@ class User < ApplicationRecord
   # has many post through postvoting
   has_many :post_votings
   attr_writer :login
+  scope :leaderboard_user_posts, lambda {
+                                   joins(:posts).select('users.*, count(posts.id) as total')
+                                                .where('posts.status = 2').group(:id).order('total DESC')
+                                                .limit(NUMBER_ITEM_10)
+                                 }
+  NUMBER_ITEM_10 = 10
 
   ACTIVED_STATUS = 'actived'
   DEACTIVED_STATUS = 'deactived'

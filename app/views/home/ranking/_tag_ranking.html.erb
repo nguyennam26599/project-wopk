@@ -1,0 +1,22 @@
+<div class="dedication bg-white text-dark py-2">
+  <div class="d-flex nav justify-content-end font-size-15em border-bottom">
+    <div class="mr-auto py-2 pl-3 font-weight-bold">Tags Ranking</div>
+  </div>
+  <% x = 0; @tags_trend.each do |tag| %>
+    <div class="d-flex bd-highlight border-bottom font-size-13em">
+      <div class="ml-1 w-25 bd-highlight align-self-center text-center font-size-13em">
+        <%== print_number_leaderboard(x += 1) %>
+      </div>
+      <div class="p-1 w-25 bd-highlight align-self-center text-center">
+        <%= image_tag default_avatar_tag(tag), class: "border img-30em" %>
+      </div>
+      <div class="p-1 w-100 flex-shrink-1 bd-highlight align-self-center font-size-11em">
+        <%= link_to tag.name, tag_path(tag.id), class: "text-dark text-decoration-none font-weight-bold clearfix" %>
+      </div>
+      <div class="p-1 w-25 bd-highlight text-center align-self-center mr-2">
+        <span class="font-weight-bold font-size-12em clearfix"> <%= tag.total %> </span>
+        <span>Posts</span>
+      </div>
+    </div>
+  <% end %>
+</div>

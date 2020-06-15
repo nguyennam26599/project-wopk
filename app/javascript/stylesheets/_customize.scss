@@ -54,6 +54,11 @@ $greencolor: #55c500;
     height: 3.75em;
   }
 
+  &-30em {
+    width: 3em;
+    height: 3em;
+  }
+
   &-24em {
     width: 2.4em;
     height: 2.4em;
@@ -70,6 +75,20 @@ $greencolor: #55c500;
   }
 }
 
-.greencolor {
-  color: #55c500;
+.color {
+  &-green {
+    color: #55c500;
+  }
+
+  &-gold {
+    color: #ffc400;
+  }
+
+  &-silver {
+    color: #c9c9c9;
+  }
+
+  &-bronze {
+    color: #ac6d4d;
+  }
 }
