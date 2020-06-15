@@ -3,9 +3,9 @@
   <br>
   <%= render "home/news" %>
   <br>
-  <%= render "home/ranking/user_ranking" unless @users_trend.blank? %>
+  <%= render "home/ranking/user_leaderboard" unless @users_trend.blank? %>
   <br>
-  <%= render "home/ranking/tag_ranking" unless @tags_trend.blank? %>
+  <%= render "home/ranking/tag_leaderboard" unless @tags_trend.blank? %>
   <br>
-  <%= render "home/ranking/organizations_ranking" unless @tags_trend.blank? %>
+  <%= render "home/ranking/organizations_leaderboard" unless @tags_trend.blank? %>
 </div>
