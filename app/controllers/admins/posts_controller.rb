@@ -2,8 +2,7 @@
 
 module Admins
   class PostsController < BaseController
-    before_action :set_post, only: %i[show]
-    before_action :set_post_approve, only: %i[approve decline]
+    before_action :set_post, only: %i[update show]
 
     def index
       scope_post = params[:scope] || Post::PENDING_STATUS
@@ -14,13 +13,8 @@ module Admins
       @user = @post.user
     end
 
-    def approve
-      @post.update status: Post::PUBLIC_STATUS
-      redirect_to admins_posts_path
-    end
-
-    def decline
-      @post.update status: Post::CLOSE_STATUS
+    def update
+      @post.update status: params[:approve_status]
       redirect_to admins_posts_path
     end
 
@@ -28,11 +22,6 @@ module Admins
 
     def set_post
       @post = Post.find_by(id: params[:id])
-      return redirect_to admins_root_path unless @post.present?
-    end
-
-    def set_post_approve
-      @post = Post.find_by(id: params[:post_id])
       return redirect_to admins_posts_path if @post.blank?
     end
   end

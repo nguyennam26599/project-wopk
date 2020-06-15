@@ -31,12 +31,7 @@ Rails.application.routes.draw do
     resources :users
     # end
     # Post admin
-    resources :posts do
-      collection do
-        get :approve
-        get :decline
-      end
-    end
+    resources :posts
     # end
   end
   get 'confirm', to: 'home#confirm_pages'
