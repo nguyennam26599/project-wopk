@@ -1,11 +1,10 @@
-<%= render 'home/header'%>
 <div class="main-content font-size-sm">
     <div class="container pt-3 pb-1">
         <div  class="d-flex align-items-center mb-1 col-xs-12 col-lg-6">
             <div  class="d-flex w-100">
                 <h4  class="text-uppercase">
                     Tags (<%= Tag.count%>)
-                </h4> 
+                </h4>
                 <hr  class="mx-1 filler-line flex-grow-1 mt-4">
             </div>
         </div>
@@ -16,7 +15,7 @@
                     <div class="d-flex tag-item mw-100" >
                         <div class="mr-3 tag__img">
                             <%= link_to tag_path(tag_item.id) do %>
-                                <%=image_tag(default_avatar_tag(tag), class: 'tag__img')%>
+                                <%=image_tag(default_avatar_tag(tag_item), class: 'tag__img')%>
                             <%end%>
                         </div>
                         <div class="d-flex flex-column justify-content-between align-items-start">
@@ -45,4 +44,3 @@
         <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
     </div>
 </div>
-

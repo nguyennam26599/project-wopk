@@ -10,6 +10,24 @@ class Post < ApplicationRecord
   scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
   # has many users through postvoting
   has_many :post_votings
+  # Sort by latest posts
+  scope :sort_new_post, -> { order(created_at: :desc) }
+  # Sort posts most views
+  scope :sort_trend_post, -> { order(view_count: :desc) }
+  # Show posts most views in the pending status for the month
+  scope :top_post_public_this_month,
+        lambda {
+          where(created_at: Time.now.beginning_of_month..Time.now.end_of_month, status: PUBLIC_STATUS)
+            .order(view_count: :desc)
+        }
+  # Show posts most views in the pending status for the week.
+  # Default beginning_of_week is monday
+  scope :top_post_public_this_week,
+        lambda {
+          where(created_at: Time.now.beginning_of_week..Time.now, status: PUBLIC_STATUS)
+            .order(view_count: :desc)
+        }
+  # Post index
   scope :daily, -> { status_public.order(created_at: :desc).order(view_count: :desc) }
   scope :weekly, -> { status_public.this_week.order(view_count: :desc) }
   scope :monthly, -> { status_public.this_month.order(view_count: :desc) }

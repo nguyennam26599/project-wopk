@@ -35,4 +35,5 @@ Rails.application.routes.draw do
     # end
   end
   get 'confirm', to: 'home#confirm_pages'
+  get 'tags/show'
 end

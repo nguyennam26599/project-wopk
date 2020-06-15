@@ -1,17 +1,15 @@
-<div class="body_blog">
-  <div class="container">
+<div class="body_blog bg-light">
+  <div class="container py-3">
     <div class="row">
       <div class="col-md-4">
         <div class="text-center bg-white py-3">
-          <div>
-            <%= image_tag 'https://bom.to/nmxdXh', size: "80" ,:class => "rounded mb-1" %>
-          </div>
+          <%=image_tag(default_avatar_tag(@tag), class: 'rounded mb-1 img-50em')%>
           <div class="font-weight-bold">
-            <h5><%= "Github" %>
+            <h5><%= @tag.name %>
               <h5></div>
               <div class="row py-2">
                 <div class="col-6 border-right">
-                  <span class="font-weight-bold">42421</span><br>
+                  <span class="font-weight-bold"><%= @post.status_public.size %></span><br>
                   <span class="text-muted">Post</span>
                 </div>
                 <div class="col-6">
@@ -23,40 +21,37 @@
                 <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Follow</button>
               </div>
             </div>
-            <div class="d-lg-block d-md-none bg-white my-3">
-              <%= render "home/tagranking" %>
-            </div>
-            <div class="d-lg-block d-md-none bg-white my-3">
-              <%= render "home/tagranking" %>
+            <div class="d-none d-md-block bg-white my-3">
+              <%= render "home/ranking/userranking" %>
+              <%= render "home/ranking/tagranking" %>
             </div>
           </div>
           <div class="col-md-8">
-            <div class="bg-white p-3">
+            <div class="bg-white p-4">
               <div class="title-blog">
-                <i class="far fa-chart-bar" aria-hidden="true"></i>
-                <span>Trends</span>
-                <span class="text-muted">Like ranking last week</span>
+                <%= fa_icon('far fa-chart-bar font-size-12em', 'Trends') %>
+                <span class="text-muted font-size-08em">Like ranking last week</span>
               </div>
-              <div>
-                <% for i in 0..4 %>
+              <div class="view-blog">
+                <% @post_trend.each do |post| %>
+                  <%= render "home/post_index/topic", post: post %>
                 <% end %>
               </div>
             </div>
-            <div class="bg-white p-3 my-4">
+            <div class="bg-white p-4 my-4">
               <div class="title-blog">
-                <i class="fa fa-fw fa-list" aria-hidden="true"></i>
-                <span>Newest posts</span>
+                <%= fa_icon("fa fa-fw fa-list","Newest posts") %>
               </div>
-              <div>
-                <% @post_tag.each do |post| %>
-                  <%= render "tags/posttag", post: post %>
+              <div class="view-blog">
+                <% @post.each do |post| %>
+                  <%= render "home/post_index/topic", post: post %>
                 <% end %>
-                <%== render partial: 'users/shared/pagination', locals: { pagy: @pagy_tag } %>
+                <%== render partial: 'users/shared/pagination', locals: { pagy: @pagy } %>
               </div>
             </div>
-            <div class="d-md-block d-lg-none bg-white py-2">
-              <%= render "home/tagranking" %>
-              <%= render "home/tagranking" %>
+            <div class="d-md-none bg-white py-2">
+              <%= render "home/ranking/userranking" %>
+              <%= render "home/ranking/tagranking" %>
             </div>
           </div>
         </div>
