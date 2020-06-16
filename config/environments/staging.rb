@@ -123,7 +123,7 @@ Rails.application.configure do
     password: ENV['GMAIL_PASSWORD'],
     openssl_verify_mode: 'none'
   }
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'intern-ruby.nal.vn' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 end
