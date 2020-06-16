@@ -71,12 +71,20 @@ class User < ApplicationRecord
     user_followings.include?(other_user)
   end
 
-  # check user status
-  def account_blocked?
-    status != BLOCKED_STATUS
+  # check user status authenticantion
+  def active_for_authentication?
+    super && actived?
   end
 
-  def active_for_authentication?
-    super && account_blocked?
+  private
+
+  # after action email confirm
+  def after_confirmation
+    user_status_update
+  end
+
+  # update user status
+  def user_status_update
+    actived! if confirmed? && deactived?
   end
 end

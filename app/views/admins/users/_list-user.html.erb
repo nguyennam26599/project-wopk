@@ -39,11 +39,11 @@
                         <% unless user.deactived? %>
                           <td>
                             <% if user.actived? %>
-                              <%= link_to admins_user_path(user, user_status: 'blocked'), method: :put do %>
+                              <%= link_to admins_user_path(user, user_status: User::BLOCKED_STATUS), method: :put, data: {confirm: 'Are you sure Block this user?'} do %>
                                 <i class="fas fa-ban text-danger"></i>
                               <% end %>
                             <% else %>
-                              <%= link_to admins_user_path(user, user_status: 'actived'), method: :put do %>
+                              <%= link_to admins_user_path(user, user_status: User::ACTIVED_STATUS), method: :put, data: {confirm: 'Are you sure Active this user?'} do %>
                                 <i class="fas fa-ban text-success"></i>
                               <% end %> 
                             <% end %>

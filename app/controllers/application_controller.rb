@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.class == User
-      user_status_update(resource)
       root_path
     elsif resource.class == Admin
       admins_root_path
@@ -33,10 +32,5 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
-  end
-
-  # update user status
-  def user_status_update(resource)
-    resource.update status: 'actived' if resource.confirmed? && resource.status == 'deactived'
   end
 end
