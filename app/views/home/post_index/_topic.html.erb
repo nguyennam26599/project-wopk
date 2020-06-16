@@ -6,7 +6,7 @@
     <div class="text-muted font-size-08em">
       <%= link_to post.user.name, user_path(post.user.id) %>
       <span class="text-muted">
-        <%= time_ago_in_words(post.created_at) %>
+        <%= time_ago_in_words(post.publish_at) %>
         - 5 min read
       </span>
       <span class="fa fa-paperclip ml-1"></span>

@@ -14,7 +14,7 @@ module Admins
     end
 
     def update
-      @post.update status: params[:approve_status]
+      @post.update(status: params[:approve_status], publish_at: Time.now)
       redirect_to admins_posts_path
     end
 
