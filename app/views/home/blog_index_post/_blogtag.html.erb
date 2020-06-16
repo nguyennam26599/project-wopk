@@ -5,7 +5,7 @@
   </div>
   <div>
     <% @posts.order(created_at: :desc).each do |post| %>
-      <%= render partial: "home/topictag", locals: {post: post} %>
+      <%= render partial: "home/post_index/topictag", locals: {post: post} %>
     <% end %>
     <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
   </div>

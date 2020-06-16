@@ -39,7 +39,7 @@
                     <div class="post-author__info overflow-hidden mr-1 text-nowrap">
                         <div class="d-flex">
                             <div class="flex-fix mr-05 overflow-hidden text-nowrap">
-                                <a href="#" class="text-bold post-author__name"><%= @user.full_name%></a>
+                                <%= link_to @user.full_name, user_path(@user), class: "text-bold post-author__name" %>
                                 <span class="text-muted">@<%= @user.name%></span>
                             </div>
                             <div class="mt-0">
@@ -99,7 +99,7 @@
           <div class="d-md-flex align-items-top justify-content-between">
             <div class="tags">
                 <% @post.tags.each do |tag| %>
-                    <%= link_to tag.name, '#', class: "px-2 border-tag text-secondary tag-info font-12p d-inline-block text-nowrap overflow-hidden"  %>
+                    <%= link_to tag.name, tag_path(tag), class: "px-2 border-tag text-secondary tag-info font-12p d-inline-block text-nowrap overflow-hidden"  %>
                 <% end%>
             </div>
             <div class="el-dropdown">
