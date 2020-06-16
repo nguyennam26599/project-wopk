@@ -22,8 +22,10 @@
               </div>
             </div>
             <div class="d-none d-md-block bg-white my-3">
-              <%= render "home/ranking/userranking" %>
-              <%= render "home/ranking/tagranking" %>
+              <%= render "home/ranking/user_leaderboard" %>
+            </div>
+            <div class="d-none d-md-block bg-white my-3">
+              <%= render "home/ranking/tag_leaderboard" %>
             </div>
           </div>
           <div class="col-md-8">
@@ -49,9 +51,11 @@
                 <%== render partial: 'users/shared/pagination', locals: { pagy: @pagy } %>
               </div>
             </div>
-            <div class="d-md-none bg-white py-2">
-              <%= render "home/ranking/userranking" %>
-              <%= render "home/ranking/tagranking" %>
+            <div class="d-md-none bg-white py-2 my-2">
+              <%= render "home/ranking/user_leaderboard" %>
+            </div>
+            <div class="d-md-none bg-white py-2 my-2">
+              <%= render "home/ranking/tag_leaderboard" %>
             </div>
           </div>
         </div>
