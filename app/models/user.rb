@@ -8,7 +8,7 @@ class User < ApplicationRecord
                    format: { with: /\A[a-zA-Z0-9]+\z/ },
                    uniqueness: { case_sensitive: false }
   enum gender: %i[male female other]
-  enum status: %i[actived deactived blocked]
+  enum status: %i[deactived actived blocked]
   has_many :posts
   has_many :comments
   has_many :followings, as: :follower, class_name: 'FollowPolymorphic'
@@ -75,5 +75,22 @@ class User < ApplicationRecord
 
   def following?(other_user)
     user_followings.include?(other_user)
+  end
+
+  # check user status authenticantion
+  def active_for_authentication?
+    super && actived?
+  end
+
+  private
+
+  # after action email confirm
+  def after_confirmation
+    user_status_update
+  end
+
+  # update user status
+  def user_status_update
+    actived! if confirmed? && deactived?
   end
 end

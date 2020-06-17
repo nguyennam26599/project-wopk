@@ -26,9 +26,29 @@
                         <td><%= user.email %></td>
                         <td><%= user.post_size %></td>
                         <td><%= user.status %></td>
-                        <td><i class="far fa-edit text-warning"></i></td>
-                        <td><i class="fas fa-address-book text-info"></i></td>
-                        <td><i class="fas fa-ban text-danger"></i></td>
+                        <td>
+                          <%= link_to edit_admins_user_path(user) do %>
+                            <i class="far fa-edit text-warning"></i>
+                          <% end %>
+                        </td>
+                        <td>
+                          <%= link_to admins_user_path(user) do %>
+                            <i class="fas fa-address-book text-info"></i>
+                          <% end %>
+                        </td>
+                        <% unless user.deactived? %>
+                          <td>
+                            <% if user.actived? %>
+                              <%= link_to admins_user_path(user, user_status: User::BLOCKED_STATUS), method: :put, data: {confirm: 'Are you sure Block this user?'} do %>
+                                <i class="fas fa-ban text-danger"></i>
+                              <% end %>
+                            <% else %>
+                              <%= link_to admins_user_path(user, user_status: User::ACTIVED_STATUS), method: :put, data: {confirm: 'Are you sure Active this user?'} do %>
+                                <i class="fas fa-ban text-success"></i>
+                              <% end %> 
+                            <% end %>
+                          </td>
+                        <% end%>
                       </tr>
                     <% end %>
                   </tbody>
