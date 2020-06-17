@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, :set_posts, only: %i[new create edit update]
-  before_action :set_post, only: %i[edit update]
+  before_action :set_post, only: %i[edit update view]
 
   def index; end
 
@@ -43,6 +43,15 @@ class PostsController < ApplicationController
     end
   end
 
+  # view count
+  def view
+    if @post.view_increment
+      render json: { status: true, post_view: @post.view_count }
+    else
+      render json: { status: false }
+    end
+  end
+
   private
 
   def post_params
@@ -54,7 +63,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = @posts.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:id])
     return redirect_to root_path unless @post.present?
   end
 end

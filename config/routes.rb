@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :follow_polymorphics
   # routes create post function
-  resources :posts
+  resources :posts do
+    member do
+      post :view
+    end
+  end
+
   resources :tags do
     collection do
       get :search
