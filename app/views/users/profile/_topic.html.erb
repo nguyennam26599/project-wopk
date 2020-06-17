@@ -4,13 +4,13 @@
       <i class="fas fa-tags tag-color"></i>
       <% post.tags.each do |tag| %>
         <span class="badge badge-light text-muted">
-          <%= link_to tag.name, '#', class: 'text-dark text-decoration-none font-size-12em' %>
+          <%= link_to tag.name, tag_path(tag), class: 'text-dark text-decoration-none font-size-12em' %>
         </span>
       <% end%>
     </div>
 
     <div class="articles">
-      <%= link_to post.title, '#', class: "font-weight-bolder lead text-dark" %>
+      <%= link_to post.title, post_path(post), class: "font-weight-bolder lead text-dark" %>
       <div class="row infomation-articles font-size-08em">
         <div class="col-6 text-left">
           <span class="text-muted">Lượt xem:
