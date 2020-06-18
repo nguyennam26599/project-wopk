@@ -23,12 +23,14 @@ Rails.application.routes.draw do
     end
   end
   # end
-  resources :users, only: %w[update show edit]
+
   devise_scope :user do
     get 'login', to: 'users/sessions#new'
     get 'signup', to: 'users/registrations#new'
-    get 'users/reset', to: 'users/registrations#edit'
+    get 'user/password', to: 'users/registrations#edit'
   end
+  get 'user/profile', to: 'users#edit'
+  resources :users, only: %w[update show]
   namespace :admins do
     root 'pages#index'
     # CRUD tags admin
