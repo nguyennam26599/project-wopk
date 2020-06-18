@@ -17,6 +17,7 @@ import "../js/sb-admin-2";
 import "../js/preview_image";
 import flatpickr from "flatpickr";
 import "../js/profile";
+import "../js/back-to-top";
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();
