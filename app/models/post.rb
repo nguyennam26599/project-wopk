@@ -70,7 +70,7 @@ class Post < ApplicationRecord
     update post_params
   end
 
-  def belong_user?(user_input)
+  def edit_able?(user_input)
     user == user_input && !status_public?
   end
 
