@@ -105,7 +105,7 @@
             <div class="el-dropdown">
                 <button class="btn bg-white border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
                 <div class="dropdown-menu">
-                    <%- if @post.belong_user?(current_user)%>
+                    <%- if @post.edit_able?(current_user)%>
                         <div class="dropdown-item">
                             <i class='far fa-flag mr-05 pr-1 fa-fw'></i>
                             <%= link_to 'Edit', edit_post_path, class: 'text-dark' %>
