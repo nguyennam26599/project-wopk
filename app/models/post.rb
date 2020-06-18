@@ -84,6 +84,11 @@ class Post < ApplicationRecord
     end
   end
 
+  # increment view
+  def view_increment
+    increment!(:view_count)
+  end
+
   private
 
   def create_tag_relationship(name_tag_list, status)

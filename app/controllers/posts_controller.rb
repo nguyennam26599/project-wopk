@@ -3,6 +3,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :set_posts, only: %i[new create edit update]
   before_action :set_post, only: %i[edit update]
+  before_action :current_post, only: %i[view show]
 
   def index; end
 
@@ -23,11 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    if (@post = Post.find_by(id: params[:id]))
-      @user = @post.user
-    else
-      redirect_to(root_url, notice: 'Post is not found')
-    end
+    @user = @post.user
   end
 
   def edit; end
@@ -43,7 +40,21 @@ class PostsController < ApplicationController
     end
   end
 
+  # view count
+  def view
+    if @post.view_increment
+      render json: { status: true, post_view: @post.view_count }
+    else
+      render json: { status: false }
+    end
+  end
+
   private
+
+  def current_post
+    @post = Post.find_by(id: params[:id])
+    return redirect_to(root_url, notice: 'Post is not found') unless @post.present?
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :status)

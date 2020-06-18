@@ -56,3 +56,4 @@ import "../packs/user/profile";
 import "../packs/user/header";
 
 /* End JS config for function create posts */
+import "./posts/post-view";

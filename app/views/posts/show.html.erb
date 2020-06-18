@@ -73,7 +73,7 @@
                     <div class="d-flex text-muted font-20p align-items-center ml-auto">
                         <div class="p-2">
                             <i class="far fa-eye text-muted"></i>
-                            <span><%= @post.view_count.to_i%></span>
+                            <span id='post_view'><%= @post.view_count%></span>
                         </div>
                         <div class="p-2 ml-3">
                             <a href="#" class="text-decoration-none bg-white text-muted border-0">
@@ -123,6 +123,8 @@
 
           <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50">
             <%== @post.content%>
+            
+            <input type="hidden" id="path_current" data-view-path="<%= view_post_path %>"/>
           </div>
 
         </article>
