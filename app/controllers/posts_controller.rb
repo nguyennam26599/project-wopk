@@ -2,7 +2,8 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, :set_posts, only: %i[new create edit update]
-  before_action :set_post, only: %i[edit update view]
+  before_action :set_post, only: %i[edit update]
+  before_action :current_post, only: %i[view show]
 
   def index; end
 
@@ -23,11 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    if (@post = Post.find_by(id: params[:id]))
-      @user = @post.user
-    else
-      redirect_to(root_url, notice: 'Post is not found')
-    end
+    @user = @post.user
   end
 
   def edit; end
@@ -54,6 +51,11 @@ class PostsController < ApplicationController
 
   private
 
+  def current_post
+    @post = Post.find_by(id: params[:id])
+    return redirect_to(root_url, notice: 'Post is not found') unless @post.present?
+  end
+
   def post_params
     params.require(:post).permit(:title, :content, :status)
   end
@@ -63,7 +65,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find_by(id: params[:id])
+    @post = @posts.find_by(id: params[:id])
     return redirect_to root_path unless @post.present?
   end
 end
