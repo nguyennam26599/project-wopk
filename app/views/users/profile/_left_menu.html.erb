@@ -44,7 +44,7 @@
 </div>
 <div class="row">
 <div class="col-4">
-  <span class="point-ranking font-size-13em font-weight-bold"><%= @user.posts.where(status: 'pending').size %></span><br>
+  <span class="point-ranking font-size-13em font-weight-bold"><%= @user.posts.status_public.size %></span><br>
   <span class="point-post font-size-08em text-muted">
     <p>Post</p>
   </span>
