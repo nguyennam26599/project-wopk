@@ -47,4 +47,8 @@ module ApplicationHelper
       'Remarkable items. Refleshed at every 5 a.m.and 5 p.m.'
     end
   end
+
+  def date_format(object)
+    object.strftime('%d/%m/%Y - %H:%M')
+  end
 end
