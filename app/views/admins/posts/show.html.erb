@@ -16,7 +16,7 @@
                 <% end %>
               </div>
               <div class="accept-decline-button bd-highlight">
-                <% if @post.status == 'pending' %>
+                <% if @post.status_pending? %>
                   <%= link_to admins_post_path(@post, approve_status: Post::PUBLIC_STATUS), method: :put, data: {confirm: 'Are you sure approve post?'} do %>
                   <button type="button" class="btn btn-success">Approve</button>
                   <% end %>
