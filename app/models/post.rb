@@ -89,7 +89,12 @@ class Post < ApplicationRecord
     increment!(:view_count)
   end
 
-  private
+  def approve_update_post(status_update)
+    approve_date = Time.now if status_update == PUBLIC_STATUS
+    update(status: status_update, publish_at: approve_date)
+  end
+
+  private 
 
   def create_tag_relationship(name_tag_list, status)
     name_tag_list.split(',').each do |tag_name|
