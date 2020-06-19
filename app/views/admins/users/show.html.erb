@@ -21,39 +21,38 @@
                   </div>
                   <div class="profile-github text-dark">
                      <% if @user.github_link? %>
-                        <span>
-                           <i class="fab fa-github"></i>
-                        </span>
-                        <span><%= link_to @user.github_link, @user.link_github, :target => "_blank", :class => 'text-dark' %>
-                        </span>
+                     <span>
+                        <i class="fab fa-github"></i>
+                     </span>
+                     <span><%= link_to @user.github_link, @user.link_github, :target => "_blank" %>
+                     </span>
                      <% end %>
                   </div>
                   <div class="profile-facebook text-dark mt-1">
                      <% if @user.facebook_link? %>
-                        <span>
-                           <i class="fab fa-facebook-square"></i>
-                        </span>
-                        <span><%= link_to @user.facebook_link, @user.link_facebook, :target => "_blank", :class => 'text-dark' %>
-                        </span>
+                     <span>
+                        <i class="fab fa-facebook-square"></i>
+                     </span>
+                     <span><%= link_to @user.facebook_link, @user.link_facebook, :target => "_blank" %>
+                     </span>
                      <% end %>
                   </div>
                   <div class="profile-linkedin text-dark mt-1">
                      <% if @user.linkedln_link? %>
-                        <span>
-                           <i class="fab fa-linkedin"></i>
-                        </span>
-                        <span><%= link_to @user.linkedln_link, @user.link_linkedin, :target => "_blank", :class => 'text-dark' %>
-                        </span>
+                     <span>
+                        <i class="fab fa-linkedin"></i>
+                     </span>
+                     <span><%= link_to @user.linkedln_link, @user.link_linkedin, :target => "_blank" %>
+                     </span>
                      <% end %>
                   </div>
                </div>
             </div>
             <div class="user-list-posts w-75">
                <div class="container">
-                  <h4>List Posts</h4>
-                  <hr>
+                  <h4 class="mb-3">List Posts</h4>
                   <div class="table-responsive-xl">
-                     <table class="table table-borderless" id="table-tag" width="100%" cellspacing="0">
+                     <table class="table table-striped" id="table-tag" width="100%" cellspacing="0">
                         <thead>
                            <tr>
                               <th>ID</th>
@@ -65,9 +64,9 @@
                            <% @posts.order(created_at: :desc).each do |post| %>
                            <tr>
                               <td><%= post.id %></td>
-                              <td><%= link_to post.title, admins_post_path(post), class: 'text-dark text-decoration-none' %></td>
+                              <td><%= link_to post.title, admins_post_path(post) %></td>
                               <td>
-                                 <%= post.status  %>
+                                 <span class=<%= post_status post %>> <%= post.status %></span>
                               </td>
                            </tr>
                            <% end %>
