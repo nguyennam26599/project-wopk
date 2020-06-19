@@ -28,7 +28,7 @@ class Post < ApplicationRecord
             .order(view_count: :desc)
         }
   # Post index
-  scope :daily, -> { status_public.order(created_at: :desc).order(view_count: :desc) }
+  scope :daily, -> { status_public.order(publish_at: :desc).order(view_count: :desc) }
   scope :weekly, -> { status_public.this_week.order(view_count: :desc) }
   scope :monthly, -> { status_public.this_month.order(view_count: :desc) }
 
@@ -89,7 +89,12 @@ class Post < ApplicationRecord
     increment!(:view_count)
   end
 
-  private
+  def approve_update_post(status_update)
+    approve_date = Time.now if status_update == PUBLIC_STATUS
+    update(status: status_update, publish_at: approve_date)
+  end
+
+  private 
 
   def create_tag_relationship(name_tag_list, status)
     name_tag_list.split(',').each do |tag_name|
