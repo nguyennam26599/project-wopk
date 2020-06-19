@@ -13,6 +13,7 @@ class Tag < ApplicationRecord
   scope :tag_list_order_follower, -> { left_joins(:followers).group(:id).order('COUNT(follow_polymorphics.id) DESC') }
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :avatar, allow_blank: true, attached: true, content_type: %i[gif jpg jpeg png pdf tif]
   PUBLISH_STATUS = 'publish'
   DRAFT_STATUS = 'draft'
   NUMBER_ITEM = 15

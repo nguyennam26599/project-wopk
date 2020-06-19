@@ -1,8 +1,5 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">New Shortlink</h6>
-        </div>
         <div class="card-header py-3"> 
             <%= link_to "Back", admins_tags_path, class: "m-0 font-weight-light text-primary" %>
         </div>
@@ -13,7 +10,7 @@
                         <div class="form-group text-muted">
                             <div class="position-relative image-relative-tag">
                                 <label for="img-input" class="w-100 camera position-absolute text-center d-none"><i class="fas fa-camera text-light"></i></label>
-                                <%= f.file_field :avatar, class: "custom-file-input d-none", id: "img-input" %>
+                                <%= f.file_field :avatar, class: "custom-file-input d-none", id: "img-input", accept: "image/*" %>
                                 <%= image_tag default_avatar_tag(@tag), class: "rounded avatar-tag", id: "img-preview" %>
                             </div>
                         </div>
