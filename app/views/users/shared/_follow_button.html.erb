@@ -1,6 +1,6 @@
 <div class="btn-follow">
     <% if current_user == @user %>
-        <%= link_to 'Edit Users', edit_user_path, class: 'text-dark btn btn-light btn-sm btn-block border font-weight-bold' %>
+        <%= link_to 'Edit Users', user_profile_path, class: 'text-dark btn btn-light btn-sm btn-block border font-weight-bold' %>
     <% else %>
         <%= render 'users/shared/follow_form' %>
     <% end %>
