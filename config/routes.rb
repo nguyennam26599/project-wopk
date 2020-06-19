@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       post :view
+      put :clip, to: 'follow_polymorphics#clip'
     end
   end
 

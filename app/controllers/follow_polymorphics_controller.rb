@@ -18,4 +18,19 @@ class FollowPolymorphicsController < ApplicationController
       format.js
     end
   end
+
+  def clip
+    @post = Post.find_by(id: params[:id])
+    if FollowPolymorphic.user_follow_post(current_user, @post).present?
+      FollowPolymorphic.user_follow_post(current_user, @post).destroy
+      notice_post_follow = FollowPolymorphic::NOTICE_DESTROY
+    else
+      FollowPolymorphic.create_follow_post(current_user, @post)
+      notice_post_follow = FollowPolymorphic::NOTICE_CREATE
+    end
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.js { flash.now[:notice] = notice_post_follow }
+    end
+  end
 end

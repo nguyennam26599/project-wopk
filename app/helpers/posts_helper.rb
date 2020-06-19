@@ -17,4 +17,8 @@ module PostsHelper
       'text-info'
     end
   end
+
+  def button_clip_post_check
+    'bg-info text-white' if current_user.post_followings.exists?(id: @post.id)
+  end
 end
