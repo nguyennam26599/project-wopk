@@ -6,6 +6,7 @@ class FollowPolymorphic < ApplicationRecord
 
   NOTICE_DESTROY = 'Post is no longer in follow'
   NOTICE_CREATE = 'Post has been follow'
+  NOTICE_OWN_VOTE = 'You cannot vote your own posts.'
 
   def self.user_follow_post(user, post)
     find_by(follower: user, following: post)

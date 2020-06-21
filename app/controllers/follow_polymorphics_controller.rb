@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class FollowPolymorphicsController < ApplicationController
+  before_action :find_id_post, only: [:clip]
+
   def create
     FollowPolymorphic.create(follower: current_user, following_id: params[:id], following_type: params[:type])
     @user = User.find_by(id: params[:id])
@@ -20,17 +22,27 @@ class FollowPolymorphicsController < ApplicationController
   end
 
   def clip
-    @post = Post.find_by(id: params[:id])
-    if FollowPolymorphic.user_follow_post(current_user, @post).present?
-      FollowPolymorphic.user_follow_post(current_user, @post).destroy
-      notice_post_follow = FollowPolymorphic::NOTICE_DESTROY
-    else
-      FollowPolymorphic.create_follow_post(current_user, @post)
-      notice_post_follow = FollowPolymorphic::NOTICE_CREATE
-    end
+    @notice_post_follow = FollowPolymorphic::NOTICE_OWN_VOTE
+    favorite_post unless current_user.id == @post.id
     respond_to do |format|
       format.html { redirect_to @post }
-      format.js { flash.now[:notice] = notice_post_follow }
+      format.js { flash.now[:notice] = @notice_post_follow }
+    end
+  end
+
+  private
+
+  def find_id_post
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def favorite_post
+    if FollowPolymorphic.user_follow_post(current_user, @post).present?
+      FollowPolymorphic.user_follow_post(current_user, @post).destroy
+      @notice_post_follow = FollowPolymorphic::NOTICE_DESTROY
+    else
+      FollowPolymorphic.create_follow_post(current_user, @post)
+      @notice_post_follow = FollowPolymorphic::NOTICE_CREATE
     end
   end
 end
