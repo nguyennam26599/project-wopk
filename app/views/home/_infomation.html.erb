@@ -1,4 +1,4 @@
-<div class="bg-white pt-3 px-2 d-none d-lg-block">
+<div class="bg-white pt-3 px-3 d-none d-lg-block">
   <div class="row">
     <div class="col-3 ">
       <%= image_tag default_avatar_user(current_user), class: 'rounded mx-1 img-375em' %>
@@ -14,15 +14,15 @@
   </div>
   <div class="row pt-3">
     <div class="col-4 border-left-0 border-bottom-0 border text-center py-1">
-      <span class="font-size-11em text-break"><%= current_user.posts.where(status: "pending").size %></span><br>
+      <span class="font-size-11em clearfix"><%= current_user.post_size_public %></span>
       <span class="font-size-07em text-muted">Post</span>
     </div>
     <div class="col-4 border-bottom-0 border text-center py-1">
-      <span class="font-size-11em">421</span>
+      <span class="font-size-11em clearfix">421</span>
       <span class="font-size-07em text-muted">Contribution</span>
     </div>
     <div class="col-4 border-right-0 border-bottom-0 border text-center py-1">
-      <span class="font-size-11em">312</span>
+      <span class="font-size-11em clearfix"><%= current_user.followers.size %></span>
       <span class="font-size-07em text-muted">Followers</span>
     </div>
   </div>

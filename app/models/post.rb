@@ -94,7 +94,7 @@ class Post < ApplicationRecord
     update(status: status_update, publish_at: approve_date)
   end
 
-  private 
+  private
 
   def create_tag_relationship(name_tag_list, status)
     name_tag_list.split(',').each do |tag_name|

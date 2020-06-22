@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @pagy, @posts = pagy(@user.posts.where(status: 'pending'), page: params[:page])
+    @pagy, @posts = pagy(@user.posts.status_public, page: params[:page])
   end
 
   private
