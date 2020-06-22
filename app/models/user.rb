@@ -82,6 +82,10 @@ class User < ApplicationRecord
     super && actived?
   end
 
+  def post_size_public
+    posts.status_public.size
+  end
+
   private
 
   # after action email confirm

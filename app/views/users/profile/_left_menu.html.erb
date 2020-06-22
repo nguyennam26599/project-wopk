@@ -43,24 +43,24 @@
 <%= simple_format(@user.description) %>
 </div>
 <div class="row">
-<div class="col-4">
-  <span class="point-ranking font-size-13em font-weight-bold"><%= @user.posts.status_public.size %></span><br>
-  <span class="point-post font-size-08em text-muted">
-    <p>Post</p>
-  </span>
-</div>
-<div class="col-4">
-  <span class="font-size-13em font-weight-bold" id="following"><%= @user.followings.count %></span><br>
-  <span class="point-post font-size-08em text-muted">
-    <p>Following</p>
-  </span>
-</div>
-<div class="col-4">
-  <span class="font-size-13em font-weight-bold px-0 py-3" id="followers"><%= @user.followers.count %></span><br>
-  <span class="point-post font-size-08em text-muted">
-    <p>Follower</p>
-  </span>
-</div>
+  <div class="col-4">
+    <span class="point-ranking font-size-13em font-weight-bold"><%= @user.post_size_public %></span><br>
+    <span class="point-post font-size-08em text-muted">
+      <p>Post</p>
+    </span>
+  </div>
+  <div class="col-4">
+    <span class="font-size-13em font-weight-bold" id="following"><%= @user.followings.count %></span><br>
+    <span class="point-post font-size-08em text-muted">
+      <p>Following</p>
+    </span>
+  </div>
+  <div class="col-4">
+    <span class="font-size-13em font-weight-bold px-0 py-3" id="followers"><%= @user.followers.count %></span><br>
+    <span class="point-post font-size-08em text-muted">
+      <p>Follower</p>
+    </span>
+  </div>
 </div>
 <%= render  "users/shared/follow_button" %>
 <div class="border-top text-left mt-3 py-2 font-size-09em">
