@@ -67,7 +67,7 @@ button:not(:disabled) {
 }
 // tags
 
-.border-tag {  
+.border-tag {
     border: 1px solid #dde7f4;
     border-radius: 4px;
     background-color: #f4f4f5;
@@ -111,4 +111,17 @@ button:not(:disabled) {
     width: 2rem;
     height: 2rem;
     line-height: 2rem;
+}
+#notice_post {
+  width: 35%;
+}
+@media screen and (max-width: 992px) {
+  #notice_post {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 576px) {
+  #notice_post {
+    width: 100%;
+  }
 }

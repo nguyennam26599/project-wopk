@@ -5,7 +5,7 @@ module HomeHelper
   CUP_SILVER = 2
   CUP_BRONZE = 3
 
-  def fa_icon(i_class, text)
+  def fa_icon(i_class, text = '')
     "<i class='#{i_class}'></i> #{text}".html_safe
   end
 

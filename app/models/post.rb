@@ -32,6 +32,10 @@ class Post < ApplicationRecord
   scope :weekly, -> { status_public.this_week.order(view_count: :desc) }
   scope :monthly, -> { status_public.this_month.order(view_count: :desc) }
 
+  # User follow Post
+  has_many :followers, as: :following, class_name: 'FollowPolymorphic'
+  has_many :user_followings, through: :followings, source: :following, source_type: 'User'
+
   PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'
   CLOSE_STATUS = 'close'

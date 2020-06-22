@@ -1,3 +1,8 @@
+<div id="notice_post" class="sticky-top d-flex mx-auto text-center">
+  <% if notice.present? %>
+    <%= render partial: "layouts/messages" %>
+  <% end %>
+</div>
 <div class="container position-relative font-body_post mt-5">
     <div class="row">
         <div class="p-0 col-md-1 d-none d-md-block">
@@ -10,10 +15,12 @@
                     </div>
                     <button class="btn-out-line vote border-0 bg-white"><i class="fa fa-caret-down"></i></button>
                 </div>
-                <div class="subscribe mb-2" >
-                    <button type="button" class="d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0">
-                        <i class="fa fa-paperclip text-muted"></i>
-                    </button>
+                <div class="subscribe mb-2">
+                  <% if user_signed_in? %>
+                    <%= link_to fa_icon("fa fa-paperclip"), clip_post_path(@post), class: "d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0 #{ button_clip_post_check }", method: :put, remote: true %>
+                  <% else %>
+                    <%= link_to fa_icon("fa fa-paperclip"), login_path, class: "d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0"%>
+                  <% end %>
                 </div>
                 <div class=" mb-2 font-15p d-flex align-items-center flex-column text-center">
                     <a class="link_icon border border-secondary mb-2 rounded-circle" >
@@ -84,7 +91,7 @@
                         <div class="p-2 ml-3">
                             <a href="#" class="text-decoration-none bg-white text-muted border-0">
                                 <i class="fa fa-paperclip"></i>
-                                <span> 3 </span>
+                                <span id="paperclip-view"> <%= @post.followers.size %> </span>
                             </a>
                         </div>
                     </div>
@@ -123,7 +130,7 @@
 
           <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50">
             <%== @post.content%>
-            
+
             <input type="hidden" id="path_current" data-view-path="<%= view_post_path %>"/>
           </div>
 
@@ -151,9 +158,11 @@
 	</div>
   <div class="d-inline-block ml-auto sharings d-flex align-items-center font-15p text-center mr-2">
       <div class="subscribe">
-          <button type="button" class=" btn btn-light rounded-circle">
-            <i class="fa fa-paperclip text-secondary"></i>
-          </button>
+          <% if user_signed_in? %>
+            <%= link_to fa_icon("fa fa-paperclip"), clip_post_path(@post), class: "btn btn-light rounded-circle #{ button_clip_post_check }", method: :put, remote: true %>
+          <% else %>
+            <%= link_to fa_icon("fa fa-paperclip"), login_path, class: "btn btn-light rounded-circle" %>
+          <% end %>
       </div>
       <span>•</span>
       <a class="sharing-item rounded-circle">
