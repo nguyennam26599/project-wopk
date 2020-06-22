@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FollowPolymorphicsController < ApplicationController
-  before_action :find_id_post, only: [:clip]
+  before_action :set_post, only: [:clip]
 
   def create
     FollowPolymorphic.create(follower: current_user, following_id: params[:id], following_type: params[:type])
@@ -23,7 +23,7 @@ class FollowPolymorphicsController < ApplicationController
 
   def clip
     @notice_post_follow = FollowPolymorphic::NOTICE_OWN_VOTE
-    favorite_post unless current_user.id == @post.id
+    favorite_post unless current_user.id == @post.user_id
     respond_to do |format|
       format.html { redirect_to @post }
       format.js { flash.now[:notice] = @notice_post_follow }
@@ -32,7 +32,7 @@ class FollowPolymorphicsController < ApplicationController
 
   private
 
-  def find_id_post
+  def set_post
     @post = Post.find_by(id: params[:id])
   end
 
