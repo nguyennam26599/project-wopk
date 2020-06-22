@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member do
       post :view
       put :clip, to: 'follow_polymorphics#clip'
+      put 'vote', to: 'post_votings#vote'
     end
   end
 
