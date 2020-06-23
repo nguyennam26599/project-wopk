@@ -59,3 +59,6 @@ import "../packs/user/header";
 /* End JS config for function create posts */
 import "./posts/post-view";
 import "./posts/clip";
+
+/* Post voting */
+import "./posts/voting-post";

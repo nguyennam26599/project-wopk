@@ -1,0 +1,27 @@
+
+<div id='vote_post'>
+    <div class="d-flex d-inline-block flex-column align-items-center mb-1 font-40p">
+        <% if user_signed_in? %>
+            <%= link_to vote_post_path(post, vote_status: true), class: "btn-voted btn-out-line vote border-0 bg-white  #{check_voted(post, true)}", method: :put, remote: true do %>
+                <i class="fa fa-caret-up"></i>
+            <% end %>
+        <% else%>
+            <%= link_to login_path, class: "btn-out-line vote border-0 bg-white" do %>
+                <i class="fa fa-caret-up"></i>
+            <% end %>
+        <% end %>
+
+        <div id="post-vote-count" class="vote-count text-muted font-weight-normal">
+            <%= post.vote_count %>
+        </div>
+        <% if user_signed_in? %>
+            <%= link_to vote_post_path(post, vote_status: false), class: "btn-voted btn-out-line vote border-0 bg-white #{check_voted(post, false)}", method: :put, remote: true do %>
+                <i class="fa fa-caret-down"></i>
+            <% end %>
+        <% else %>
+            <%= link_to login_path, class: "btn-out-line vote border-0 bg-white" do %>
+            <i class="fa fa-caret-down"></i>
+            <% end %>
+        <% end %>
+    </div>
+</div>

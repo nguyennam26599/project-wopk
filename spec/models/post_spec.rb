@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  describe 'Associations' do
+  context 'Associations' do
     it 'has many tags' do
       should respond_to(:tags)
     end
@@ -14,12 +14,16 @@ RSpec.describe Post, type: :model do
       should respond_to(:post_votings)
     end
   end
-  subject { described_class.new(vote: 100, view_count: 1000) }
-  it 'return a vote count' do
-    expect(subject.vote_count == '+100').to be true
-  end
-  it 'return a view count' do
-    expect(subject.view_count == 1000).to be true
+
+  context 'Post vote' do
+    it 'return a vote count' do
+      post = create(:post)
+      expect(post.vote_count == '0').to be true
+    end
+    it 'return a view count' do
+      post = create(:post)
+      expect(post.view_count == 0).to be true
+    end
   end
 
   describe 'scopes' do

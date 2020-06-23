@@ -98,6 +98,11 @@ class Post < ApplicationRecord
     update(status: status_update, publish_at: approve_date)
   end
 
+  # check_vote
+  def check_vote(user, vote_in)
+    post_votings.find_by(user_id: user.id, vote: vote_in)
+  end
+
   private
 
   def create_tag_relationship(name_tag_list, status)
