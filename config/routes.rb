@@ -28,9 +28,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'users/sessions#new'
     get 'signup', to: 'users/registrations#new'
-    get 'user/password', to: 'users/registrations#edit'
+    get 'user/password', to: 'users/registrations#edit', as: 'password'
   end
-  get 'user/profile', to: 'users#edit'
+  get 'user/profile', to: 'users#edit', as: 'profile'
   resources :users, only: %w[update show]
   namespace :admins do
     root 'pages#index'
