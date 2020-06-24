@@ -5,7 +5,7 @@ module Admins
     before_action :set_user, only: %i[show update]
 
     def index
-      @pagy, @users = pagy(User.all, page: params[:page], items: NUMBER_PAGE_20)
+      @pagy, @users = pagy(search_user_admin, page: params[:page], items: NUMBER_PAGE_20)
     end
 
     def show
@@ -22,6 +22,10 @@ module Admins
     def set_user
       @user = User.find_by(id: params[:id])
       return redirect_to admins_users_path if @user.blank?
+    end
+
+    def search_user_admin
+      params[:search].blank? && params[:status].blank? ? User.all : User.search(params[:search], params[:status])
     end
   end
 end
