@@ -17,10 +17,10 @@
                   <% end %>
                 </div>
                 <div class=" mb-2 font-15p d-flex align-items-center flex-column text-center">
-                    <a class="link_icon border border-secondary mb-2 rounded-circle" >
+                    <a class="link_icon border border-secondary mb-2 rounded-circle btn_share_facebook"'>
                         <i class="text-muted fab fa-facebook"></i>
                     </a>
-                    <a class="link_icon border border-secondary rounded-circle">
+                    <a class="link_icon border border-secondary rounded-circle btn_share_twitter" data-url= '<%= request.original_url %>' data-title= '<%= @post.title %>'>
                         <i class="text-muted fab fa-twitter"></i>
                     </a>
                 </div>
@@ -33,7 +33,7 @@
                 <div class=" post-author mb-2 mb-sm-0 align-items-center d-flex">
                     <a href="#" class="mr-1">
                         <div class="d-inline-block avatar-user--top">
-                            <%= image_tag  default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user--top' %>
+                            <%= image_tag default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user--top' %>
                         </div>
                     </a>
 
@@ -125,6 +125,8 @@
           <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50">
             <%== @post.content%>
 
+            <input type="hidden" id="title_post" data-title-post="<%= @post.title %>"/>
+            <input type="hidden" id="url_post" data-url-post="<%= request.original_url %>"/>
             <input type="hidden" id="path_current" data-view-path="<%= view_post_path %>"/>
             <input type="hidden" id="user_create_post" data-user-create-post="<%= user_create_post?(@post) %>"/>
           </div>
@@ -160,11 +162,11 @@
           <% end %>
       </div>
       <span>•</span>
-      <a class="sharing-item rounded-circle">
+      <a class="sharing-item rounded-circle btn_share_facebook">
           <i class="fab fa-facebook text-primary"></i>
       </a>
       <span>•</span>
-      <a class="sharing-item rounded-circle">
+      <a class="sharing-item rounded-circle btn_share_twitter">
           <i class="fab fa-twitter text-info"></i>
       </a>
    </div>

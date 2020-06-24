@@ -58,7 +58,10 @@ import "../packs/user/header";
 
 /* End JS config for function create posts */
 import "./posts/post-view";
+
+/* Function clip this post, share facebook and share twitter*/
 import "./posts/clip";
+import "./posts/btn-share-social"
 
 /* Post voting */
 import "./posts/voting-post";
