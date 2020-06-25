@@ -13,12 +13,21 @@
                   <span class="text-muted"><%= t('tags.index.post_html').capitalize %></span>
                 </div>
                 <div class="col-6">
-                  <span class="font-weight-bold">42421</span><br>
-                  <span class="text-muted"><%= t('tags.index.follower_html').capitalize %></span>
+                  <span class="font-weight-bold" id="follow-size-<%= @tag.id %>"> <%= @tag.tag_follower_size%></span><br>
+                  <span class="text-muted"%> Followers </span> 
                 </div>
               </div>
               <div class="py-2 px-5">
-                <button type="button" class="btn btn-outline-secondary btn-sm btn-block"><%= t('tags.index.follow_html')%></button>
+                <% if current_user.present? %>
+                <button
+                  class='btn-follow btn btn-sm btn-block border font-weight-bold <%=check_follow_status_color(@tag)%>'
+                  data-tag-id="<%= @tag.id %>">
+                  <%= check_follow_status_text(@tag) %>
+                </button>
+                <% else %>
+                <button type="button"
+                  class="btn-follow btn btn-success btn-sm btn-block border font-weight-bold">Follow</button>
+                <%end%>
               </div>
             </div>
             <div class="d-none d-md-block bg-white my-3">
