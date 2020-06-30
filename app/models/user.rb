@@ -31,14 +31,14 @@ class User < ApplicationRecord
                                                 .where('posts.status = 2').group(:id).order('total DESC')
                                                 .limit(NUMBER_ITEM_10)
                                  }
-  scope :search_admin_user_word, lambda { |word_search|
-                                   where('id LIKE :search
-                                                    OR name LIKE :search
-                                                    OR last_name LIKE :search
-                                                    OR first_name LIKE :search
-                                                    OR email LIKE :search', search: "%#{word_search}%")
-                                 }
-  scope :search_admin_user_status, ->(status_user) { where('status = ?', status_user) }
+  scope :search_by_key_word, lambda { |word_search|
+                               where('id LIKE :search
+                                              OR name LIKE :search
+                                              OR last_name LIKE :search
+                                              OR first_name LIKE :search
+                                              OR email LIKE :search', search: "%#{word_search}%")
+                             }
+  scope :search_by_status, ->(status_user) { where('status = ?', status_user) }
 
   NUMBER_ITEM_10 = 10
 
@@ -94,16 +94,6 @@ class User < ApplicationRecord
 
   def post_size_public
     posts.status_public.size
-  end
-
-  def self.search(word_search, status_user)
-    if status_user.blank?
-      search_admin_user_word(word_search)
-    elsif word_search.blank?
-      search_admin_user_status(status_user)
-    else
-      search_admin_user_word(word_search).search_admin_user_status(status_user)
-    end
   end
 
   private
