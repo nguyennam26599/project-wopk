@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 
   def current_post
     @post = Post.find_by(id: params[:id])
-    return redirect_to(root_url, notice: 'Post is not found') unless @post.present?
+    return redirect_to(root_url, notice: 'Post is not found') if @post.blank? || !@post.status_public?
   end
 
   def post_params
@@ -66,6 +66,6 @@ class PostsController < ApplicationController
 
   def set_post
     @post = @posts.find_by(id: params[:id])
-    return redirect_to root_path unless @post.present?
+    return redirect_to(root_url, alert: 'Post posted') if @post.blank? || @post.status_public?
   end
 end
