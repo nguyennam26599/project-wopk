@@ -28,10 +28,10 @@ class TagsController < ApplicationController
   end
 
   def follow_tag
-    tag = Tag.find_tag(params[:tag_id])
+    tag = Tag.find_tag(params[:tagID])
     FollowPolymorphic.follow_tag(current_user, tag)
     data = {
-      follower_size: tag.followers.size
+      followerSize: tag.followers.size
     }
     render json: { status: true, data: data }
   end
