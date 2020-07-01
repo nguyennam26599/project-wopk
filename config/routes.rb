@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|vi/ do
     root 'home#index'
     get '/tagfeed', to: 'home#tagfeed'
-    get '/timeline', to: 'home#timeline'
-    get '/milestones', to: 'home#milestones'
+    get '/clippost', to: 'home#clippost'
     get '/confirm', to: 'home#confirm_pages'
 
     devise_for :users, controllers: { registrations: 'registrations' }

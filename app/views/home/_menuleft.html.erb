@@ -3,35 +3,29 @@
     <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", t('.trends_html')),root_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("index")}"%>
   </li>
   <li>
-    <%= link_to fa_icon("fas fa-align-justify mr-2 fa-fw", t('.timeline_html')), timeline_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("timeline") }"%>
+    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", t('.tagfeed_html')), tagfeed_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(tagfeed_path) }" %>
   </li>
   <li>
-    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", t('.tagfeed_html')), tagfeed_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("tagfeed") }" %>
-  </li>
-  <li>
-    <%= link_to fa_icon("fab fa-font-awesome-flag mr-2 fa-fw", t('.milestones_html')), milestones_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("milestones") }" %>
+    <%= link_to fa_icon("fa fa-paperclip mr-2 fa-fw", "Clip post"), clippost_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(clippost_path) }" %>
   </li>
 </div>
 
 <div class="container-fluid d-none d-sm-block d-md-block d-lg-none flex-column font-7em px-0">
   <div class="row text-center">
-    <div class="col-3 ">
-      <%= link_to t('.trends_html'), root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?("index") }" %>
+    <div class="col-4 ">
+      <%= link_to t('.trends_html'), root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(root_path) }" %>
     </div>
-    <div class="col-3">
-      <%= link_to t('.timeline_html'), timeline_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?("timeline") }" %>
+    <div class="col-4">
+      <%= link_to t('.tagfeed_html'), tagfeed_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(tagfeed_path) }" %>
     </div>
-    <div class="col-3">
-      <%= link_to t('.tagfeed_html'), tagfeed_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?("tagfeed") }" %>
-    </div>
-    <div class="col-3">
-      <%= link_to t('.milestones_html'), milestones_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?("milestones") }" %>
+    <div class="col-4">
+      <%= link_to "Clip post", clippost_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(clippost_path) }" %>
     </div>
   </div>
 </div>
 
 <div class="container-fluid d-block d-sm-none flex-column font-7em px-0">
   <select class="custom-select select_location text-success">
-    <%= options_for_select([[t('.trends_html'), root_path], [t('.timeline_html'), timeline_path], [t('.tagfeed_html'), tagfeed_path],[t('.milestones_html'), milestones_path]], request.path) %>
+    <%= options_for_select([[t('.trends_html'), root_path], [t('.tagfeed_html', tagfeed_path], ['Clip post', clippost_path]], request.path) %>
   </select>
 </div>

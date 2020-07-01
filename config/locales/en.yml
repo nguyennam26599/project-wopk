@@ -22,6 +22,7 @@ en:
       language_html: "Language"
       secret_articles_html: "Secret Articles"
       edit_requests_html: "Edit Requests"
+      password_html: "Password"
     banner:
       password_html: "password"
       username_html: "username"
