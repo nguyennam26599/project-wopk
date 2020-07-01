@@ -17,8 +17,8 @@ $(document).on("turbolinks:load", function () {
 
   $(".btn-dropdown-status").click(function () {
     let titleValue = $("#title").val();
-    let textContent = $(".ck-content p").text();
-    if (titleValue != "" && textContent != "") {
+    let textContent = $("#post_content").text();
+    if (titleValue.trim() != "" && textContent.trim() != "") {
       $(".dropdown-menu-btn").toggle();
     } else {
       $(".dropdown-menu-text").toggle();
