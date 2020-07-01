@@ -37,4 +37,16 @@ module UsersHelper
       'text-danger'
     end
   end
+
+  def left_menu_setting_user(test_path)
+    return 'text-dark' if request.path == test_path
+  end
+
+  def action_show_post_user
+    'd-none' if request.path == users_public_path
+  end
+
+  def action_edit_post_user
+    'd-none' if request.path != users_public_path
+  end
 end

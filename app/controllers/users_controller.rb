@@ -20,6 +20,22 @@ class UsersController < ApplicationController
     @pagy, @posts = pagy(@user.posts.status_public, page: params[:page])
   end
 
+  def show_post_public
+    @pagy, @posts = pagy(current_user.posts.status_public)
+  end
+
+  def show_post_draft
+    @pagy, @posts = pagy(current_user.posts.status_draft)
+  end
+
+  def show_post_pending
+    @pagy, @posts = pagy(current_user.posts.status_pending)
+  end
+
+  def show_post_close
+    @pagy, @posts = pagy(current_user.posts.status_close)
+  end
+
   private
 
   def user_params
