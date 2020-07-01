@@ -40,15 +40,23 @@ module ApplicationHelper
 
   def sub_label_page_index(scope_post)
     if scope_post == WEEKLY_POST
-      'Remarkable items.Refleshed every Monday.'
+      t '.sub_label_weekly'
     elsif scope_post == MONTHLY_POST
-      'Remarkable items.Refleshed on 1st every month.'
+      t '.sub_label_monthly'
     else
-      'Remarkable items. Refleshed at every 5 a.m.and 5 p.m.'
+      t '.sub_label_daily'
     end
   end
 
   def date_format(object)
     object.strftime('%d/%m/%Y - %H:%M')
+  end
+
+  def flag_header(local)
+    if local == 'vi'
+      image_tag('/flag/vietnam.png', style: 'height:1.3em;width:auto;')
+    else
+      image_tag('/flag/england.png', style: 'height:1.3em;width:auto;')
+    end
   end
 end

@@ -4,36 +4,10 @@
       <%= link_to "Hituno", root_path, class: "navbar-brand text-white" %>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <li class="nav-item dropdown mt-2 mr-1">
-            <a class="far fa-caret-square-down text-white font-size-15em" data-toggle="dropdown" href="#" role="button"></a>
-            <div class="dropdown-menu dropdown-menu-left">
-              <%= link_to fa_icon("fa fa-fw fa-check","Hituno"),"#", class: "dropdown-item"%>
-                <div class="dropdown-divider"></div>
-                <div class="nologin text-muted font-weight-bold font-size-07em mt-2 ml-4">You are not logged in to any team</div>
-              <%= link_to fa_icon("fas fa-fw fa-sign-out-alt","Log in to Hiruno Team..."), "#", class: "dropdown-item"%>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown community-toggle community-link  d-none d-md-block">
-            <a class="nav-link dropdown-toggle text-white " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Community</a>
-            <div class="dropdown-menu text-left" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to fa_icon("fa fa-fw fa-users","List of all Users"), "#", class: "dropdown-item"%>
-              <%= link_to fa_icon("fas fa-fw fa-mobile-alt","List of all organizatioins"),"#", class: "dropdown-item"%>
-              <%= link_to fa_icon("fa fa-fw fa-calendar","Advent Calendar"), "#", class: "dropdown-item"%>
-                <div class="dropdown-divider"></div>
-              <%= link_to fa_icon("fa fa-fw fa-search","Hituno Jobs"), "#", class: "dropdown-item"%>
-              <%= link_to fa_icon("fa fa-fw fa-comments","HitunoDon"), "#", class: "dropdown-item"%>
-              <%= link_to fa_icon("far fa-fw fa-newspaper","Hiruno Zine"), "#", class: "dropdown-item"%>
-                <div class="dropdown-divider"></div>
-              <%= link_to fa_icon("fa fa-fw fa-book","Community Guideline"),"#", class: "dropdown-item"%>
-              <%= link_to fa_icon("fa fa-fw fa-book","How to write good articles"), "#", class: "dropdown-item"%>
-            </div>
-          </li>
-
           <li class="nav-item btn_search_laptop d-sm-block ml-sm-3 d-none">
-            <form class="form-inline form-control textbox-search">
+            <form class="form-inline form-control textbox-search d-flex">
               <i class="fa fa-search text-muted mr-1" aria-hidden="true"></i>
-              <input class="mr-sm-2 border-0 textbox-search" type="search" placeholder="Search" aria-label="Search">
+              <input class="mr-sm-2 border-0 textbox-search" type="search" placeholder="<%= t('.search_html') %>">
             </form>
           </li>
 
@@ -41,48 +15,66 @@
             <a class="fas fa-search text-white" data-toggle="dropdown" href="#" role="button"></a>
             <div class="dropdown-menu w-100">
               <form class="form-inline">
-                <input class="form-control border-0 textbox-search" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control border-0 textbox-search" type="search" placeholder="<%= t('.search_html') %>">
               </form>
             </div>
           </li>
         </ul>
 
-        <ul class="navbar-nav ml-auto nav-flex-icons align-self-center">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to fa_icon("far fa-edit","Post"), new_post_path, class: "btn btn-outline-light px-3 d-none d-md-block"%>
-            </li>
-            <li class="nav-item px-2">
-              <div class="btn btn-squared-default btn-light">0</div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
-                <%= image_tag default_avatar_user(current_user), class: 'rounded img-24em' %>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right dropdown-info w-90" aria-labelledby="dropdown_header">
-                <%= link_to "Profile", user_path(current_user), class: "dropdown-item py-2" %>
-                  <div class="dropdown-divider"></div>
-                <%= link_to "Drafts", "#", class: "dropdown-item py-2" %>
-                <%= link_to "Secret Articles", "#", class: "dropdown-item py-2" %>
-                  <div class="dropdown-divider"></div>
-                <%= link_to "Edit Requests", "#", class: "dropdown-item py-2" %>
-                  <div class="dropdown-divider"></div>
-                <%= link_to "Setting", "#", class: "dropdown-item py-2" %>
-                <%= link_to "Help", "#", class: "dropdown-item py-2" %>
-                  <div class="dropdown-divider"></div>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item py-2" %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "SignUp", signup_path, class: "btn btn-outline-light btn-sm px-3" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Login", login_path, class: "btn text-white btn-sm px-3" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+        <ul class="navbar-nav ml-auto nav-flex-icons align-self-center d-flex">
+          <li class="align-self-center">
+          <div class="dropdown btn-language">
+            <button class="btn btn-outline-success dropdown-toggle text-white mr-2 btn-sm d-none d-md-block" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              <%= t('.language_html') %>
+            </button>
+            <button class="btn btn-outline-success border-0 dropdown-toggle text-white mr-2 btn-sm d-md-none" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              <%= flag_header(params[:locale]) %>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to url_for(locale: :en), class: "dropdown-item" do %>
+                <%= image_tag("/flag/vietnam.png", style: 'height:1em;width:auto;') %> Vietnamese
+              <% end %>
+              <%= link_to url_for(locale: :vi), class: "dropdown-item" do %>
+                <%= image_tag("/flag/england.png", style: 'height:1em;width:auto;') %> English
+              <% end %>
+            </div>
+          </div>
+          </li>
+      <% if user_signed_in? %>
+        <li class="nav-item align-self-center">
+          <%= link_to fa_icon("far fa-edit",t('.create_post_html')), new_post_path, class: "btn btn-outline-light px-3 d-none d-md-block btn-sm"%>
+        </li>
+        <li class="nav-item px-2">
+          <div class="btn btn-squared-default btn-light">0</div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
+            <%= image_tag default_avatar_user(current_user), class: 'rounded-circle img-24em' %>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-info w-90" aria-labelledby="dropdown_header">
+            <%= link_to t('.profile_html'), user_path(current_user), class: "dropdown-item py-2" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t('.drafts_html'), "#", class: "dropdown-item py-2" %>
+            <%= link_to t('.secret_articles_html'), "#", class: "dropdown-item py-2" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t('.edit_requests_html'), "#", class: "dropdown-item py-2" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t('.setting_html'), "#", class: "dropdown-item py-2" %>
+            <%= link_to t('.help_html'), "#", class: "dropdown-item py-2" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t('.logout_html'), destroy_user_session_path, method: :delete, class: "dropdown-item py-2" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to t('.signup_html'), signup_path, class: "btn btn-outline-light btn-sm px-3 btn-block" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('.login_html'), login_path, class: "btn text-white btn-sm px-3 btn-block w-100" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
+</nav>
+</div>
 </div>

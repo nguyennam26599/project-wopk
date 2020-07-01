@@ -1,20 +1,20 @@
 <div class="left-setting p-3 d-flex flex-column align-items-start bg-white">
     <div class="title-sidebar border-bottom pt-3 w-100">
-        <h6 class='font-weight-bold'>Public Profile</h6>
+        <h6 class='font-weight-bold'><%= t('.public_profile')%></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to 'Account', profile_path %></h6>
+        <h6><%= link_to t('.account_html'), profile_path %></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to 'Password', password_path %></h6>
+        <h6><%= link_to t('.password_html'), password_path %></h6>
     </div>
     <div class="title-sidebar border-bottom pt-3 w-100">
-        <h6 class='font-weight-bold'>Post</h6>
+        <h6 class='font-weight-bold'><%= t('.post_leftmenu_html')%></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6>Publish</h6>
+        <h6><%= t('.public_html')%></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6>Private</h6>
+        <h6><%= t('.drafts_leftmenu_html')%></h6>
     </div>
 </div>

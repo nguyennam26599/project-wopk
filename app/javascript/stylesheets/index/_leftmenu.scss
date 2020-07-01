@@ -1,25 +1,29 @@
-.p-home_menuItem {
-  color: #85837a;
-  font-size: 0.9rem;
-  transition: background-color 0.08s ease-in-out;
-  width: 115%;
+.left-menu-home {
+  top: 1rem;
 
-  &:hover {
-    filter: brightness(110%);
-    font-weight: bold;
-  }
-
-  &-active {
-    position: relative;
-    font-weight: normal;
-    color: #fff;
-    background-color: #55c500;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+  .p-home_menuItem {
+    color: #85837a;
+    font-size: 0.9rem;
+    transition: background-color 0.08s ease-in-out;
+    width: 115%;
 
     &:hover {
+      filter: brightness(110%);
       font-weight: bold;
-      color: WhiteSmoke !important;
+    }
+
+    &-active {
+      position: relative;
+      font-weight: normal;
+      color: #fff;
+      background-color: #55c500;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+
+      &:hover {
+        font-weight: bold;
+        color: WhiteSmoke !important;
+      }
     }
   }
 }
