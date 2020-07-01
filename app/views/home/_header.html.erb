@@ -31,10 +31,10 @@
               <%= flag_header(params[:locale]) %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to url_for(locale: :en), class: "dropdown-item" do %>
+              <%= link_to url_for(locale: :vi), class: "dropdown-item" do %>
                 <%= image_tag("/flag/vietnam.png", style: 'height:1em;width:auto;') %> Vietnamese
               <% end %>
-              <%= link_to url_for(locale: :vi), class: "dropdown-item" do %>
+              <%= link_to url_for(locale: :en), class: "dropdown-item" do %>
                 <%= image_tag("/flag/england.png", style: 'height:1em;width:auto;') %> English
               <% end %>
             </div>
