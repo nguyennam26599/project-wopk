@@ -1,33 +1,107 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  home:
+    post_index:
+      topic_index:
+        trends_html: "Trends"
+        daily_html: "Daily"
+        weekly_html: "Monthly"
+        monthly_html: "Monthly"
+        sub_label_daily: "Remarkable items. Refleshed at every 5 a.m.and 5 p.m."
+        sub_label_weekly: "Remarkable items. Refleshed every Monday"
+        sub_label_monthly: "Remarkable items. Refleshed on 1st every month."
+    header:
+      signup_html: "SignUp"
+      login_html: "Login"
+      search_html: "Search"
+      profile_html: "Profile"
+      drafts_html: "Drafts"
+      logout_html: "Logout"
+      help_html: "Help"
+      setting_html: "Setting"
+      create_post_html: "Post"
+      language_html: "Language"
+      secret_articles_html: "Secret Articles"
+      edit_requests_html: "Edit Requests"
+    banner:
+      password_html: "password"
+      username_html: "username"
+      attention_html: 'By clicking "Signup", you agree to our'
+      terms_of_service_html: "terms of service."
+      signup_html: "SignUp"
+      validate_6_letter: "Use at least 6 letters."
+    menuleft:
+      trends_html: "Trends"
+      timeline_html: "Timeline"
+      tagfeed_html: "Tags Feed"
+      milestones_html: "Milestones"
+    infomation:
+      post: "Post"
+      follower: "Follower"
+    ranking:
+      user_leaderboard_html: "Users ranking"
+      tag_leaderboard_html: "Tags ranking"
+      post: "Post"
+  users:
+    profile:
+      post: "Post"
+      follower: "Follower"
+      following: "following"
+      edit_user: "Edit User"
+      follow: "Follow"
+      unfollow: "Unfollow"
+      following_tag: "Following Tags"
+      pickup_articles: "Pickup Articles"
+      all_articles: "All Articles"
+      view_html: "View:"
+      public_at: "%{day} ago"
+      label_pickup_article_html: "Let's set the article you want to appeal :)"
+      setting_pickup_articles: "Setting Pickup Articles"
+    shared:
+      left_settings:
+        public_profile: "Public Profile"
+        account_html: "Account"
+        password_html: "Password"
+        post_leftmenu_html: "Post"
+        public_html: "Public"
+        pending_html: "Pending"
+        drafts_leftmenu_html: "Drafts"
+        close_leftmenu_html: "Close"
+      form:
+        avatar_html: "Avatar"
+        full_name_html: "Name"
+        first_name_html: "First Name"
+        last_name_html: "Last Name"
+        public_email_html: "Public email"
+        checkbox_public_email: "Open your Email to public."
+        label_email_public: "Your mail address %{email} becomes public."
+        change_email_address: "Change email address"
+        gender_html: "Gender"
+        male_html: "Male"
+        female_html: "Female"
+        other_html: "Other"
+        birthday_html: "Birthday"
+        organization_html: "Organization"
+        address_html: "Address"
+        description_html: "Description"
+        description_attention_html: "Less than 200 characters."
+        update_user_html: "Update User"
+  tags:
+    index:
+      post_html: "post"
+      follower_html: "follower"
+      follow_html: "Follow"
+    show:
+      description_trend_html: "Like ranking last week"
+      newest_posts_html: "Newest Posts"
+  posts:
+    new:
+      title_html: "title"
+      description_tag_html: "Tag your post. Maximun 5 tags"
+      description_not_writing_html: "Add a title, start writing something to publish."
+      puslish_your_post_html: "Puslish your post"
+      visibility_html: "Visibility"
+      publish_html: "Publish"
+      private_draft_html: "Private draft"
+      save_html: "Save"
+      select_option_publish_html: "Everyone can see your post."
+      select_option_draft_html: "Only you can see this post. Your draft is <br>already saved automatically as you type."

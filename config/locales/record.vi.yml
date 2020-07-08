@@ -1,0 +1,8 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        genders:
+          female: "Nữ"
+          male: "Nam"
+          other: "Khác"

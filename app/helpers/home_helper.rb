@@ -10,7 +10,7 @@ module HomeHelper
   end
 
   def current_class?(test_path)
-    return 'p-home_menuItem-active' if request.path == test_path
+    return 'p-home_menuItem-active' if params[:action] == test_path
   end
 
   def login_banner

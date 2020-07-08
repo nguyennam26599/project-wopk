@@ -46,19 +46,19 @@
   <div class="col-4">
     <span class="point-ranking font-size-13em font-weight-bold"><%= @user.post_size_public %></span><br>
     <span class="point-post font-size-08em text-muted">
-      <p>Post</p>
+      <p><%=t('users.profile.post')%></p>
     </span>
   </div>
   <div class="col-4">
     <span class="font-size-13em font-weight-bold" id="following"><%= @user.followings.count %></span><br>
     <span class="point-post font-size-08em text-muted">
-      <p>Following</p>
+      <p><%=t('users.profile.following')%></p>
     </span>
   </div>
   <div class="col-4">
     <span class="font-size-13em font-weight-bold px-0 py-3" id="followers"><%= @user.followers.count %></span><br>
     <span class="point-post font-size-08em text-muted">
-      <p>Follower</p>
+      <p><%=t('users.profile.follower')%></p>
     </span>
   </div>
 </div>
@@ -88,7 +88,7 @@
 
   <div class="profile-tag text-left border-top pt-3 pb-2 px-0">
     <i class="fas fa-tags greencolor"></i>
-    <span class="font-weight-bold text-muted">Following tags</span>
+    <span class="font-weight-bold text-muted"><%=t('users.profile.following_tag')%></span>
     <div class="">
       <span>
         <%= link_to 'ECMAScript', '#', class: "badge badge-secondary" %>

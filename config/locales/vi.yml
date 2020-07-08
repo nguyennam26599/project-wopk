@@ -1,0 +1,108 @@
+vi:
+  home:
+    post_index:
+      topic_index:
+        trends_html: "Thịnh hành"
+        timeline_html: "Dòng thời gian"
+        daily_html: "Ngày"
+        weekly_html: "Tuần"
+        monthly_html: "Tháng"
+        sub_label_daily: 'Cập nhập các bài viết mới nhất.'
+        sub_label_weekly: 'Cập nhập vào thứ hai hàng tuần.'
+        sub_label_monthly: 'Cập nhập vào ngày mùng 1 hàng tháng.'
+    header:
+      signup_html: "Đăng kí"
+      login_html: "Đăng nhập"
+      search_html: "Tìm kiếm"
+      profile_html: "Trang cá nhân"
+      drafts_html: "Bài viết nháp"
+      secret_articles_html: "Bài viết bí mật"
+      edit_requests_html: "Chỉnh sửa yêu cầu"
+      logout_html: "Đăng xuất"
+      help_html: "Giúp đỡ"
+      setting_html: "Cài đặt"
+      create_post_html: "Tạo bài viết"
+      language_html: "Ngôn ngữ"
+    banner:
+      password_html: "Mật khẩu"
+      username_html: "Tên đăng nhập"
+      attention_html: 'Bấm vào "Đăng kí" là bạn sẽ đồng ý với'
+      terms_of_service_html: "điều khoản và quy định."
+      signup_html: "Đăng kí"
+      validate_6_letter: "Phải từ 6 kí tự trở lên"
+    menuleft:
+      trends_html: "Thịnh hành"
+      timeline_html: "Dòng thời gian"
+      tagfeed_html: "Thẻ   bài viết"
+      milestones_html: "Mốc quan trọng"
+    infomation:
+      post: "Bài viết"
+      follower: "Người theo dõi"
+    ranking:
+      user_leaderboard_html: "Thành viên tích cực"
+      tag_leaderboard_html: "Thẻ được dùng nhiều nhất"
+      post: "Bài"
+  users:
+    profile:
+      post: "Bài viết"
+      follower: "Người theo dõi"
+      following: "Đang theo dõi"
+      edit_user: "Sửa thông tin"
+      follow: "Theo dõi"
+      unfollow: "Huỷ theo dõi"
+      following_tag: "Thẻ đang theo dõi"
+      pickup_articles: "Bài viết được ghim"
+      all_articles: "Tất cả bài viết"
+      view_html: "Lượt xem:"
+      public_at: "%{day} trước"
+      label_pickup_article_html: "Chọn bài viết bạn muốn ghim lên đầu :)"
+      setting_pickup_articles: "Chọn bài viết"
+    shared:
+      left_settings:
+        public_profile: "Thông tin tài khoản"
+        account_html: "Tài khoản"
+        password_html: "Mật khẩu"
+        post_leftmenu_html: "Thông tin bài viết"
+        public_html: "Công khai"
+        pending_html: "Chờ"
+        drafts_leftmenu_html: "Nháp"
+        close_leftmenu_html: "Đóng"
+      form:
+        avatar_html: "Ảnh đại diện"
+        full_name_html: "Họ tên"
+        first_name_html: "Họ"
+        last_name_html: "Tên"
+        public_email_html: "Công khai email"
+        checkbox_public_email: "Công khai email của tôi."
+        label_email_public: "Email %{email} của bạn sẽ hiển thị công khai."
+        change_email_address: "Thay đổi địa chỉ email"
+        gender_html: "Giới tính"
+        male_html: "Nam"
+        female_html: "Nữ"
+        other_html: "Khác"
+        birthday_html: "Ngày sinh"
+        organization_html: "Cơ quan"
+        address_html: "Địa chỉ"
+        description_html: "Giới thiệu"
+        description_attention_html: "Tối đa 200 kí tự."
+        update_user_html: "Cập nhập thông tin"
+  tags:
+    index:
+      post_html: "bài viết"
+      follower_html: "người theo dõi"
+      follow_html: "Theo dõi"
+    show:
+      description_trend_html: "Bài viết được nhiều người xem nhất trong tuần."
+      newest_posts_html: "Bài viết mới nhất"
+  posts:
+    new:
+      title_html: "Tiêu đề"
+      description_tag_html: "Gắn thẻ cho bài viết. Tối đa 5 thẻ."
+      description_not_writing_html: "Hãy thêm tiêu đề và nội dung bài viết."
+      puslish_your_post_html: "Trạng thái bài viết"
+      visibility_html: "Hiển thị:"
+      publish_html: "Công khai"
+      private_draft_html: "Chỉ mình tôi."
+      save_html: "Lưu bài viết"
+      select_option_publish_html: "Mọi người đều có thể xem bài viết của bạn."
+      select_option_draft_html: "Chỉ mình bạn nhìn thấy bài nháp. Bài nháp của bạn <br> sẽ tự động được lưu."

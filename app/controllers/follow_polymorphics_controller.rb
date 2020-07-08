@@ -22,7 +22,7 @@ class FollowPolymorphicsController < ApplicationController
   end
 
   def clip
-    @notice_post_follow = FollowPolymorphic::NOTICE_OWN_VOTE
+    @notice_post_follow = t('notice.messages.follow_post_own')
     favorite_post unless current_user.id == @post.user_id
     respond_to do |format|
       format.html { redirect_to @post }
@@ -39,10 +39,10 @@ class FollowPolymorphicsController < ApplicationController
   def favorite_post
     if FollowPolymorphic.user_follow_post(current_user, @post).present?
       FollowPolymorphic.user_follow_post(current_user, @post).destroy
-      @notice_post_follow = FollowPolymorphic::NOTICE_DESTROY
+      @notice_post_follow = t('notice.messages.unfollow_post')
     else
       FollowPolymorphic.create_follow_post(current_user, @post)
-      @notice_post_follow = FollowPolymorphic::NOTICE_CREATE
+      @notice_post_follow = t('notice.messages.follow_post')
     end
   end
 end

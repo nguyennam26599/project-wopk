@@ -10,15 +10,15 @@
               <div class="row py-2">
                 <div class="col-6 border-right">
                   <span class="font-weight-bold"><%= @post.status_public.size %></span><br>
-                  <span class="text-muted">Post</span>
+                  <span class="text-muted"><%= t('tags.index.post_html').capitalize %></span>
                 </div>
                 <div class="col-6">
                   <span class="font-weight-bold">42421</span><br>
-                  <span class="text-muted">Followers</span>
+                  <span class="text-muted"><%= t('tags.index.follower_html').capitalize %></span>
                 </div>
               </div>
               <div class="py-2 px-5">
-                <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Follow</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm btn-block"><%= t('tags.index.follow_html')%></button>
               </div>
             </div>
             <div class="d-none d-md-block bg-white my-3">
@@ -31,8 +31,8 @@
           <div class="col-md-8">
             <div class="bg-white p-4">
               <div class="title-blog">
-                <%= fa_icon('far fa-chart-bar font-size-12em', 'Trends') %>
-                <span class="text-muted font-size-08em">Like ranking last week</span>
+                <%= fa_icon('far fa-chart-bar font-size-12em', t('home.post_index.topic_index.trends_html')) %>
+                <span class="text-muted font-size-08em"><%= t('.description_trend_html')%></span>
               </div>
               <div class="view-blog">
                 <% @post_trend.each do |post| %>
@@ -42,7 +42,7 @@
             </div>
             <div class="bg-white p-4 my-4">
               <div class="title-blog">
-                <%= fa_icon("fa fa-fw fa-list","Newest posts") %>
+                <%= fa_icon("fa fa-fw fa-list",t('.newest_posts_html')) %>
               </div>
               <div class="view-blog">
                 <% @post.each do |post| %>

@@ -23,13 +23,13 @@
                                 <%= link_to tag_item.name, tag_path(tag_item.id), class: "text-dark text-decoration-none font-weight-normal text-truncate" %>
                             </h4>
                             <div class="text-muted">
-                                <span class="font-weight-bold"><%= tag_item.tag_post_size%> </span>posts<br />
-                                <span class="font-weight-bold"><%= tag_item.tag_follower_size%> </span>followers
+                                <span class="font-weight-bold"><%= tag_item.tag_post_size%> </span><%= t('.post_html') %><br />
+                                <span class="font-weight-bold"><%= tag_item.tag_follower_size%> </span><%= t('.follower_html') %>
                             </div>
                             <div class="subscribe">
                                 <button class="btn btn-sm btn-outline-primary btn-subscribe btn-white">
                                     <span>
-                                        <i class="fa fa-plus"></i> Follow
+                                        <i class="fa fa-plus"></i> <%= t('.follow_html') %>
                                     </span>
                                 </button>
                             </div>
