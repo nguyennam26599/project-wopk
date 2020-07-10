@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get :search
       post :follow_tag
     end
+  end
     # end
 
     devise_scope :user do
