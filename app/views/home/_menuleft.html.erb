@@ -3,10 +3,10 @@
     <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", t('.trends_html')),root_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("index")}"%>
   </li>
   <li>
-    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", t('.tagfeed_html')), tagfeed_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(tagfeed_path) }" %>
+    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", t('.tagfeed_html')), tagfeed_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("tagfeed") }" %>
   </li>
   <li>
-    <%= link_to fa_icon("fa fa-paperclip mr-2 fa-fw", "Clip post"), clippost_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(clippost_path) }" %>
+    <%= link_to fa_icon("fa fa-paperclip mr-2 fa-fw", "Clip post"), clippost_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?("clippost") }" %>
   </li>
 </div>
 
@@ -26,6 +26,6 @@
 
 <div class="container-fluid d-block d-sm-none flex-column font-7em px-0">
   <select class="custom-select select_location text-success">
-    <%= options_for_select([[t('.trends_html'), root_path], [t('.tagfeed_html', tagfeed_path], ['Clip post', clippost_path]], request.path) %>
+    <%= options_for_select([[t('.trends_html'), root_path], [t('.tagfeed_html'), tagfeed_path], ['Clip post', clippost_path]], request.path) %>
   </select>
 </div>
