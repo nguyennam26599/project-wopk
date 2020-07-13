@@ -23,6 +23,7 @@ vi:
       setting_html: "Cài đặt"
       create_post_html: "Tạo bài viết"
       language_html: "Ngôn ngữ"
+      password_html: "Mật khẩu"
     banner:
       password_html: "Mật khẩu"
       username_html: "Tên đăng nhập"

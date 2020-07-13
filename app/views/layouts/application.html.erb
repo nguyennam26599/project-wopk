@@ -10,7 +10,9 @@
   </head>
   <body>
     <%= show_header %>
-    <%= yield %>
+    <div id="content-page" class="bg-light">
+      <%= yield %>
+    </div>
     <%= show_footer %>
     <%= render  "users/shared/back_to_top" %>
   </body>
