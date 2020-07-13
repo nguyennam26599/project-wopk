@@ -35,6 +35,7 @@ class Post < ApplicationRecord
   # User follow Post
   has_many :followers, as: :following, class_name: 'FollowPolymorphic'
   has_many :user_followings, through: :followings, source: :following, source_type: 'User'
+  has_rich_text :content
 
   PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'

@@ -7,6 +7,8 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
+require("trix");
+require("@rails/actiontext");
 
 import "bootstrap";
 import "../stylesheets/application";
@@ -42,8 +44,6 @@ window.$ = $;
 
 /* JS and config for function create posts */
 
-import "ckeditor5-build-classic-all-plugin/build/ckeditor";
-import "./posts/ckeditor/config";
 import "./posts/list-tags";
 import "./posts/create-post";
 import "jqueryui/jquery-ui";
