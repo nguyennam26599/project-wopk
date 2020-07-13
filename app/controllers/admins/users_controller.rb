@@ -5,7 +5,8 @@ module Admins
     before_action :set_user, only: %i[show update]
 
     def index
-      @pagy, @users = pagy(User.all, page: params[:page], items: NUMBER_PAGE_20)
+      @users_list = SearchService.new(params).perform
+      @pagy, @users = pagy(@users_list, page: params[:page], items: NUMBER_PAGE_20)
     end
 
     def show

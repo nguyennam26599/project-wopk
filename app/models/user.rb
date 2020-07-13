@@ -31,6 +31,15 @@ class User < ApplicationRecord
                                                 .where('posts.status = 2').group(:id).order('total DESC')
                                                 .limit(NUMBER_ITEM_10)
                                  }
+  scope :search_by_key_word, lambda { |word_search|
+                               where('id LIKE :search
+                                              OR name LIKE :search
+                                              OR last_name LIKE :search
+                                              OR first_name LIKE :search
+                                              OR email LIKE :search', search: "%#{word_search}%")
+                             }
+  scope :search_by_status, ->(status_user) { where('status = ?', status_user) }
+
   NUMBER_ITEM_10 = 10
 
   ACTIVED_STATUS = 'actived'

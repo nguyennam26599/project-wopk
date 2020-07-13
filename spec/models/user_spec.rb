@@ -95,4 +95,14 @@ RSpec.describe User, type: :model do
     u = User.create(url_link: 'blogtruyen.com')
     expect(u.link_url == 'http://blogtruyen.com').to be true
   end
+
+  it 'is return list user by key word' do
+    create(:user)
+    expect(User.search_by_key_word('anh').present?).to be true
+  end
+
+  it 'is return list user by status' do
+    create(:user)
+    expect(User.search_by_status(1).present?).to be true
+  end
 end
