@@ -79,7 +79,7 @@
                         <div class="p-2 ml-3">
                             <a href="#" class="text-decoration-none bg-white text-muted border-0">
                                 <i class="fas fa-comments"></i>
-                                <span>1</span>
+                                <span id="post-comments-size"><%= @post.comments.size %></span>
                             </a>
                         </div>
                         <div class="p-2 ml-3">
@@ -131,6 +131,34 @@
             <input type="hidden" id="user_create_post" data-user-create-post="<%= user_create_post?(@post) %>"/>
           </div>
 
+          <!-- Post comments-->
+
+          <input type="hidden" id="path_comments" data-comments-path="<%= comments_path %>"/>
+          <input type="hidden" id="size_comments" data-comments-size="<%= @comments.size %>"/>
+         
+            <div class="bg-light border p-1">
+                <div class="comments m-1" id="cmt">
+                    <h3 class="comments-title">Comments (<span id="comment-size"><%= @comments.size %></span>)</h3>
+
+                    <!-- create comment-->
+                    <%= render "comments/new" %>
+                    <div id="list-comment-create"></div>
+                    <!-- end -->
+
+                    <%= render partial: 'comments/comment', collection: @newest_comment_list%>
+
+                    <div id="list-comments">
+                        <!--list comments-->
+                    </div> 
+                    <div class="text-center">
+                        <% if @comments.size > Comment::NUMBER_COMMENTS_5 %>
+                            <button type="submit" id="load-more" class="btn btn-outline-info btn-sm mb-3 mt-3">More</button>
+                        <% end %>    
+                    </div> 
+                  </div>
+            </div>
+          
+          <!-- end -->  
         </article>
       </div>
     </div>

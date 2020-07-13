@@ -1,0 +1,20 @@
+<div class="card mb-1">
+    <div class="w-100 d-flex">
+        <div class="w-avatar p-2">
+            <%= link_to user_path(comment.user) do %>
+                <%= image_tag  default_avatar_user(comment.user), class: 'img-user-comment rounded-circle' %>
+            <% end %>
+        </div>
+        <div class="w-content p-2">
+            <div class="font-weight-bold w-user-name">
+                <%= link_to comment.user.name, user_path, class: "font-weight-bold" %>
+            </div>
+            <div class="w-comnet-time">
+                <i class="far fa-clock"></i>
+                <%= time_ago_in_words(comment.created_at)%> ago.
+            </div>
+            <div id="content-comment" class="p-1 bg-light w-100 mt-2 float-left"><%= simple_format(comment.content)%></div>
+        </div>
+    </div>
+</div>
+

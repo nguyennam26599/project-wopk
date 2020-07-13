@@ -1,0 +1,17 @@
+<div class="card mb-1">
+    <div class="w-100 d-flex">
+        <div class="w-avatar p-2">
+            <a href="${obj.user.url}"><img src= ${obj.user.avatar_url} class='img-user-comment rounded-circle' ></a>
+        </div>
+        <div class="w-content p-2">
+            <div class="font-weight-bold w-user-name">
+                <a href="${obj.user.url}" class="font-weight-bold">${obj.user.name}</a>
+            </div>
+            <div class="w-comnet-time">
+                <i class="far fa-clock"></i>
+                ${obj.time_ago} ago.
+            </div>
+            <div id="content-comment" class="p-1 bg-light w-100 mt-2 float-left">${obj.content}</div>
+        </div>
+    </div>
+</div>

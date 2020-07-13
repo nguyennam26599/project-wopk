@@ -67,3 +67,4 @@ import "./posts/btn-share-social"
 import "./posts/voting-post";
 
 import "../js/follow_tag";
+import "./posts/load-comments";

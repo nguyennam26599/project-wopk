@@ -25,6 +25,8 @@ class PostsController < ApplicationController
 
   def show
     @user = @post.user
+    @comments = @post.comments
+    @newest_comment_list = @comments.order('created_at DESC').limit(Comment::NUMBER_COMMENTS_5)
   end
 
   def edit; end

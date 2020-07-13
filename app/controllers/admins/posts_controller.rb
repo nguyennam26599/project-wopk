@@ -3,6 +3,8 @@
 module Admins
   class PostsController < BaseController
     before_action :set_post, only: %i[update show]
+    add_breadcrumb 'Home', :admins_root_path
+    add_breadcrumb 'Posts', :admins_posts_path
 
     def index
       scope_post = params[:scope] || Post::PENDING_STATUS
@@ -10,6 +12,7 @@ module Admins
     end
 
     def show
+      add_breadcrumb @post.title, admins_post_path
       @user = @post.user
     end
 

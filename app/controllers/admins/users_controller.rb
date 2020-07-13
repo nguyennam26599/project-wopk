@@ -3,6 +3,8 @@
 module Admins
   class UsersController < BaseController
     before_action :set_user, only: %i[show update]
+    add_breadcrumb 'Home', :admins_root_path
+    add_breadcrumb 'Users', :admins_users_path
 
     def index
       @users_list = SearchService.new(params).perform
@@ -10,6 +12,7 @@ module Admins
     end
 
     def show
+      add_breadcrumb @user.name, admins_user_path
       @pagy, @posts = pagy(@user.posts, page: params[:page], items: NUMBER_PAGE_10)
     end
 

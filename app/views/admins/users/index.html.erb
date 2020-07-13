@@ -1,5 +1,8 @@
 <div id="content">
     <%= render "admins/header" %>
+      <ol class="pl-5">
+          <%= render_breadcrumbs%>
+      </ol>
     <%= render "admins/users/list-user" %>
 </div>
 <%= raw render partial: 'users/shared/pagination', locals: { pagy: @pagy} %>

@@ -3,18 +3,25 @@
 module Admins
   class TagsController < BaseController
     before_action :set_tag, only: %i[show edit update]
+    add_breadcrumb 'Home', :admins_root_path
+    add_breadcrumb 'Tag', :admins_tags_path
 
     def index
       @pagy, @tags = pagy(Tag.all.order(created_at: :desc), page: params[:page], items: Tag::NUMBER_ITEM)
     end
 
     def new
+      add_breadcrumb 'New', new_admins_tag_path
       @tag = Tag.new
     end
 
-    def edit; end
+    def edit
+      add_breadcrumb 'Edit', edit_admins_tag_path
+    end
 
-    def show; end
+    def show
+      add_breadcrumb @tag.name, admins_tag_path
+    end
 
     def create
       @tag = Tag.new tag_params

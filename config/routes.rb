@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         post :view
         put :clip, to: 'follow_polymorphics#clip'
         put 'vote', to: 'post_votings#vote'
+        resources :comments
       end
     end
 

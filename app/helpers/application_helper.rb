@@ -2,6 +2,7 @@
 
 module ApplicationHelper
   include Pagy::Frontend
+  NUMBER_PAGE_5 = 5
   NUMBER_PAGE_15 = 15
   NUMBER_PAGE_20 = 20
   NUMBER_PAGE_10 = 10

@@ -1,24 +1,27 @@
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/brands";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-@import 'customs';
-@import "bootstrap";
-@import "~startbootstrap-sb-admin-2/scss/sb-admin-2";
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import './signin_signup';
+@import 'bootstrap';
+@import '~startbootstrap-sb-admin-2/scss/sb-admin-2';
 @import 'custom';
 @import 'pagy';
-@import 'posts/post_detail';
+@import './posts/post_detail';
 
 /* scss for create posts function */
 
-@import "posts/bootstrap-tagsinput";
-@import 'posts/create-post';
+@import './posts/bootstrap-tagsinput';
+@import './posts/create-post';
 
 /* end */
-@import "user_setting";
-@import "~flatpickr/dist/flatpickr";
-@import 'tags/tag_index';
-@import 'admin/tag-image';
-@import 'back_to_top';
-@import "./actiontext";
+@import './user_setting';
+@import '~flatpickr/dist/flatpickr';
+@import './tags/tag_index';
+@import './admin/tag-image';
+@import './back_to_top';
+@import './actiontext';
+@import './setting';
+/* list comment */
+@import 'comments/list_comment';
