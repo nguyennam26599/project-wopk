@@ -1,26 +1,26 @@
 <div class="left-setting p-3 d-flex flex-column align-items-start bg-white">
     <div class="title-sidebar border-bottom pt-3 w-100">
-        <h6 class='font-weight-bold'><%= t('.public_profile')%></h6>
+        <h6 class='font-weight-bold'>Public Profile</h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to t('.account_html'), profile_path, class: "ml-1 #{left_menu_setting_user(profile_path)}" %></h6>
+        <h6><%= link_to 'Account', profile_path, class: "ml-1 #{left_menu_setting_user(profile_path)}" %></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to t('.password_html'), password_path, class: "ml-1 #{left_menu_setting_user(password_path)}" %></h6>
+        <h6><%= link_to 'Password', password_path, class: "ml-1 #{left_menu_setting_user(password_path)}" %></h6>
     </div>
     <div class="title-sidebar border-bottom pt-3 w-100">
-        <h6 class='font-weight-bold'><%= t('.post_leftmenu_html')%></h6>
+        <h6 class='font-weight-bold'>Post</h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to t('.public_html'), users_public_path, class: "ml-1 #{left_menu_setting_user(users_public_path)}" %></h6>
+        <h6><%= link_to "Public", users_public_path, class: "ml-1 #{left_menu_setting_user(users_public_path)}" %></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to t('.pending_html'), users_pending_path, class: "ml-1 #{left_menu_setting_user(users_pending_path)}" %></h6>
+        <h6><%= link_to "Pending", users_pending_path, class: "ml-1 #{left_menu_setting_user(users_pending_path)}" %></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to t('.drafts_leftmenu_html'), users_draft_path, class: "ml-1 #{left_menu_setting_user(users_draft_path)}" %></h6>
+        <h6><%= link_to "Draft", users_draft_path, class: "ml-1 #{left_menu_setting_user(users_draft_path)}" %></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to t('.close_leftmenu_html'), users_close_path, class: "ml-1 #{left_menu_setting_user(users_close_path)}" %></h6>
+        <h6><%= link_to "Close", users_close_path, class: "ml-1 #{left_menu_setting_user(users_close_path)}" %></h6>
     </div>
 </div>

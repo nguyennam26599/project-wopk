@@ -7,7 +7,7 @@
           <li class="nav-item btn_search_laptop d-sm-block ml-sm-3 d-none">
             <form class="form-inline form-control textbox-search d-flex">
               <i class="fa fa-search text-muted mr-1" aria-hidden="true"></i>
-              <input class="mr-sm-2 border-0 textbox-search" type="search" placeholder="<%= t('.search_html') %>">
+              <input class="mr-sm-2 border-0 textbox-search" type="search" placeholder="Search">
             </form>
           </li>
 
@@ -15,67 +15,47 @@
             <a class="fas fa-search text-white" data-toggle="dropdown" href="#" role="button"></a>
             <div class="dropdown-menu w-100">
               <form class="form-inline">
-                <input class="form-control border-0 textbox-search" type="search" placeholder="<%= t('.search_html') %>">
+                <input class="form-control border-0 textbox-search" type="search" placeholder="Search">
               </form>
             </div>
           </li>
         </ul>
 
         <ul class="navbar-nav ml-auto nav-flex-icons align-self-center d-flex">
-          <li class="align-self-center">
-          <div class="dropdown btn-language">
-            <button class="btn btn-outline-success dropdown-toggle text-white mr-2 btn-sm d-none d-md-block" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-              <%= t('.language_html') %>
-            </button>
-            <button class="btn btn-outline-success border-0 dropdown-toggle text-white mr-2 btn-sm d-md-none" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-              <%= flag_header(params[:locale]) %>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to url_for(locale: :vi), class: "dropdown-item" do %>
-                <%= image_tag("/flag/vietnam.png", style: 'height:1em;width:auto;') %> Vietnamese
-              <% end %>
-              <%= link_to url_for(locale: :en), class: "dropdown-item" do %>
-                <%= image_tag("/flag/england.png", style: 'height:1em;width:auto;') %> English
-              <% end %>
-            </div>
-          </div>
-          </li>
-      <% if user_signed_in? %>
-        <li class="nav-item align-self-center">
-          <%= link_to fa_icon("far fa-edit",t('.create_post_html')), new_post_path, class: "btn btn-outline-light px-3 d-none d-md-block btn-sm"%>
-        </li>
-        <li class="nav-item px-2">
-          <div class="btn btn-squared-default btn-light">0</div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
-            <%= image_tag default_avatar_user(current_user), class: 'rounded-circle img-24em' %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-info w-90" aria-labelledby="dropdown_header">
-            <%= link_to t('.profile_html'), user_path(current_user), class: "dropdown-item py-2" %>
-            <%= link_to t('.password_html'), password_path, class: "dropdown-item py-2" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t('.drafts_html'), "#", class: "dropdown-item py-2" %>
-            <%= link_to t('.secret_articles_html'), "#", class: "dropdown-item py-2" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t('.edit_requests_html'), "#", class: "dropdown-item py-2" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t('.setting_html'), "#", class: "dropdown-item py-2" %>
-            <%= link_to t('.help_html'), "#", class: "dropdown-item py-2" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t('.logout_html'), destroy_user_session_path, method: :delete, class: "dropdown-item py-2" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to t('.signup_html'), signup_path, class: "btn btn-outline-light btn-sm px-3 btn-block" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('.login_html'), login_path, class: "btn text-white btn-sm px-3 btn-block w-100" %>
-        </li>
-      <% end %>
-    </ul>
+          <% if user_signed_in? %>
+            <li class="nav-item align-self-center">
+              <%= link_to fa_icon("far fa-edit","Post"), new_post_path, class: "btn btn-outline-light px-3 d-none d-md-block btn-sm"%>
+            </li>
+            <li class="nav-item px-2">
+              <div class="btn btn-squared-default btn-light">0</div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
+                <%= image_tag default_avatar_user(current_user), class: 'rounded-circle img-24em' %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-info w-90" aria-labelledby="dropdown_header">
+                <%= link_to "Profile", user_path(current_user), class: "dropdown-item py-2" %>
+                <%= link_to "Password", password_path, class: "dropdown-item py-2" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Draft", users_draft_path, class: "dropdown-item py-2" %>
+                <%= link_to "Secret Articles", "#", class: "dropdown-item py-2" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Edit Request", "#", class: "dropdown-item py-2" %>
+                <%= link_to "Setting", "#", class: "dropdown-item py-2" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item py-2" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Signup", signup_path, class: "btn btn-outline-light btn-sm px-3 btn-block" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Login", login_path, class: "btn text-white btn-sm px-3 btn-block w-100" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
   </div>
-</nav>
-</div>
 </div>

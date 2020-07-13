@@ -7,14 +7,12 @@ ruby '2.6.3'
 # Add gem devise
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
-gem 'devise-i18n'
 gem 'pagy', '~> 3.8'
 gem 'simplecov', require: false, group: :test
 # dotenv
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
-gem 'rails-i18n'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
