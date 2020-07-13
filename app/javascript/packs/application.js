@@ -65,3 +65,5 @@ import "./posts/btn-share-social"
 
 /* Post voting */
 import "./posts/voting-post";
+
+import "../js/follow_tag";

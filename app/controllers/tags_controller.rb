@@ -27,6 +27,15 @@ class TagsController < ApplicationController
     @tags_trend = Tag.leaderboard_tags_posts
   end
 
+  def follow_tag
+    tag = Tag.find_tag(params[:tagID])
+    FollowPolymorphic.follow_tag(current_user, tag)
+    data = {
+      followerSize: tag.followers.size
+    }
+    render json: { status: true, data: data }
+  end
+
   private
 
   def set_tag

@@ -11,4 +11,12 @@ class FollowPolymorphic < ApplicationRecord
   def self.create_follow_post(user, post)
     create(follower: user, following: post)
   end
+
+  def self.follow_tag(current_user, tag)
+    if find_by(follower: current_user, following: tag).blank?
+      create(follower: current_user, following: tag)
+    else
+      find_by(follower: current_user, following: tag).destroy
+    end
+  end
 end

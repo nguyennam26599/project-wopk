@@ -20,11 +20,12 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :tags do
-      collection do
-        get :search
-      end
+  resources :tags do
+    collection do
+      get :search
+      post :follow_tag
     end
+  end
     # end
 
     devise_scope :user do

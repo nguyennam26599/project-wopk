@@ -33,6 +33,10 @@ class Tag < ApplicationRecord
     followers.size
   end
 
+  def self.find_tag(tag_id)
+    find_by(id: tag_id)
+  end
+
   private
 
   def downcase_name
