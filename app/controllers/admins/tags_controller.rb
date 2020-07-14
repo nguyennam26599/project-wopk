@@ -2,7 +2,7 @@
 
 module Admins
   class TagsController < BaseController
-    before_action :set_tag, only: %i[show edit update]
+    before_action :set_tag, only: %i[show edit update destroy]
     add_breadcrumb 'Home', :admins_root_path
     add_breadcrumb 'Tag', :admins_tags_path
 
@@ -38,6 +38,10 @@ module Admins
       else
         render :new
       end
+    end
+
+    def destroy
+      return redirect_to admins_tags_path if @tag.destroy
     end
 
     private

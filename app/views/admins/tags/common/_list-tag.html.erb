@@ -38,7 +38,11 @@
                 <i class="far fa-edit text-warning"></i>
                 <% end %>
               </td>
-              <td><i class="fas fa-trash text-danger"></i></td>
+              <td>
+                <%= link_to admins_tag_path(tag_item), method: :delete, data: {confirm: 'Are you sure delete tag?'} do %>
+                  <i class="fas fa-trash text-danger"></i>
+                <% end %>
+              </td>
             </tr>
             <% end %>
           </tbody>
