@@ -13,11 +13,11 @@
       <%= link_to post.title, post_path(post), class: "font-weight-bolder lead text-dark" %>
       <div class="row infomation-articles font-size-08em">
         <div class="col-6 text-left">
-          <span class="text-muted"><%= t('users.profile.view_html') %>
+          <span class="text-muted">View
             <%= post.view_count.to_i %>
             <span></div>
             <div class="col-6 text-right">
-              <span class="text-muted"><%= t('users.profile.public_at', day: time_ago_in_words(post.created_at)) %></span>
+              <span class="text-muted"><%= time_ago_in_words(post.created_at) %> ago.</span>
             </div>
           </div>
         </div>

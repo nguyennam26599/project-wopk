@@ -6,56 +6,55 @@
                 <div class="settings-title-section d-flex justify-content-center align-items-center flex-wrap">
                         <a class="settings-username" href="#"><%= current_user.name %></a>
                         <span class="settings-title-separator">/</span>
-                        <span class="settings-title p-2"><%= t('users.shared.left_settings.public_profile')%></span>
+                        <span class="settings-title p-2">Public Profile</span>
                     </div>
                 <div class="form-group font-weight-bold">
-                <label for=""><%=t('.avatar_html') %></label><br>
+                <label for="">Avatar</label><br>
                     <%= image_tag  default_avatar_user(current_user), class: "rounded-circle settings-avatar", id: "img-preview" %>
                     <%= f.file_field :avatar, id: "img-input", accept: ".jpg, .jpeg, .png" %>
                 </div>
                 <div class="form-group font-weight-bold">
-                <label for=""><%= t('.full_name_html')%></label>
+                <label for="">Name</label>
                     <div class="d-flex">
-                    <%= f.text_field :first_name, class: 'form-control mr-1', placeholder: "#{t('.first_name_html')}",
+                    <%= f.text_field :first_name, class: 'form-control mr-1', placeholder: "First Name",
                     pattern: regex_name_validate, title: "Name should only contain letters. e.g. John" %>
-                    <%= f.text_field :last_name, class: 'form-control mr-1', placeholder: "#{t('.last_name_html')}",
+                    <%= f.text_field :last_name, class: 'form-control mr-1', placeholder: "Last Name",
                     pattern: regex_name_validate, title: "Name should only contain letters. e.g. Wick" %>
                     </div>
                 </div>
                 <div class="form-group ">
-                    <h6 class='font-weight-bold'><%= t('.public_email_html')%></h6>
+                    <h6 class='font-weight-bold'>Public Email</h6>
                     <div>
                         <%= f.check_box :email_public %>
-                        <span><%= t('.checkbox_public_email')%></span>
+                        <span>Open your Email to public.</span>
                     </div>
-                    <p class="text-black-50"><%=t('.label_email_public', email: current_user.email) %><a href="#"> <%=t('.change_email_address') %></a> </p>
-                </div>
+                    <p class="text-black-50">Your mail address (<%= current_user.email %>) becomes public.<a href="#"> Change email address</a> </p>
                 <div class="form-group ">
-                <label for="gender" class='font-weight-bold'><%= t('.gender_html')%></label><br>
+                <label for="gender" class='font-weight-bold'>Gender</label><br>
                 <% User.genders.keys.each do |gender| %>
                 <%= f.radio_button :gender, gender %>
-                <%= f.label User.human_enum_name(:gender, gender) %>
+                <%= f.label gender.to_sym %>
                 <% end %>
                 </div>
                 <div class="form-group ">
-                <label for="birthday" class='font-weight-bold'><%= t('.birthday_html')%></label><br>
+                <label for="birthday" class='font-weight-bold'>Birthday</label><br>
                 <%= f.text_field :birthday, data: { behavior: "flatpickr" } %>
                 <div class="form-group ">
                     <label for="url_link" class='font-weight-bold'>URL</label><br>
                     <%= f.text_field :url_link, class: 'form-control'%>
                 </div>
                 <div class="form-group">
-                    <label for="organization", class='font-weight-bold'><%= t('.organization_html')%></label><br>
+                    <label for="organization", class='font-weight-bold'>Organization</label><br>
                     <%= f.text_field :organization, class: 'form-control' %>
                 </div>
                 <div class="form-group">
-                    <label for="address" class='font-weight-bold'><%= t('.address_html')%></label><br>
+                    <label for="address" class='font-weight-bold'>Address</label><br>
                     <%= f.text_field :address, class: 'form-control' %>
                 </div>
                 <div class="form-group">
-                    <label for="description" class='font-weight-bold'><%= t('.description_html')%></label><br>
+                    <label for="description" class='font-weight-bold'>Description</label><br>
                     <%= f.text_area :description, class: 'form-control', cols: '20', rows: '4' %>
-                    <span class="text-black-50"><%= t('.description_attention_html')%></span>
+                    <span class="text-black-50">Less than 200 characters</span>
                 </div>
                 <div class="form-group">
                     <label for="facebook_link" class='font-weight-bold'>Facebook ID</label><br>
@@ -85,7 +84,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <%= f.submit t('.update_user_html'), class: "btn btn-success" %>
+                    <%= f.submit "Update user", class: "btn btn-success" %>
                 </div>
             <% end %>
         </div>

@@ -28,16 +28,16 @@
     <% end %>
   </div>
   <div class="profile-social my-2 mx-0">
-    <span class="icon-twitter font-size-13em mr-2">
+    <span class="icon-twitter mr-2">
       <%= link_to @user.link_linkedin, :target => "_blank", :class => 'text-primary text-decoration-none' do %>
-      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-linkedin font-size-13em"></i>
     <% end %>
   </span>
   <span class="icon-facebook">
     <%= link_to @user.link_facebook, :target => "_blank", :class => 'text-primary text-decoration-none' do %>
-    <i class="fab fa-facebook-square font-size-13em"></i>
-  <% end %>
-</span>
+      <i class="fab fa-facebook-square font-size-13em"></i>
+    <% end %>
+  </span>
 </div>
 <div class="profile-infomation text-center my-2 mx-0">
 <%= simple_format(@user.description) %>
@@ -46,19 +46,19 @@
   <div class="col-4">
     <span class="point-ranking font-size-13em font-weight-bold"><%= @user.post_size_public %></span><br>
     <span class="point-post font-size-08em text-muted">
-      <p><%=t('users.profile.post')%></p>
+      <p>Post</p>
     </span>
   </div>
   <div class="col-4">
     <span class="font-size-13em font-weight-bold" id="following"><%= @user.followings.count %></span><br>
     <span class="point-post font-size-08em text-muted">
-      <p><%=t('users.profile.following')%></p>
+      <p>Following</p>
     </span>
   </div>
   <div class="col-4">
     <span class="font-size-13em font-weight-bold px-0 py-3" id="followers"><%= @user.followers.count %></span><br>
     <span class="point-post font-size-08em text-muted">
-      <p><%=t('users.profile.follower')%></p>
+      <p>Follower</p>
     </span>
   </div>
 </div>
@@ -88,7 +88,7 @@
 
   <div class="profile-tag text-left border-top pt-3 pb-2 px-0">
     <i class="fas fa-tags greencolor"></i>
-    <span class="font-weight-bold text-muted"><%=t('users.profile.following_tag')%></span>
+    <span class="font-weight-bold text-muted">Following tags</span>
     <div class="">
       <span>
         <%= link_to 'ECMAScript', '#', class: "badge badge-secondary" %>

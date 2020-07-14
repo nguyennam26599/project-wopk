@@ -1,6 +1,6 @@
 <div class="dedication bg-white text-dark py-2">
   <div class="d-flex nav justify-content-end font-size-15em border-bottom">
-    <div class="mr-auto py-2 pl-3 font-weight-bold"><%= t('home.ranking.tag_leaderboard_html')%></div>
+    <div class="mr-auto py-2 pl-3 font-weight-bold">Tags ranking</div>
   </div>
   <% x = 0; @tags_trend.each do |tag| %>
     <div class="d-flex bd-highlight border-bottom font-size-13em">
@@ -15,7 +15,7 @@
       </div>
       <div class="p-1 w-25 bd-highlight text-center align-self-center mr-2">
         <span class="font-weight-bold font-size-12em clearfix"> <%= tag.total %> </span>
-        <span><%= t('home.ranking.post') %></span>
+        <span>Posts</span>
       </div>
     </div>
   <% end %>
