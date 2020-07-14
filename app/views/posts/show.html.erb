@@ -1,4 +1,4 @@
-<div id="notice_post" class="sticky-top d-flex mx-auto text-center">
+<div id="notice_post" class="fixed-bottom d-flex text-center">
   <% if notice.present? %>
     <%= render partial: "layouts/messages" %>
   <% end %>
@@ -135,7 +135,7 @@
 
           <input type="hidden" id="path_comments" data-comments-path="<%= comments_path %>"/>
           <input type="hidden" id="size_comments" data-comments-size="<%= @comments.size %>"/>
-         
+
             <div class="bg-light border p-1">
                 <div class="comments m-1" id="cmt">
                     <h3 class="comments-title">Comments (<span id="comment-size"><%= @comments.size %></span>)</h3>
@@ -149,16 +149,16 @@
 
                     <div id="list-comments">
                         <!--list comments-->
-                    </div> 
+                    </div>
                     <div class="text-center">
                         <% if @comments.size > Comment::NUMBER_COMMENTS_5 %>
                             <button type="submit" id="load-more" class="btn btn-outline-info btn-sm mb-3 mt-3">More</button>
-                        <% end %>    
-                    </div> 
+                        <% end %>
+                    </div>
                   </div>
             </div>
-          
-          <!-- end -->  
+
+          <!-- end -->
         </article>
       </div>
     </div>
