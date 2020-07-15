@@ -54,14 +54,15 @@ module UsersHelper
     params[:status] ||= Post::PUBLIC_STATUS
     'active_profile' if params[:status] == status
   end
+
   def option_responsive_profile_user(status)
     case status
     when Post::DRAFT_STATUS
-      "?status=draft"
+      '?status=draft'
     when Post::CLOSE_STATUS
-      "?status=close"
+      '?status=close'
     else
-      "?status=public"
+      '?status=public'
     end
   end
 end
