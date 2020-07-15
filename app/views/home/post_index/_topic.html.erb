@@ -1,34 +1,28 @@
-<div class="row my-3 border-bottom px-2">
-  <div class="col-md-1 col-2 text-center p-1">
+<div class="row border-bottom mt-3 rounded bg-white">
+  <div class="col-md-1 col-2 text-center mt-3">
     <%= image_tag default_avatar_user(post.user), class: 'rounded-circle img-24em' %>
   </div>
   <div class="col-md-11 col-10">
-    <div class="text-muted font-size-08em">
-      <%= link_to post.user.name, user_path(post.user) %>
+    <div class="text-muted font-size-08em mt-3">
+      <%= link_to post.user.name, user_path(post.user), class: "text-decoration-none text-dark"%>
       <span class="text-muted">
-        <%= time_ago_in_words(post.publish_at) %>
+        <%= time_ago_in_words(post.publish_at) %> ago
       </span>
     </div>
-    <div>
-      <%= link_to post.title, post_path(post.id), class: "font-weight-bold text-dark font-size-12em" %>
+    <div class="pt-2">
+      <%= link_to post.title, post_path(post.id), class: "font-weight-bold text-dark font-size-12em text-decoration-none" %>
     </div>
-    <div>
+    <div class="pt-2">
       <% post.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag.id), class: 'badge badge-light border rounded text-muted mr-1' %>
+      <%= link_to "##{tag.name}", tag_path(tag.id), class: 'text-decoration-none text-muted mr-1' %>
       <% end%>
     </div>
-    <div class="d-flex align-items-center font-size-09em text-muted ">
+    <div class="d-flex align-items-center font-size-09em text-muted mt-3 mb-3">
       <div class="mr-2">
-        <%= fa_icon("far fa-eye fa-fw", post.view_count.to_i) %>
+       <%= fa_icon("far fa-heart", "" ) %> 8 reactions
       </div>
-      <div class="mr-2">
-        <%= fa_icon("fa fa-paperclip fa-fw", post.followers.size) %>
-      </div>
-      <div class="mr-2">
-        <%= fa_icon("fas fa-comments fa-fw", post.comments.size) %>
-      </div>
-      <div class="ml-auto p-2">
-        <%= fa_icon("fas fa-sort mr-1", post.vote) %>
+      <div class="ml-2">
+        <%= fa_icon("far fa-comment", post.comments.size) %> comments
       </div>
     </div>
   </div>
