@@ -30,7 +30,19 @@
       <div class="submit-form">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="form-group">
-            <%= f.text_field :name, class: 'form-control', placeholder: 'Name',required: true %>
+            <%= f.text_field :first_name, class: 'form-control', placeholder: 'First name', required: true %>
+            <% if resource.errors[:first_name].present?%>
+              <p class="text-danger">First name <%= resource.errors[:first_name].first %></p>
+            <%end%>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last name', required: true %>
+            <% if resource.errors[:last_name].present?%>
+              <p class="text-danger">Last name <%= resource.errors[:last_name].first %></p>
+            <%end%>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: 'User name',required: true %>
             <% if resource.errors[:name].present?%>
               <p class="text-danger">Name <%= resource.errors[:name].first %></p>
             <%end%>
