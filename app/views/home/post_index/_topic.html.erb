@@ -6,7 +6,7 @@
     <div class="text-muted font-size-08em mt-3">
       <%= link_to post.user.name, user_path(post.user), class: "text-decoration-none text-dark"%>
       <span class="text-muted">
-        <%= time_ago_in_words(post.publish_at) %> ago
+        <%= time_ago_in_words(post.created_at) %> ago
       </span>
     </div>
     <div class="pt-2">

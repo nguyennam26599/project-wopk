@@ -17,7 +17,7 @@
                         <div class="dropdown-header title-status text-size-10rem text-dark">Puslish your post</div>
                         <div class="dropdown-header">Visibility: </div>
                         <div class="dropdown-option text-size-08rem w-100 border-0">
-                            <label class="post-publish text-muted" for="post-publish"><%= f.radio_button :status, :pending, id: "post-publish", checked: true %> Publish </label><br>
+                            <label class="post-publish text-muted" for="post-publish"><%= f.radio_button :status, :public, id: "post-publish", checked: true %> Publish </label><br>
                             <label class="post-draft text-muted" for="post-draft"><%= f.radio_button :status, :draft, id: "post-draft" %> Private draft </label>
                         </div>
                         <div class="dropdown-divider"></div>

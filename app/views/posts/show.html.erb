@@ -111,10 +111,11 @@
                             <i class='far fa-flag mr-05 pr-1 fa-fw'></i>
                             <%= link_to 'Edit', edit_post_path, class: 'text-dark' %>
                         </div>
+                        <div class="dropdown-item">
+                            <i class="far fa-plus-square pr-1 mr-05 fa-fw"></i> 
+                            <%= link_to 'Delete this post', post_path, class: 'text-dark', method: :delete, data: {confirm: 'Are you sure delete this post?'} %>
+                        </div>
                     <% end %>
-                    <div class="dropdown-item">
-                        <i class="far fa-plus-square pr-1 mr-05 fa-fw"></i> Add to my series
-                    </div>
                     <div class="dropdown-item">
                         <i class="fa fa-magic pr-1 mr-05 fa-fw"></i>Highlighting code blocks
                     </div>
