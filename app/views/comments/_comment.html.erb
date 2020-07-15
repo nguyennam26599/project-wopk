@@ -1,4 +1,4 @@
-<div class="card mb-1">
+<div class="card mb-1" id="comment-<%= comment.id %>">
     <div class="w-100 d-flex">
         <div class="w-avatar p-2">
             <%= link_to user_path(comment.user) do %>
@@ -12,8 +12,23 @@
             <div class="w-comnet-time">
                 <i class="far fa-clock"></i>
                 <%= time_ago_in_words(comment.created_at)%> ago.
+                <% if check_user_comment(comment) %>
+                    <div class="el-dropdown float-right post-comment-edit">
+                        <button class="btn bg-white border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-edit"></i></button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item">
+                                <%= link_to 'Edit', edit_comment_path(@post,comment), class: 'text-dark', method: :get, remote: true %>
+                            </div>
+                            <div class="dropdown-item">
+                                <%= link_to 'Delete', comment, method: :delete, class: 'text-dark', data: {confirm: 'Are you sure delete this comment?'}, remote: true %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
             </div>
-            <div id="content-comment" class="p-1 bg-light w-100 mt-2 float-left"><%= simple_format(comment.content)%></div>
+            <div class="p-1 bg-light w-100 mt-2 float-left" id="content-cmt">
+                <div id="content-comment" class="comment_content_<%= comment.id %>"><%= simple_format(comment.content)%></div>
+            </div>
         </div>
     </div>
 </div>
