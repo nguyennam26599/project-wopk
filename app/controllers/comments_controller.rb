@@ -20,6 +20,37 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find_by(id: params[:id])
+    @post = @comment.post
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def update
+    @comment = Comment.find_by(id: params[:id])
+    @post =  Post.find_by(id: @comment.post_id)
+    if @comment.update content:  params[:comment][:content]
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    @post = @comment.post
+    @comment.destroy
+
+    respond_to do |format|
+      format.html {redirect_to post_path(id: params[:post_id])}
+      format.js
+    end
+  end
+
   private
 
   def comment_params
