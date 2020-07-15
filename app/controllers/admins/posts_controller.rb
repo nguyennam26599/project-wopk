@@ -14,6 +14,7 @@ module Admins
     def show
       add_breadcrumb @post.title, admins_post_path
       @user = @post.user
+      @comment_list = @post.comments.order(created_at: :desc)
     end
 
     def update

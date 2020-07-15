@@ -1,4 +1,4 @@
 $("#list-comment-create").prepend("<%= j render 'comments/comment', comment: @comment %>");
 $("#comment-content-new").val('');
-$('#comment-size').html('<%= @post.comments.size %>');
-$('#post-comments-size').html('<%= @post.comments.size %>')
+$('#comment-size').html('<%= @post.comments.status_show.size %>');
+$('#post-comments-size').html('<%= @post.comments.status_show.size %>')
