@@ -49,4 +49,19 @@ module UsersHelper
   def action_edit_post_user
     'd-none' if request.path != users_public_path
   end
+
+  def status_posts(status)
+    params[:status] ||= Post::PUBLIC_STATUS
+    'active_profile' if params[:status] == status
+  end
+  def option_responsive_profile_user(status)
+    case status
+    when Post::DRAFT_STATUS
+      "?status=draft"
+    when Post::CLOSE_STATUS
+      "?status=close"
+    else
+      "?status=public"
+    end
+  end
 end

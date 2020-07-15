@@ -1,11 +1,29 @@
 <div class="bg-white p-3 mt-3">
-  <span class="font-weight-bold jump pl-2">
-    <i class="fas fa-square-full color-green mr-2"></i>
-    All Articles</span>
-  <div class="container all-articles ">
-    <div class="mt-3">
-      <%= render "users/profile/topic" %>
-      <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
+  <% if current_user == @user %>
+    <div class="all_articles flex-1 flex items-center justify-between px-3" id="jump">
+      <div class="title mb-2">
+        <%= fa_icon("fas fa-square-full color-green mr-2", "All Articles") %>
+      </div>
+      <nav class="d-flex hide-if-width-low-540px">
+        <%= link_to "Publish", "?status=public", class: "tab_item #{status_posts('public')} mx-2" %>
+        <%= link_to "Draft", "?status=draft", class: "tab_item #{status_posts('draft')} mx-2" %>
+        <%= link_to "Close", "?status=close", class: "tab_item #{status_posts('close')} mx-2" %>
+      </nav>
     </div>
+    <div class="container-fluid d-block d-sm-none flex-column font-7em px-0">
+      <select class="custom-select select_location text-success">
+        <%= options_for_select([["Publish", "?status=public"], ["Draft", "?status=draft"], ["Close", "?status=close"]], option_responsive_profile_user(params[:status])) %>
+      </select>
+    </div>
+  <% else %>
+    <div class="all_articles flex-1 flex items-center justify-between px-3" id="jump">
+      <div class="title">
+        <%= fa_icon("fas fa-square-full color-green mr-2", "All Articles") %>
+      </div>
+    </div>
+  <% end %>
+  <div class="container mt-3 remove_container">
+    <%= render "users/profile/topic" %>
+    <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
   </div>
 </div>
