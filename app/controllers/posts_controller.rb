@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def show
     @user = @post.user
-    @comments = @post.comments
+    @comments = @post.comments.status_show
     @newest_comment_list = @comments.order('created_at DESC')
     # @newest_comment_list = @comments.order('created_at DESC').limit(Comment::NUMBER_COMMENTS_5)
   end

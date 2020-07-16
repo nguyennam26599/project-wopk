@@ -34,7 +34,8 @@
             </div>
             <hr>
           </div>
-          <div class="content-post-detail-admin"><%= raw @post.content%></div>
+          <div class="content-post-detail-admin mb-2"><%= raw @post.content%></div>
+          <%= render partial: 'admins/comments/comment', collection: @comment_list%>
         </div>
       </div>
     </div>

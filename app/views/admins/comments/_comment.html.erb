@@ -1,0 +1,32 @@
+<div class="card mb-1 ">
+    <div class="w-100 d-flex">
+        <div class="w-avatar p-2">
+            <%= link_to admins_user_path(comment.user) do %>
+                <%= image_tag  default_avatar_user(comment.user), class: 'img-user-comment rounded-circle' %>
+            <% end %>
+        </div>
+        <div class="w-content p-2">
+            <div class="font-weight-bold w-user-name">
+                <%= link_to comment.user.name, admins_user_path(comment.user), class: "font-weight-bold" %>
+            </div>
+            <div class="w-comnet-time">
+                <i class="far fa-clock"></i>
+                <%= time_ago_in_words(comment.created_at)%> ago.
+                <div>
+                    <% if comment.status_show? %>
+                        <%= link_to admins_comment_path(comment, comment_status: Comment::HIDE_STATUS), method: :put, data: {confirm: 'Are you sure Hide this comment?'} do %>
+                            <i class="fas fa-ban text-info"></i>
+                        <% end %>
+                    <% else %>
+                        <%= link_to admins_comment_path(comment, comment_status: Comment::SHOW_STATUS), method: :put, data: {confirm: 'Are you sure Show this comment?'} do %>
+                            <i class="fas fa-ban text-danger"></i>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="p-1 bg-light w-100 mt-2 float-left <%= check_status_comment(comment) %>" id="content-cmt">
+                <div id="content-comment"><%= simple_format(comment.content)%></div>
+            </div>
+        </div>
+    </div>
+</div>
