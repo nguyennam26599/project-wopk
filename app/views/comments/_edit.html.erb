@@ -1,5 +1,5 @@
-<div class="mb-3 text-center">
-        <%= form_for @comment do |f| %>
+<div class="mb-3 text-center edit-comment-<%= @comment.id %>">
+        <%= form_for @comment, remote: true do |f| %>
             <div class="form-group text-left">
                 <label>Edit comment!</label>
                 <%= f.text_area :content, row: 3, class: "form-control", id: "comment-content-new"%>
