@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, :set_posts, only: %i[new create edit update]
-  before_action :set_post, only: %i[edit update]
+  before_action :authenticate_user!, :set_posts, only: %i[new create edit update destroy]
+  before_action :set_post, only: %i[edit update destroy]
   before_action :current_post, only: %i[view show]
+  before_action :delete_relationship, :delete_comment, only: :destroy
 
   def index; end
 
@@ -52,11 +53,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    if @post.status_public?
+      return redirect_to root_path if @post.destroy
+    else
+      @tags.each do |tag_item|
+        tag_item.destroy if tag_item.draft?
+      end
+      return redirect root_path if @post.destroy
+    end
+  end
+
   private
 
   def current_post
     @post = Post.find_by(id: params[:id])
-    return redirect_to(root_url, notice: 'Post is not found') if @post.blank? || !@post.status_public?
+    return redirect_to(root_url, notice: 'Post is not found') if @post.blank?
+    return @post if @post.user == current_user
+    return redirect_to(root_url, notice: 'Post is not found') unless @post.status_public?
   end
 
   def post_params
@@ -69,6 +83,15 @@ class PostsController < ApplicationController
 
   def set_post
     @post = @posts.find_by(id: params[:id])
-    return redirect_to(root_url, alert: 'Post posted') if @post.blank? || @post.status_public?
+    return redirect_to(root_url, alert: 'Post posted') if @post.blank?
+  end
+
+  def delete_relationship
+    @post.posts_relationships.destroy_all
+    @tags = @post.tags
+  end
+
+  def delete_comment
+    @post.comments.destroy_all
   end
 end

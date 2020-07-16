@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :posts_relationships
   has_many :tags, through: :posts_relationships, source: :posts_relationship, source_type: 'Tag'
   belongs_to :user
-  enum status: %i[draft pending public close], _prefix: true
+  enum status: %i[draft public delete], _prefix: true
   scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
   scope :this_week, -> { where(created_at: Time.now.beginning_of_week..Time.now) }
   # has many users through postvoting
@@ -37,9 +37,8 @@ class Post < ApplicationRecord
   has_many :user_followings, through: :followings, source: :following, source_type: 'User'
   has_rich_text :content
 
-  PENDING_STATUS = 'pending'
   DRAFT_STATUS = 'draft'
-  CLOSE_STATUS = 'close'
+  DELETE_STATUS = 'delete'
   PUBLIC_STATUS = 'public'
 
   DAILY_POST = 'daily'
@@ -67,7 +66,7 @@ class Post < ApplicationRecord
   end
 
   def self.valid_status?(status)
-    [PENDING_STATUS, DRAFT_STATUS].include?(status)
+    [PUBLIC_STATUS, DRAFT_STATUS].include?(status)
   end
 
   def update_process(post_params)
@@ -76,7 +75,7 @@ class Post < ApplicationRecord
   end
 
   def edit_able?(user_input)
-    user == user_input && !status_public?
+    user == user_input
   end
 
   def self.find_post_home_index(scope_post)
