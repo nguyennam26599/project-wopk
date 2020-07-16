@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/clippost', to: 'home#clippost'
   get '/confirm', to: 'home#confirm_pages'
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'users/confirmations' }
   devise_for :admins
   resources :follow_polymorphics
   # routes create post function

@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 },
                    format: { with: /\A[a-zA-Z0-9]+\z/ },
                    uniqueness: { case_sensitive: false }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   enum gender: %i[male female other]
   enum status: %i[deactived actived blocked]
   has_many :posts
