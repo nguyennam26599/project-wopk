@@ -29,4 +29,12 @@ module HomeHelper
       "<span class='font-weight-bold align-self-center text-center mx-2 text-muted'>#{number}</span>"
     end
   end
+
+  def container_header
+    if request.path == new_post_path
+      'container-fluid px-4'
+    else
+      'container'
+    end
+  end
 end

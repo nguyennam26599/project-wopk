@@ -1,7 +1,8 @@
-<div class="bg-white pt-3 px-3 d-none d-lg-block">
+
+<div class="bg-white rounded pt-3 px-3 d-none d-lg-block infomation">
   <div class="row">
     <div class="col-3 ">
-      <%= image_tag default_avatar_user(current_user), class: 'rounded mx-1 img-375em' %>
+      <%= image_tag default_avatar_user(current_user), class: 'rounded-circle mx-1 img-375em' %>
     </div>
     <div class="col-9">
       <div class="font-weight-bold font-size-12em">
@@ -13,17 +14,17 @@
     </div>
   </div>
   <div class="row pt-3">
-    <div class="col-4 border-left-0 border-bottom-0 border text-center py-1">
-      <span class="font-size-11em clearfix"><%= current_user.post_size_public %></span>
-      <span class="font-size-07em text-muted">Post</span>
+    <div class="col-4 border-left-0 border-bottom-0 border text-center py-2 parameter">
+      <div class="font-size-13em clearfix"><%= current_user.post_size_public %></div>
+      <span class="font-size-08em text-muted">Posts</span>
     </div>
-    <div class="col-4 border-bottom-0 border text-center py-1">
-      <span class="font-size-11em clearfix">421</span>
-      <span class="font-size-07em text-muted">Contribution</span>
+    <div class="col-4 border-bottom-0 border text-center py-2 parameter">
+      <div class="font-size-13em clearfix">421</div>
+      <span class="font-size-08em text-muted">Contribution</span>
     </div>
-    <div class="col-4 border-right-0 border-bottom-0 border text-center py-1">
-      <span class="font-size-11em clearfix"><%= current_user.followers.size %></span>
-      <span class="font-size-07em text-muted">Followers</span>
+    <div class="col-4 border-right-0 border-bottom-0 border text-center py-2 parameter">
+      <div class="font-size-13em clearfix"><%= current_user.followers.size %></div>
+      <span class="font-size-08em text-muted">Followers</span>
     </div>
   </div>
 </div>
