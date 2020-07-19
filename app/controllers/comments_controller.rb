@@ -34,7 +34,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @post =  Post.find_by(id: @comment.post_id)
     if @comment.update content: params[:comment][:content]
-      redirect_to @post
+      respond_to do |format|
+        format.html { @post }
+        format.js
+      end
     else
       render 'edit'
     end

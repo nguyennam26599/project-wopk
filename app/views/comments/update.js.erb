@@ -1,0 +1,3 @@
+$('.edit-comment-<%= @comment.id %>').remove();
+$('.comment_content_<%= @comment.id %>').show();
+$('.comment_content_<%= @comment.id %>').html('<%= simple_format(@comment.content)%>');
