@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   # has many post through postvoting
   has_many :post_votings
+  has_many :reports
   attr_writer :login
   scope :leaderboard_user_posts, lambda {
                                    joins(:posts).select('users.*, count(posts.id) as total')
