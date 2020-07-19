@@ -1,8 +1,5 @@
 <div class="container-fluid">
   <div class="card shadow mb-4">
-    <div class="pt-3 pl-3 pr-3 d-flex bg-light">
-      <%= render 'admins/posts/shared/nav' %>
-    </div>
     <%= raw render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
     <div class="card-body">
       <div class="table-responsive-xl">
@@ -31,24 +28,18 @@
                 <%= post.user.name %>
                 <% end %>
               </td>
-              <td>
-                <span class=<%= post_status post %>> <%= post.status %></span>
-              </td>
+              <td><%= post.status %></td>
               <td><%= date_format(post.created_at) %></td>
               <td>
                 <%= link_to admins_post_path(post) do %>
                 <i class="fas fa-eye text-primary show-action"></i>
                 <% end %>
               </td>
-              <td class=<%= action_post_admin %>>
-                <%= link_to admins_post_path(post, approve_status: Post::PUBLIC_STATUS), method: :put, data: {confirm: 'Are you sure approve post?'} do %>
+              <td >
                 <i class="fas fa-check-circle text-success approve-action"></i>
-                <% end %>
               </td>
-              <td class=<%= action_post_admin %>>
-                <%= link_to admins_post_path(post, approve_status: Post::CLOSE_STATUS), method: :put, data: {confirm: 'Are you sure decline post?'} do %>
+              <td >
                 <i class="fas fa-times-circle text-danger approve-action"></i>
-                <% end %>
               </td>
             </tr>
             <% end %>

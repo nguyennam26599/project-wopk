@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     resources :posts
     # end
     resources :comments
+    resources :reports
   end
   get 'tags/show'
 end

@@ -25,15 +25,6 @@ module ApplicationHelper
     render partial: 'home/footer' unless exception_path.include? request.path
   end
 
-  def active_post(scope)
-    params[:scope] ||= Post::PENDING_STATUS
-    'active' if params[:scope] == scope
-  end
-
-  def action_post_admin
-    'd-none' unless params[:scope] == Post::PENDING_STATUS
-  end
-
   def active_post_home(scope)
     params[:scope] ||= Post::DAILY_POST
     'navbar-root-active' if params[:scope] == scope

@@ -7,8 +7,7 @@ module Admins
     add_breadcrumb 'Posts', :admins_posts_path
 
     def index
-      scope_post = params[:scope] || Post::PENDING_STATUS
-      @pagy, @posts = pagy(Post.where(status: scope_post))
+      @pagy, @posts = pagy(Post.all)
     end
 
     def show

@@ -24,4 +24,5 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import './actiontext';
 @import './setting';
 /* list comment */
-@import 'comments/list_comment';
+@import './comments/list_comment';
+@import './dialog/dialog-post';

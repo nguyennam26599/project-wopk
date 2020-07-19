@@ -68,3 +68,4 @@ import "./posts/voting-post";
 
 import "../js/follow_tag";
 import "./posts/load-comments";
+import "./dialog/dialog-post";
