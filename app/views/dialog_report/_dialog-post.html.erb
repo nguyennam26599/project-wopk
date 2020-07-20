@@ -1,11 +1,12 @@
 <dialog id="favDialog" class="border-0 dialog">
-  <%= form_for [:admins, @report] do |dialog| %>
+  <%= form_for [:admins, @report], remote: true do |dialog| %>
       <div class="dialog-header">Report post</div>
       <div class="dialog-item">
         <%= dialog.hidden_field :user_id, value: current_user.id %>
-        <%= dialog.hidden_field :reportable, value: @post %>
-        <input type="radio" name="report-post" value="spam"> Spam <br>
-        <input type="radio" name="report-post" value="copyright"> Copyright
+        <%= dialog.hidden_field :reportable_id, value: @post.id %>
+        <%= dialog.hidden_field :reportable_type, value: 'Post' %>
+        <input type="radio" name="report[status]" value="Spam"> Spam <br>
+        <input type="radio" name="report[status]" value="Copyright"> Copyright
       </div>
       <%= dialog.text_field :content, class: "dialog-textarea pl-2 mt-2", placeholder:"  Comment" %>
     <menu>

@@ -48,7 +48,13 @@ Rails.application.routes.draw do
     resources :posts
     # end
     resources :comments
-    resources :reports
+    resources :reports do
+      collection do
+        put 'report_post'
+        put 'noreport_post'
+      end
+    end
+    get 'reports/posts(/:id)', to: 'reports#show_post'
   end
   get 'tags/show'
 end

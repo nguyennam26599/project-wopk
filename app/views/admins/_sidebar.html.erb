@@ -65,6 +65,21 @@
       <div class="sidebar-heading">
         Addons
       </div>
+
+      <!-- Nav Item - Report Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-flag-checkered"></i>
+          <span>Report</span>
+        </a>
+        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <%= link_to 'Post', admins_reports_path, class: "collapse-item" %>
+            <a class="collapse-item" href="#">Comments</a>
+          </div>
+        </div>
+      </li>
+
       <!-- Nav Item - Tags Menu -->
       <li class="nav-item <%= class_active("admins/tags") %>">
         <%= link_to admins_tags_path, class: "nav-link" do %>

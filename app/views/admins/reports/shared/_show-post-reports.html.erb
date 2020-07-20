@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <div class="table-responsive-xl">
+          <table class="table table-striped text-center w-100" id="table-tag" cellspacing="0"></table>
+            <tr>
+              <th>
+                <td>ID :</td>
+              </th>
+              <th>
+                <td>
+                  <%= @post.id%>
+                </td>
+                <td>
+                  <%= link_to admins_post_path(@post) do %>
+                    <%=@post.title%>
+                  <% end %>
+                </td>
+              </th>
+            </tr>
+          </table>
+          <table class="table table-striped text-center w-100" id="table-tag" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>User report</th>
+                <th>Content</th>
+                <th>Status</th>
+                <th colspan="2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reports.each do |report| %>
+              <tr>
+                <td><%= report.id %></td>
+                <td>
+                  <%= link_to admins_user_path(user_report(report)) do %>
+                    <%= user_report(report).name %>
+                  <% end %>
+                </td>
+                <td class="text-left w-50">
+                  <%= report.content %>
+                </td>
+                <td>
+                    <%= report.status %>
+                </td>
+                <td>
+                  change to delete
+                  <%= link_to report_post_admins_reports_path( post_status: Report::Delete_status, report: report), method: :put, data: {confirm: 'Are you sure delete this post?'} do %>
+                    <i class="fas fa-check-circle text-success approve-action"></i>
+                  <% end %>
+                </td>
+                <td>
+                  report
+                  <%= link_to noreport_post_admins_reports_path(report: report), method: :put, data: {confirm: 'Are you sure delete this report?'} do %>
+                    <i class="fas fa-check-circle text-danger approve-action"></i>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
