@@ -21,7 +21,7 @@ class Tag < ApplicationRecord
   scope :search_name_status_public, ->(search_word) { publish.where('name LIKE ?', "%#{search_word}%") }
   scope :leaderboard_tags_posts, lambda {
                                    joins(:posts).select('tags.*, count(posts.id) as total')
-                                                .where('posts.status = 2').group(:id).order('total DESC')
+                                                .where('posts.status = 1').group(:id).order('total DESC')
                                                 .limit(NUMBER_ITEM_10)
                                  }
 
