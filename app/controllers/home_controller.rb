@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   before_action :load_leaderboard
 
   def index
-    @pagy, @posts = pagy(Post.find_post_home_index(:scope))
+    @pagy, @posts = pagy(Post.find_post_home_index(params[:scope]))
   end
 
   def tagfeed

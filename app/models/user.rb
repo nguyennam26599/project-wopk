@@ -31,7 +31,7 @@ class User < ApplicationRecord
   attr_writer :login
   scope :leaderboard_user_posts, lambda {
                                    joins(:posts).select('users.*, count(posts.id) as total')
-                                                .where('posts.status = 2').group(:id).order('total DESC')
+                                                .where('posts.status = 1').group(:id).order('total DESC')
                                                 .limit(NUMBER_ITEM_10)
                                  }
   scope :search_by_key_word, lambda { |word_search|

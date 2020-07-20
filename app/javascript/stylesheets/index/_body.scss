@@ -4,3 +4,7 @@ $greencolor: #55c500;
   color: $greencolor !important;
   border-bottom: 2px solid $greencolor;
 }
+
+.body_blog {
+  min-height: calc(100vh - 40px);
+}

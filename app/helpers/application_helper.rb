@@ -30,16 +30,6 @@ module ApplicationHelper
     'navbar-root-active' if params[:scope] == scope
   end
 
-  def sub_label_page_index(scope_post)
-    if scope_post == WEEKLY_POST
-      'Remarkable items.Refleshed every Monday.'
-    elsif scope_post == MONTHLY_POST
-      'Remarkable items.Refleshed on 1st every month.'
-    else
-      'Remarkable items. Refleshed at every 5 a.m.and 5 p.m.'
-    end
-  end
-
   def date_format(object)
     object.strftime('%d/%m/%Y - %H:%M')
   end
