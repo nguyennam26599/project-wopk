@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  has_many :reportables, as: :reportable
+  has_many :reports, as: :reportable
   has_many :comments
   has_many :posts_relationships
   has_many :tags, through: :posts_relationships, source: :posts_relationship, source_type: 'Tag'

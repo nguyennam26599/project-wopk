@@ -1,0 +1,48 @@
+<div class="container-fluid">
+<div class="card shadow mb-4">
+    <div class="card-body">
+    <div class="table-responsive-xl">
+        <table class="table table-striped text-center w-100" id="table-tag" cellspacing="0">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Author</th>
+            <th>Report count</th>
+            <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @posts.each do |post| %>
+            <tr>
+            <td><%= post.id %></td>
+            <td class="text-left w-50">
+                <%= link_to admins_path(post) do %>
+                <%= post.title %>
+                <% end %>
+            </td>
+            <td>
+                <%= post.status %>
+            </td>
+            <td>
+                <%= link_to admins_user_path(post.user.id) do %>
+                <%= post.user.name %>
+                <% end %>
+            </td>
+            <td>
+                <%= post_count_reports(post) %>
+            </td>
+            <td>
+                <%= link_to admins_post_path(post) do %>
+                <i class="fas fa-eye text-primary show-action"></i>
+                <% end %>
+            </td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+</div>
