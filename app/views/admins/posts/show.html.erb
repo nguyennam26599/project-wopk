@@ -18,16 +18,6 @@
                 <%= link_to tag.name, admins_tag_path(tag), class: "px-2 border-tag text-secondary tag-info font-15p d-inline-block text-nowrap overflow-hidden"  %>
                 <% end %>
               </div>
-              <div class="accept-decline-button bd-highlight">
-                <% if @post.status_pending? %>
-                  <%= link_to admins_post_path(@post, approve_status: Post::PUBLIC_STATUS), method: :put, data: {confirm: 'Are you sure approve post?'} do %>
-                  <button type="button" class="btn btn-success">Approve</button>
-                  <% end %>
-                  <%= link_to admins_post_path(@post, approve_status: Post::CLOSE_STATUS), method: :put, data: {confirm: 'Are you sure decline post?'} do %>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                  <% end %>
-                <% end %>
-              </div>
             </div>
             <div class="author-create-post text-muted font-weight-bold">
               <span>Author: <%= link_to @user.name, admins_user_path(@user) %></span>
