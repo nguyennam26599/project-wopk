@@ -41,11 +41,6 @@ RSpec.describe User, type: :model do
       expect(user.full_name == 'Hoang Anh').to be true
     end
 
-    it 'is valid with a name regex' do
-      subject.name = 'hoanganh123'
-      expect(subject).to be_valid
-    end
-
     it 'is not valid without a name regex' do
       subject.name = 'hoanganh 123'
       expect(subject).to_not be_valid

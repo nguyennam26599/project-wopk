@@ -49,4 +49,8 @@ module UsersHelper
   def action_edit_post_user
     'd-none' if request.path != users_public_path
   end
+
+  def find_tag_following(tag)
+    Tag.find_by(id: tag.following_id)
+  end
 end
