@@ -92,8 +92,6 @@ class Post < ApplicationRecord
   def self.find_post_current_user(scope_post)
     if scope_post == DRAFT_STATUS
       status_draft
-    elsif scope_post == CLOSE_STATUS
-      status_close
     else
       status_public
     end

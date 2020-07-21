@@ -56,11 +56,8 @@ module UsersHelper
   end
 
   def option_responsive_profile_user(status)
-    case status
-    when Post::DRAFT_STATUS
+    if status == Post::DRAFT_STATUS
       '?status=draft'
-    when Post::CLOSE_STATUS
-      '?status=close'
     else
       '?status=public'
     end

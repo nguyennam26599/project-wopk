@@ -32,14 +32,6 @@ class UsersController < ApplicationController
     @pagy, @posts = pagy(current_user.posts.status_draft, page: params[:page])
   end
 
-  def show_post_pending
-    @pagy, @posts = pagy(current_user.posts.status_pending, page: params[:page])
-  end
-
-  def show_post_close
-    @pagy, @posts = pagy(current_user.posts.status_close, page: params[:page])
-  end
-
   private
 
   def user_params
