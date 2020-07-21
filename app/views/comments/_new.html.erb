@@ -1,14 +1,14 @@
 <div class="mb-3 text-center">
     <% if user_signed_in? %>
         <%= form_for Comment.new, remote: true do |f| %>
-            <div class="form-group text-left">
-                <label>New comment!</label>
-                <%= f.text_area :content, row: 3, class: "form-control", id: "comment-content-new"%>
+            <div class="form-group text-left d-flex">
+                <%= image_tag  default_avatar_user(current_user), class: 'img-user-comment rounded-circle mr-2' %>
+                <%= f.text_area :content, class: "form-control mh-6", id: "comment-content-new", placeholder: ' Write a response...'%>
                 <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.hidden_field :post_id, value: params[:id] %>
             </div>
             <div class="text-right">
-                <button type="submit" id="create-comment" class=" btn-sm btn btn-outline-success">Comment</button>
+                <button type="submit" id="create-comment" class=" btn-sm btn btn-primary" disabled="true">Post comment</button>
             </div>
         <% end %>
     <% else %>
@@ -16,5 +16,4 @@
             <%= link_to "Login to leave a comment!", login_path %>
         </div>
     <% end %>
-    <hr class="w-50">
 </div> 

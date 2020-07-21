@@ -58,12 +58,16 @@ $(document).on("turbolinks:load", function () {
         this.style.height = (this.scrollHeight) + 'px';
       });
 
-    $("#create-comment").on("click", function(event){
+    $("#comment-content-new").keyup("click", function(event){
         if (!$.trim($("#comment-content-new").val())) {
             event.preventDefault();
-            alert("Không được để trống!");
+            $("#create-comment").prop('disabled', true);
         }else{
-            $("#comment-content-new").css("height", "60px");
+            $("#create-comment").prop('disabled', false);
         }
+    });
+
+    $('.edit-comment').click(function() {
+        $('.post-comment-edit').hide();
     });
 });

@@ -118,7 +118,11 @@
                     <% else %>
                         <div class="dropdown-item">
                             <i class='far fa-flag mr-05 pr-1 fa-fw'></i>
-                            <span id = 'updateDetails' class="text-dark">Report</span>
+                            <% if current_user.blank? %>
+                                <%= link_to 'Report', login_path, class: 'text-dark' %>
+                            <% else %>
+                                <span id = 'updateDetails' class="text-dark">Report</span>
+                            <% end %>
                         </div>
                     <% end %>
                     <div class="dropdown-item">
@@ -141,13 +145,16 @@
 
           <input type="hidden" id="path_comments" data-comments-path="<%= comments_path %>"/>
           <input type="hidden" id="size_comments" data-comments-size="<%= @comments.size %>"/>
+          <h4 class="comments-title font-weight-bold mt-4 mb-3">Comments</h4>
+            <div class="bg-light border rounded p-2 mb-4">
+                <%= render "comments/new" %>
+            </div>
+            <div class="bg-light border p-1 mb-3">
 
-            <div class="bg-light border p-1">
                 <div class="comments m-1" id="cmt">
-                    <h3 class="comments-title">Comments (<span id="comment-size"><%= @comments.size %></span>)</h3>
 
                     <!-- create comment-->
-                    <%= render "comments/new" %>
+        
                     <div id="list-comment-create"></div>
                     <!-- end -->
 
@@ -205,4 +212,4 @@
       </a>
    </div>
 </div>
-<%= render '/dialog_report/dialog-post' %>
+<%= render '/dialog_report/dialog-post' unless current_user.blank?%>
