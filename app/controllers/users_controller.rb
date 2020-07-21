@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @tags = @user.followings.where("following_type = 'Tag'")
     @pagy, @posts = pagy(@user.posts.status_public, page: params[:page])
   end
 

@@ -1,0 +1,16 @@
+<div class="info-auther position-sticky sticky-top w-100 border rounded bg-white">
+    <div class="info-auther-header w-100 bg-dark"></div>
+    <div class="info-auther-title w-100 row">
+        <div class="info-auther-avatar col-md-4">
+            <%= image_tag default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user ml-4' %>
+        </div>
+        <h4 class="info-auther-fullname col-md-8"><%= @post.user.name %></h4>
+    </div>
+    <div class="w-100 h-auto mh-2">
+        <div class="w-90 mx-auto">
+            <%= render  "users/shared/follow_button" %>
+            <%= @post.user.email %>
+        </div>
+    </div>
+    
+</div>
