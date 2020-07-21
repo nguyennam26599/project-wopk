@@ -11,7 +11,9 @@ class HomeController < ApplicationController
     @pagy, @posts = pagy(Post.all, page: params[:page])
   end
 
-  def clippost; end
+  def clippost
+    @pagy, @posts = pagy(current_user.post_followings, page: params[:page]) unless current_user.blank?
+  end
 
   def load_leaderboard
     @users_trend = User.leaderboard_user_posts

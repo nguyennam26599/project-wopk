@@ -1,5 +1,7 @@
 $("#paperclip-view").html('<%= @post.followers.size %>');
 $("#notice_post").html('<%= j render partial: "layouts/messages" %>');
+$("#count_post_followings").html('<%= current_user.post_followings.size %>');
+
 <% if current_user.id == @post.user_id %>
   $(".clip-button").removeClass('bg-info text-white');
 <% end %>

@@ -27,7 +27,7 @@
               <%= link_to fa_icon("far fa-edit mr-2","Post"), new_post_path, class: "btn_create_post mr-2 px-2 w-100 text-muted d-flex text-decoration-none"%>
             </li>
             <li class="nav-item px-2 mr-2">
-              <div class="btn_show_following_post align-items-center d-flex text-muted">0</div>
+              <%= link_to current_user.post_followings.size, clippost_path, class: "btn_show_following_post align-items-center d-flex text-muted", id: "count_post_followings" %>
             </li>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
