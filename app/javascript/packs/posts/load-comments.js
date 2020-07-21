@@ -58,7 +58,16 @@ $(document).on("turbolinks:load", function () {
         this.style.height = (this.scrollHeight) + 'px';
       });
 
-    $("#comment-content-new").keyup("click", function(event){
+    $("#comment-content-new").keyup(function(event){
+        if (!$.trim($("#comment-content-new").val())) {
+            event.preventDefault();
+            $("#create-comment").prop('disabled', true);
+        }else{
+            $("#create-comment").prop('disabled', false);
+        }
+    });
+
+    $("#create-comment").mousemove(function(event){
         if (!$.trim($("#comment-content-new").val())) {
             event.preventDefault();
             $("#create-comment").prop('disabled', true);

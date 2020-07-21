@@ -1,0 +1,30 @@
+.info-auther {
+    min-height: 20em;
+    z-index: 10;
+    &-header {
+        height: 2em;
+
+    }
+
+    &-title {
+        margin-top: -1em;
+        height: 4em;
+    }
+
+    &-avatar {
+        height: 100%;
+    }
+
+    &-fullname {
+        height: 100%;
+        line-height: 2.5em;
+    }
+}
+
+.mh-2 {
+    min-height: 2em;
+}
+
+.w-90 {
+    width: 90%;
+}
