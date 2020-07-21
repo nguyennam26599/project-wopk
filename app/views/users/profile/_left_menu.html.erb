@@ -90,10 +90,10 @@
     <i class="fas fa-tags greencolor"></i>
     <span class="font-weight-bold text-muted">Following tags</span>
     <div class="h-auto mh-6">
-      <% @tags.each do |tag| %>
+      <% @user.tag_followings.each do |tag| %>
         <div class="bg-light tag-item-profile m-1 mw-3 float-left rounded">
-          <%= link_to tag_path(find_tag_following(tag)), class: "text-muted" do %>
-            #<%= find_tag_following(tag).name %>
+          <%= link_to tag_path(tag), class: "text-muted" do %>
+            #<%= tag.name %>
           <%end %>
         </div>
       <% end %>
