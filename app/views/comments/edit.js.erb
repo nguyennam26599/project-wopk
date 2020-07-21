@@ -1,2 +1,12 @@
-$('#content-cmt').append("<%= j render 'comments/edit' %>");
-$('.comment_content_<%= @comment.id %>').hide();
+$('#content-cmt-<%= @comment.id %>').append("<%= j render 'comments/edit' %>");
+$(".comment_content_<%= @comment.id %>").hide();
+
+$('#save-edit-comment').click(function() {
+    $('.post-comment-edit').show();
+});
+
+$('#discard').click(function() {
+    $(".form-edit-comment").remove();
+    $('.comment_content_<%= @comment.id %>').show();
+    $('.post-comment-edit').show();
+});

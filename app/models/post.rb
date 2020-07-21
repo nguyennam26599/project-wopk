@@ -29,7 +29,7 @@ class Post < ApplicationRecord
             .order(view_count: :desc)
         }
   # Post index
-  scope :daily, -> { status_public.order(publish_at: :desc).order(view_count: :desc) }
+  scope :daily, -> { status_public.order(created_at: :desc).order(view_count: :desc) }
   scope :weekly, -> { status_public.this_week.order(view_count: :desc) }
   scope :monthly, -> { status_public.this_month.order(view_count: :desc) }
 

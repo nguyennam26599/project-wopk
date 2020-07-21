@@ -1,12 +1,11 @@
-<div class="mb-3 text-center edit-comment-<%= @comment.id %>">
-        <%= form_for @comment, remote: true do |f| %>
-            <div class="form-group text-left">
-                <label>Edit comment!</label>
-                <%= f.text_area :content, row: 3, class: "form-control", id: "comment-content-new"%>
-            </div>
-            <div class="text-right">
-                <button type="submit" class=" btn-sm btn btn-outline-success"> Edit </button>
-            </div>
-        <% end %>
-    <hr class="w-50">
+<div class="mb-3 text-center edit-comment-<%= @comment.id %> form-edit-comment">
+    <%= form_for @comment, remote: true do |f| %>
+        <div class="form-group text-left">
+            <%= f.text_area :content, row: 3, class: "form-control", id: "comment-content-new"%>
+        </div>
+        <div class="text-right">
+            <button type="button" class="btn-sm btn" id="discard"> Discard </button>
+            <button type="submit" class="btn-sm btn btn-primary" id="save-edit-comment"> Save </button>
+        </div>
+    <% end %>
 </div> 
