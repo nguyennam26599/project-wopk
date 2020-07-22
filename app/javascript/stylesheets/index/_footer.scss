@@ -1,24 +1,31 @@
-.page-footer {
-  background-color: #3e3e3e;
+.footer {
+    background-color: #252d38;
+    box-shadow: none;
+    color: rgba(255,255,255,.66);
+    display: block;
+    padding: 3rem 1.5rem 6rem;
 
-  .logo-hiruno {
-
-    .footer-copyright {
-      font-size: 12px;
+    .footer-container {
+      -webkit-box-flex: 1;
+      -webkit-box-pack: justify;
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1184px;
+      width: auto;
     }
-  }
+    .footer-link {
+      color: rgba(255,255,255,.9);
+      cursor: pointer;
+      text-decoration: none;
 
-  .footer-list {
-    font-size: 15px;
-    margin-top: 0.5em;
-
-    .footer-column {
-      flex-direction: column;
-      padding: 1em 3em 1em 0;
+      :hover {
+        color: #3298dc;
+        text-decoration: underline;
+      }
     }
-  }
-  div.footer-column a {
-    text-decoration:none;
-    color: #999999;
-  }
+    .dot {
+      margin: 0 .2rem;
+    }
 }
