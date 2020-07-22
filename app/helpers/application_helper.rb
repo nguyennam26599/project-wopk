@@ -22,7 +22,7 @@ module ApplicationHelper
 
   def show_footer
     exception_path = [login_path, signup_path, confirm_path, new_user_session_path, new_admin_session_path]
-    render partial: 'home/footer' unless exception_path.include? request.path
+    render partial: 'home/footer' unless (exception_path.include? request.path) || (params[:controller] == 'posts')
   end
 
   def active_post_home(scope)

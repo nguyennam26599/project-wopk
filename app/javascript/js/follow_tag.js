@@ -16,9 +16,9 @@ $(document).on('turbolinks:load', function() {
             success: function(data){
                 if(data.status){
                     if (btnFollow.text().trim() === follow) {
-                        btnFollow.text(unFollow).removeClass("btn-success").addClass("btn-danger");
+                        btnFollow.text(unFollow).removeClass("btn-primary").addClass("btn-danger");
                     } else {
-                        btnFollow.text(follow).removeClass("btn-danger").addClass("btn-success");
+                        btnFollow.text(follow).removeClass("btn-danger").addClass("btn-primary");
                     }
                     setFollow(data.data.followerSize, $(`#follow-size-${tagID}`));
                 }else{

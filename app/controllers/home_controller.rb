@@ -8,7 +8,16 @@ class HomeController < ApplicationController
   end
 
   def tagfeed
-    @pagy, @posts = pagy(Post.all, page: params[:page])
+    posts_user = []
+    posts_tag = []
+    current_user.user_followings.each do |post_user|
+      posts_user += post_user.posts
+    end
+    current_user.tag_followings.each do |post_tag|
+      posts_tag += post_tag.posts
+    end
+    posts_followings = posts_user + posts_tag
+    @pagy, @posts = pagy(posts_followings, page: params[:page])
   end
 
   def clippost

@@ -17,7 +17,7 @@
   .tab_item {
     background-color: transparent;
     border-style: none;
-    color: #363d44;
+    color: #e8e9d8;
     cursor: pointer;
     display: inline-block;
     font-size: 1.1rem;
@@ -28,18 +28,22 @@
     width: auto;
 
     &:hover {
-      color: #3b49df;
+      color: #8d8d8a;
     }
   }
   .active_profile {
-    color: #08090a !important;
+    color: #e8e9d8 !important;
     font-weight: 500 !important;
-    border-bottom: solid 3px #3b49df;
+    border-bottom: solid 3px #e8e9d8;
 
     &:hover {
-      color: #3b49df !important;
+      color: #8d8d8a !important;
     }
   }
+}
+
+.mh-screen {
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 540px) {

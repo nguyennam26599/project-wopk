@@ -1,8 +1,8 @@
-<div class="bg-white p-3 mt-3">
+<div class="py-3 pr-3 mt-3 text-muted-light">
   <% if current_user == @user %>
-    <div class="all_articles flex-1 flex items-center justify-between px-3" id="jump">
+    <div class="all_articles flex-1 flex items-center justify-between" id="jump">
       <div class="title mb-2">
-        <%= fa_icon("fas fa-square-full color-green mr-2", "All Articles") %>
+        <%= fa_icon("fas fa-square-full color-green mr-2 text-muted-light", "All Articles") %>
       </div>
       <nav class="d-flex hide-if-width-low-540px">
         <%= link_to "Publish", "?status=public", class: "tab_item #{status_posts('public')} mx-2" %>
@@ -21,10 +21,6 @@
       </div>
     </div>
   <% end %>
-  <div class="container mt-3 remove_container">
-    <%= render "users/profile/topic" %>
-    <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
-  </div>
 </div>
   <%= render "users/profile/topic" %>
   <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>

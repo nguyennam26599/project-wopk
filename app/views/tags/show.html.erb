@@ -1,8 +1,8 @@
-<div class="body_blog bg-light">
+<div class="body_blog bg-dark-6">
   <div class="container py-3">
     <div class="row">
       <div class="col-md-4">
-        <div class="text-center bg-white py-3">
+        <div class="text-center bg-dark-4 rounded py-3 text-muted-light">
           <%=image_tag(default_avatar_tag(@tag), class: 'rounded mb-1 img-50em')%>
           <div class="font-weight-bold">
             <h5><%= @tag.name %>
@@ -10,38 +10,38 @@
               <div class="row py-2">
                 <div class="col-6 border-right">
                   <span class="font-weight-bold"><%= @post.status_public.size %></span><br>
-                  <span class="text-muted">Post</span>
+                  <span class="text-muted-light">Post</span>
                 </div>
                 <div class="col-6">
                   <span class="font-weight-bold" id="follow-size-<%= @tag.id %>"> <%= @tag.tag_follower_size%></span><br>
-                  <span class="text-muted"%> Followers </span>
+                  <span class="text-muted-light"%> Followers </span>
                 </div>
               </div>
               <div class="py-2 px-5">
                 <% if current_user.present? %>
                 <button
-                  class='btn-follow btn btn-sm btn-block border font-weight-bold <%=check_follow_status_color(@tag)%>'
+                  class='btn-follow btn btn-sm btn-block font-weight-bold <%=check_follow_status_color(@tag)%>'
                   data-tag-id="<%= @tag.id %>">
                   <%= check_follow_status_text(@tag) %>
                 </button>
                 <% else %>
                 <button type="button"
-                  class="btn-follow btn btn-success btn-sm btn-block border font-weight-bold">Follow</button>
+                  class="btn-follow btn btn-primary btn-sm btn-block font-weight-bold">Follow</button>
                 <%end%>
               </div>
             </div>
-            <div class="d-none d-md-block bg-white my-3">
+            <div class="d-none d-md-block my-3">
               <%= render "home/ranking/user_leaderboard" %>
             </div>
-            <div class="d-none d-md-block bg-white my-3">
+            <div class="d-none d-md-block my-3">
               <%= render "home/ranking/tag_leaderboard" %>
             </div>
           </div>
-          <div class="col-md-8">
-            <div class="bg-white p-4">
+          <div class="col-md-8 text-muted-light">
+            <div class="bg-dark-6 p-4">
               <div class="title-blog">
                 <%= fa_icon('far fa-chart-bar font-size-12em', "Trends") %>
-                <span class="text-muted font-size-08em">Like ranking last week</span>
+                <span class="text-muted-light font-size-08em">Like ranking last week</span>
               </div>
               <div class="view-blog">
                 <% @post_trend.each do |post| %>
@@ -49,7 +49,7 @@
                 <% end %>
               </div>
             </div>
-            <div class="bg-white p-4 my-4">
+            <div class="bg-dark-6 p-4 my-4 text-muted-light">
               <div class="title-blog">
                 <%= fa_icon("fa fa-fw fa-list","Newest posts") %>
               </div>

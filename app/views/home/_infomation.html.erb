@@ -2,14 +2,18 @@
 <div class="bg-dark-4 rounded pt-3 px-3 d-none d-lg-block infomation text-light">
   <div class="row">
     <div class="col-3 ">
-      <%= image_tag default_avatar_user(current_user), class: 'rounded-circle mx-1 img-375em' %>
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag default_avatar_user(current_user), class: 'rounded-circle mx-1 img-375em' %>
+      <% end %>
     </div>
     <div class="col-9">
       <div class="font-weight-bold font-size-12em">
-        <%= current_user.full_name %>
+        <%= link_to user_path(current_user), class: 'text-muted-light' do %>
+          <%= current_user.full_name %>
+        <%end%>
       </div>
-      <div class="font-size-08em">
-        <%= link_to "@#{current_user.name}", user_path(current_user), class: "text-muted-light text-decoration-none" %>
+      <div class="font-size-08em text-muted-light">
+        <%= "@#{current_user.name}"%>
       </div>
     </div>
   </div>

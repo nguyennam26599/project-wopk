@@ -1,15 +1,14 @@
-<div class="main-content font-size-sm">
-    <div class="container pt-3 pb-1">
-        <div  class="d-flex align-items-center mb-1 col-xs-12 col-lg-6">
+<div class="main-content bg-dark-6 mh-screen">
+    <div class="container pt-4">
+        <div  class="d-flex align-items-center col-xs-12 col-lg-6">
             <div  class="d-flex w-100">
-                <h4  class="text-uppercase">
+                <h4  class="text-uppercase text-muted-light mt-4">
                     Tags (<%= Tag.count%>)
                 </h4>
-                <hr  class="mx-1 filler-line flex-grow-1 mt-4">
+                <hr  class="mx-1 filler-line flex-grow-1 mt-5 bg-white">
             </div>
         </div>
         <div class="row">
-
             <% @tag.each do |tag_item| %>
                 <div class="col-sm-6 col-lg-4 my-3">
                     <div class="d-flex tag-item mw-100" >
@@ -20,16 +19,16 @@
                         </div>
                         <div class="d-flex flex-column justify-content-between align-items-start">
                             <h4 class="d-inline-flex overflow-hidden">
-                                <%= link_to tag_item.name, tag_path(tag_item.id), class: "text-dark text-decoration-none font-weight-normal text-truncate" %>
+                                <%= link_to tag_item.name, tag_path(tag_item.id), class: "text-muted-light  font-weight-normal text-truncate" %>
                             </h4>
-                            <div class="text-muted">
+                            <div class="text-muted-light">
                                 <span class="font-weight-bold"><%= tag_item.tag_post_size%> </span>posts<br />
                                 <span class="font-weight-bold" id="follow-size-<%= tag_item.id %>"> <%= tag_item.tag_follower_size%> </span> followers
                             </div>
                             <div>
                                 <% if current_user.present? %>
                                 <button
-                                    class='btn-follow btn btn-sm btn-block border font-weight-bold <%=check_follow_status_color(tag_item)%>'
+                                    class='btn-follow btn btn-sm btn-block font-weight-bold <%=check_follow_status_color(tag_item)%>'
                                     data-tag-id="<%= tag_item.id %>">
                                     <%= check_follow_status_text(tag_item) %>
                                 </button>
@@ -45,7 +44,7 @@
             <input type="hidden" class="path_current_tag" data-tag-follow-path="<%= follow_tag_tags_path %>"/>
         </div>
     </div>
-    <div class="mb-3">
+    <div class="pb-3">
         <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
     </div>
 </div>

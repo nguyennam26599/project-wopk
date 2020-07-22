@@ -1,12 +1,12 @@
-<div class="container-build p-2 bg-dark-6 ">
+<div class="container-build p-2 bg-dark-6 rounded">
     <div class="container p-1 main-container text-muted-light d-flex ml-auto mr-auto">
         <%= render 'users/shared/left_settings' %>
-        <div class="main-profile p-3 flex-grow-1 bg-dark-4">
+        <div class="main-profile p-3 flex-grow-1 bg-dark-4 rounded mt-3">
             <%= form_for current_user do |f|  %>
                 <div class="settings-title-section d-flex justify-content-center align-items-center flex-wrap">
-                        <a class="settings-username text-white" href="#"><%= current_user.name %></a>
+                        <a class="settings-username text-white" href="<%= user_path(current_user) %>"><h3><%= current_user.name %></h3></a>
                         <span class="settings-title-separator">/</span>
-                        <span class="settings-title p-2">Public Profile</span>
+                        <span class="settings-title p-2"><h3>Public Profile</h3></span>
                     </div>
                 <div class="form-group font-weight-bold">
                 <label for="">Avatar</label><br>
@@ -38,22 +38,22 @@
                 </div>
                 <div class="form-group ">
                 <label for="birthday" class='font-weight-bold'>Birthday</label><br>
-                <%= f.text_field :birthday, data: { behavior: "flatpickr" } %>
+                <%= f.text_field :birthday, data: { behavior: "flatpickr" }, placeholder: ' Your birthday' %>
                 <div class="form-group ">
                     <label for="url_link" class='font-weight-bold'>URL</label><br>
-                    <%= f.text_field :url_link, class: 'form-control'%>
+                    <%= f.text_field :url_link, class: 'form-control', placeholder: ' Your URL'%>
                 </div>
                 <div class="form-group">
                     <label for="organization", class='font-weight-bold'>Organization</label><br>
-                    <%= f.text_field :organization, class: 'form-control' %>
+                    <%= f.text_field :organization, class: 'form-control', placeholder: ' Your organization' %>
                 </div>
                 <div class="form-group">
                     <label for="address" class='font-weight-bold'>Address</label><br>
-                    <%= f.text_field :address, class: 'form-control' %>
+                    <%= f.text_field :address, class: 'form-control', placeholder: ' Your address' %>
                 </div>
                 <div class="form-group">
                     <label for="description" class='font-weight-bold'>Description</label><br>
-                    <%= f.text_area :description, class: 'form-control', cols: '20', rows: '4' %>
+                    <%= f.text_area :description, class: 'form-control', cols: '20', rows: '4', placeholder: ' Write a few things about yourself' %>
                     <span class="text-muted-light f-10">Less than 200 characters</span>
                 </div>
                 <div class="form-group">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <%= f.submit "Update user", class: "btn btn-success" %>
+                    <%= f.submit "Update user", class: "btn btn-primary" %>
                 </div>
             <% end %>
         </div>

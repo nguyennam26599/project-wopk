@@ -10,7 +10,7 @@ module TagsHelper
   end
 
   def check_follow_status_color(tag)
-    FollowPolymorphic.find_by(follower: current_user, following: tag).blank? ? 'btn-success' : 'btn-danger'
+    FollowPolymorphic.find_by(follower: current_user, following: tag).blank? ? 'btn-primary' : 'btn-danger'
   end
 
   def check_follow_status_text(tag)
