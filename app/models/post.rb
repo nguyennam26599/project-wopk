@@ -89,6 +89,14 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.find_post_current_user(scope_post)
+    if scope_post == DRAFT_STATUS
+      status_draft
+    else
+      status_public
+    end
+  end
+
   # increment view
   def view_increment
     increment!(:view_count)

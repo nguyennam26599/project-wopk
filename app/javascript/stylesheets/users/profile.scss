@@ -1,0 +1,53 @@
+.all_articles {
+  font-family: system-ui;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  font-size: 16px;
+
+  .title {
+    box-sizing: border-box;
+    font-size: 1.125rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .tab_item {
+    background-color: transparent;
+    border-style: none;
+    color: #363d44;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+
+    &:hover {
+      color: #3b49df;
+    }
+  }
+  .active_profile {
+    color: #08090a !important;
+    font-weight: 500 !important;
+    border-bottom: solid 3px #3b49df;
+
+    &:hover {
+      color: #3b49df !important;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .hide-if-width-low-540px {
+    display: none !important;
+  }
+  .remove_container {
+    width: 100% !important;
+    padding: 0.8rem;
+  }
+}
