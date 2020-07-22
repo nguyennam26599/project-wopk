@@ -1,10 +1,10 @@
-<div class="container-build p-2 bg-light ">
-    <div class="container p-1 main-container text-muted d-flex ml-auto mr-auto">
+<div class="container-build p-2 bg-dark-6 ">
+    <div class="container p-1 main-container text-muted-light d-flex ml-auto mr-auto">
         <%= render 'users/shared/left_settings' %>
-        <div class="main-profile p-3 flex-grow-1 bg-white">
+        <div class="main-profile p-3 flex-grow-1 bg-dark-4">
             <%= form_for current_user do |f|  %>
                 <div class="settings-title-section d-flex justify-content-center align-items-center flex-wrap">
-                        <a class="settings-username" href="#"><%= current_user.name %></a>
+                        <a class="settings-username text-white" href="#"><%= current_user.name %></a>
                         <span class="settings-title-separator">/</span>
                         <span class="settings-title p-2">Public Profile</span>
                     </div>
@@ -28,7 +28,7 @@
                         <%= f.check_box :email_public %>
                         <span>Open your Email to public.</span>
                     </div>
-                    <p class="text-black-50">Your mail address (<%= current_user.email %>) becomes public.<a href="#"> Change email address</a> </p>
+                    <p class="text-muted-light f-10">Your mail address (<%= current_user.email %>) becomes public.<a href="#" class="text-muted-light"> Change email address</a> </p>
                 <div class="form-group ">
                 <label for="gender" class='font-weight-bold'>Gender</label><br>
                 <% User.genders.keys.each do |gender| %>
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <label for="description" class='font-weight-bold'>Description</label><br>
                     <%= f.text_area :description, class: 'form-control', cols: '20', rows: '4' %>
-                    <span class="text-black-50">Less than 200 characters</span>
+                    <span class="text-muted-light f-10">Less than 200 characters</span>
                 </div>
                 <div class="form-group">
                     <label for="facebook_link" class='font-weight-bold'>Facebook ID</label><br>

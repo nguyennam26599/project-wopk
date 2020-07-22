@@ -39,7 +39,7 @@ module UsersHelper
   end
 
   def left_menu_setting_user(test_path)
-    return 'text-dark' if request.path == test_path
+    return 'text-white' if request.path == test_path
   end
 
   def action_show_post_user

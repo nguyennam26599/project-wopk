@@ -1,23 +1,26 @@
 <% @posts.order(created_at: :desc).each do |post| %>
-  <div class="border-bottom py-2 px-0">
+<div class="p-3 all-articles rounded bg-dark-4 mt-2">
+  <div class="py-2 px-0">
     <div class="profile-tag text-left">
-      <i class="fas fa-tags tag-color"></i>
+      <i class="fas fa-tags tag-color text-muted-light"></i>
       <% post.tags.each do |tag| %>
-        <span class="badge badge-light text-muted">
-          <%= link_to tag.name, tag_path(tag), class: 'text-dark text-decoration-none font-size-12em' %>
+        <span class="badge text-muted-light">
+          <%= link_to tag_path(tag), class: 'text-muted-light text-decoration-none font-size-12em' do %>
+            #<%= tag.name %>
+          <% end %>
         </span>
       <% end%>
     </div>
-
+</div>
     <div class="articles">
-      <%= link_to post.title, post_path(post), class: "font-weight-bolder lead text-dark" %>
+      <%= link_to post.title, post_path(post), class: "font-weight-bolder lead text-muted-light my-3" %>
       <div class="row infomation-articles font-size-08em">
         <div class="col-6 text-left">
-          <span class="text-muted">Views:
+          <span class="text-muted-light f-10">Views:
             <%= post.view_count.to_i %>
             <span></div>
             <div class="col-6 text-right">
-              <span class="text-muted"><%= time_ago_in_words(post.created_at) %> ago.</span>
+              <span class="text-muted-light f-10"><%= time_ago_in_words(post.created_at) %> ago.</span>
             </div>
           </div>
         </div>

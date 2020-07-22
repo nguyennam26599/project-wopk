@@ -1,17 +1,17 @@
-<div class="card mb-2" id="comment-<%= comment.id %>">
+<div class="card mb-2 bg-dark-4" id="comment-<%= comment.id %>">
     <div class="w-100 d-flex">
-        <div class="w-avatar py-2 pl-2">
+        <div class="w-avatar py-2 pl-3">
             <%= link_to user_path(comment.user) do %>
                 <%= image_tag  default_avatar_user(comment.user), class: 'img-user-comment rounded-circle' %>
             <% end %>
         </div>
         <div class="w-content py-2 pr-2">
             <div class="font-weight-bold w-user-name d-flex">
-                <%= link_to comment.user.name, user_path, class: "font-weight-bold" %>
+                <%= link_to comment.user.name, user_path, class: "font-weight-bold text-muted-light" %>
                 <% if check_user_comment(comment) %>
                 <div class="el-dropdown post-comment-edit">
-                    <button class="btn bg-white border-0 btn-select-comment" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-h text-muted"></i>
+                    <button class="btn bg-dark-4 border-0 btn-select-comment" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h text-muted-light"></i>
                     </button>
                     <div class="dropdown-menu">
                         <div class="dropdown-item">
@@ -24,10 +24,10 @@
                 </div>
             <% end %>
             </div>
-            <div class="w-comnet-time text-muted f-10">
+            <div class="w-comnet-time text-muted-light f-10">
                 <%= time_ago_in_words(comment.created_at)%> ago.
             </div>
-            <div class="p-1 bg-light w-100 mt-2 float-left" id="content-cmt-<%= comment.id %>">
+            <div class="p-1 text-muted-light w-100 mt-2 float-left" id="content-cmt-<%= comment.id %>">
                 <div id="content-comment" class="comment_content_<%= comment.id %>"><%= simple_format(comment.content)%></div>
             </div>
         </div>

@@ -3,8 +3,8 @@
     <%= render partial: "layouts/messages" %>
   <% end %>
 </div>
-<div class="bg-light">
-<div class="container position-relative font-body_post pt-5 pb-4">
+<div class="bg-dark-6">
+<div class="container position-relative font-body_post pt-4">
     <div class="row">
         <div class="p-0 col-md-1 d-none d-md-block">
             <div class="post-actions d-flex flex-column align-items-center mx-auto">
@@ -12,36 +12,38 @@
                 <%= render partial: '/post_votings/vote_form', class: "vote", locals: { post: @post } %>
                 <div class="subscribe mb-2">
                     <% if user_signed_in? %>
-                    <%= link_to fa_icon("fa fa-paperclip"), clip_post_path(@post), class: "d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0 #{ button_clip_post_check }", method: :put, remote: true %>
+                    <%= link_to fa_icon("fa fa-paperclip"), clip_post_path(@post), class: "d-inline-block text-muted-light text-nowrap clip-button btn-out-line rounded-circle font-14p border-0 #{ button_clip_post_check }", method: :put, remote: true %>
                     <% else %>
                     <%= link_to fa_icon("fa fa-paperclip"), login_path, class: "d-inline-block text-nowrap clip-button btn-out-line rounded-circle font-14p border-0"%>
                     <% end %>
                 </div>
                 <div class=" mb-2 font-15p d-flex align-items-center flex-column text-center">
-                    <a class="link_icon border border-secondary mb-2 rounded-circle btn_share_facebook"'>
-                        <i class="text-muted fab fa-facebook"></i>
+                    <a class="link_icon border border-white mb-2 rounded-circle btn_share_facebook"'>
+                        <i class="text-muted-light fab fa-facebook cursor"></i>
                     </a>
-                    <a class="link_icon border border-secondary rounded-circle btn_share_twitter" data-url= '<%= request.original_url %>' data-title= '<%= @post.title %>'>
-                        <i class="text-muted fab fa-twitter"></i>
+                    <a class="link_icon border border-white rounded-circle btn_share_twitter" data-url= '<%= request.original_url %>' data-title= '<%= @post.title %>'>
+                        <i class="text-muted-light fab fa-twitter cursor"></i>
                     </a>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
-            <article class="post-content d-flex flex-column mh-100 px-5 bg-white border rounded pt-3">
+            <article class="post-content d-flex flex-column mh-100 px-5 bg-dark-4 rounded pt-3">
             <header class="mb-2">
-                <h1 class="text-left text-dark text-break mb-4">
+                <h1 class="text-left text-muted-light text-break mb-4">
                     <%= @post.title %>
                 </h1>
                 <div class="tags">
                     <% @post.tags.each do |tag| %>
-                        <%= link_to tag.name, tag_path(tag), class: "px-2 border-tag text-secondary tag-info font-12p d-inline-block text-nowrap overflow-hidden"  %>
+                       <%= link_to  tag_path(tag), class: "px-2 rounded text-muted-light tag-info font-12p d-inline-block text-nowrap overflow-hidden bg-dark-6" do %>
+                        #<%=tag.name%>
+                       <% end %>
                     <% end%>
                 </div>
                 <div class="d-sm-flex mb-2 align-items-start justify-content-between mt-3">
 
                     <div class=" post-author mb-2 mb-sm-0 align-items-center d-flex">
-                        <a href="#" class="mr-1">
+                        <a href="<%= user_path(@user) %>" class="mr-1">
                             <div class="d-inline-block avatar-user--top">
                                 <%= image_tag default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user--top' %>
                             </div>
@@ -50,17 +52,17 @@
                         <div class="post-author__info overflow-hidden mr-1 ml-1 text-nowrap">
                             <div class="d-flex">
                                 <div class="flex-fix mr-05 overflow-hidden text-nowrap">
-                                    <%= link_to @user.full_name, user_path(@user), class: "text-bold post-author__name" %>
+                                    <%= link_to @user.full_name, user_path(@user), class: "text-bold post-author__name text-muted-light" %>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="d-flex flex-column flex-wrap">
-                        <div class="text-muted">
+                        <div class="text-muted-light">
                             <%= check_status_post(@post.status) %>
                             <%= date_create_post(@post.created_at) %>
-                            <span class="text-muted">
+                            <span class="text-muted-light">
                             - <%= reading_time(@post.content) %> min read
                             </span>
                         </div>
@@ -72,35 +74,35 @@
             <div class="d-md-flex align-items-top justify-content-between">
                 <div class="tags"></div>
                 <div class="el-dropdown">
-                    <button class="btn bg-white border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-                    <div class="dropdown-menu">
+                    <button class="btn bg-dark-4 text-muted-light border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                    <div class="dropdown-menu bg-dark-4">
                         <%- if @post.edit_able?(current_user)%>
                             <div class="dropdown-item">
-                                <i class='far fa-flag mr-05 pr-1 fa-fw'></i>
-                                <%= link_to 'Edit', edit_post_path, class: 'text-dark' %>
+                                <i class='far fa-flag mr-05 pr-1 fa-fw text-muted-light '></i>
+                                <%= link_to 'Edit', edit_post_path, class: 'text-muted-light ' %>
                             </div>
                             <div class="dropdown-item">
                                 <i class="far fa-plus-square pr-1 mr-05 fa-fw"></i>
-                                <%= link_to 'Delete this post', post_path, class: 'text-dark', method: :delete, data: {confirm: 'Are you sure delete this post?'} %>
+                                <%= link_to 'Delete this post', post_path, class: 'text-muted-light', method: :delete, data: {confirm: 'Are you sure delete this post?'} %>
                             </div>
                         <% else %>
                             <div class="dropdown-item">
-                                <i class='far fa-flag mr-05 pr-1 fa-fw'></i>
+                                <i class='far fa-flag mr-05 pr-1 fa-fw text-muted-light '></i>
                                 <% if current_user.blank? %>
-                                    <%= link_to 'Report', login_path, class: 'text-dark' %>
+                                    <%= link_to 'Report', login_path, class: 'text-muted-light ' %>
                                 <% else %>
-                                    <span id = 'updateDetails' class="text-dark">Report</span>
+                                    <span id = 'updateDetails' class="text-muted-light ">Report</span>
                                 <% end %>
                             </div>
                         <% end %>
-                        <div class="dropdown-item">
-                            <i class="fa fa-magic pr-1 mr-05 fa-fw"></i>Highlighting code blocks
+                        <div class="dropdown-item text-muted-light ">
+                            <i class="fa fa-magic pr-1 mr-05 fa-fw text-muted-light "></i>Highlighting code blocks
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50">
+            <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50 text-muted-light ">
                 <%== @post.content%>
 
                 <input type="hidden" id="title_post" data-title-post="<%= @post.title %>"/>
@@ -117,11 +119,11 @@
             <!-- end -->
             </article>
 
-            <h4 class="comments-title font-weight-bold mt-4 mb-3">Comments</h4>
-            <div class="bg-light border rounded p-2 mb-4">
+            <h4 class="comments-title font-weight-bold mt-4 mb-3 text-muted-light ">Comments</h4>
+            <div class="bg-dark-4 rounded p-2 mb-4">
                 <%= render "comments/new" %>
             </div>
-            <div class="bg-light mb-3">
+            <div class="bg-dark-6 mb-3">
 
                 <div class="comments my-2" id="cmt">
 

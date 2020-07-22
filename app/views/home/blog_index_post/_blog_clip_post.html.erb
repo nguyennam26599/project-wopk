@@ -1,7 +1,7 @@
-<div class="view-blog bg-white p-3 h-100">
+<div class="view-blog p-3">
   <% if user_signed_in? %>
     <% if @posts.blank? %>
-      <div class="text-center m-5 text-muted">
+      <div class="text-center m-5 text-muted-light">
         <span class="clearfix mb-3 font-size-15em"> You have no followed yets.</span>
         <span class="clearfix m-0 font-size-09em"> Follow some users who write good articles and comments. </br>
           They will find more interesting things for you. Let's get started!
@@ -9,7 +9,7 @@
       </div>
     <% else %>
       <% @posts.each do |post| %>
-        <%= render partial: "home/post_index/topic", locals: { post: post }%>
+        <%= render partial: "home/post_index/clip-post", locals: { post: post }%>
       <% end %>
       <%== render partial: 'users/shared/pagination', locals: { pagy: @pagy } %>
     <% end %>

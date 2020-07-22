@@ -1,19 +1,19 @@
-<div class="container my-3">
+<div class="m-2">
   <div class="row">
     <div class="col-sm-1 col-2 text-center">
       <%= image_tag '/default-user-avatar.png', class: "rounded img-14em" %>
     </div>
-    <div class="col-sm-11 col-10 row font-size-08em text-muted">
+    <div class="col-sm-11 col-10 row font-size-08em text-muted-light">
       <div class="col-6 pt-1">
-        <span>Node.js got a new post</span>
+        <span><%= tag_item.name %> got a new post</span>
       </div>
       <div class="col-6 text-right">
-        <span class="text-muted"><%= time_ago_in_words(post.created_at) %>
+        <span class="text-muted-light"><%= time_ago_in_words(post.created_at) %>
           ago.</span>
       </div>
     </div>
   </div>
-  <div class="row border-bottom">
+  <div class="row">
     <div class="col-sm-1 col-2 text-center">
       <%= image_tag default_avatar_user(post.user), class: 'rounded img-14em' %>
     </div>

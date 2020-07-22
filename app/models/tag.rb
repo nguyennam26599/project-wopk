@@ -26,7 +26,7 @@ class Tag < ApplicationRecord
                                  }
 
   def tag_post_size
-    posts.size
+    posts.status_public.size
   end
 
   def tag_follower_size

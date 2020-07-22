@@ -1,18 +1,18 @@
-<div class="left-setting p-3 d-flex flex-column align-items-start bg-white">
-    <div class="title-sidebar border-bottom pt-3 w-100">
+<div class="left-setting p-3 d-flex flex-column align-items-start bg-dark-4 text-muted-light">
+    <div class="title-sidebar  pt-3 w-100">
         <h6 class='font-weight-bold'>Public Profile</h6>
     </div>
-    <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to 'Account', profile_path, class: "ml-1 #{left_menu_setting_user(profile_path)}" %></h6>
+    <div class="content-sidebar pt-3 w-100">
+        <h6><%= link_to 'Account', profile_path, class: "ml-1 text-white #{left_menu_setting_user(profile_path)}" %></h6>
     </div>
-    <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to 'Password', password_path, class: "ml-1 #{left_menu_setting_user(password_path)}" %></h6>
+    <div class="content-sidebar pt-3 w-100">
+        <h6><%= link_to 'Password', password_path, class: "ml-1 text-white #{left_menu_setting_user(password_path)}" %></h6>
     </div>
-    <div class="title-sidebar border-bottom pt-3 w-100">
+    <div class="title-sidebar  pt-3 w-100">
         <h6 class='font-weight-bold'>Post</h6>
     </div>
-    <div class="content-sidebar border-bottom pt-3 w-100">
-        <h6><%= link_to "Public", users_public_path, class: "ml-1 #{left_menu_setting_user(users_public_path)}" %></h6>
+    <div class="content-sidebar  pt-3 w-100">
+        <h6><%= link_to "Public", users_public_path, class: "ml-1 text-white #{left_menu_setting_user(users_public_path)}" %></h6>
     </div>
     <div class="content-sidebar border-bottom pt-3 w-100">
         <h6><%= link_to "Draft", users_draft_path, class: "ml-1 #{left_menu_setting_user(users_draft_path)}" %></h6>

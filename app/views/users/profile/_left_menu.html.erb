@@ -1,6 +1,6 @@
-<div class="profile-user bg-white text-center p-3 mx-0 my-3">
+<div class="profile-user bg-dark-4 text-center p-3 mx-0 my-3 rounded">
   <div class="dropdown text-right">
-    <button class="dropdown-toggle fa fa-ellipsis-h fa-lg" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="dropdown-toggle fa fa-ellipsis-h fa-lg text-muted-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="fa fa-ellipsis-h text-success"></span></button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <%= link_to 'LGTM article', '#', class: "dropdown-item" %>
@@ -12,24 +12,24 @@
   <div class="upload-avatar">
     <%= image_tag default_avatar_user(@user), class: 'rounded-circle mb-1 img-57em' %>
   </div>
-  <div class="profile-name font-weight-bold my-2 font-size-20em">
+  <div class="profile-name font-weight-bold my-2 font-size-20em text-muted-light">
     <%= @user.full_name %>
   </div>
   <div class="profile-id my-2 mx-0 font-size-08em">
-    <span class="text-muted">@<%= @user.name %></span>
+    <span class="text-muted-light">@<%= @user.name %></span>
   </div>
-  <div class="profile-github text-dark">
+  <div class="profile-github text-muted-light">
     <% if @user.github_link? %>
       <span>
-        <i class="fab fa-github"></i>
+        <i class="fab fa-github text-muted-light"></i>
       </span>
-      <span><%= link_to @user.github_link, @user.link_github, :target => "_blank", :class => 'text-dark' %>
+      <span><%= link_to @user.github_link, @user.link_github, :target => "_blank", :class => 'text-muted-light' %>
       </span>
     <% end %>
   </div>
   <div class="profile-social my-2 mx-0">
     <span class="icon-twitter mr-2">
-      <%= link_to @user.link_linkedin, :target => "_blank", :class => 'text-primary text-decoration-none' do %>
+      <%= link_to @user.link_linkedin, :target => "_blank", :class => 'text-muted-light text-decoration-none' do %>
       <i class="fab fa-linkedin font-size-13em"></i>
     <% end %>
   </span>
@@ -39,34 +39,34 @@
     <% end %>
   </span>
 </div>
-<div class="profile-infomation text-center my-2 mx-0">
+<div class="profile-infomation text-center my-2 mx-0 text-muted-light">
 <%= simple_format(@user.description) %>
 </div>
 <div class="row">
   <div class="col-4">
-    <span class="point-ranking font-size-13em font-weight-bold"><%= @user.post_size_public %></span><br>
-    <span class="point-post font-size-08em text-muted">
+    <span class="point-ranking font-size-13em font-weight-bold text-muted-light"><%= @user.post_size_public %></span><br>
+    <span class="point-post font-size-08em text-muted-light">
       <p>Post</p>
     </span>
   </div>
   <div class="col-4">
-    <span class="font-size-13em font-weight-bold" id="following"><%= @user.user_followings.count %></span><br>
-    <span class="point-post font-size-08em text-muted">
+    <span class="font-size-13em font-weight-bold text-muted-light" id="following"><%= @user.user_followings.count %></span><br>
+    <span class="point-post font-size-08em text-muted-light">
       <p>Following</p>
     </span>
   </div>
   <div class="col-4">
-    <span class="font-size-13em font-weight-bold px-0 py-3" id="followers"><%= @user.followers.count %></span><br>
-    <span class="point-post font-size-08em text-muted">
+    <span class="font-size-13em font-weight-bold px-0 py-3 text-muted-light" id="followers"><%= @user.followers.count %></span><br>
+    <span class="point-post font-size-08em text-muted-light">
       <p>Follower</p>
     </span>
   </div>
 </div>
 <%= render  "users/shared/follow_button" %>
-<div class="border-top text-left mt-3 py-2 font-size-09em">
+<div class="border-top text-left mt-3 py-2 font-size-09em text-muted-light">
   <% if @user.address? %>
   <div>
-    <i class="fas fa-map-marker-alt mr-2"></i>
+    <i class="fas fa-map-marker-alt mr-2 text-muted-light"></i>
     <%= @user.address %>
   </div>
   <% end %>
@@ -74,25 +74,25 @@
   <% if @user.email_public %>
     <div>
       <i class="fa fa-envelope mr-1"></i>
-      <%= link_to @user.email, @user.send_gmail, :target => "_blank", :class => 'text-dark' %>
+      <%= link_to @user.email, @user.send_gmail, :target => "_blank", :class => 'text-muted-light' %>
     </div>
   <% end %>
 
   <% if @user.url_link? %>
     <div>
       <i class="fas fa-globe-asia mr-1"></i>
-      <%= link_to @user.link_url, @user.link_url ,:target => "_blank", :class => 'text-dark' %>
+      <%= link_to @user.link_url, @user.link_url ,:target => "_blank", :class => 'text-muted-light' %>
     </div>
   <% end %>
   </div>
 
   <div class="profile-tag text-left border-top pt-3 pb-2 px-0">
-    <i class="fas fa-tags greencolor"></i>
-    <span class="font-weight-bold text-muted">Following tags</span>
-    <div class="h-auto mh-6">
+    <i class="fas fa-tags greencolor text-muted-light"></i>
+    <span class="font-weight-bold text-muted-light">Following tags</span>
+    <div class="h-auto mh-6 mt-3">
       <% @user.tag_followings.each do |tag| %>
-        <div class="bg-light tag-item-profile m-1 mw-3 float-left rounded">
-          <%= link_to tag_path(tag), class: "text-muted" do %>
+        <div class="bg-dark-6 tag-item-profile m-1 mw-3 float-left rounded">
+          <%= link_to tag_path(tag), class: "text-muted-light" do %>
             #<%= tag.name %>
           <%end %>
         </div>

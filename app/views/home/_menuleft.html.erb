@@ -1,25 +1,25 @@
 <div class="position-sticky font-06em nav flex-column d-none d-lg-block left-menu-home">
   <li>
-    <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", "Trends"),root_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(root_path)}"%>
+    <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", "Trends"),root_path, class: "p-home_menuItem text-muted-light font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(root_path)}"%>
   </li>
   <li>
-    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", "Tags Feed"), tagfeed_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(tagfeed_path) }" %>
+    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", "Tags Feed"), tagfeed_path, class: "p-home_menuItem text-muted-light font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(tagfeed_path) }" %>
   </li>
   <li>
-    <%= link_to fa_icon("fa fa-paperclip mr-2 fa-fw", "Clip post"), clippost_path, class: "p-home_menuItem font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(clippost_path) }" %>
+    <%= link_to fa_icon("fa fa-paperclip mr-2 fa-fw", "Clip post"), clippost_path, class: "p-home_menuItem text-muted-light font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(clippost_path) }" %>
   </li>
 </div>
 
 <div class="container-fluid d-none d-sm-block d-md-block d-lg-none flex-column font-7em px-0">
   <div class="row text-center">
     <div class="col-4 ">
-      <%= link_to "Trends", root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(root_path) }" %>
+      <%= link_to "Trends", root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(root_path) }" %>
     </div>
     <div class="col-4">
-      <%= link_to "Tags Feed", tagfeed_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(tagfeed_path) }" %>
+      <%= link_to "Tags Feed", tagfeed_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(tagfeed_path) }" %>
     </div>
     <div class="col-4">
-      <%= link_to "Clip post", clippost_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-decoration-none #{ current_class?(clippost_path) }" %>
+      <%= link_to "Clip post", clippost_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(clippost_path) }" %>
     </div>
   </div>
 </div>

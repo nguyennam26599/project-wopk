@@ -1,5 +1,5 @@
 
-<div class="bg-white rounded pt-3 px-3 d-none d-lg-block infomation">
+<div class="bg-dark-4 rounded pt-3 px-3 d-none d-lg-block infomation text-light">
   <div class="row">
     <div class="col-3 ">
       <%= image_tag default_avatar_user(current_user), class: 'rounded-circle mx-1 img-375em' %>
@@ -9,22 +9,22 @@
         <%= current_user.full_name %>
       </div>
       <div class="font-size-08em">
-        <%= link_to "@#{current_user.name}", user_path(current_user), class: "text-muted text-decoration-none" %>
+        <%= link_to "@#{current_user.name}", user_path(current_user), class: "text-muted-light text-decoration-none" %>
       </div>
     </div>
   </div>
-  <div class="row pt-3">
-    <div class="col-4 border-left-0 border-bottom-0 border text-center py-2 parameter">
+  <div class="row pt-3 text-muted-light">
+    <div class="col-4 text-center py-2 parameter">
       <div class="font-size-13em clearfix"><%= current_user.post_size_public %></div>
-      <span class="font-size-08em text-muted">Posts</span>
+      <span class="font-size-08em ">Posts</span>
     </div>
-    <div class="col-4 border-bottom-0 border text-center py-2 parameter">
-      <div class="font-size-13em clearfix">421</div>
-      <span class="font-size-08em text-muted">Contribution</span>
+    <div class="col-4 py-2 parameter">
+      <div class="font-size-13em clearfix"><%= current_user.user_followings.count%></div>
+      <span class="font-size-08em">Followings</span>
     </div>
-    <div class="col-4 border-right-0 border-bottom-0 border text-center py-2 parameter">
-      <div class="font-size-13em clearfix"><%= current_user.followers.size %></div>
-      <span class="font-size-08em text-muted">Followers</span>
+    <div class="col-4 text-center py-2 parameter">
+      <div class="font-size-13em clearfix"><%= current_user.user_followers.size %></div>
+      <span class="font-size-08em ">Followers</span>
     </div>
   </div>
 </div>

@@ -1,18 +1,18 @@
-<div class="dedication bg-white text-dark py-2 rounded">
-  <div class="d-flex nav justify-content-end font-size-15em border-bottom">
+<div class="dedication bg-dark-4 text-light py-2 rounded">
+  <div class="d-flex nav justify-content-end font-size-15em">
     <div class="mr-auto py-2 pl-3 font-weight-bold">Users ranking</div>
   </div>
   <% list_number_ranking = 0;  @users_trend.each do |user| %>
-    <div class="d-flex bd-highlight border-bottom font-size-13em">
+    <div class="d-flex bd-highlight font-size-13em">
       <div class="ml-1 w-25 bd-highlight align-self-center text-center font-size-13em">
         <%== print_number_leaderboard(list_number_ranking += 1) %>
       </div>
       <div class="p-1 w-25 bd-highlight align-self-center text-center">
-        <%= link_to (image_tag default_avatar_user(user), class: "rounded-circle border img-30em"), user_path(user)  %>
+        <%= link_to (image_tag default_avatar_user(user), class: "rounded-circle img-30em"), user_path(user)  %>
       </div>
       <div class="p-1 w-100 flex-shrink-1 bd-highlight align-self-center font-size-11em">
-        <%= link_to user.full_name, user_path(user), class: 'text-decoration-none font-weight-bold text-dark clearfix' %>
-        <%= link_to "@#{user.name}", user_path(user), class: 'text-muted text-decoration-none font-size-09em' %>
+        <%= link_to user.full_name, user_path(user), class: 'text-decoration-none text-muted-light font-weight-bold clearfix' %>
+        <%= link_to "@#{user.name}", user_path(user), class: 'text-decoration-none text-muted-light font-size-09em' %>
       </div>
       <div class="show-total-post p-1 w-25 bd-highlight text-center align-self-center mr-2">
         <span class="font-weight-bold font-size-12em clearfix pt-3">
