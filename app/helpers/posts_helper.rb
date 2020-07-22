@@ -12,4 +12,26 @@ module PostsHelper
   def user_create_post?(post)
     current_user != post.user
   end
+
+  def reading_time(post)
+    post.to_s.scan(/[\w-]+/).size / 265 + 1
+  end
+
+  def check_status_post(status)
+    if status == 'public'
+      'Published'
+    else
+      'Drafted'
+    end
+  end
+
+  def date_create_post(val)
+    if val > Date.today
+      time_ago_in_words(val) + ' ago'
+    elsif val > Time.now.beginning_of_week
+      Time.parse(val.to_s).strftime('%A, %I:%M %p')
+    else
+      Time.parse(val.to_s).strftime('%B %d, %Y %I:%M %p')
+    end
+  end
 end
