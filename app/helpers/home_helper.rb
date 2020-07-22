@@ -31,7 +31,7 @@ module HomeHelper
   end
 
   def container_header
-    if request.path == new_post_path
+    if (params[:controller] == 'posts') && params[:action] == 'edit' || params[:action] == 'new'
       'container-fluid px-4'
     else
       'container'

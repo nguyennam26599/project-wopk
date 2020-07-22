@@ -1,16 +1,45 @@
-<div class="info-auther position-sticky sticky-top w-100 border rounded bg-white">
-    <div class="info-auther-header w-100 bg-dark"></div>
-    <div class="info-auther-title w-100 row">
-        <div class="info-auther-avatar col-md-4">
-            <%= image_tag default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user ml-4' %>
-        </div>
-        <h4 class="info-auther-fullname col-md-8"><%= @post.user.name %></h4>
+<div class="info-auther position-sticky sticky-top w-100 border rounded bg-white d-none d-md-block">
+  <div class="info-auther-header w-100 bg-dark"></div>
+  <div class="info-auther-title w-100 row">
+    <div class="info-auther-avatar col-md-4">
+      <%= image_tag default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user ml-3' %>
     </div>
-    <div class="w-100 h-auto mh-2">
-        <div class="w-90 mx-auto">
-            <%= render  "users/shared/follow_button" %>
-            <%= @post.user.email %>
-        </div>
+    <div class="col-md-8 mt-2"><%= link_to @post.user.name, user_path(@post.user), class: "info-auther-fullname text-decoration-none" %></div>
+  </div>
+  <% if @user.description? %>
+  <div class="w-100 h-auto mh-2">
+    <div class="w-90 mx-auto">
+      <%= simple_format(@user.description) %>
     </div>
-    
+  </div>
+  <% end %>
+  <div class="w-100 h-auto mh-2">
+    <div class="w-90 mx-auto">
+      <%= render "users/shared/follow_button" %>
+    </div>
+  </div>
+  <div class="w-100 my-3 h-auto">
+    <% if @user.address? %>
+      <div class="w-90 mx-auto mb-1">
+        <span class="text-muted info-auther-infomation font-size-08em clearfix">location</span>
+        <span><%= @user.address %></span>
+      </div>
+    <% end %>
+    <% if @user.email_public? %>
+      <div class="w-90 mx-auto mb-1">
+        <span class="text-muted info-auther-infomation font-size-08em clearfix">Email</span>
+        <span><%= link_to @user.email, @user.send_gmail, :target => "_blank", :class => 'text-dark' %></span>
+      </div>
+    <% end %>
+    <% if @user.url_link? %>
+      <div class="w-90 mx-auto mb-1">
+        <span class="text-muted info-auther-infomation font-size-08em clearfix">Email</span>
+        <span><%= link_to @user.link_url, @user.link_url ,:target => "_blank", :class => 'text-dark' %></span>
+      </div>
+    <% end %>
+    <div class="w-90 mx-auto mb-1">
+      <span class="text-muted info-auther-infomation font-size-08em clearfix">Date</span>
+      <span><%= my_date(@user.created_at) %></span>
+    </div>
+  </div>
 </div>

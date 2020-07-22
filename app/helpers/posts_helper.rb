@@ -34,4 +34,8 @@ module PostsHelper
       Time.parse(val.to_s).strftime('%B %d, %Y %I:%M %p')
     end
   end
+
+  def my_date(val)
+    Date.parse(val.to_s).strftime('%B %d, 20%y')
+  end
 end
