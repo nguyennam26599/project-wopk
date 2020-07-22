@@ -33,7 +33,7 @@
     <% end %>
     <% if @user.url_link? %>
       <div class="w-90 mx-auto mb-1">
-        <span class="text-muted info-auther-infomation font-size-08em clearfix">Email</span>
+        <span class="text-muted info-auther-infomation font-size-08em clearfix">Website</span>
         <span><%= link_to @user.link_url, @user.link_url ,:target => "_blank", :class => 'text-dark' %></span>
       </div>
     <% end %>
