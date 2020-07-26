@@ -12,17 +12,20 @@ module ApplicationHelper
   MONTHLY_POST = 'monthly'
 
   def class_active(controller)
-    'active' if params[:controller] == controller
+    'active bg-dark-4' if params[:controller] == controller
   end
 
   def show_header
-    exception_path = [login_path, signup_path, confirm_path, new_user_session_path, new_admin_session_path]
+    exception_path = [login_path, signup_path, confirm_path, new_user_session_path,
+                      new_admin_session_path, new_user_password_path, edit_user_password_path]
     render partial: 'home/header' unless exception_path.include? request.path
   end
 
   def show_footer
-    exception_path = [login_path, signup_path, confirm_path, new_user_session_path, new_admin_session_path]
-    render partial: 'home/footer' unless (exception_path.include? request.path) || (params[:controller] == 'posts')
+    exception_path = [login_path, signup_path, confirm_path, new_user_session_path,
+                      new_admin_session_path, new_user_password_path, reset_password_path, edit_user_password_path]
+    render partial: 'home/footer' unless exception_path.include? request.path
+    render partial: 'home/footer' unless params[:controller] == 'posts' && params[:action] != 'show'
   end
 
   def active_post_home(scope)
@@ -32,5 +35,9 @@ module ApplicationHelper
 
   def date_format(object)
     object.strftime('%d/%m/%Y - %H:%M')
+  end
+
+  def full_title(page_title)
+    page_title
   end
 end

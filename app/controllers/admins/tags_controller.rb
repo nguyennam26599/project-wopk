@@ -7,7 +7,8 @@ module Admins
     add_breadcrumb 'Tag', :admins_tags_path
 
     def index
-      @pagy, @tags = pagy(Tag.all.order(created_at: :desc), page: params[:page], items: Tag::NUMBER_ITEM)
+      @tags_list = SearchService.new(params).perform(Tag)
+      @pagy, @tags = pagy(@tags_list.order(created_at: :desc), page: params[:page], items: Tag::NUMBER_ITEM)
     end
 
     def new
@@ -47,7 +48,7 @@ module Admins
     private
 
     def tag_params
-      params.require(:tag).permit(:name, :avatar)
+      params.require(:tag).permit(:name, :avatar).with_defaults(status: 1)
     end
 
     def set_tag

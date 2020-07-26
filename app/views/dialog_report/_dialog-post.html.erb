@@ -1,17 +1,19 @@
-<dialog id="favDialog" class="border-0 dialog">
+<dialog id="favDialog" class="border-0 dialog rounded">
   <%= form_for [:admins, @report], remote: true do |dialog| %>
-      <div class="dialog-header">Report post</div>
-      <div class="dialog-item">
+      <h3 class="dialog-header">Report post</h3>
+      <div class="dialog-item mb-2">
         <%= dialog.hidden_field :user_id, value: current_user.id %>
         <%= dialog.hidden_field :reportable_id, value: @post.id %>
         <%= dialog.hidden_field :reportable_type, value: 'Post' %>
-        <input type="radio" name="report[status]" value="Spam"> Spam <br>
-        <input type="radio" name="report[status]" value="Copyright"> Copyright
+        <input type="radio" name="report[status]" value="Spam" id="spam"> 
+        <label for="spam">Spam</label><br>
+        <input type="radio" name="report[status]" value="Copyright" id="copyright">
+        <label for="copyright">Copyright</label><br>
       </div>
-      <%= dialog.text_field :content, class: "dialog-textarea pl-2 mt-2", placeholder:"  Comment" %>
-    <menu>
-      <button type="button" onclick="document.getElementById('favDialog').close()" class="btn btn-danger">Cancel</button>
-      <%= dialog.submit 'Report', class: 'btn btn-success btn-report' %>
+      <%= dialog.text_area :content, class: "dialog-textarea pl-2 mt-2", placeholder:"  Comment" %>
+    <menu class="text-right">
+      <button type="button" id="cancel" class="btn">Cancel</button>
+      <%= dialog.submit 'Report', class: 'btn btn-primary btn-report' %>
     </menu>
   <% end %>
 </dialog>

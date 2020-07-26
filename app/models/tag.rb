@@ -24,7 +24,10 @@ class Tag < ApplicationRecord
                                                 .where('posts.status = 1').group(:id).order('total DESC')
                                                 .limit(NUMBER_ITEM_10)
                                  }
-
+  scope :search_by_key_word, lambda { |word_search|
+                               where('id LIKE :search OR name LIKE :search', search: "%#{word_search}%")
+                             }
+  scope :search_by_status, ->(status_tag) { where('status = ?', status_tag) }
   def tag_post_size
     posts.status_public.size
   end

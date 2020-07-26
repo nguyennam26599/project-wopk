@@ -1,3 +1,4 @@
+<% provide(:title, "Post - #{@post.title}")%>
 <div id="notice_post" class="fixed-bottom d-flex text-center">
   <% if notice.present? %>
     <%= render partial: "layouts/messages" %>
@@ -9,6 +10,8 @@
         <div class="p-0 col-md-1 d-none d-md-block">
             <div class="post-actions d-flex flex-column align-items-center mx-auto">
                 <!---->
+                <%= image_tag default_avatar_user(@user), class: 'mr-auto rounded-circle avatar-user' %> 
+                
                 <%= render partial: '/post_votings/vote_form', class: "vote", locals: { post: @post } %>
                 <div class="subscribe mb-2">
                     <% if user_signed_in? %>
@@ -35,7 +38,7 @@
                 </h1>
                 <div class="tags">
                     <% @post.tags.each do |tag| %>
-                       <%= link_to  tag_path(tag), class: "px-2 rounded text-muted-light tag-info font-12p d-inline-block text-nowrap overflow-hidden bg-dark-6" do %>
+                       <%= link_to  tag_path(tag), class: "px-2 rounded text-muted-light tag-info font-12p d-inline-block text-nowrap overflow-hidden bg-dark-6 text-decoration-none" do %>
                         #<%=tag.name%>
                        <% end %>
                     <% end%>
@@ -52,7 +55,8 @@
                         <div class="post-author__info overflow-hidden mr-1 ml-1 text-nowrap">
                             <div class="d-flex">
                                 <div class="flex-fix mr-05 overflow-hidden text-nowrap">
-                                    <%= link_to @user.full_name, user_path(@user), class: "text-bold post-author__name text-muted-light" %>
+                                    <%= link_to @user.full_name, user_path(@user), class: "text-bold post-author__name text-muted-light text-decoration-none" %>
+                                    <i class="fas fa-eye text-white"></i>&ensp;<span id="post_view" class="text-white"><%= @post.view_count %></span>
                                 </div>
                             </div>
                         </div>
@@ -77,34 +81,31 @@
                     <button class="btn bg-dark-4 text-muted-light border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
                     <div class="dropdown-menu bg-dark-4">
                         <%- if @post.edit_able?(current_user)%>
-                            <div class="dropdown-item">
-                                <i class='far fa-flag mr-05 pr-1 fa-fw text-muted-light '></i>
-                                <%= link_to 'Edit', edit_post_path, class: 'text-muted-light ' %>
+                            <div class="dropdown-option">
+                                <i class="fas fa-user-edit text-muted-light mr-2"></i>
+                                <%= link_to 'Edit', edit_post_path, class: 'text-muted-light text-decoration-none' %>
                             </div>
-                            <div class="dropdown-item">
-                                <i class="far fa-plus-square pr-1 mr-05 fa-fw"></i>
-                                <%= link_to 'Delete this post', post_path, class: 'text-muted-light', method: :delete, data: {confirm: 'Are you sure delete this post?'} %>
+                            <div class="dropdown-option">
+                                <i class="fas fa-trash text-muted-light mr-2"></i>
+                                <%= link_to 'Delete this post', post_path, class: 'text-muted-light text-decoration-none', method: :delete, data: {confirm: 'Are you sure delete this post?'} %>
                             </div>
                         <% else %>
-                            <div class="dropdown-item">
+                            <div class="dropdown-option">
                                 <i class='far fa-flag mr-05 pr-1 fa-fw text-muted-light '></i>
                                 <% if current_user.blank? %>
-                                    <%= link_to 'Report', login_path, class: 'text-muted-light ' %>
+                                    <%= link_to 'Report', login_path, class: 'text-muted-light btn-action-report text-decoration-none' %>
                                 <% else %>
-                                    <span id = 'updateDetails' class="text-muted-light ">Report</span>
+                                    <span id = 'updateDetails' class="text-muted-light text-decoration-none cursor">Report</span>
                                 <% end %>
                             </div>
                         <% end %>
-                        <div class="dropdown-item text-muted-light ">
-                            <i class="fa fa-magic pr-1 mr-05 fa-fw text-muted-light "></i>Highlighting code blocks
-                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="md-contents font-18p my-2 flex-fill overflow-hidden mw-50 text-muted-light ">
                 <%== @post.content%>
-
+                <input type="hidden" id="read_time" data-read-time="<%= reading_time(@post.content) %>"/>
                 <input type="hidden" id="title_post" data-title-post="<%= @post.title %>"/>
                 <input type="hidden" id="url_post" data-url-post="<%= request.original_url %>"/>
                 <input type="hidden" id="path_current" data-view-path="<%= view_post_path %>"/>
@@ -136,11 +137,6 @@
 
                     <div id="list-comments">
                         <!--list comments-->
-                    </div>
-                    <div class="text-center">
-                        <% if @comments.size > Comment::NUMBER_COMMENTS_5 %>
-                            <button type="submit" id="load-more" class="btn btn-outline-info btn-sm mb-3 mt-3">More</button>
-                        <% end %>
                     </div>
                 </div>
             </div>

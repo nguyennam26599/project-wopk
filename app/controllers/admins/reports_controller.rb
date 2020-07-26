@@ -18,9 +18,9 @@ module Admins
           format.html
           format.js
         end
-        flash[:noice] = 'Ban da report thanh cong'
+        flash.now[:notice] = 'Repost success'
       else
-        flash[:danger] = ' Co loi xay ra, vui long thu lai'
+        flash[:danger] = 'Error try again!'
       end
     end
 

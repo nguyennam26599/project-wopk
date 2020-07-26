@@ -7,8 +7,8 @@ class SearchService
     @params = params
   end
 
-  def perform
-    users = search_by_status(User.all)
+  def perform(model)
+    users = search_by_status(model.all)
     search_by_key_word(users)
   end
 

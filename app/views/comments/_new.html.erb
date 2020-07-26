@@ -12,8 +12,6 @@
             </div>
         <% end %>
     <% else %>
-        <div class="text-center">
-            <%= link_to "Login to leave a comment!", login_path %>
-        </div>
+        <%= link_to "Login to leave a comment!", login_path, class: 'text-muted-light' %>
     <% end %>
 </div> 

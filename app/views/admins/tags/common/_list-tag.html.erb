@@ -6,8 +6,9 @@
         <%= link_to 'New tag', new_admins_tag_path, data: {turbolinks: false} %>
       </h6>
     </div>
-    <%= raw render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
+    <%= render partial: 'admins/tags/common/search' %>
     <div class="card-body">
+      <% if @tags.present? %>
       <div class="table-responsive-xl">
         <table class="table table-striped text-center w-100" id="table-tag" cellspacing="0">
           <thead>
@@ -48,6 +49,13 @@
           </tbody>
         </table>
       </div>
+      <% else %>
+        <div class='text-center text-muted'>
+          <i class="far fa-ques tion-circle"></i>
+          We found no results<br>
+          Make sure all words are spelled correctly or try different keywords.
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

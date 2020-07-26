@@ -1,0 +1,24 @@
+<div class="container-fuild py-3 bg-dark-6">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <div class="py-2">
+        <% if @posts.present? %>
+            <% @posts.each do |post| %>
+            <%= render partial: "home/post_index/topic", locals: { post: post }%>
+            <% end %>
+            <%== render partial: 'users/shared/pagination', locals: { pagy: @pagy } %>
+        <% else %>
+            <div class="text-center text-muted-light">
+                <i class="far fa-ques tion-circle"></i>
+                We found no results<br>
+                Make sure all words are spelled correctly or try different keywords.
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= render "home/menuright" %>
+    </div>
+  </div>
+</div>

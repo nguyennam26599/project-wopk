@@ -1,11 +1,12 @@
 .dialog {
     width: 30em;
     height: max-content;
-
+    transform: scale(0.2);
+    transition: 200ms;
     &-header {
         width: 100%;
-        height: 3em;
-        line-height: 3em;
+        height: 2em;
+        line-height: 2em;
         font-weight: bold;
     }
 
@@ -19,4 +20,7 @@
         width: 100%;
         min-height: 3em;
     }
+}
+.dialog-scale {
+    transform: scale(1);
 }

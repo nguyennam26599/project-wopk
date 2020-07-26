@@ -1,9 +1,9 @@
 <div class="view-blog px-3">
   <div>
     <nav class="nav d-flex justify-content-end w-100">
-      <%= link_to "Newest", root_path, class: "nav-link text-muted-light #{active_post_home('daily')}" %>
-      <%= link_to "Weekly", '?scope=weekly', class: "nav-link text-muted-light #{active_post_home('weekly')}" %>
-      <%= link_to "Monthly", '?scope=monthly', class: "nav-link text-muted-light #{active_post_home('monthly')}" %>
+      <%= link_to fa_icon("fas fa-newspaper", "Newest"), root_path, class: "nav-link text-muted-light #{active_post_home('daily')}" %>
+      <%= link_to fa_icon("fab fa-weebly", "Weekly"), '?scope=weekly', class: "nav-link text-muted-light #{active_post_home('weekly')}" %>
+      <%= link_to fa_icon("fab fa-meetup", "Monthly"), '?scope=monthly', class: "nav-link text-muted-light #{active_post_home('monthly')}" %>
     </nav>
     <% @posts.each do |post| %>
       <%= render partial: "home/post_index/topic", locals: { post: post }%>

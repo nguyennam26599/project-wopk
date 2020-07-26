@@ -1,22 +1,45 @@
-<div class="position-sticky font-06em nav flex-column d-none d-lg-block left-menu-home">
-  <li>
-    <%= link_to fa_icon("far fa-chart-bar mr-2 fa-fw", "Trends"),root_path, class: "p-home_menuItem text-muted-light font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(root_path)}"%>
+<div class=" font-06em nav flex-column d-none d-lg-block left-menu-home bg-dark-4 w-115 rounded mt-4">
+  <li class="pt-1">
+    <%= link_to root_path, class: "mt-1 d-flex p-home_menuItem text-muted-light font-weight-bold d-inline-block w-94 mx-2 text-decoration-none hover-menu-left #{ current_class?(root_path)}" do %>
+      <div class="circle-3rem <%= active_color?(root_path) %> m-2">
+        <i class="far fa-chart-bar fa-fw m-05em bg-muted-light"></i> 
+      </div>
+      <span class="my-3">Trends</span>
+    <% end %>
   </li>
   <li>
-    <%= link_to fa_icon("fas fa-tags mr-2 fa-fw", "Tags Feed"), tagfeed_path, class: "p-home_menuItem text-muted-light font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(tagfeed_path) }" %>
+    <%= link_to home_path, class: "d-flex p-home_menuItem text-muted-light font-weight-bold d-inline-block w-94 mx-2 text-decoration-none hover-menu-left #{ current_class?(home_path) }" do %>
+    <div class="circle-3rem <%= active_color?(home_path)  %> m-2">
+        <i class="fas fa-house-user fa-fw m-05em bg-muted-light"></i> 
+      </div>
+      <span class="my-3">Home</span>
+    <% end %>
   </li>
   <li>
-    <%= link_to fa_icon("fa fa-paperclip mr-2 fa-fw", "Clip post"), clippost_path, class: "p-home_menuItem text-muted-light font-weight-bold d-inline-block p-1 pl-3 mb-1 text-decoration-none #{ current_class?(clippost_path) }" %>
+    <%= link_to clippost_path, class: "d-flex p-home_menuItem text-muted-light font-weight-bold d-inline-block w-94 mx-2 text-decoration-none hover-menu-left #{ current_class?(clippost_path) }" do %>
+    <div class="circle-3rem <%= active_color?(clippost_path)  %> m-2">
+        <i class="fa fa-paperclip fa-fw m-05em bg-muted-light"></i> 
+      </div>
+      <span class="my-3">Clip post</span>
+    <% end %>
+  </li>
+  <li class="pb-1">
+    <%= link_to tags_path, class: "d-flex p-home_menuItem text-muted-light font-weight-bold d-inline-block mb-1 w-94 mx-2 text-decoration-none hover-menu-left #{ current_class?(tags_path) }" do %>
+    <div class="circle-3rem <%= active_color?(tags_path)  %> m-2">
+        <i class="fas fa-user-tag fa-fw m-05em bg-muted-light"></i> 
+      </div>
+      <span class="my-3">Tags</span>
+    <% end %>
   </li>
 </div>
-
+<%= render 'home/follow/list_tag_follow' %>
 <div class="container-fluid d-none d-sm-block d-md-block d-lg-none flex-column font-7em px-0">
   <div class="row text-center">
     <div class="col-4 ">
       <%= link_to "Trends", root_path, class: " font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(root_path) }" %>
     </div>
     <div class="col-4">
-      <%= link_to "Tags Feed", tagfeed_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(tagfeed_path) }" %>
+      <%= link_to "Home", home_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(home_path) }" %>
     </div>
     <div class="col-4">
       <%= link_to "Clip post", clippost_path, class: "font-07em p-home_menuItem font-weight-bold d-inline-block p-1 mb-2 text-muted-light text-decoration-none #{ current_class?(clippost_path) }" %>
@@ -26,6 +49,6 @@
 
 <div class="container-fluid d-block d-sm-none flex-column font-7em px-0">
   <select class="custom-select select_location text-success">
-    <%= options_for_select([["Trends", root_path], ["Tags Feed", tagfeed_path], ['Clip post', clippost_path]], request.path) %>
+    <%= options_for_select([["Trends", root_path], ["Home", home_path], ['Clip post', clippost_path]], request.path) %>
   </select>
 </div>

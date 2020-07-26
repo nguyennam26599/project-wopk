@@ -18,7 +18,7 @@ class TagsController < ApplicationController
       redirect_to tags_path
     else
       @pagy, @post = pagy(@tag.posts.status_public.sort_new_post, items: NUMBER_PAGE_15)
-      @post_trend = @tag.posts.top_post_public_this_month.limit(NUMBER_PAGE_10)
+      @post_trend = @tag.posts.top_post_public_this_week.limit(5)
     end
   end
 

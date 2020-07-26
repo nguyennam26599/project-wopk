@@ -7,25 +7,26 @@ class HomeController < ApplicationController
     @pagy, @posts = pagy(Post.find_post_home_index(params[:scope]))
   end
 
-  def tagfeed
-    posts_user = []
-    posts_tag = []
-    current_user.user_followings.each do |post_user|
-      posts_user += post_user.posts
-    end
-    current_user.tag_followings.each do |post_tag|
-      posts_tag += post_tag.posts
-    end
-    posts_followings = posts_user + posts_tag
-    @pagy, @posts = pagy(posts_followings, page: params[:page])
+  def home
+    return home_path if current_user.blank?
+
+    @pagy, @posts = pagy(Post.post_followings(current_user))
   end
 
   def clippost
-    @pagy, @posts = pagy(current_user.post_followings, page: params[:page]) unless current_user.blank?
+    @pagy, @posts = pagy(current_user.post_followings.status_public, page: params[:page]) unless current_user.blank?
   end
 
   def load_leaderboard
     @users_trend = User.leaderboard_user_posts
     @tags_trend = Tag.leaderboard_tags_posts
+    @tags_follow = current_user.tag_followings if current_user.present?
+  end
+
+  def search
+    return redirect_to(root_path, alert: 'Empty field!') if params[:search].blank?
+
+    @parameter = params[:search].downcase
+    @pagy, @posts = pagy(Post.status_public.where('lower(title) LIKE :search', search: "%#{@parameter}%"))
   end
 end

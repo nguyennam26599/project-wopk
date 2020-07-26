@@ -46,7 +46,7 @@
                 </td>
                 <td>
                   change to delete
-                  <%= link_to report_post_admins_reports_path( post_status: Report::Delete_status, report: report), method: :put, data: {confirm: 'Are you sure delete this post?'} do %>
+                  <%= link_to report_post_admins_reports_path( post_status: Report::DELETE_STATUS, report: report), method: :put, data: {confirm: 'Are you sure delete this post?'} do %>
                     <i class="fas fa-check-circle text-success approve-action"></i>
                   <% end %>
                 </td>

@@ -2,11 +2,11 @@
   <div class="dropdown text-right">
     <button class="dropdown-toggle fa fa-ellipsis-h fa-lg text-muted-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="fa fa-ellipsis-h text-success"></span></button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to 'LGTM article', '#', class: "dropdown-item" %>
-      <%= link_to 'Followees', '#', class: "dropdown-item" %>
-      <%= link_to 'Comment history', '#', class: "dropdown-item" %>
-      <%= link_to 'Edit request history', '#', class: "dropdown-item" %>
+    <div class="dropdown-menu bg-dark-4" aria-labelledby="dropdownMenuButton">
+      <%= link_to 'LGTM article', '#', class: "dropdown-item text-muted-light" %>
+      <%= link_to 'Followees', '#', class: "dropdown-item text-muted-light" %>
+      <%= link_to 'Comment history', '#', class: "dropdown-item text-muted-light" %>
+      <%= link_to 'Edit request history', '#', class: "dropdown-item text-muted-light" %>
     </div>
   </div>
   <div class="upload-avatar">
@@ -34,8 +34,8 @@
     <% end %>
   </span>
   <span class="icon-facebook">
-    <%= link_to @user.link_facebook, :target => "_blank", :class => 'text-primary text-decoration-none' do %>
-      <i class="fab fa-facebook-square font-size-13em"></i>
+    <%= link_to @user.link_facebook, :target => "_blank", :class => 'text-primary rounded-circle' do %>
+      <i class="fab fa-facebook-square font-size-13em bg-white rounded border-0"></i>
     <% end %>
   </span>
 </div>
@@ -44,7 +44,7 @@
 </div>
 <div class="row">
   <div class="col-4">
-    <span class="point-ranking font-size-13em font-weight-bold text-muted-light"><%= @user.post_size_public %></span><br>
+    <span class="point-ranking font-size-13em font-weight-bold text-muted-light"><%= @user == current_user ? @user.posts.size : @user.post_size_public %></span><br>
     <span class="point-post font-size-08em text-muted-light">
       <p>Post</p>
     </span>
@@ -92,7 +92,7 @@
     <div class="h-auto mh-6 mt-3">
       <% @user.tag_followings.each do |tag| %>
         <div class="bg-dark-6 tag-item-profile m-1 mw-3 float-left rounded">
-          <%= link_to tag_path(tag), class: "text-muted-light" do %>
+          <%= link_to tag_path(tag), class: "text-muted-light text-decoration-none p-1" do %>
             #<%= tag.name %>
           <%end %>
         </div>

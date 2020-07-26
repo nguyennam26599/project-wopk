@@ -18,18 +18,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     if @user == current_user
-      @pagy, @posts = pagy(Post.find_post_current_user(params[:status]))
+      @pagy, @posts = pagy(current_user.posts.find_post_current_user(params[:status]))
     else
       @pagy, @posts = pagy(@user.posts.status_public, page: params[:page])
     end
-  end
-
-  def show_post_public
-    @pagy, @posts = pagy(current_user.posts.status_public, page: params[:page])
-  end
-
-  def show_post_draft
-    @pagy, @posts = pagy(current_user.posts.status_draft, page: params[:page])
   end
 
   private

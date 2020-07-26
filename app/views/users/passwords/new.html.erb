@@ -1,19 +1,19 @@
-<div class="container font-type">
-    <%= render 'layouts/messages' %>
-    <h1><%= link_to 'HITUNO', '#', class: "navbar-brand" %></h1>
-    <div class="forgot_password">
-        <div>
-            <div class="title_forgot">Forgot password</div>
-        </div>
-        <div class="forgot-form">
-            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-              <div class="form-group">
-                  <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
-              </div>
-              <div class="form-group">
-                  <%= f.submit "Send", class:"btn btn-success" %>
-              </div>
-          <% end %>
-        </div>
+<% provide(:title, "Forgot password")%>
+<div class="container-fuild h-screen font-type bg-image mt--3">
+    <div class="w-25 m-auto pt-5">
+        <h3 class="w-100 text-muted-light ml-4 mb-3">
+            <%= link_to root_path, class: "navbar-brand pl-3 text-muted-light" do %>
+            <i class="fas fa-home"></i>
+            <% end %>Forgot password
+        </h3>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+            <div class="form-group border-bottom d-flex mt-5">
+                <i class="fas fa-envelope-open-text text-light mt-2"></i>
+                <%= f.text_field :email, class: 'input-form-opacity placeholder-color-white', placeholder: ' Email...' %>
+            </div>
+            <div class="form-group text-right mt-5">
+                <%= f.submit "Send", class:"btn bg-instagram-story w-100 mt-5 text-white font-weight-bold border-0" %>
+            </div>
+        <% end %>
     </div>
 </div>

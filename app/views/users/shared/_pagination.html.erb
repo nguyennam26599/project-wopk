@@ -2,7 +2,7 @@
   <% link = pagy_link_proc(pagy) %>
   <div aria-label="pager" class="table-pagination d-flex justify-content-end align-self-center" role="navigation">
     <% if pagy.prev %>
-      <%== link.call(pagy.prev, '<span class="fas fa-chevron-left fa-3x page-link__previous text-muted-light align-self-center" aria-hidden="true"></span>', 'aria-label="previous" class="page-link"') %>
+      <%== link.call(pagy.prev, '<span class="fas fa-chevron-left fa-3x page-link__previous text-muted align-self-center" aria-hidden="true"></span>', 'aria-label="previous" class="page-link"') %>
     <% end %>
     <div class="px-2 pt-2 text-muted-light">
       <% pagy.series.each do |item| %>

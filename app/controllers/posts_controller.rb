@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   # view count
   def view
     if @post.view_increment
-      render json: { status: true, post_view: @post.view_count }
+      render json: { status: true, post_view: @post.view_count, read_time: reading_time(@post.content) }
     else
       render json: { status: false }
     end
@@ -94,5 +94,9 @@ class PostsController < ApplicationController
 
   def delete_comment
     @post.comments.destroy_all
+  end
+
+  def reading_time(post)
+    post.to_s.scan(/[\w-]+/).size / 265 + 1
   end
 end

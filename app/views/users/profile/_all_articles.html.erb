@@ -7,20 +7,21 @@
       <nav class="d-flex hide-if-width-low-540px">
         <%= link_to "Publish", "?status=public", class: "tab_item #{status_posts('public')} mx-2" %>
         <%= link_to "Draft", "?status=draft", class: "tab_item #{status_posts('draft')} mx-2" %>
+        <%= link_to "Delete", "?status=delete", class: "tab_item #{status_posts('delete')} mx-2" %>
       </nav>
     </div>
     <div class="container-fluid d-block d-sm-none flex-column font-7em px-0">
       <select class="custom-select select_location text-success">
-        <%= options_for_select([["Publish", "?status=public"], ["Draft", "?status=draft"]], option_responsive_profile_user(params[:status])) %>
+        <%= options_for_select([["Publish", "?status=public"], ["Draft", "?status=draft"], ["Delete", "?status=delete"]], option_responsive_profile_user(params[:status])) %>
       </select>
     </div>
   <% else %>
     <div class="all_articles flex-1 flex items-center justify-between px-3" id="jump">
       <div class="title">
-        <%= fa_icon("fas fa-square-full color-green mr-2", "All Articles") %>
+        <%= fa_icon("fas fa-square-full text-muted-light mr-2", "All Articles") %>
       </div>
     </div>
   <% end %>
 </div>
-  <%= render "users/profile/topic" %>
-  <%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>
+<%= render "users/profile/topic" %>
+<%== render partial: 'users/shared/pagination', locals: {pagy: @pagy} %>

@@ -4,8 +4,6 @@
   .p-home_menuItem {
     font-size: 0.9rem;
     transition: background-color 0.08s ease-in-out;
-    width: 115%;
-
     &:hover {
       filter: brightness(110%);
       font-weight: bold;
@@ -26,3 +24,15 @@
     }
   }
 }
+.w-115 {
+  margin-left: -5rem;
+  width: 165%;
+}
+.hover-menu-left{
+  &:hover {
+    color: white;
+    background-color: #3a3b3c;
+    border-radius: 0.25rem;
+  }
+}
+  

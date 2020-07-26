@@ -2,12 +2,13 @@
 
 module Admins
   class PostsController < BaseController
-    before_action :set_post, only: %i[update show]
+    before_action :set_post, only: %i[update show destroy]
     add_breadcrumb 'Home', :admins_root_path
     add_breadcrumb 'Posts', :admins_posts_path
 
     def index
-      @pagy, @posts = pagy(Post.all)
+      @posts_list = SearchService.new(params).perform(Post)
+      @pagy, @posts = pagy(@posts_list.order(created_at: :desc))
     end
 
     def show
@@ -17,7 +18,7 @@ module Admins
     end
 
     def update
-      @post.approve_update_post(params[:approve_status])
+      @post.delete_update_post(:delete)
       redirect_to admins_posts_path
     end
 

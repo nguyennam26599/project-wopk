@@ -7,8 +7,8 @@ module Admins
     add_breadcrumb 'Users', :admins_users_path
 
     def index
-      @users_list = SearchService.new(params).perform
-      @pagy, @users = pagy(@users_list, page: params[:page], items: NUMBER_PAGE_20)
+      @users_list = SearchService.new(params).perform(User)
+      @pagy, @users = pagy(@users_list.order(created_at: :desc), page: params[:page], items: NUMBER_PAGE_20)
     end
 
     def show

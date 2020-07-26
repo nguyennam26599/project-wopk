@@ -33,6 +33,20 @@ class Post < ApplicationRecord
   scope :weekly, -> { status_public.this_week.order(view_count: :desc) }
   scope :monthly, -> { status_public.this_month.order(view_count: :desc) }
 
+  scope :post_followings,
+        lambda { |user|
+          joins(:tags)
+            .status_public
+            .where('tags.id in (?) or user_id in (?)', user.tag_followings.ids, user.user_followings.ids)
+            .order(created_at: :desc)
+            .group(:id)
+        }
+  scope :search_title_status_public, ->(search_word) { status_public.where('title LIKE ?', "%#{search_word}%") }
+  scope :search_by_key_word,
+        lambda { |word_search|
+          where('id LIKE :search OR title LIKE :search', search: "%#{word_search}%")
+        }
+  scope :search_by_status, ->(status_post) { where('status = ?', status_post) }
   # User follow Post
   has_many :followers, as: :following, class_name: 'FollowPolymorphic'
   has_many :user_followings, through: :followings, source: :following, source_type: 'User'
@@ -92,6 +106,8 @@ class Post < ApplicationRecord
   def self.find_post_current_user(scope_post)
     if scope_post == DRAFT_STATUS
       status_draft
+    elsif scope_post == DELETE_STATUS
+      status_delete
     else
       status_public
     end
@@ -102,14 +118,18 @@ class Post < ApplicationRecord
     increment!(:view_count)
   end
 
-  def approve_update_post(status_update)
-    approve_date = Time.now if status_update == PUBLIC_STATUS
-    update(status: status_update, publish_at: approve_date)
+  def delete_update_post(status_update)
+    update(status: status_update)
   end
 
   # check_vote
   def check_vote(user, vote_in)
     post_votings.find_by(user_id: user.id, vote: vote_in)
+  end
+
+  def search
+    @posts = Post.search_title_status_public(params[:search]).limit(10)
+    render json: @posts.pluck(:title)
   end
 
   private

@@ -10,7 +10,7 @@ module HomeHelper
   end
 
   def current_class?(test_path)
-    return 'bg-dark-4 rounded' if request.path == test_path
+    return 'bg-blue-dark rounded' if request.path == test_path
   end
 
   def login_banner
@@ -32,9 +32,13 @@ module HomeHelper
 
   def container_header
     if (params[:controller] == 'posts') && params[:action] == 'edit' || params[:action] == 'new'
-      'container-fluid px-4'
+      'container-fluid'
     else
-      'container'
+      'container-fuild'
     end
+  end
+
+  def active_color?(test_path)
+    request.path == test_path ? 'bg-blue-dark-4' : 'bg-gray-light-4'
   end
 end
