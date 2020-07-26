@@ -127,11 +127,6 @@ class Post < ApplicationRecord
     post_votings.find_by(user_id: user.id, vote: vote_in)
   end
 
-  def search
-    @posts = Post.search_title_status_public(params[:search]).limit(10)
-    render json: @posts.pluck(:title)
-  end
-
   private
 
   def create_tag_relationship(name_tag_list, status)

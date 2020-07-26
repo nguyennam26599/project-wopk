@@ -45,3 +45,25 @@
     padding-right: 0 !important;
   }
 }
+
+.paddingx-3 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.marginl-2 {
+  margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 992px) {
+  #follow-tag {
+    display: none;
+  }
+  .paddingx-3 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .marginl-2 {
+    margin-left: 0;
+  }
+}

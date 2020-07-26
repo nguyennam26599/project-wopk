@@ -12,7 +12,7 @@ $(document).on("turbolinks:load", function () {
   });
 
   $(".bootstrap-tagsinput input").autocomplete({
-    source: $("#tag-data").data("autocomplete-source"),
+    source: $("#tag-data").data("autocomplete-source")
   });
 
   $(".ui-autocomplete").appendTo(".menu-list");

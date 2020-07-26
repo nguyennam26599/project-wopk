@@ -8,6 +8,11 @@ class PostsController < ApplicationController
 
   def index; end
 
+  def search
+    @posts = Post.search_title_status_public(params[:term]).limit(5)
+    render json: @posts.pluck(:title)
+  end
+
   def new
     @post = @posts.new
   end
