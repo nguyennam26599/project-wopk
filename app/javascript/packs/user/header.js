@@ -5,9 +5,11 @@ $(document).on('turbolinks:load', function() {
     $('.btn_search_laptop').removeClass("border-focus")
   });
 
-  $("#post-data").autocomplete({
-    source: $("#post-data").data("autocomplete-source")
+  $("#post-data").keydown(function(){
+    $("#post-data").autocomplete({
+      source: $("#post-data").data("autocomplete-source")
+    });
+  
+    $(".ui-autocomplete").appendTo(".menu-list-post");
   });
-
-  $(".ui-autocomplete").appendTo(".menu-list-post");
 });

@@ -1,9 +1,9 @@
 <div class="dedication bg-dark-4 text-light py-2 rounded mb-4">
-  <div class="d-flex nav justify-content-end font-size-15em">
+  <div class="d-flex nav justify-content-end font-size-15em mb-3">
     <div class="mr-auto py-2 pl-3 font-weight-bold">Tags ranking</div>
   </div>
   <% list_number_ranking = 0; @tags_trend.each do |tag| %>
-    <div class="d-flex bd-highlight font-size-13em">
+    <div class="d-flex bd-highlight font-size-13em mt-2">
       <div class="ml-1 w-25 bd-highlight align-self-center text-center font-size-13em">
         <%== print_number_leaderboard(list_number_ranking += 1) %>
       </div>

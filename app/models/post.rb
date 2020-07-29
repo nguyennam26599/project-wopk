@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
+  has_one_attached :avatar
   has_many :reports, as: :reportable
   has_many :comments
   has_many :posts_relationships

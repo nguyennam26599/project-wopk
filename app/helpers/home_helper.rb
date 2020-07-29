@@ -9,10 +9,6 @@ module HomeHelper
     "<i class='#{i_class}'></i> #{text}".html_safe
   end
 
-  def current_class?(test_path)
-    return 'bg-blue-dark rounded' if request.path == test_path
-  end
-
   def login_banner
     render 'home/banner' unless user_signed_in?
   end
@@ -40,5 +36,29 @@ module HomeHelper
 
   def active_color?(test_path)
     request.path == test_path ? 'bg-blue-dark-4' : 'bg-gray-light-4'
+  end
+
+  def current_class?(test_path)
+    if current_user.darkmode.zero?
+      return 'bg-blue-dark rounded' if request.path == test_path
+    elsif request.path == test_path
+      'active-mode-box rounded'
+    end
+  end
+
+  def color_light_mode(test_path)
+    return 'text-white' if current_user.darkmode == 1 && request.path == test_path
+  end
+
+  def type_mode
+    current_user.darkmode
+  end
+
+  def check_mode
+    if current_user.darkmode.zero?
+      true
+    else
+      false
+    end
   end
 end

@@ -1,7 +1,9 @@
 <div class="header-page-index text-center text-light position-fixed fixed-top bg-dark-4">
   <div class="<%= container_header %> p-sm-auto p-0 menu-index-user" id="menu-responsive">
     <nav class="navbar navbar-expand">
-      <%= link_to "WOPK", root_path, class: "navbar-brand text-white" %>
+      <%= link_to root_path, class: "navbar-brand text-white" do %>
+        <img src="/images/pworld.png" class="image-logo">
+      <% end %>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item btn_search_laptop d-sm-block ml-sm-3 d-none">
@@ -45,11 +47,19 @@
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item py-2 text-muted-light" %>
                 <%= link_to "Password", reset_password_path, class: "dropdown-item py-2 text-muted-light" %>
                 <div class="dropdown-divider"></div>
-                <%= link_to "Draft", users_draft_path, class: "dropdown-item py-2 text-muted-light" %>
+                <%= link_to "Draft", "#{user_path(current_user)}?status=draft", class: "dropdown-item py-2 text-muted-light" %>
                 <%= link_to "Secret Articles", "#", class: "dropdown-item py-2 text-muted-light" %>
                 <div class="dropdown-divider"></div>
-                <%= link_to "Edit Request", "#", class: "dropdown-item py-2 text-muted-light" %>
-                <%= link_to "Setting", "#", class: "dropdown-item py-2 text-muted-light" %>
+                <div class="dropdown-item text-muted-light d-flex">
+                  <span class="pt-2">Dark mode </span>
+                  <label class="switch ml-5 mt-1">
+                    <%= form_tag do %>
+                      <input type="checkbox" id= 'togBtn' data-mode-path="<%= mode_url %>" data-type="<%= type_mode %>" data-checked="<%= check_mode(current_user.darkmode) %>" checked>
+                      <div class="slider round"></div>
+                    <% end %>
+                  </label>
+                </div>
+                <%= link_to "Setting", profile_path(current_user), class: "dropdown-item py-2 text-muted-light" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item py-2 text-muted-light" %>
               </div>

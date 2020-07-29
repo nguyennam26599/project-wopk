@@ -14,7 +14,7 @@ module PostsHelper
   end
 
   def reading_time(post)
-    post.to_s.scan(/[\w-]+/).size / 265 + 1
+    (post.to_s.split.size / 265 + 1).to_s
   end
 
   def check_status_post(status)

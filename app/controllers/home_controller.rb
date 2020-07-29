@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   def home
     return home_path if current_user.blank?
 
-    @pagy, @posts = pagy(Post.post_followings(current_user))
+    @pagy, @posts = pagy(Post.post_followings(current_user).order(created_at: :desc))
   end
 
   def clippost
@@ -28,5 +28,13 @@ class HomeController < ApplicationController
 
     @parameter = params[:search].downcase
     @pagy, @posts = pagy(Post.status_public.where('lower(title) LIKE :search', search: "%#{@parameter}%"))
+  end
+
+  def mode
+    if params[:mode] == 0.to_s
+      current_user.update(darkmode: 1)
+    else
+      current_user.update(darkmode: 0)
+    end
   end
 end

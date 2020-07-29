@@ -14,7 +14,7 @@
   .menuright-setting,
   .view-blog {
     width: 100%;
-    margin: 0 0 0 auto;
+    margin: 0;
   }
 }
 @media screen and (max-width: 768px) {
@@ -64,6 +64,6 @@
     padding-right: 0;
   }
   .marginl-2 {
-    margin-left: 0;
+    margin-left: -1rem;
   }
 }

@@ -18,7 +18,8 @@ $(document).on("turbolinks:load", function () {
   $(".btn-dropdown-status").click(function () {
     let titleValue = $("#title").val();
     let textContent = $("#post_content").text();
-    if (titleValue.trim() != "" && textContent.trim() != "") {
+    let avatarPost = $(".avatar-post-value").val();
+    if (titleValue.trim() != "" && textContent.trim() != "" && avatarPost != "") {
       $(".dropdown-menu-btn").toggle();
     } else {
       $(".dropdown-menu-text").toggle();

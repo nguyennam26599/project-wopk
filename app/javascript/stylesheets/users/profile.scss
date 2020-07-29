@@ -32,12 +32,12 @@
     }
   }
   .active_profile {
-    color: #e8e9d8 !important;
     font-weight: 500 !important;
-    border-bottom: solid 3px #e8e9d8;
+    color: #2d88ff !important;
+    border-bottom: 2px solid #2d88ff;
 
     &:hover {
-      color: #8d8d8a !important;
+      color: rgb(57, 60, 255) !important;
     }
   }
 }

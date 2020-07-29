@@ -1,4 +1,4 @@
-<div class="menuright-setting">
+<div class="menuright-setting postition-sticky sticky-top top-3 scroll">
   <%= render 'home/infomation' if user_signed_in? %>
   <br>
   <%= render "home/ranking/user_leaderboard" unless @users_trend.blank? %>

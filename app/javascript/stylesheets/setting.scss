@@ -46,8 +46,25 @@ img {
 .mt--3 {
     margin-top: -3rem;
 }
+.ml--3 {
+    margin-left: -3rem;
+}
+.ml--4 {
+    margin-left: -4rem;
+}
+.ml--_4 {
+    margin-left: -4.7rem;
+}
+.ml--5 {
+    margin-left: -5rem;
+}
 .bg-image {
     background-image: url("/images/walk.jpg");
+    background-repeat: no-repeat;
+}
+
+.bg-image-kim {
+    background-image: url("/images/kim.jpeg");
     background-repeat: no-repeat;
 }
 
@@ -94,6 +111,25 @@ img {
 .w-85 {
     width: 85%;
 }
+.w-10 {
+    width: 10%;
+}
+.w-20 {
+    width: 20%;
+}
+.w-15 {
+    width: 15%;
+}
+.w-98 {
+    margin-left: 1%;
+    width: 98%;
+}
+.w-120 {
+    width: 120%;
+}
+.w-130 {
+    width: 130%;
+}
 .circle-3rem {
     width: 2.5rem;
     height: 2.5rem;
@@ -105,4 +141,57 @@ img {
 }
 .z-index {
     z-index: 1000;
+}
+
+.scroll {
+    height: 100vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar { 
+        display: none; 
+    }
+}
+.scroll-auto {
+    height: max-content;
+    overflow-y: auto;
+    &::-webkit-scrollbar { 
+        display: none; 
+    }
+}
+.mt-3rem {
+    margin-top: 3.4rem;
+}
+@media screen and (max-width: 992px) {
+    .scroll {
+        display: none;
+    }
+}
+.image-logo {
+    width: 4.5rem;
+}
+.top-3 {
+    top: 3rem;
+}
+.light-mode-background {
+    background-color: #f0f2f5;
+    color: #454546;
+}
+.light-mode-box {
+    background-color: #ffffff;
+    color: #454546;
+}
+.text-mode-dark {
+    color: #454546;
+}
+
+.active-mode-box {
+    background-color: #e9f3ff;
+    color: #454546;
+    &:hover {
+        background-color: #e9f3ff;
+        color: #454546;
+    }
+}
+.hover-mode-box {
+    background-color: #e9eaeb;
+    color: #454546;
 }

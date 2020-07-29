@@ -24,8 +24,13 @@ module ApplicationHelper
   def show_footer
     exception_path = [login_path, signup_path, confirm_path, new_user_session_path,
                       new_admin_session_path, new_user_password_path, reset_password_path, edit_user_password_path]
-    render partial: 'home/footer' unless exception_path.include? request.path
-    render partial: 'home/footer' unless params[:controller] == 'posts' && params[:action] != 'show'
+
+    controller_post = (params[:controller] == 'posts') && (params[:action] != 'show')
+    if exception_path.include? request.path
+    elsif controller_post == true
+    else
+      render partial: 'home/footer'
+    end
   end
 
   def active_post_home(scope)
