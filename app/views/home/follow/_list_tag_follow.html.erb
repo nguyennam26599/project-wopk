@@ -1,10 +1,10 @@
-<div class="dedication bg-dark-4 text-light py-2 rounded mb-4 mt-4 w-115">
-  <div class="d-flex nav justify-content-end font-size-15em border-bottom">
+<div class="dedication bg-dark-4 text-light py-2 rounded mb-4 mt-4 w-100" id="follow-tag">
+  <div class="d-flex nav justify-content-end font-size-15em mb-3">
     <div class="mr-auto py-2 pl-3 font-weight-bold ">Tags Following</div>
   </div>
   <% if @tags_follow.present? %>
   <% @tags_follow.each do |tag| %>
-    <div class="d-flex bd-highlight font-size-13em pl-1 mt-2">
+    <div class="d-flex bd-highlight font-size-13em pl-3 mt-2">
       <div class="p-1 w-25 bd-highlight align-self-center text-center">
         <%= image_tag default_avatar_tag(tag), class: "rounded-circle img-30em" %>
       </div>
@@ -19,6 +19,10 @@
       </div>
     </div>
   <% end %>
+  <% elsif current_user.blank? %>
+    <div class="text-center px-2 mt-3">      
+      You are not logged in. <%= link_to 'Login', login_path %> here.
+    </div>
   <% else %>
     <div class="text-center px-2 mt-3">
         You have not tracked any tags at this time

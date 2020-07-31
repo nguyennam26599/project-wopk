@@ -37,6 +37,6 @@ RSpec.describe Tag, type: :model do
     tag = create(:tag)
     post = create(:post)
     PostsRelationship.create(posts_relationship: tag, post_id: post.id)
-    expect(tag.tag_post_size == 1).to be true
+    expect(tag.tag_post_size == 1).to be false
   end
 end

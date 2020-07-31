@@ -1,9 +1,13 @@
 <% provide(:title, "Edit post - #{@post.title}")%>
-<div class="container-build bg-light w-100 px-4">
+<div class="container-build bg-light w-100">
     <div class="p-3">
         <%= form_for @post do |f| %>
-            <div class="form-group">
-                <%= f.text_field :title, class: "form-control placeholder-post-font-size ", placeholder: " Title", id: "title" %>
+            <div class="form-group d-flex">
+                <%= f.text_field :title, class: "form-control placeholder-post-font-size w-85", placeholder: "Title", id: "title" %>
+                <%= f.file_field :avatar, class: 'd-none' %>
+                <div class="w-15">
+                    <%= f.label :avatar, "Avatar post", class: 'w-98 form-control text-center text-secondary' %>
+                </div>
             </div>
             <div class="form-group">
                 <%= text_field_tag :tags, tagsinput_data(@post), id: "tag-data", 'data-role' => "tagsinput", data: {autocomplete_source: search_tags_path}, placeholder: "Tag your post. Maximun 5 tags" %>

@@ -8,6 +8,11 @@ class PostsController < ApplicationController
 
   def index; end
 
+  def search
+    @posts = Post.search_title_status_public(params[:term]).limit(5)
+    render json: @posts.pluck(:title)
+  end
+
   def new
     @post = @posts.new
   end
@@ -48,7 +53,7 @@ class PostsController < ApplicationController
   # view count
   def view
     if @post.view_increment
-      render json: { status: true, post_view: @post.view_count, read_time: reading_time(@post.content) }
+      render json: { status: true, post_view: @post.view_count }
     else
       render json: { status: false }
     end
@@ -75,7 +80,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :status)
+    params.require(:post).permit(:title, :content, :status, :avatar)
   end
 
   def set_posts
@@ -94,9 +99,5 @@ class PostsController < ApplicationController
 
   def delete_comment
     @post.comments.destroy_all
-  end
-
-  def reading_time(post)
-    post.to_s.scan(/[\w-]+/).size / 265 + 1
   end
 end

@@ -51,3 +51,16 @@
     width: 15em;
   }
 }
+
+.menu-list-post>ul.ui-autocomplete {
+  &>li{
+    background-color: #3a3b3c;
+    &:hover {
+      background-color: #4b4d4e;
+    }
+  }
+}
+#post-data::-webkit-input-placeholder {
+  color: white;
+  font-size: 1rem;
+}

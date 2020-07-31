@@ -1,28 +1,40 @@
 <% @posts.order(created_at: :desc).each do |post| %>
-<div class="p-3 all-articles rounded bg-dark-4 mt-2">
-  <div class="py-2 px-0">
-    <div class="profile-tag text-left">
-      <i class="fas fa-tags tag-color text-muted-light"></i>
+<div class="row mt-3 rounded bg-dark-4 item-post">
+  <div class="col-md-1 col-2 text-center mt-3">
+    <%= image_tag default_avatar_user(post.user), class: 'rounded-circle img-24em' %>
+  </div>
+  <div class="col-md-11 col-10">
+    <div class="text-muted-light font-size-08em mt-3">
+      <%= link_to post.user.full_name, user_path(post.user), class: "text-decoration-none text-muted-light"%>
+      @<%= post.user.name %>
+      <span class="text-muted-light float-right">
+        <%= time_ago_in_words(post.created_at) %> ago - <%= reading_time post.content %> read
+      </span>
+    </div>
+    <div class="pt-2">
+      <%= link_to post.title, post_path(post.id), class: "font-weight-bold text-muted-light font-size-12em text-decoration-none" %>
+    </div>
+    <div class="pt-2">
       <% post.tags.each do |tag| %>
-        <span class="badge text-muted-light">
-          <%= link_to tag_path(tag), class: 'text-muted-light text-decoration-none font-size-12em' do %>
-            #<%= tag.name %>
-          <% end %>
-        </span>
+      <%= link_to "##{tag.name}", tag_path(tag.id), class: 'text-decoration-none text-muted-light mr-1' %>
       <% end%>
     </div>
-</div>
-    <div class="articles">
-      <%= link_to post.title, post_path(post), class: "font-weight-bolder lead text-muted-light my-3 text-decoration-none" %>
-      <div class="row infomation-articles font-size-08em">
-        <div class="col-6 text-left">
-          <span class="text-muted-light f-10">Views:
-            <%= post.view_count.to_i %>
-            <span></div>
-            <div class="col-6 text-right">
-              <span class="text-muted-light f-10"><%= time_ago_in_words(post.created_at) %> ago.</span>
-            </div>
-          </div>
-        </div>
+    <div class="d-flex align-items-center font-size-09em text-muted-light mt-3 mb-3">
+      <div class="mr-2 d-flex">
+      <div class="d-flex flex-column pr-2">
+        <i class="fas fa-caret-up mb--2 mt--2"></i>
+        <i class="fas fa-caret-down mt--2 mb--2"></i>
       </div>
-    <% end %>
+      
+       <%= post.vote %> vote
+      </div>
+      <div class="ml-2">
+        <%= fa_icon("far fa-comment", post.comments.size) %> comments
+      </div>
+      <div class="ml-2">
+        <%= fa_icon("far fa-eye", post.view_count) %> views
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

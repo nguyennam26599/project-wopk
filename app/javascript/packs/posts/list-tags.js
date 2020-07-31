@@ -11,11 +11,13 @@ $(document).on("turbolinks:load", function () {
       }
   });
 
-  $(".bootstrap-tagsinput input").autocomplete({
-    source: $("#tag-data").data("autocomplete-source"),
-  });
+  $(".bootstrap-tagsinput input").keydown(function(){
+    $(".bootstrap-tagsinput input").autocomplete({
+      source: $("#tag-data").data("autocomplete-source")
+    });
 
-  $(".ui-autocomplete").appendTo(".menu-list");
+    $(".ui-autocomplete").appendTo(".menu-list");
+  });
 
   $(".bootstrap-tagsinput input, .form-control")
     .focusin(function () {

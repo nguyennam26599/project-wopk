@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
+  has_one_attached :avatar
   has_many :reports, as: :reportable
   has_many :comments
   has_many :posts_relationships
@@ -125,11 +126,6 @@ class Post < ApplicationRecord
   # check_vote
   def check_vote(user, vote_in)
     post_votings.find_by(user_id: user.id, vote: vote_in)
-  end
-
-  def search
-    @posts = Post.search_title_status_public(params[:search]).limit(10)
-    render json: @posts.pluck(:title)
   end
 
   private
