@@ -10,8 +10,8 @@
             <%= form_tag(search_path, :method => "get", class: 'navbar-form navbar-left rounded') do %>
               <div class="input-group btn-search-header d-flex flex-column-reverse">
                 <div class="d-flex w-80 border-0 bootstrap-tagsinput bg-gray-light-3 rounded-pill">
-                  <i class="fa fa-search m-1 text-white"></i>
-                  <%= search_field_tag :search, params[:search], class: "w-100 text-white", id: "post-data", data: {autocomplete_source: search_posts_path}, placeholder: "Search" %>
+                  <i class="fa fa-search m-1 text-muted-light"></i>
+                  <%= search_field_tag :search, params[:search], class: "w-100 text-muted-light", id: "post-data", data: {autocomplete_source: search_posts_path}, placeholder: "Search" %>
                 </div>
                 <div class="menu-list-post text-left"></div>
               </div>
@@ -54,7 +54,7 @@
                   <span class="pt-2">Dark mode </span>
                   <label class="switch ml-5 mt-1">
                     <%= form_tag do %>
-                      <input type="checkbox" id= 'togBtn' data-mode-path="<%= mode_url %>" data-type="<%= type_mode %>" data-checked="<%= check_mode(current_user.darkmode) %>" checked>
+                      <input type="checkbox" id= 'togBtn' data-mode-path="<%= mode_url %>" data-type="<%= type_mode %>" data-checked="<%= check_mode %>" checked>
                       <div class="slider round"></div>
                     <% end %>
                   </label>

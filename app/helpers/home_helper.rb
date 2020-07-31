@@ -39,6 +39,7 @@ module HomeHelper
   end
 
   def current_class?(test_path)
+    return current_active(test_path) if current_user.blank? 
     if current_user.darkmode.zero?
       return 'bg-blue-dark rounded' if request.path == test_path
     elsif request.path == test_path
@@ -46,7 +47,12 @@ module HomeHelper
     end
   end
 
+  def current_active(test_path)
+    'bg-blue-dark rounded' if request.path == test_path
+  end
+
   def color_light_mode(test_path)
+    return 'text-white' if current_user.blank?
     return 'text-white' if current_user.darkmode == 1 && request.path == test_path
   end
 
@@ -55,6 +61,7 @@ module HomeHelper
   end
 
   def check_mode
+    return true if current_user.blank?
     if current_user.darkmode.zero?
       true
     else
