@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   enum gender: %i[male female other]
-  enum status: %i[deactived actived blocked]
+  enum status: %i[deactived actived blocked deleted]
   has_many :posts
   has_many :comments
   has_many :followings, as: :follower, class_name: 'FollowPolymorphic'

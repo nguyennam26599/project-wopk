@@ -7,7 +7,7 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore uploaded files in development.
+Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
 
@@ -19,17 +19,16 @@
 
 /public/packs
 /public/packs-test
-/node_modules
+# /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 coverage
 
 #
-/node_modules
 /db/schema.rb
 
-#Ignore .env file
+Ignore .env file
 /.env
 
 /vendor

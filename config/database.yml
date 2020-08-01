@@ -17,5 +17,8 @@ test:
 
 
 production:
-  <<: *default
-  database: <%= ENV['DATABASE_NAME'] %>
+  pool: 5
+  port: 5432
+  database: dfbvjc5r2p26vr
+  username: yimqtnrblvjtld
+  password: <%= ENV['8db0f402f48bb00f71e6b28996a6e89ce3ec08dffb7897563372ae85e6afa193'] %>

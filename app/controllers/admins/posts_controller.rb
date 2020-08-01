@@ -7,8 +7,14 @@ module Admins
     add_breadcrumb 'Posts', :admins_posts_path
 
     def index
-      @posts_list = SearchService.new(params).perform(Post)
-      @pagy, @posts = pagy(@posts_list.order(created_at: :desc))
+      if params[:scope].nil? || params[:scope] == 'all'
+        @posts_list = SearchService.new(params).perform(Post)
+        @pagy, @posts = pagy(@posts_list.order(created_at: :desc))
+      elsif params[:scope] == 'daily'
+        @pagy, @posts = pagy(Post.daily_post_admin)
+      else
+        @pagy, @posts = pagy(Post.find_post_home_index(params[:scope]))
+      end
     end
 
     def show

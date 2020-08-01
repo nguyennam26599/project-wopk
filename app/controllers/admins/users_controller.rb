@@ -2,7 +2,7 @@
 
 module Admins
   class UsersController < BaseController
-    before_action :set_user, only: %i[show update]
+    before_action :set_user, only: %i[show update destroy]
     add_breadcrumb 'Home', :admins_root_path
     add_breadcrumb 'Users', :admins_users_path
 
@@ -21,6 +21,11 @@ module Admins
       redirect_to admins_users_path
     end
 
+    def destroy
+      @user.destroy
+      redirect_to admins_users_path
+    end
+  
     private
 
     def set_user

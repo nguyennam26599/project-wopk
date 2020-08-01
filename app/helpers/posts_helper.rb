@@ -38,4 +38,19 @@ module PostsHelper
   def my_date(val)
     Date.parse(val.to_s).strftime('%B %d, 20%y')
   end
+
+  def post_status(post)
+    if post.status_public?
+      'text-success'
+    elsif post.status_draft?
+      'text-decondary'
+    else
+      'text-danger'
+    end
+  end
+
+  def active_post(scope)
+    params[:scope] ||= 'all'
+    'active' if params[:scope] == scope
+  end
 end

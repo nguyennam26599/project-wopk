@@ -22,6 +22,7 @@ module Admins
 
     def show
       add_breadcrumb @tag.name, admins_tag_path
+      @posts = @tag.posts
     end
 
     def create

@@ -13,16 +13,40 @@
                         <p class="font-weight-bold"><h3><%= @tag.name %></h3></p>
                     </div>
                     <div class="mt-3 text-center">
-                        <span class="text-muted w-50">Follower: 0</span>
+                        <span class="text-muted w-50">Follower: <%= @tag.followers.count %></span>
                         &emsp;
-                        <span class="text-muted w-50">Posts: 0</span>
+                        <span class="text-muted w-50">Posts: <%= @posts.count %></span>
                     </div>
                 </div>
             </div>
             <div class="posts-item p-3 float-left h-auto">
                 <div class="container p-3 bg-light">
-                    <div class="w-100 text-center h3 border-bottom p-3 text-secondary rounded font-weight-bold mb-3"> THE POSTS LIST </div>
+                    <div class="w-100 text-center h3 p-3 text-secondary rounded font-weight-bold mb-3"> THE POSTS LIST </div>
                     <div class="w-100">
+                        <div class="table-responsive-xl">
+                        <table class="table table-striped" id="table-tag" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Author</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% @posts.order(created_at: :desc).each do |post| %>
+                                <tr>
+                                    <td><%= post.id %></td>
+                                    <td><%= link_to post.title, admins_post_path(post) %></td>
+                                    <td><%= link_to post.user.name, admins_user_path(post.user) %></td>
+                                    <td>
+                                        <span class=<%= post_status post %>> <%= post.status %></span>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

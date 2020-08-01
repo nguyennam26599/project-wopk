@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs w-90">
+    <li class="nav-item">
+    <%= link_to "All", '?scope=all', class: "nav-link #{active_post('all')}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Daily", '?scope=daily', class: "nav-link #{active_post('daily')}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Weekly", '?scope=weekly', class: "nav-link #{active_post('weekly')}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Monthly", '?scope=monthly', class: "nav-link #{active_post('monthly')}" %>
+  </li>
+</ul>

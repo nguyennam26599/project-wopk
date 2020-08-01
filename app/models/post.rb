@@ -128,6 +128,10 @@ class Post < ApplicationRecord
     post_votings.find_by(user_id: user.id, vote: vote_in)
   end
 
+  def self.daily_post_admin
+    where(created_at: Time.now.beginning_of_day..Time.now, status: PUBLIC_STATUS)
+  end
+
   private
 
   def create_tag_relationship(name_tag_list, status)
