@@ -54,3 +54,13 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+set :rails_env, 'production'
+set :branch, 'production'
+set :user, 'admin'
+set :rack_env, 'production'
+set :puma_env, 'production'
+role :app, ["#{fetch(deploy_user)}@#{fetch(server_name)}"]
+role :web, ["#{fetch(deploy_user)}@#{fetch(server_name)}"]
+role :db,  ["#{fetch(deploy_user)}@#{fetch(server_name)}"]
+
+server fetch(server_name), user: fetch(deploy_user), roles: %w{web app db}, primary: true

@@ -50,7 +50,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'capistrano', '~> 3.4.1'
+  gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
@@ -68,10 +68,8 @@ group :test do
   gem 'webdrivers'
 end
 
-group :production do
-  gem 'pg'
-end
-
+gem 'capistrano-unicorn-nginx'
+gem 'unicorn'
 gem 'active_storage_validations'
 gem 'pry'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
