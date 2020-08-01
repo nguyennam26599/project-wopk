@@ -3,11 +3,11 @@
 # config valid only for current version of Capistrano
 lock '3.4.1'
 
-set :application, 'pworld'
+set :application, 'qiita'
 
-set :repo_url, 'https://github.com/nguyennam26599/project-wopk.git'
-set :deploy_to, "/home/admin/pworld"
-set :scm, :git
+set :repo_url, 'git@gitlab.nal.vn:hoangpn/qiita-hituno-intern.git'
+set :deploy_to, "/home/admin/#{fetch(:application)}"
+
 set :linked_files, %w[config/database.yml config/application.yml .env]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle
                      public/system public/uploads public/pack node_modules]
