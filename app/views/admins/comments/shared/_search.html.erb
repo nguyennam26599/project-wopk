@@ -1,0 +1,17 @@
+<div class="card-header py-3 d-flex w-100">
+      <%= form_tag admins_comments_path, method: :get, class: 'w-100' do %>
+        <div class="form-group w-25 float-left mr-3">
+          <%= select_tag :status, options_for_select(Comment.statuses.map{|key, value| [key.humanize, value]}, selected: params[:status]), prompt: 'All', class: 'custom-select select-status' %>
+        </div>
+        <div class="form-group w-25 float-left">
+          <div class="input-group mb-3">
+            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: ' write some thing...' %>
+            <div class="input-group-append">
+              <button class='btn btn-secondary btn-sm'>
+                &ensp;<i class="fas fa-search"></i>&ensp;
+              </button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>

@@ -1,14 +1,4 @@
 <div class="profile-user bg-dark-4 text-center p-3 mx-0 my-3 rounded scroll-auto position-sticky top-3">
-  <div class="dropdown text-right">
-    <button class="dropdown-toggle fa fa-ellipsis-h fa-lg text-muted-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="fa fa-ellipsis-h text-success"></span></button>
-    <div class="dropdown-menu bg-dark-4" aria-labelledby="dropdownMenuButton">
-      <%= link_to 'LGTM article', '#', class: "dropdown-item text-muted-light" %>
-      <%= link_to 'Followees', '#', class: "dropdown-item text-muted-light" %>
-      <%= link_to 'Comment history', '#', class: "dropdown-item text-muted-light" %>
-      <%= link_to 'Edit request history', '#', class: "dropdown-item text-muted-light" %>
-    </div>
-  </div>
   <div class="upload-avatar">
     <%= image_tag default_avatar_user(@user), class: 'rounded-circle mb-1 img-size-75' %>
   </div>

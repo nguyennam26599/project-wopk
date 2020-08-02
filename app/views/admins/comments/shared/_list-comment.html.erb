@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex">
+      <h6 class="m-0 font-weight-bold text-primary">User</h6>
+    </div>
+    <%= render 'admins/comments/shared/search'%>
+    <div class="card-body">
+      <div class="table-responsive-xl">
+      <% if @comments.present? %>
+        <div class='text-success'>
+          <i class="fas fa-globe-europe"></i>: 
+          <%= @comments.count %> comments</p>
+        </div>
+        <table class="table table-striped text-center w-100" cellspacing="0">
+          <thead>
+            <tr class="align-middle">
+              <th>ID</th>
+              <th>Content</th>
+              <th>Post</th>
+              <th>Author</th>
+              <th>Created</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @comments.each do |comment| %>
+            <tr>
+              <td><%= comment.id %></td>
+              <td><%= comment.content %></td>
+              <td><%= link_to comment.post.title, admins_post_path(comment.post) %></td>
+              <td><%= link_to comment.user.name, admins_user_path(comment.user) %></td>
+              <td><%= comment.created_at %></td>
+              <td>
+                <% if comment.status_show? %>
+                    <%= link_to admins_comment_path(comment, comment_status: Comment::HIDE_STATUS), method: :delete, data: {confirm: 'Are you sure Hide this comment?'} do %>
+                        <i class="far fa-eye text-success"></i>
+                    <% end %>
+                <% else %>
+                    <%= link_to admins_comment_path(comment, comment_status: Comment::SHOW_STATUS), method: :delete, data: {confirm: 'Are you sure Show this comment?'} do %>
+                        <i class="fas fa-eye-slash text-danger"></i>
+                    <% end %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% else %>
+          <div class='text-center text-muted'>
+            <i class="far fa-ques tion-circle"></i>
+            We found no results<br>
+            Make sure all words are spelled correctly or try different keywords.
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -34,20 +34,20 @@
         <ul class="navbar-nav ml-auto nav-flex-icons align-self-center d-flex">
           <% if user_signed_in? %>
             <li class="nav-item align-items-center mr-2">
-              <%= link_to fa_icon("far fa-edit mr-2","Post"), new_post_path, class: "btn_create_post mr-2 px-2 w-100 text-muted-light bg-dark-6 d-flex text-decoration-none"%>
+              <%= link_to fa_icon("fas fa-pen-fancy mr-2","Post"), new_post_path, class: "btn_create_post mr-2 px-2 w-100 text-muted-light bg-dark-6 d-flex text-decoration-none"%>
             </li>
             <li class="nav-item px-2 mr-2">
               <%= link_to current_user.post_followings.status_public.size, clippost_path, class: "btn_show_following_post align-items-center d-flex text-muted-light bg-dark-6", id: "count_post_followings" %>
             </li>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle" id="dropdown_header" data-toggle="dropdown">
-                <%= image_tag default_avatar_user(current_user), class: 'rounded-circle img-32px' %>
+                <%= image_tag default_avatar_user(current_user), class: 'rounded-circle img-32px cursor' %>
               </a>
               <div class="dropdown-menu dropdown-menu-right dropdown-info header-setting bg-dark-4" aria-labelledby="dropdown_header">
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item py-2 text-muted-light" %>
                 <%= link_to "Password", reset_password_path, class: "dropdown-item py-2 text-muted-light" %>
                 <div class="dropdown-divider"></div>
-                <%= link_to "Draft", "#{user_path(current_user)}?status=draft", class: "dropdown-item py-2 text-muted-light" %>
+                <%= link_to "Account setting", profile_path(current_user), class: "dropdown-item py-2 text-muted-light" %>
                 <%= link_to "Secret Articles", "#", class: "dropdown-item py-2 text-muted-light" %>
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-item text-muted-light d-flex">
@@ -59,7 +59,7 @@
                     <% end %>
                   </label>
                 </div>
-                <%= link_to "Setting", profile_path(current_user), class: "dropdown-item py-2 text-muted-light" %>
+                <%= link_to "Draft", "#{user_path(current_user)}?status=draft", class: "dropdown-item py-2 text-muted-light" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item py-2 text-muted-light" %>
               </div>

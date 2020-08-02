@@ -3,15 +3,12 @@
         <%= render 'users/shared/left_settings' %>
         <div class="main-profile p-3 flex-grow-1 bg-dark-4 rounded mt-3">
             <%= form_for current_user do |f|  %>
+                <div class="form-group font-weight-bold text-center">
+                    <label for="img-input"><%= image_tag  default_avatar_user(current_user), class: "rounded-circle settings-avatar cursor", id: "img-preview" %></label><br>
+                    <%= f.file_field :avatar, id: "img-input", accept: ".jpg, .jpeg, .png", class: 'd-none' %>
+                </div>
                 <div class="settings-title-section d-flex justify-content-center align-items-center flex-wrap">
-                        <a class="settings-username text-white" href="<%= user_path(current_user) %>"><h3><%= current_user.name %></h3></a>
-                        <span class="settings-title-separator">/</span>
-                        <span class="settings-title p-2"><h3>Public Profile</h3></span>
-                    </div>
-                <div class="form-group font-weight-bold">
-                <label for="">Avatar</label><br>
-                    <%= image_tag  default_avatar_user(current_user), class: "rounded-circle settings-avatar", id: "img-preview" %>
-                    <%= f.file_field :avatar, id: "img-input", accept: ".jpg, .jpeg, .png" %>
+                    <a class="settings-username text-white" href="<%= user_path(current_user) %>"><h2><%= current_user.full_name %></h2></a>
                 </div>
                 <div class="form-group font-weight-bold">
                 <label for="">Name</label>
@@ -39,14 +36,6 @@
                 <div class="form-group ">
                 <label for="birthday" class='font-weight-bold'>Birthday</label><br>
                 <%= f.text_field :birthday, data: { behavior: "flatpickr" }, placeholder: ' Your birthday' %>
-                <div class="form-group ">
-                    <label for="url_link" class='font-weight-bold'>URL</label><br>
-                    <%= f.text_field :url_link, class: 'form-control', placeholder: ' Your URL'%>
-                </div>
-                <div class="form-group">
-                    <label for="organization", class='font-weight-bold'>Organization</label><br>
-                    <%= f.text_field :organization, class: 'form-control', placeholder: ' Your organization' %>
-                </div>
                 <div class="form-group">
                     <label for="address" class='font-weight-bold'>Address</label><br>
                     <%= f.text_field :address, class: 'form-control', placeholder: ' Your address' %>

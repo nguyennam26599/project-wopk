@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:success] = 'Profile updated'
-      redirect_to profile_path
+      redirect_to user_path
     else
       render action: 'edit'
     end
